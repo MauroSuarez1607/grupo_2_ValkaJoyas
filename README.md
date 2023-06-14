@@ -22,7 +22,7 @@ Nuestro compromiso es proporcionar una experiencia de compra en línea sin compl
 
 ## Integrantes :
 
-Arevalo Giselda - Diseñadora UI y programadora
-Suarez Mauro - Programador
-Sanguine Cristian - Programador
-Salinas Alejandro - Programador 
+- Arevalo Giselda - Diseñadora UI y programadora
+- Suarez Mauro - Programador
+- Sanguine Cristian - Programador
+- Salinas Alejandro - Programador 
