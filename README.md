@@ -1,5 +1,5 @@
 # grupo_2_ValkaJoyas
-Poryecto Integrador // E-commerce
+Proyecto Integrador // E-commerce
 
 Inspiración en referentes del mercado
 - https://www.joyascenter.com.ar/
@@ -19,3 +19,10 @@ En Valka Joyas entendemos que cada cliente busca una joya única que refleje su 
 Nuestro compromiso es proporcionar una experiencia de compra en línea sin complicaciones. Desde la selección del producto hasta la entrega, nos esforzamos por superar las expectativas de nuestros clientes. Valoramos la satisfacción de nuestros clientes y nos enorgullece ofrecer un servicio al cliente excepcional.
 
 Únete a Valka Joyas y descubre la elegancia y la calidad que nos distinguen. Encuentra la joya perfecta para realzar tu estilo y expresar tu esencia única."
+
+## Integrantes :
+
+Arevalo Giselda - Diseñadora UI y programadora
+Suarez Mauro - Programador
+Sanguine Cristian - Programador
+Salinas Alejandro - Programador 
