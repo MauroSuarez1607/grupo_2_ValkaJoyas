@@ -24,5 +24,5 @@ Nuestro compromiso es proporcionar una experiencia de compra en línea sin compl
 
 - Arevalo Giselda - Diseñadora UI y programadora
 - Suarez Mauro - Programador
-- Sanguine Cristian - Programador
+- Sanguine Cristian Ariel- Programador
 - Salinas Alejandro - Programador 
