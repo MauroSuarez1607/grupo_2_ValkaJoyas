@@ -18,8 +18,6 @@ En Valka Joyas entendemos que cada cliente busca una joya única que refleje su 
 
 Nuestro compromiso es proporcionar una experiencia de compra en línea sin complicaciones. Desde la selección del producto hasta la entrega, nos esforzamos por superar las expectativas de nuestros clientes. Valoramos la satisfacción de nuestros clientes y nos enorgullece ofrecer un servicio al cliente excepcional.
 
-Únete a Valka Joyas y descubre la elegancia y la calidad que nos distinguen. Encuentra la joya perfecta para realzar tu estilo y expresar tu esencia única."
-
 ## Integrantes :
 
 - Arevalo Giselda - Diseñadora UI y programadora
