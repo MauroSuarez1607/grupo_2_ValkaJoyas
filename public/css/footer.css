@@ -1,0 +1,60 @@
+/* FOOTER */
+
+
+footer{
+    background: var(--colorArena);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+
+footer section.info-general{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+
+footer section.CTA{
+    order:-1;
+    margin-bottom: 20px;
+    
+}
+
+footer section.CTA h2{
+    text-transform: uppercase;
+    font-weight: 900;
+    padding-bottom: 20px;
+}
+
+
+footer section.CTA p{
+    padding-bottom: 20px;
+    font-size: 0.8rem;
+}
+
+footer section.CTA input{
+    width: 100%;
+    height: 40px;
+}
+
+footer section.CTA div.contenedor-button{
+    width: 100%;
+    text-align: center;
+}
+
+
+
+footer section.CTA button{
+    background-color: var(--colorNegro);
+    color: var(--colorBlanco);
+    padding: 20px 10px;
+    border:0;
+    width: 166px;
+    
+}
