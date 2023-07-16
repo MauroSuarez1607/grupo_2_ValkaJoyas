@@ -1,24 +1,64 @@
 /* FOOTER */
 
+/* <------------MOBILE-------------> */
 
 footer{
     background: var(--colorArena);
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    
+    justify-content: space-between;   
 }
 
+footer section.informacion h3{
+    font-size: 0.875rem;
+    padding-bottom: 10px;
+    font-family: var(--tipografiaTitulos);
+    font-weight: 700;
+}
 
-footer section.info-general{
+footer section.informacion div.grupo-info{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
+footer section.informacion div.grupo-info div{
+    padding: 20px 0px;
+    width: 50%;
+}
 
+footer section.informacion div.grupo-info div ul li{
+    font-size: 0.875rem;
+    padding-bottom: 2px;
+    font-weight: 500;
+    
+}
 
+/* Redes Sociales */
+
+footer section.informacion div.redes nav {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+}
+
+footer section.informacion div.redes nav ul{
+    display: flex;
+    justify-content: center;
+    
+}
+
+footer section.informacion div.redes nav ul li{
+    padding: 8px;
+}
+
+footer section.informacion div.redes nav ul li a {
+    font-size: 1.5rem;
+   
+}
+
+/* -----------CTA --------------*/
 
 footer section.CTA{
     order:-1;
@@ -30,17 +70,18 @@ footer section.CTA h2{
     text-transform: uppercase;
     font-weight: 900;
     padding-bottom: 20px;
+    font-size: 1.375rem;
 }
-
 
 footer section.CTA p{
     padding-bottom: 20px;
-    font-size: 0.8rem;
+    font-size: 0.875rem;
 }
 
 footer section.CTA input{
     width: 100%;
     height: 40px;
+    padding: 12px 16px;
 }
 
 footer section.CTA div.contenedor-button{
@@ -48,13 +89,157 @@ footer section.CTA div.contenedor-button{
     text-align: center;
 }
 
-
-
 footer section.CTA button{
     background-color: var(--colorNegro);
     color: var(--colorBlanco);
     padding: 20px 10px;
     border:0;
-    width: 166px;
+    width: 10.375rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+footer section.CTA button i{
+    display: none;
+}
+
+footer section.CTA button:hover{
+    box-shadow: 0px  0px 20px var(--colorNegro);
+}
+
+
+/*<--------- TABLET ---------> */
+
+@media(min-width:768px){
+
+    footer section.informacion{
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+    
+    footer section.informacion h3{
+        font-size: 1rem;
+    }
+
+    footer section.informacion div.grupo-info{
+        width: 80%;
+    }
+    
+    footer section.informacion div.grupo-info div{
+        width: 20%;
+    }
+    
+    footer section.informacion div.grupo-info div ul li{
+        font-size: 1rem;
+        
+    }
+    
+    /* Redes Sociales */
+    
+    footer section.informacion div.redes{
+        
+        width: 20%;
+    }
+    
+    footer section.informacion div.redes nav{
+        padding: 20px 0px;
+    }
+
+    footer section.informacion div.redes nav ul{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    
+    /* -----------CTA --------------*/
+    
+    footer section.CTA h2{
+        font-size: 2rem;
+    }
+    
+    footer section.CTA p{
+        font-size: 1rem;
+    }
+    
+    footer section.CTA input{
+        font-size: 1rem;
+    }
+    
+    footer section.CTA button{
+        font-size: 0.875rem;
+        width: 13.625rem;
+        line-height: 0;
+    }
+    
+    footer section.CTA button i{
+        display: inline;
+        font-size: 1rem;
+        padding: 0px 8px;
+        text-align: center;
+       
+    }
+    
+}
+
+/* <-----------DESKTOP-----------> */
+
+@media(min-width:1024px){
+
+    footer{
+        display: flex;
+        flex-direction: row;
+        padding: 40px;
+    }
+
+    footer section.informacion{
+        width: 70%;
+        flex-wrap: nowrap;
+        
+    }
+    
+    footer section.informacion h3{
+        font-size: 1.3rem;
+    }
+    
+    footer section.informacion div.grupo-info{
+        width: 100%;
+        padding-right: 20px;
+    }
+
+    footer section.informacion div.grupo-info div{
+        padding: 0;
+        width: 20%;
+    }
+    
+    footer section.informacion div.grupo-info div ul li{
+        font-size: 1rem;
+        
+    }
+    
+    /* Redes Sociales */
+
+    footer section.informacion div.redes{
+       margin: 0px 20px 0px 20px;
+       width: 20%;
+       
+    }
+
+    footer section.informacion div.redes nav{
+        padding: 0;
+    }
+
+    /* -----------CTA --------------*/
+    
+    footer section.CTA{
+        order: 0;
+        width: 30%;
+        padding-left:20px;
+        border-left: 1px solid var(--colorNegro)
+    }
+    
+    footer section.CTA button{
+        width: 17.375rem;
+    }
     
 }
