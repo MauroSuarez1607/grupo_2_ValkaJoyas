@@ -1,0 +1,99 @@
+.carrito {
+    background-color: var(--colorCeleste);
+    padding: 10px 10px 10px;
+}
+
+.carrito_resumen {
+    background-color: var(--colorNegro);
+    margin: 0 auto 10px;
+    padding: 20px;
+}
+
+.carrito_resumen h1 {
+    color: var(--colorBlanco);
+    margin-bottom: 10px;
+}
+
+.carrito_resumen a {
+    color: var(--colorBlanco);
+    border: solid 1px var(--colorBlanco);
+    padding: 3px;
+}
+
+.carrito_contenido {}
+.carrito_contenido div {}
+
+.carrito_contenido div h2 {
+    display: none;
+}
+
+.carrito_producto {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+    border-radius: 10%;
+    padding: 10px;
+    background-color: var(--colorArena);
+}
+
+.carrito_producto_imagen {}
+
+.carrito_producto_imagen img {
+    width: 75%;
+    position: relative;
+    left: 40px;
+    border: solid 1px var(--colorNegro);
+}
+
+.carrito_producto_detalle {}
+.carrito_producto_precio {}
+.carrito_producto_cantidad {}
+.carrito_producto_cantidad button {
+    width: 35px;
+    border-radius: 67%;
+    height: 35px;
+    font-size: 20px;
+    border: solid 1px var(--colorNegro);
+    background-color: var(--colorCeleste);
+}
+.carrito_producto_cantidad span {
+    font-size: 30px;
+}
+.carrito_producto_subtotal {}
+.carrito_producto_borrar {}
+
+.carrito_producto_borrar input {
+    border: solid 1px;
+    background-color: var(--colorArena);
+    font-size: 20px;
+    height: 23px;
+    width: 20px;
+}
+.carrito_compra {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.carrito_compra h2 {}
+.carrito_compra_cuadro {
+    background-color: var(--colorArena);
+    margin: 10px;
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+.carrito_compra_subtotal {}
+.carrito_compra_subtotal p {}
+.carrito_compra_subtotal span {}
+.carrito_compra_envio {
+    background-color: var(--colorBlanco);
+}
+.carrito_compra_total {}
+.carrito_compra_total p {}
+.carrito_compra_total span {}
+.carrito_compra_pagar {}
