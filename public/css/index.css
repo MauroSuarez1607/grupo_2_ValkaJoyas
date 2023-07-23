@@ -1,0 +1,154 @@
+/* INDEX MOBILE */
+
+.home__body {
+    background-color: var(--colorCeleste);
+}
+
+/* Categorias  */
+.home__section-categorias {
+    background-color: var(--colorBlanco);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.home__section-categorias h3 {
+    font-family: var(--tipografiaTitulos);
+    font-weight: 400;
+    font-style: italic;
+    margin: 20px 0px 40px 0px;
+}
+
+.home__section-categorias div.grupo-categorias {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.home__section-categorias div.grupo-categorias div.collares img {
+    height: 280px;
+    object-fit: cover;
+}
+
+.home__section-categorias div.grupo-categorias div.anillos img {
+    height: 150px;
+    object-fit: cover;
+}
+
+.home__section-categorias div.grupo-categorias div.pulseras-pendientes img {
+    height: 280px;
+    object-fit: cover;
+}
+
+.home__section-categorias div.grupo-categorias h2 {
+    text-transform: uppercase;
+    text-shadow: 0px 2px 4px black;
+    color: var(--colorBlanco);
+    font-family: var(--tipografiaTitulos);
+    font-weight: 400;
+    position: relative;
+    bottom: 86px;
+    right: 60px;
+}
+
+/* <------------------MEDIA QUERIES----------------> */
+
+/* TABLET */
+
+@media(min-width:768px) {
+
+    /* Categorias  */
+    .home__section-categorias {
+        padding: 20px;
+    }
+
+    .home__section-categorias h3 {
+        font-size: 1.5rem;
+    }
+
+    .home__section-categorias div.grupo-categorias h2 {
+        right: 270px;
+    }
+
+    .home__section-categorias div.grupo-categorias div.collares img {
+        height: 360px;
+    }
+
+    .home__section-categorias div.grupo-categorias div.anillos img {
+        height: 214px;
+    }
+
+    .home__section-categorias div.grupo-categorias div.pulseras-pendientes {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .home__section-categorias div.grupo-categorias div.pulseras-pendientes div {
+        width: 48%;
+    }
+
+    .home__section-categorias div.grupo-categorias div.pulseras-pendientes img {
+        height: 340px;
+    }
+
+    .home__section-categorias div.pulseras-pendientes div.pulseras h2 {
+        right: 10px;
+    }
+
+    .home__section-categorias div.pulseras-pendientes div.pendientes h2 {
+        right: 10px;
+    }
+
+}
+
+
+/* DESKTOP */
+@media(min-width:1024px) {
+    
+    /* Categorias  */
+    .home__section-categorias div.grupo-categorias {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .home__section-categorias div.grupo-categorias h2 {
+        right: 60px;
+    }
+
+    .home__section-categorias div.grupo-categorias div.tres-categorias {
+        display: flex;
+        flex-direction: column;
+        width: 63%;
+    }
+
+    .home__section-categorias div.grupo-categorias div.collares img {
+        height: 500px;
+    }
+
+    .home__section-categorias div.grupo-categorias div.collares {
+        width: 35%;
+    }
+
+    .home__section-categorias div.grupo-categorias div.anillos img {
+        width: 100%;
+    }
+
+    .home__section-categorias div.grupo-categorias div.pulseras-pendientes {
+
+        width: 100%;
+    }
+
+    .home__section-categorias div.grupo-categorias div.pulseras-pendientes img {
+
+        height: 251px;
+    }
+
+    .home__section-categorias div.grupo-categorias div.anillos h2 {
+
+        right: 190px;
+    }
+
+}
