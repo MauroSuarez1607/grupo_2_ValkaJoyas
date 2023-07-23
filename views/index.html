@@ -1,13 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="/css/styles.css" >
+
+    <!-- SWIPER SLIDER CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- LOCAL STYLE -->
+    <link rel="stylesheet" href="/css/styles.css">
     <script src="https://kit.fontawesome.com/1b02374fff.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    
+
+<body class="home__body">
+    <main>
+        <!-- Swiper 1-->
+        <div class="swiper mySwiper1">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="/img/slider1.jpg" alt="slider1">
+                    <div class="text-slider1">
+                        <h3>Descubre la <i class="resaltado-arena">magia</i> en cada <i>detalle.</i></h3>
+                        <h5>shop rings</h5>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="/img/slider2.jpg" alt="slider2">
+                    <div class="text-slider2">
+                        <h3>Cada joya cuenta una <i class="resaltado-celeste">historia</i> <br> ¿Cuál es la tuya?</h3>
+                        <h5>shop rings</h5>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="/img/slider3.jpg" alt="slider3">
+                    <div class="text-slider3">
+                        <h3><i class="resaltado-arena">Brilla</i> <br> con confianza.</h3>
+                        <h5>shop necklaces</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </main>
+
+    <!-- CATEGORIAS -->
+
+    <section class="home__section-categorias">
+        <h2>"Encuentra la joya que captura tu esencia."</h2>
+        <div class="grupo-cateogrias">
+            <div class="collares">
+                <img src="/css/img/categoria1.jpg" alt="">
+            </div>
+            <div class="anillos">
+                <img src="/css/img/categoria2.jpg" alt="">
+            </div>
+            <div class="pulseras-pendientes">
+                <div>
+                    <img src="/css/img/categoria3.jpg" alt="">
+                </div>
+                <div>
+                    <img src="/css/img/categoria4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ITEMS DE COMPRA  -->
+
+    <section class="home__section-items_compra">
+        <div>
+            <i class="far fa-credit-card"></i>
+            <div class="items-descripcion">
+                <h5>3,6 y 12 pagos sin interes seleccionando mercado pago</h5>
+                <p>Con tarjeta de bancos adheridos</p>
+            </div>
+        </div>
+        <div>
+            <i class="fas fa-truck"></i>
+            <div class="items-descripcion">
+                <h5>Envios gratis desde $29990 </h5>
+            </div>
+        </div>
+        <div>
+            <i class="fas fa-dollar-sign"></i>
+            <div class="items-descripcion">
+                <h5>15% de descuento en efectivo o transferencia bancaria</h5>
+            </div>
+        </div>
+    </section>
+    <!-- BANNER EUFORIA -->
+    <section class="home__section-banner">
+        <img src="/css/img/Banner.jpg" alt="banner">
+        <h3>Colección EUFORIA</h3>
+        <button>Ver Más <i class="fas fa-arrow-right"></i> </button>
+    </section>
+
+    <!-- UBICACION GOOGLE MAPS -->
+    <section class="home__section-ubicacion">
+        <div>
+            <img src="/css/img/imagen tienda.jpg" alt="imagen tienda">
+        </div>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d28973.557321644694!2d-65.4180352!3d-24.8059068!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1689959163672!5m2!1ses-419!2sar"
+            style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+    <!-- SWIPER JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="/js/carousel1_swiper.js"></script>
 </body>
+
 </html>
