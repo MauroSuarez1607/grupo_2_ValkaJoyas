@@ -16,3 +16,6 @@ a {
 body {
     font-family: var(--tipografia);
 }
+img{
+    width: 100%;
+}
