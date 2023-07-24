@@ -1,0 +1,667 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: var(--colorCeleste);
+    font-family: var(--tipografia);
+}
+
+/* CELULAR 390px */
+
+.detallep__body__section1, .detallep__body__section2, .detallep__body__section3{
+    background-color: var(--colorCeleste);
+}
+
+
+.detallep__body__section1 img{
+max-width: 300px;
+}
+
+.detallep__body__section2  img{
+  max-width: 100px;
+}
+ 
+
+.detallep__body__section3 img{
+  max-width: 100px;
+}
+
+.detallep__body__nav{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    background-color: var(--colorCeleste);
+  }
+
+
+  .detallep__body__nav li{
+    text-transform: uppercase;
+    font-style: italic;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    align-items: center;
+    margin: 10px 0px;
+  }
+
+  .detallep__body__nav li a{
+    font-size: 20px;
+    font-weight: 600;
+  padding: 0px 10px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom:1px solid black;
+  font-weight: normal
+  }
+
+  .detallep__body__section1{
+    display: none
+  }
+  .detallep__body__contenedor--principal{
+  background-color: var(--colorCeleste)
+  }
+  .detallep__body__section3__cont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+
+  .detallep__body__section3__div--imgs{
+    margin: 0px 5px;
+    justify-content: space-between;
+  }
+
+  .detallep__body__section3__div--imgs img{
+    width: 20vw; 
+    max-width: 75px;
+ 
+    height: auto;
+    align-items: center;
+  }
+  
+  .detallep__body__section3__div--corazon img{
+    width: 20vw; 
+    max-width: 75px;
+ 
+    height: auto;
+    right: 2px;
+  }
+
+  .detallep__body__section3__div--corazon button{
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+  }
+
+  .detallep__body__section3__div--imgs div a{
+    justify-content: space-around;
+   
+  }
+
+
+  .detallep__body__section2{
+
+  }
+
+  .detallep__body__section__article{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .detallep__body__section__article img{
+    display: block; 
+    margin: 0px auto; 
+    max-width: 100%; 
+    height: auto;
+    padding: 0px 10px;
+  }
+
+  .detallep__body__section__article__div--button{
+    display:flex;
+    flex-direction: row;
+    position: relative;
+  }
+
+  .detallep__body__section__article__div--button div img{
+    position: relative;
+    }
+
+.detallep__body__section__article__div--button{
+    width: 100px;
+    height: auto;
+    position: absolute;
+    margin: -30px 0px 0px 0px;
+    
+    left: 43%;
+  }
+
+  .detallep__body__section__article__div--button button{
+    text-decoration: none;
+    margin: 0;
+    padding: 10px 10px 0px;
+    border: none;
+    background: none;
+  }
+
+  .detallep__body__section2__article h2{
+    text-transform: uppercase;
+    font-style: italic;
+    font-size: 22px;
+    text-align: center;
+    align-items: center;
+    padding: 50px 10px 0px 10px;
+    margin: 00px 10px 20px;
+  }
+
+  .detallep__body__section2__article h4{
+    display:none;
+    margin: 00px 00px 20px 0px;
+  }
+
+
+  /* si se pone uno solo como tablet, se elimine el flex */
+  .detallep__body__section2__article__div{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--colorCeleste);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    
+    
+  }
+
+  .detallep__body__section2__article__div p {
+    background-color: var(--colorArena);
+    margin: 0px 0px;
+    text-align: center;
+    align-items: center;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    height: 30px;
+    overflow: auto;
+    word-wrap: break-word;
+    display: inline-block;
+    
+    
+    
+  }
+
+  .detallep__body__section2__article__div__precio-original{
+    text-decoration: line-through;
+    border-left: 1px solid black;
+    width: 20%;
+    text-align: center;
+    align-items: center;
+    
+
+  }
+
+  .detallep__body__section2__article__div__descuento{
+    font-size: 10px;
+    width: 25%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .detallep__body__section2__article__div__descuento p{
+    text-align: center;
+    align-items: center;
+    word-wrap: break-word;
+    font-size: 20vw;
+
+  }
+
+  .detallep__body__section2__article__div__precio-oferta{
+    border-right: 1px solid black;
+    width: 20%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .detallep__body__section2__article__cuotas{
+    text-transform: uppercase;
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
+  }
+  
+  .detallep__body__section2__article__precio-cuota{
+    text-align: center;
+    border: 1px solid black;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: var(--colorArena);
+      padding-top: 5px;
+      padding-bottom: 5px;
+  }
+
+  .detallep__body__section2__article__div--envio{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--colorCeleste);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 5px 40px;
+  }
+
+  .detallep__body__section2__article__div--envio img{
+    width: 35px;
+  }
+
+  .detallep__body__section2__article__div--envio p{
+    text-transform: uppercase;
+    font-size: 14px;
+    padding-left: -10px;
+    margin-left: 50px;
+  }
+
+
+
+  .detallep__body__section2__article__mediospago--img{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 35px 0px;
+  }
+
+  .detallep__body__section2__article__medios{
+    text-transform: uppercase;
+    font-style: italic;
+    font-size: 22px;
+    text-align: center;
+    align-items: center;
+    padding: 0px 10px 0px 10px;
+    margin: 00px 10px 0px 0px;
+  }
+
+  .img_tarjeta{
+    position: relative;
+    align-items: center;
+    transform: scale(2.0);
+    padding: 15px 0px
+  }
+
+  .detallep__body__section2__article__consulta{
+    position: absolute;
+    text-decoration: underline;
+    font-size: 10px;
+    padding: 0px 0px 0px 0px;
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .detallep__body__section2__article__cantidad{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--colorCeleste);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 0px 40px;
+    margin-bottom: 20px;
+  }
+
+
+
+  .detallep__body__section2__article__cantidad img{
+    width: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+
+  .detallep__body__section2__article__cantidad p{
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  .detallep__body__section2__article__cantidad__n{
+    font-style: italic;
+    font-weight: 600;
+      }
+
+  .detallep__body__section2__article__carro p{
+    font-size: 10px;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+  }
+
+  .detallep__body__section2__article__carro a{
+  text-decoration: underline;
+  }
+
+  .detallep__body__section2__article__carro button{
+    text-transform: uppercase;
+    color: white;
+    background-color: black;
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  .detallep__body__sectionamar{
+  background-color: var(--colorArena);
+  }
+
+  .detallep__body__sectionamar__div--carro{
+  text-align: right;
+  padding: 10px 10px 10px 10px;
+  font-size: 6px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  }
+
+  .detallep__body__sectionamar h2{
+    text-transform: uppercase;
+    font-family: var(--tipografiaTitulos);
+    font-style: italic;
+    font-size: 22px;
+    text-align: left;
+    align-items: left;
+    padding: 0px 10px 0px 00px;
+    margin: 00px 10px 0px 10px;
+    font-weight: normal;
+    display: none;
+    
+  }
+
+  .detallep__body__sectionamar__div--cont h3{
+    font-family: var(--tipografiaTitulos);
+    text-transform: uppercase;
+    font-style: italic;
+    font-size: 22px;
+    text-align: left;
+    align-items: left;
+    padding: 00px 10px 00px 10px;
+    margin: 40px 10px 20px 10px;
+    font-weight: normal
+  }
+
+  .detallep__body__sectionamar__div--cont h4{
+    font-family: var(--tipografia);
+    font-size: 14px;
+    text-align: left;
+    align-items: left;
+    padding: 00px 5px 00px 5px;
+    margin: 0px 5px 20px 5px;
+  }
+
+  .detallep__body__sectionamar ul{
+    list-style: disc;
+    padding: 0px 50px 0px;
+  }
+
+  .detallep__body__sectionamar li{
+    list-style: disc;
+    }
+
+  .detallep__body__sectionamar ol{
+    list-style: disc;
+    padding: 0px 50px 0px;
+    padding-bottom: 50px;
+  }
+
+  .detallep__body__sectionamar ol li{
+  list-style: decimal;
+  }
+
+.detallep__body__sectionamar__div--cont img{
+  display: none
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+  .detallep__body__nav__ul{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    width: 50%;
+  }
+
+
+    .detallep__body__section__article img{
+      display: block; 
+      margin: 0 auto; 
+      max-width: 50%; 
+      height: auto;
+      padding: 0px 10px;
+    }
+    .detallep__body__section3__cont{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .detallep__body__section2__article h4{
+      display:block;
+      font-weight: normal;
+      margin: 00px 10px 0px 10px;
+      padding-bottom: 30px;
+    }
+
+    .detallep__body__section2__article__precio-cuota{
+      text-align: center;
+      border: 1px solid black;
+      margin-left: 30%;
+      margin-right: 30%;
+      background-color: var(--colorArena);
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+    .detallep__body__section2__article__div--envio{
+      display: flex;
+      flex-direction: row;
+      background-color: var(--colorCeleste);
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      padding: 5px 40px;
+    }
+
+    .detallep__body__section2__article__div--envio p{
+      text-transform: uppercase;
+      font-size: 14px;
+      padding-left: -10px;
+      margin-left: 50px;
+    }
+  .detallep__body__sectionamar h2{
+    text-transform: uppercase;
+    font-family: var(--tipografiaTitulos);
+    font-style: italic;
+    font-size: 22px;
+    text-align: left;
+    align-items: left;
+    padding: 0px 10px 0px 00px;
+    margin: 00px 10px 0px 10px;
+    font-weight: normal;
+    display: inline-block;
+    
+  }
+
+  .detallep__body__sectionamar__div--contmedidas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+  }
+  .detallep__body__sectionamar__div--contmedidas ol{
+    width: 80%;
+  }
+
+  .detallep__body__sectionamar__div--contmedidas img{
+    display: inline;
+    position: relative;
+    width: 20%;
+    height: 100%;
+    right: 20px;
+    margin-top: -100px;
+  }
+    
+  .detallep__body__section__article__div--button{
+      width: 100px;
+      height: auto;
+      position: absolute;
+      margin: -30px 0px 0px 0px;
+      
+      left: 47%;
+    }
+
+
+
+}
+
+
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .detallep__body__section1{
+    display: inline-block
+  }
+
+  .detallep__body__contenedor--principal{
+      display: flex;
+      flex-wrap: row;
+      justify-content: center;
+      margin:  0px 0px 00px 0px;
+      padding: 0px;
+      width: 100%;
+    }
+
+
+
+    .detallep__body__section1{
+      margin-top: 0px;
+        max-width: 50%;
+        width: 40%;
+    }
+
+    .detallep__body__section1 img{
+      width: 150px;
+      margin-left: 200px;
+    }
+
+    .detallep__body__section2{
+      width: 85%;
+       max-width: 100%;
+    }
+
+    .detallep__body__section3{
+      margin-top: 50px;
+      max-width: 100%;
+      width: 100%;
+      height: 100%;
+    }
+
+    .detallep__body__section3__cont{
+      justify-content: space-between;
+    }
+
+    .detallep__body__section__article{
+      display: block;
+      justify-content: center;
+      align-items: center;
+      }
+    
+      .detallep__body__section__article img{
+        display: block; 
+        margin: 0px auto; 
+        max-width: 100%; 
+        height: auto;
+        padding: 0px 10px;
+      }
+
+    .detallep__body__section__article{
+      max-width: 100%;
+      width: 140%;
+      height: 100%;
+    }
+
+    .detallep__body__section3__div--imgs{
+      justify-content: center;
+    }
+
+    .detallep__body__section3__div--imgs{
+      margin: 0px 0px;
+      justify-content: space-between;
+    }
+  
+    .detallep__body__section3__div--imgs img{
+      width: 20vw; 
+      max-width: 50px;
+      margin: 0px 20px 10px 0px;
+      height: auto;
+      align-items: center;
+    }
+    
+    .detallep__body__section3__div--corazon img{
+      width: 20vw; 
+      max-width: 50px;
+   
+      height: auto;
+      right: 0px;
+    }
+  
+    .detallep__body__section3__div--imgs div a{
+      justify-content: space-around;
+     
+    }
+
+    .detallep__body__section__article__div--button{
+      display:flex;
+      flex-direction: row;
+      position: relative;
+    }
+  
+    .detallep__body__section__article__div--button div img{
+      position: relative;
+      }
+  
+  .detallep__body__section__article__div--button{
+      width: 100px;
+      height: auto;
+      position: relative;
+      margin: -00px 0px 0px 0px;
+    
+      left: 43%;   
+    }
+
+    .detallep__body__section__article__div--button button{
+      text-decoration: none;
+      margin: 0;
+      padding: 10px 10px 0px;
+      border: none;
+      background: none;
+    }
+
+    .detallep__body__section2__article__precio-cuota{
+      text-align: center;
+      border: 1px solid black;
+      margin-left: 25%;
+      margin-right: 25%;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      background-color: var(--colorArena);
+      overflow: auto;
+    word-wrap: break-word;
+    }
+
+    .detallep__body__section2__article h2{
+      text-transform: uppercase;
+      font-style: italic;
+      font-size: 22px;
+      text-align: center;
+      align-items: center;
+      padding: 0px 10px 0px 10px;
+      margin: 00px 10px 20px;
+    }
+
+  }
