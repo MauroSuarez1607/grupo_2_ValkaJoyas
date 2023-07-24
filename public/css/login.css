@@ -1,0 +1,54 @@
+.login__main {
+    text-align: center;
+}
+
+.login__main__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login__main__form-div {
+    margin-bottom: 15px;
+}
+
+.login__main__form-div label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+}
+
+.login__main__form-div input {
+    width: 250px;
+    height: 30px;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.login__main__form-div-span {
+    display: block;
+    font-size: 14px;
+    color: red;
+    text-align: left;
+}
+
+.login__main__form-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.login__main__form-checkbox label {
+    margin-left: 5px;
+}
+
+.login__main__form-div-button {
+    margin-top: 20px;
+}
+
+.login__main__form-button-submit,
+.login__main__form-button-create {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
