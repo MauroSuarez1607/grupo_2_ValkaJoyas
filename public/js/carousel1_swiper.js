@@ -1,4 +1,4 @@
-var swiper = new Swiper(".mySwiper1", {
+var swiper = new Swiper(".carousel1", {
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",

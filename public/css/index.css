@@ -154,7 +154,6 @@
     font-weight: 300;
     font-style: italic;
     text-transform: uppercase;
-    font-size: 1rem;
     margin: 10px 0px;
 }
 
@@ -381,7 +380,6 @@ iframe {
     }
 
     .home__section-ubicacion h2 {
-        font-size: 1.5rem;
         margin-bottom: 20px;
     }
 
