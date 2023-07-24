@@ -3,11 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Usuarios</title>
+    <title>Register de Usuarios</title>
     <link rel="stylesheet" href="/css/styles.css" >
     <script src="https://kit.fontawesome.com/1b02374fff.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+    <section class="register__body__section1">
+        <p>Años de trayectoria trabajando con joyeria de calidad nos avalan.</p>
+        <p>Amplio surtido en joyas de oro 18k y plata 925</p>
+        <p>Brindamos atencion a minoristas, mayoristas, empresa e instituciones.</p>
+        <p>Registrate y sé parte de la comunidad de Valka joyas!!!</p>
+        <img src="/css/img/bannerjoya.png" alt="bannerjoya">
+    </section>
+    <div class="register__body__div__desktop">
+    <section class="register__body__section2">
+        <h2>Crear una cuenta</h2>
+        <form action="register.html">
+            <div class="register__main__form">
+                <div class="register__main__form-div">
+                    <label for="name">Nombre y apellido</label>
+                    <input type="text" placeholder="Ej: Jorge Gutierrez" id="name" name="name">
+                    <span class="register__main__form-div-span">*error: usuario ya existe</span>
+                </div>
+                <div class="register__main__form-div">
+                    <label for="nick">Correo electronico</label>
+                    <input type="text" placeholder="Ej: soy@jorgegutierrez.com" id="nick" name="nick">
+                    <span class="register__main__form-div-span">*email no valido</span>
+                </div>
+                <div class="register__main__form-div">
+                    <label for="password">Contraseña</label>
+                    <input type="password" placeholder="Escribe una contraseña" id="password" name="password">
+                    <span class="register__main__form-div-span">*Contraseña insegura</span>
+                </div>
+                <div class="register__main__form-div">
+                    <label for="password2">Confirmar Contraseña</label>
+                    <input type="password" placeholder="Escribe la misma contraseña" id="password2" name="password2">
+                    <span class="register__main__form-div-span">*No es la misma contraseña</span>
+                </div>
+                <div class="register__main__form-checkbox">
+                    <input type="checkbox" value="" id="remember">
+                    <label for="remember">Acepto los terminos y condiciones del servicio</label>
+                </div>
+                <div class="register__main__form-div-button">
+                    <input class="register__main__form-button-submit" type="submit" value="Registrarme">
+                    <button class="register__main__form-button-create">Ya tengo Cuenta</button>
+                </div>
+            </div>
+        </form>
+        <div class="register__body__div1">
+
+        </div>
+    </section>
+    <section class="register__body__section3">
+        <article class="register__body__section3__article">
+          <div class="register__body__section3__article__div--contlargo">
+            <img src="/css/img/cara.png" alt="cara" class="cara-image">
+          </div>
+          <div class="register__body__section3__article__div--contdoble">
+            <img src="/css/img/anillo1.png" alt="anillo1">
+            <img src="/css/img/anillo2.png" alt="anillo2">
+          </div>
+        </article>
+      </section>
+    </div>
+      <div class="register__body__div2">
+
+      </div>
 </body>
 </html>
