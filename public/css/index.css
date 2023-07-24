@@ -56,7 +56,6 @@
 /* Items de compra */
 
 .home__section-items_compra {
-    /* width: 100%; */
     margin: 20px 10px;
     display: flex;
     flex-direction: column;
