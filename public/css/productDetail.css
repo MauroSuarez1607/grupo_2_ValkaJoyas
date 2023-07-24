@@ -33,6 +33,7 @@ max-width: 300px;
     display: flex;
     justify-content: center;
     margin: 0;
+    background-color: var(--colorCeleste);
   }
 
 
@@ -58,11 +59,14 @@ max-width: 300px;
   .detallep__body__section1{
     display: none
   }
-  
+  .detallep__body__contenedor--principal{
+  background-color: var(--colorCeleste)
+  }
   .detallep__body__section3__cont{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
   }
 
   .detallep__body__section3__div--imgs{
@@ -527,7 +531,7 @@ max-width: 300px;
       display: flex;
       flex-wrap: row;
       justify-content: center;
-      margin:  0px 0px 20px 0px;
+      margin:  0px 0px 00px 0px;
       padding: 0px;
       width: 100%;
     }
