@@ -77,43 +77,120 @@
     <!-- ITEMS DE COMPRA  -->
 
     <section class="home__section-items_compra">
-        <div>
+        <div class="item-compra">
             <i class="far fa-credit-card"></i>
             <div class="items-descripcion">
                 <h5>3,6 y 12 pagos sin interes seleccionando mercado pago</h5>
                 <p>Con tarjeta de bancos adheridos</p>
             </div>
         </div>
-        <div>
-            <i class="fas fa-truck"></i>
-            <div class="items-descripcion">
-                <h5>Envios gratis desde $29990 </h5>
+        <div class="item-grupo">
+            <div class="item-compra">
+                <i class="fas fa-truck"></i>
+                <div class="items-descripcion">
+                    <h5>Envios gratis desde $29990 </h5>
+                </div>
             </div>
-        </div>
-        <div>
-            <i class="fas fa-dollar-sign"></i>
-            <div class="items-descripcion">
-                <h5>15% de descuento en efectivo o transferencia bancaria</h5>
+            <div class="item-compra">
+                <i class="fas fa-dollar-sign"></i>
+                <div class="items-descripcion">
+                    <h5>15% de descuento en efectivo o transferencia bancaria</h5>
+                </div>
             </div>
         </div>
     </section>
     <!-- BANNER EUFORIA -->
     <section class="home__section-banner">
-        <img src="/img/Banner.jpg" alt="banner">
+        <img src="/img/Banner.webp" alt="banner">
         <h3>Colección EUFORIA</h3>
         <button>Ver Más <i class="fas fa-arrow-right"></i> </button>
     </section>
 
-    <!-- UBICACION GOOGLE MAPS -->
+    <!-- UBICACIÓN GOOGLE MAPS -->
     <section class="home__section-ubicacion">
-        <div>
-            <img src="/img/imagen tienda.jpg" alt="imagen tienda">
+        <h2>valka joyas - sede central</h2>
+        <div class="tienda-y-maps">
+            <div>
+                <img src="/img/imagen tienda.jpg" alt="imagen tienda">
+            </div>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d28973.557321644694!2d-65.4180352!3d-24.8059068!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1689959163672!5m2!1ses-419!2sar"
+                style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d28973.557321644694!2d-65.4180352!3d-24.8059068!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1689959163672!5m2!1ses-419!2sar"
-            style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
+    <!-- FOOTER -->
+    <footer>
+        <section class="informacion">
+            <div class="grupo-info">
+                <div class="productos">
+                    <h3>Productos</h3>
+                    <ul>
+                        <li><a href="">Anillos</a></li>
+                        <li><a href="">Collares</a></li>
+                        <li><a href="">Pendientes</a></li>
+                        <li><a href="">Pulseras</a></li>
+                        <li><a href="">Joyeros</a></li>
+                    </ul>
+                </div>
+                <div  class="contacto">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><a href="">Atención al cliente</a></li>
+                        <li><a href="">Whatsapp</a></li>
+                    </ul>
+                </div>
+                <div class="nosotros">
+                    <h3>Nosotros</h3>
+                    <ul>
+                        <li><a href="">Tiendas</a></li>
+                        <li><a href="">La Marca</a></li>
+                        <li><a href="">Sostenibilidad</a></li>
+                        <li><a href="">Club Valka</a></li>
+                    </ul>
+                </div>
+                <div class="informacion">
+                    <h3>Información</h3>
+                    <ul>
+                        <li><a href="">Preguntas frecuentes</a></li>
+                        <li><a href="">Guia de talles</a></li>
+                        <li><a href="">Envios y entregas</a></li>
+                        <li><a href="">Estado de mi pedido</a></li>
+                        <li><a href="">Cambios y devoluciones</a></li>
+                        <li><a href="">Cuidados de las joyas</a></li>
+                        <li><a href="">Condiciones generales</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="redes">
+                <nav>
+                    <h3>Comunidad</h3>
+                    <ul>
+                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                        <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                        <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href=""><i class="fab fa-pinterest"></i></a></li>
+                        <li><a href=""><i class="fab fa-spotify"></i></a></li>
+                        <li><a href=""><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+        
+        <section class="CTA">
+            <h2>¿Quieres<br> un 15%dto?</h2>
+            <p>Suscríbete y consigue 15% dto en tu primera compra y mantente al dia de todo el universo VALKA</p>
+            <form action="/newsletter" method="post">
+                <p>
+                    <input type="email" name="email" placeholder="Ingresa tu email" >
+                </p>
+                <div class="contenedor-button">
+                    <button>Suscríbete ahora <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </form>
+        </section>
+</footer>
     <!-- SWIPER JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="/js/carousel1_swiper.js"></script>
