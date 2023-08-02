@@ -122,12 +122,7 @@
 }
 
 .home__section-banner button {
-    background-color: var(--colorNegro);
-    color: var(--colorBlanco);
-    padding: 20px 20px;
-    border: 0;
-    width: 7.375rem;
-    font-size: 0.75rem;
+   
     position: absolute;
     bottom: 10%;
     left: 36%;

@@ -90,12 +90,7 @@ footer section.CTA div.contenedor-button{
 }
 
 footer section.CTA button{
-    background-color: var(--colorNegro);
-    color: var(--colorBlanco);
-    padding: 20px 10px;
-    border:0;
-    width: 10.375rem;
-    font-size: 0.75rem;
+  
     text-transform: uppercase;
 }
 
@@ -166,17 +161,10 @@ footer section.CTA button:hover{
         font-size: 1rem;
     }
     
-    footer section.CTA button{
-        font-size: 0.875rem;
-        width: 13.625rem;
-        line-height: 0;
-    }
+   
     
     footer section.CTA button i{
         display: inline;
-        font-size: 1rem;
-        padding: 0px 8px;
-        text-align: center;
        
     }
     
@@ -239,7 +227,7 @@ footer section.CTA button:hover{
     }
     
     footer section.CTA button{
-        width: 17.375rem;
+        width: 100%;
     }
     
 }
