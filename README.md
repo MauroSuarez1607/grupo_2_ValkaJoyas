@@ -2,11 +2,12 @@
 Proyecto Integrador // E-commerce
 
 Inspiración en referentes del mercado
-- https://www.joyascenter.com.ar/
-- https://www.dbcreaciones.com.ar/
-- https://www.bulgari.com/en-int/
-- https://www.sarahjoyas.com/
-- https://avantjoyas.com/
+- https://www.joyascenter.com.ar/ : Nos gusto la estetica y la distribucion de elementos.
+- https://www.dbcreaciones.com.ar/ : informacion relevante sobre joyas.
+- https://www.bulgari.com/en-int/ : Nos gusto su estilo minimalista , su carousel principal , como asi tambien la distribucion de las imagenes.
+- https://www.sarahjoyas.com/ : Paleta de colores 
+- https://avantjoyas.com/ : Nos gusto la forma en que se muestra las categorias de las joyas.
+- https://www.adidas.com.ar/ : Su carousel de productos y como se muestra la informacion del mismo.
 
 ## Descripcion del producto
 
