@@ -20,18 +20,14 @@ font-family: var(--tipografiaTitulos);
 padding: 10px 10px 50px 10px
 }
 
-
 .login__main__form-div{
     padding: 10px;
 }
 
 .login__main__form-div label{
     display: block;
-margin-bottom: 10px;
-    
+margin-bottom: 10px;   
 }
-
-
 
 .login__main__form-div input {
     width: calc(100% - 10px); 
@@ -91,11 +87,11 @@ display: none;
     font-weight: bold;
     cursor: pointer;
     background-color: var(--colorCeleste); 
-    color: black; /* Color del texto negro */
-    border: 2px solid var(--colorCeleste); /* Bordes celestes */
+    color: black; 
+    border: 2px solid var(--colorCeleste); 
     border-radius: 2px; 
-    text-decoration: none; /* Quita la subrayado que suele aparecer en enlaces */
-    display: inline-block; /* Hace que el botón tenga el tamaño del contenido */
+    text-decoration: none; 
+    display: inline-block; 
     margin-left: 10px;
 }
 
@@ -104,20 +100,20 @@ display: none;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    background-color: white; /* Color de fondo celeste */
-    color: black; /* Color del texto negro */
-    border: 4px solid lightblue; /* Bordes celestes */
-    border-radius: 5px; /* Radio de borde para darle esquinas redondeadas */
-    text-decoration: none; /* Quita la subrayado que suele aparecer en enlaces */
-    display: inline-block; /* Hace que el botón tenga el tamaño del contenido */
+    background-color: white;
+    color: black; 
+    border: 4px solid lightblue; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    display: inline-block; 
     margin-left: 40px;
 }
 
 .login__main__form-button-submit:hover,
 .login__main__form-button-create:hover {
-    background-color: blue; /* Cambia el color de fondo al pasar el ratón por encima */
-    border-color: blue; /* Cambia el color del borde al pasar el ratón por encima */
-    color: white; /* Cambia el color del texto al pasar el ratón por encima */
+    background-color: blue; 
+    border-color: blue; 
+    color: white; 
 }
 
 .login__body__div1, .login__body__div2 {
@@ -130,7 +126,6 @@ display: none;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
 
 .login__body__section3 {
     background-color: var(--colorArena);
@@ -145,6 +140,7 @@ margin: 5px
 
 }
 
+/* TABLET */
   @media (min-width: 768px){
     .login__body__section1 p{
         background-color: var(--colorCeleste);
@@ -155,8 +151,6 @@ margin: 5px
         text-align: center;
     align-items: center;
     }
-
-
 
 /* IMAGENES CAJA TABLET*/ 
 .login__body__section3 {
@@ -200,6 +194,7 @@ margin: 5px
 
 }
 
+/* DESKTOP */
 @media (min-width: 1024px){
 
     .login__body__section1 p{
@@ -209,13 +204,12 @@ margin: 5px
         padding: 5px;
         font-size: 2vmax;
         text-align: center;
-    align-items: center;
+        align-items: center;
     }
 
 
     .login__body__div__desktop{
         display:flex
-        
     }
 
     .login__body__section2, .login__body__section3{
@@ -269,9 +263,6 @@ margin: 5px
         display: none
       }
       .login__body__div2{
-    width: 98%;  
+        width: 98%;  
     }
-
-
-
 }

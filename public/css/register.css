@@ -2,8 +2,6 @@ body {
     background-color: rgb(255, 255, 255);
     }
     
-
-
     .register__body__section1{
         background-color: var(--colorCeleste);
         padding: 0px 0px;
@@ -26,7 +24,6 @@ body {
         margin: 0;
         padding: 0;
         width: 100%;
-
     }
 
     .register__body__section2 h2{
@@ -34,18 +31,14 @@ body {
     padding: 10px 10px 50px 10px
     }
     
-    
     .register__main__form-div{
         padding: 10px;
     }
     
     .register__main__form-div label{
         display: block;
-    margin-bottom: 10px;
-        
+    margin-bottom: 10px;    
     }
-    
-    
     
     .register__main__form-div input {
         width: calc(100% - 10px); 
@@ -105,11 +98,11 @@ body {
         font-weight: bold;
         cursor: pointer;
         background-color: var(--colorCeleste); 
-        color: black; /* Color del texto negro */
-        border: 2px solid var(--colorCeleste); /* Bordes celestes */
+        color: black; 
+        border: 2px solid var(--colorCeleste); 
         border-radius: 2px; 
-        text-decoration: none; /* Quita la subrayado que suele aparecer en enlaces */
-        display: inline-block; /* Hace que el botón tenga el tamaño del contenido */
+        text-decoration: none; 
+        display: inline-block; 
         margin-left: 10px;
     }
     
@@ -118,12 +111,12 @@ body {
         font-size: 16px;
         font-weight: bold;
         cursor: pointer;
-        background-color: white; /* Color de fondo celeste */
-        color: black; /* Color del texto negro */
-        border: 4px solid lightblue; /* Bordes celestes */
-        border-radius: 5px; /* Radio de borde para darle esquinas redondeadas */
-        text-decoration: none; /* Quita la subrayado que suele aparecer en enlaces */
-        display: inline-block; /* Hace que el botón tenga el tamaño del contenido */
+        background-color: white; 
+        color: black; 
+        border: 4px solid lightblue; 
+        border-radius: 5px; 
+        text-decoration: none; 
+        display: inline-block; 
         margin-left: 40px;
     }
     
@@ -145,10 +138,9 @@ body {
       margin-bottom: 10px;
     }
     
-    
     .register__body__section3 {
         background-color: var(--colorArena);
-    margin: 5px
+        margin: 5px
     }
     
     .register__body__section3 img{
@@ -156,9 +148,9 @@ body {
        align-items: center;
        justify-content: center;
        padding: 10px 10px 10px 30px;
-    
     }
-    
+
+    /* TABLET */
       @media (min-width: 768px){
         .register__body__section1 p{
             background-color: var(--colorCeleste);
@@ -169,8 +161,6 @@ body {
             text-align: center;
         align-items: center;
         }
-    
-    
     
     /* IMAGENES CAJA TABLET*/ 
     .register__body__section3 {
@@ -213,9 +203,9 @@ body {
       }
     
     }
-    
+
+    /* DESKTOP */
     @media (min-width: 1024px){
-    
         .register__body__section1 p{
             background-color: var(--colorCeleste);
             font-family: var(--tipografia);
@@ -223,13 +213,11 @@ body {
             padding: 5px;
             font-size: 2vmax;
             text-align: center;
-        align-items: center;
+            align-items: center;
         }
-    
     
         .register__body__div__desktop{
             display:flex
-            
         }
     
         .register__body__section2, .register__body__section3{
@@ -279,13 +267,10 @@ body {
           }
         
           .register__body__div1{
-            
             display: none
           }
+
           .register__body__div2{
-        width: 98%;  
-        }
-    
-    
-    
+           width: 98%;  
+        } 
     }

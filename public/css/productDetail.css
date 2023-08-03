@@ -15,16 +15,14 @@ body{
     background-color: var(--colorCeleste);
 }
 
-
 .detallep__body__section1 img{
-max-width: 300px;
+  max-width: 300px;
 }
 
 .detallep__body__section2  img{
   max-width: 100px;
 }
  
-
 .detallep__body__section3 img{
   max-width: 100px;
 }
@@ -36,24 +34,22 @@ max-width: 300px;
     background-color: var(--colorCeleste);
   }
 
-
   .detallep__body__nav li{
     text-transform: uppercase;
     font-style: italic;
+    margin: 10px 0px;
     padding: 10px 10px 10px 10px;
     text-align: center;
     align-items: center;
-    margin: 10px 0px;
   }
 
   .detallep__body__nav li a{
     font-size: 20px;
-    font-weight: 600;
+    font-weight: normal;
   padding: 0px 10px;
   border-left: 1px solid black;
   border-right: 1px solid black;
   border-bottom:1px solid black;
-  font-weight: normal
   }
 
   .detallep__body__section1{
@@ -65,8 +61,7 @@ max-width: 300px;
   .detallep__body__section3__cont{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    
+    align-items: center; 
   }
 
   .detallep__body__section3__div--imgs{
@@ -76,16 +71,16 @@ max-width: 300px;
 
   .detallep__body__section3__div--imgs img{
     width: 20vw; 
-    max-width: 75px;
- 
+    max-width: 35px;
+    /* cambie tamaño de imagen */
     height: auto;
     align-items: center;
   }
   
   .detallep__body__section3__div--corazon img{
     width: 20vw; 
-    max-width: 75px;
- 
+    max-width: 35px;
+    /* cambie tamaño de imagen */
     height: auto;
     right: 2px;
   }
@@ -100,12 +95,10 @@ max-width: 300px;
 
   .detallep__body__section3__div--imgs div a{
     justify-content: space-around;
-   
   }
 
 
   .detallep__body__section2{
-
   }
 
   .detallep__body__section__article{
@@ -117,9 +110,9 @@ max-width: 300px;
   .detallep__body__section__article img{
     display: block; 
     margin: 0px auto; 
+    padding: 0px 10px;
     max-width: 100%; 
     height: auto;
-    padding: 0px 10px;
   }
 
   .detallep__body__section__article__div--button{
@@ -137,7 +130,6 @@ max-width: 300px;
     height: auto;
     position: absolute;
     margin: -30px 0px 0px 0px;
-    
     left: 43%;
   }
 
@@ -156,14 +148,13 @@ max-width: 300px;
     text-align: center;
     align-items: center;
     padding: 50px 10px 0px 10px;
-    margin: 00px 10px 20px;
+    margin: 0px 10px 20px;
   }
 
   .detallep__body__section2__article h4{
     display:none;
-    margin: 00px 00px 20px 0px;
+    margin: 0px 0px 20px 0px;
   }
-
 
   /* si se pone uno solo como tablet, se elimine el flex */
   .detallep__body__section2__article__div{
@@ -173,8 +164,6 @@ max-width: 300px;
     justify-content: center;
     text-align: center;
     align-items: center;
-    
-    
   }
 
   .detallep__body__section2__article__div p {
@@ -188,9 +177,6 @@ max-width: 300px;
     overflow: auto;
     word-wrap: break-word;
     display: inline-block;
-    
-    
-    
   }
 
   .detallep__body__section2__article__div__precio-original{
@@ -199,8 +185,6 @@ max-width: 300px;
     width: 20%;
     text-align: center;
     align-items: center;
-    
-
   }
 
   .detallep__body__section2__article__div__descuento{
@@ -211,11 +195,10 @@ max-width: 300px;
   }
 
   .detallep__body__section2__article__div__descuento p{
+    font-size: 20vw;
     text-align: center;
     align-items: center;
     word-wrap: break-word;
-    font-size: 20vw;
-
   }
 
   .detallep__body__section2__article__div__precio-oferta{
@@ -226,30 +209,30 @@ max-width: 300px;
   }
 
   .detallep__body__section2__article__cuotas{
+    font-size: 14px;
+    font-style: italic;
     text-transform: uppercase;
     text-align: center;
-    font-style: italic;
-    font-size: 14px;
   }
   
   .detallep__body__section2__article__precio-cuota{
     text-align: center;
-    border: 1px solid black;
     margin-left: 25%;
     margin-right: 25%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid black;
     background-color: var(--colorArena);
-      padding-top: 5px;
-      padding-bottom: 5px;
   }
 
   .detallep__body__section2__article__div--envio{
     display: flex;
     flex-direction: row;
-    background-color: var(--colorCeleste);
     justify-content: center;
     text-align: center;
     align-items: center;
     padding: 5px 40px;
+    background-color: var(--colorCeleste);
   }
 
   .detallep__body__section2__article__div--envio img{
@@ -257,13 +240,11 @@ max-width: 300px;
   }
 
   .detallep__body__section2__article__div--envio p{
-    text-transform: uppercase;
     font-size: 14px;
-    padding-left: -10px;
+    text-transform: uppercase;
     margin-left: 50px;
+    padding-left: -10px;
   }
-
-
 
   .detallep__body__section2__article__mediospago--img{
   display: flex;
@@ -274,13 +255,13 @@ max-width: 300px;
   }
 
   .detallep__body__section2__article__medios{
-    text-transform: uppercase;
-    font-style: italic;
     font-size: 22px;
+    font-style: italic;
+    text-transform: uppercase;
     text-align: center;
     align-items: center;
-    padding: 0px 10px 0px 10px;
     margin: 00px 10px 0px 0px;
+    padding: 0px 10px 0px 10px;
   }
 
   .img_tarjeta{
@@ -294,20 +275,20 @@ max-width: 300px;
     position: absolute;
     text-decoration: underline;
     font-size: 10px;
-    padding: 0px 0px 0px 0px;
     margin-left: auto;
+    padding: 0px 0px 0px 0px;
     text-align: right;
   }
 
   .detallep__body__section2__article__cantidad{
     display: flex;
     flex-direction: row;
-    background-color: var(--colorCeleste);
     justify-content: center;
     text-align: center;
     align-items: center;
-    padding: 0px 40px;
     margin-bottom: 20px;
+    padding: 0px 40px;
+    background-color: var(--colorCeleste);
   }
 
 
@@ -320,8 +301,8 @@ max-width: 300px;
 
 
   .detallep__body__section2__article__cantidad p{
-    text-transform: uppercase;
     font-size: 14px;
+    text-transform: uppercase;
   }
 
   .detallep__body__section2__article__cantidad__n{
@@ -331,8 +312,8 @@ max-width: 300px;
 
   .detallep__body__section2__article__carro p{
     font-size: 10px;
-    padding: 10px 0px 10px 0px;
     text-align: center;
+    padding: 10px 0px 10px 0px;
   }
 
   .detallep__body__section2__article__carro a{
@@ -340,59 +321,59 @@ max-width: 300px;
   }
 
   .detallep__body__section2__article__carro button{
+    font-size: 14px;
     text-transform: uppercase;
-    color: white;
-    background-color: black;
     width: 100%;
     padding: 5px;
-    font-size: 14px;
+    color: white;
+    background-color: black;
   }
 
   .detallep__body__sectionamar{
-  background-color: var(--colorArena);
+  background-color: white;
   }
 
   .detallep__body__sectionamar__div--carro{
-  text-align: right;
-  padding: 10px 10px 10px 10px;
   font-size: 6px;
   text-transform: uppercase;
   text-decoration: underline;
+  text-align: right;
+  padding: 10px 10px 10px 10px;
   }
 
   .detallep__body__sectionamar h2{
-    text-transform: uppercase;
+    font-size: 22px;
     font-family: var(--tipografiaTitulos);
     font-style: italic;
-    font-size: 22px;
+    font-weight: normal;
+    text-transform: uppercase;
     text-align: left;
     align-items: left;
-    padding: 0px 10px 0px 00px;
     margin: 00px 10px 0px 10px;
-    font-weight: normal;
-    display: none;
+    padding: 0px 10px 0px 00px;
     
+    display: none;
   }
 
   .detallep__body__sectionamar__div--cont h3{
-    font-family: var(--tipografiaTitulos);
-    text-transform: uppercase;
-    font-style: italic;
     font-size: 22px;
+    font-family: var(--tipografiaTitulos);
+    font-style: italic;
+    font-weight: normal;
+    text-transform: uppercase;
     text-align: left;
     align-items: left;
-    padding: 00px 10px 00px 10px;
     margin: 40px 10px 20px 10px;
-    font-weight: normal
+    padding: 00px 10px 00px 10px;
   }
 
   .detallep__body__sectionamar__div--cont h4{
-    font-family: var(--tipografia);
     font-size: 14px;
+    font-family: var(--tipografia);
     text-align: left;
     align-items: left;
-    padding: 00px 5px 00px 5px;
     margin: 0px 5px 20px 5px;
+    padding: 00px 5px 00px 5px;
   }
 
   .detallep__body__sectionamar ul{
@@ -453,38 +434,39 @@ max-width: 300px;
       border: 1px solid black;
       margin-left: 30%;
       margin-right: 30%;
-      background-color: var(--colorArena);
       padding-top: 5px;
       padding-bottom: 5px;
+      background-color: var(--colorArena);
     }
+
     .detallep__body__section2__article__div--envio{
       display: flex;
       flex-direction: row;
-      background-color: var(--colorCeleste);
       justify-content: center;
       text-align: center;
       align-items: center;
       padding: 5px 40px;
+      background-color: var(--colorCeleste);
     }
 
     .detallep__body__section2__article__div--envio p{
-      text-transform: uppercase;
       font-size: 14px;
-      padding-left: -10px;
+      text-transform: uppercase;
       margin-left: 50px;
+      padding-left: -10px;
+
     }
   .detallep__body__sectionamar h2{
-    text-transform: uppercase;
+    font-size: 22px;
     font-family: var(--tipografiaTitulos);
     font-style: italic;
-    font-size: 22px;
+    font-weight: normal;
+    text-transform: uppercase;
     text-align: left;
     align-items: left;
-    padding: 0px 10px 0px 00px;
-    margin: 00px 10px 0px 10px;
-    font-weight: normal;
+    margin: 0px 10px 0px 10px;
+    padding: 0px 10px 0px 0px;
     display: inline-block;
-    
   }
 
   .detallep__body__sectionamar__div--contmedidas{
@@ -514,9 +496,6 @@ max-width: 300px;
       
       left: 47%;
     }
-
-
-
 }
 
 
@@ -540,8 +519,8 @@ max-width: 300px;
 
     .detallep__body__section1{
       margin-top: 0px;
-        max-width: 50%;
-        width: 40%;
+      max-width: 50%;
+      width: 40%;
     }
 
     .detallep__body__section1 img{
@@ -551,7 +530,7 @@ max-width: 300px;
 
     .detallep__body__section2{
       width: 85%;
-       max-width: 100%;
+      max-width: 100%;
     }
 
     .detallep__body__section3{
@@ -605,14 +584,12 @@ max-width: 300px;
     .detallep__body__section3__div--corazon img{
       width: 20vw; 
       max-width: 50px;
-   
       height: auto;
       right: 0px;
     }
   
     .detallep__body__section3__div--imgs div a{
       justify-content: space-around;
-     
     }
 
     .detallep__body__section__article__div--button{
@@ -629,7 +606,7 @@ max-width: 300px;
       width: 100px;
       height: auto;
       position: relative;
-      margin: -00px 0px 0px 0px;
+      margin: 0px 0px 0px 0px;
     
       left: 43%;   
     }
@@ -651,17 +628,17 @@ max-width: 300px;
       padding-bottom: 5px;
       background-color: var(--colorArena);
       overflow: auto;
-    word-wrap: break-word;
+      word-wrap: break-word;
     }
 
     .detallep__body__section2__article h2{
-      text-transform: uppercase;
-      font-style: italic;
       font-size: 22px;
+      font-style: italic;
+      text-transform: uppercase;
       text-align: center;
       align-items: center;
+      margin: 0px 10px 20px;
       padding: 0px 10px 0px 10px;
-      margin: 00px 10px 20px;
     }
 
   }
