@@ -2,11 +2,47 @@
 
 .carousel2 {
     position: relative;
+    padding-bottom: 50px;
+    /* margin-bottom: 10px; */
 }
 
 .carousel2 .swiper {
+
     width: 100%;
 }
+
+.carousel2 div.swiper-wrapper {
+    position: relative;
+}
+
+
+/* titulo carousel2 */
+
+div.titulo-carousel2 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* navegacion */
+div.titulo-carousel2 div.navegacion {
+    position: absolute;
+    bottom: 0px;
+    z-index: 1000;
+    left: 6px;
+}
+
+div.titulo-carousel2 div.navegacion a {
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+div.titulo-carousel2 div.navegacion i {
+    display: none;
+}
+
+/* Cards */
 
 .carousel2 .swiper-slide {
     text-align: center;
@@ -29,24 +65,13 @@
     overflow: hidden;
 }
 
-/* Navegacion */
-
-.carousel2 .swiper-button-next,
-.swiper-button-prev {
-    display: none;
-}
-
-.carousel2 .swiper-pagination {
-    position: relative;
-    bottom: 0px;
-    /* Ajusta la distancia entre los círculos y el borde inferior del contenedor */
-    padding-top: 30px;
-}
-
-/* Local styles */
 
 .home__section-productos {
+
+    position: relative;
+
     background-color: var(--colorBlanco);
+
     padding: 10px 10px 30px 10px;
 }
 
@@ -109,7 +134,7 @@
 
 @media(min-width:768px) {
 
-    /* Local styles */
+    
 
     .home__section-productos {
         padding: 20px 20px 30px 20px;
@@ -124,7 +149,7 @@
     .home__section-productos div.producto i {
         top: 16px;
         right: 20px;
-        font-size: 2rem;
+        font-size: 1.3rem;
     }
 
 
@@ -155,7 +180,78 @@
 
 
 @media(min-width:1024px) {
-   
+
+    .home__section-productos {
+        position: relative;
+        padding: 20px 60px;
+    }
+
+    /* titulo carousel2 */
+
+    .home__section-productos div.titulo-carousel2 {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    /* navegacion */
+
+    .home__section-productos div.titulo-carousel2 div.navegacion {
+        display: flex;
+        position: relative;
+        /* z-index: 0; */
+        width: 26%;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    .home__section-productos div.titulo-carousel2 div.navegacion a {
+        padding: 0px 30px;
+        text-decoration: underline;
+        font-weight: 700;
+        width: 60%;
+    }
+
+    /* flechas de navegacion */
+    .home__section-productos div.titulo-carousel2 div.flechas {
+        display: flex;
+        width: 40%;
+        height: 30px;
+        align-items: center;
+    }
+
+    .home__section-productos div.titulo-carousel2 div.flechas i {
+        padding: 16px 20px;
+        display: inline-block;
+    }
+
+    .home__section-productos div.titulo-carousel2 div.flechas i:hover {
+        background-color: var(--colorNegro);
+        color: var(--colorBlanco);
+    }
+
+
+    /*  card  */
+    .swiper-slide:hover {
+        border: 1px solid var(--colorNegro);
+    }
+
+    .swiper-slide div.descripcion-prod {
+        position: relative;
+    }
+
+    .swiper-slide div.contenedor-boton {
+        position: absolute;
+        bottom: -11px;
+        right: 18px;
+        transition: bottom 0.3s ease;
+    }
+
+    .swiper-slide:hover div.contenedor-boton {
+        bottom: 0px;
+    }
+
 
     /* descripcion */
 
@@ -167,28 +263,5 @@
         bottom: 120px;
 
     }
-
-    /* Navegacion */
-    .carousel2 .swiper-pagination {
-        display: none;
-    }
-
-    .carousel2 .swiper-button-prev{
-        display: inline-block;
-        color: var(--colorNegro);
-    }
-    .carousel2 .swiper-button-next {
-        display: inline-block;
-        color: var(--colorNegro);
-    }
-  
-    /* Cambiar el tamaño de las flechas de navegación */
-    .carousel2 .swiper-button-prev::after,
-    .carousel2 .swiper-button-next::after {
-        font-size: 50px;
-    }
-
-
-
 
 }

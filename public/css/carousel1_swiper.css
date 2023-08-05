@@ -1,13 +1,13 @@
 /* Carousel 1 - MOBILE */
 
-.swiper .carousel1{
+.swiper .carousel1 {
     width: 100%;
     height: 100%;
 
 }
 
 .carousel1 .swiper-slide {
-    width: 100% ;
+    width: 100%;
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -19,7 +19,7 @@
 
 
 .carousel1 .swiper-container {
-    width: 100% ; 
+    width: 100%;
 }
 
 .carousel1 .swiper-slide img {
@@ -35,7 +35,7 @@
     right: 80%;
 }
 
-.carousel1 .swiper-slide div.text-slider1 h3{
+.carousel1 .swiper-slide div.text-slider1 h3 {
     margin-bottom: 150px;
     font-family: var(--tipografia);
     font-weight: 400;
@@ -45,7 +45,7 @@
     font-size: 23px;
 }
 
-.carousel1 .swiper-slide div.text-slider1 h5{
+.carousel1 .swiper-slide div.text-slider1 h5 {
     color: var(--colorBlanco);
     text-transform: uppercase;
     text-align: left;
@@ -57,7 +57,7 @@
     right: 80%;
 }
 
-.carousel1 .swiper-slide div.text-slider2 h3{
+.carousel1 .swiper-slide div.text-slider2 h3 {
     margin-bottom: 150px;
     font-family: var(--tipografia);
     font-weight: 400;
@@ -67,7 +67,7 @@
     font-size: 23px;
 }
 
-.carousel1 .swiper-slide div.text-slider2 h5{
+.carousel1 .swiper-slide div.text-slider2 h5 {
     color: var(--colorBlanco);
     text-transform: uppercase;
     text-align: left;
@@ -81,7 +81,7 @@
     bottom: -100px;
 }
 
-.carousel1 .swiper-slide div.text-slider3 h3{
+.carousel1 .swiper-slide div.text-slider3 h3 {
     margin-bottom: 20px;
     font-family: var(--tipografia);
     font-weight: 400;
@@ -91,7 +91,7 @@
     font-size: 23px;
 }
 
-.carousel1 .swiper-slide div.text-slider3 h5{
+.carousel1 .swiper-slide div.text-slider3 h5 {
     color: var(--colorBlanco);
     text-transform: uppercase;
     text-align: left;
@@ -100,25 +100,27 @@
 /* Navegación */
 
 .carousel1 .swiper-button-prev,
-  .swiper-button-next {
+.swiper-button-next-1 {
     color: var(--colorBlanco);
+    font-size: 20px;
     
-  }
+}
 
-  /* Cambiar el tamaño de las flechas de navegación */
-  .carousel1 .swiper-button-prev::after,
-  .carousel1 .swiper-button-next::after {
-    font-size: 10px;
-  }
+/* Cambiar el tamaño de las flechas de navegación */
+.carousel1 .swiper-button-prev::after,
+.carousel1 .swiper-button-next::after {
+    font-size: 30px;
+    color: var(--colorBlanco);
+}
 
 /* Reutilizables */
 
-.carousel1 .resaltado-arena{
+.carousel1 .resaltado-arena {
     color: var(--colorArena);
 }
 
 
-.carousel1 .resaltado-celeste{
+.carousel1 .resaltado-celeste {
     color: var(--colorCeleste);
 }
 
@@ -126,63 +128,62 @@
 /* MEDIAS QUERIS */
 
 /* TABLET */
-@media(min-width:768px){
-    
+@media(min-width:768px) {
+
     .carousel1 .swiper-slide div.text-slider1 {
         right: 30%;
     }
-    
-    .carousel1 .swiper-slide div.text-slider1 h3{
+
+    .carousel1 .swiper-slide div.text-slider1 h3 {
         width: 180px;
     }
-    
+
     .carousel1 .swiper-slide div.text-slider2 {
         right: 90%;
     }
-    
-    .carousel1 .swiper-slide div.text-slider2 h3{
+
+    .carousel1 .swiper-slide div.text-slider2 h3 {
         width: 180px;
     }
 
     .carousel1 .swiper-slide div.text-slider3 {
         right: 30%;
     }
-    
-    .carousel1 .swiper-slide div.text-slider3 h3{
+
+    .carousel1 .swiper-slide div.text-slider3 h3 {
         width: 180px;
     }
 
 }
 
 /* DESKTOP */
-@media(min-width:1024px){
-    
+@media(min-width:1024px) {
+
     .carousel1 .swiper-slide div.text-slider1 {
         right: 20%;
     }
-    
-    .carousel1 .swiper-slide div.text-slider1 h3{
+
+    .carousel1 .swiper-slide div.text-slider1 h3 {
         width: 118px;
     }
-    
+
     .carousel1 .swiper-slide div.text-slider2 {
         right: 92%;
     }
-    
-    .carousel1 .swiper-slide div.text-slider2 h3{
+
+    .carousel1 .swiper-slide div.text-slider2 h3 {
         width: 180px;
     }
 
     .carousel1 .swiper-slide div.text-slider3 {
         right: 24%;
     }
-    
-    .carousel1 .swiper-slide div.text-slider3 h3{
+
+    .carousel1 .swiper-slide div.text-slider3 h3 {
         width: 180px;
     }
-    .carousel1 .swiper-slide{
+
+    .carousel1 .swiper-slide {
         height: 100%;
     }
 }
-
-

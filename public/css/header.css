@@ -9,7 +9,7 @@ header {
 header div.text-superior {
     background-color: var(--colorNegro);
     text-align: center;
-    padding: 10px;
+    padding: 10px 60px;
 }
 
 header div.text-superior p {
@@ -84,7 +84,7 @@ header div.barra-menu div.iconos-top i {
 
 
     header div.barra-menu {
-        padding: 0px 20px;
+        padding: 0px 60px;
         height: 150px;
     }
 
@@ -123,8 +123,10 @@ header div.barra-menu div.iconos-top i {
 
 @media(min-width:1024px) {
 
+    
+
     header div.text-superior p {
-        font-size: 1.2rem;
+        font-size: 1.rem;
     }
 
     /* nav */
@@ -134,13 +136,14 @@ header div.barra-menu div.iconos-top i {
 
     header div.barra-menu nav ul {
         display: flex;
-        /* padding: 0px 20px; */
+        
     }
 
     header div.barra-menu nav ul li {
         text-transform: uppercase;
         padding: 0px 16px;
     }
+
     header div.barra-menu i.fas.fa-bars {
         display: none;
     }
