@@ -1,0 +1,198 @@
+/* HEADER MOBILE */
+
+header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+header div.text-superior {
+    background-color: var(--colorNegro);
+    text-align: center;
+    padding: 10px 60px;
+}
+
+header div.text-superior p {
+    color: var(--colorBlanco);
+    font-size: 0.6rem;
+}
+
+
+header div.barra-menu {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    background: linear-gradient(47deg, #F5EFDA 0%, rgba(245, 239, 218, 0.00) 100%), #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    justify-content: space-around;
+}
+
+header div.barra-menu i {
+    order: 1;
+}
+
+/* logos */
+
+header div.contenedor-logos {
+    order: 3;
+}
+
+header div.contenedor-logos div.logo1 {
+    display: none;
+}
+
+header div.contenedor-logos div.logo2 {
+    width: 100%;
+}
+
+header div.barra-menu nav {
+    display: none;
+
+}
+
+/* buscador */
+header div.buscador {
+    order: 2;
+}
+
+header div.buscador div.contenedor-input input {
+    display: none;
+}
+
+
+/* iconos top */
+
+header div.barra-menu div.iconos-top {
+    order: 4;
+}
+
+header div.barra-menu div.iconos-top i {
+    padding: 0px 4px;
+
+}
+
+/* MEDIA QUERIES */
+
+/* TABLET */
+
+
+@media(min-width:768px) {
+
+    header div.text-superior p {
+        font-size: 1rem;
+    }
+
+
+    header div.barra-menu {
+        padding: 0px 60px;
+        height: 150px;
+    }
+
+    header div.barra-menu i {
+        font-size: 1.5rem;
+    }
+
+    /* logos */
+
+    header div.contenedor-logos div.logo1 {
+        display: inline-block;
+    }
+
+    header div.contenedor-logos div.logo1 img {
+        height: 50px;
+    }
+
+    header div.contenedor-logos div.logo2 {
+        display: none;
+    }
+
+    /* iconos top */
+
+    header div.barra-menu div.iconos-top {
+        padding: 0px 20px;
+    }
+
+    header div.barra-menu div.iconos-top i {
+        padding-right: 10px;
+    }
+
+
+}
+
+
+
+@media(min-width:1024px) {
+
+    
+
+    header div.text-superior p {
+        font-size: 1.rem;
+    }
+
+    /* nav */
+    header div.barra-menu nav {
+        order: 2;
+    }
+
+    header div.barra-menu nav ul {
+        display: flex;
+        
+    }
+
+    header div.barra-menu nav ul li {
+        text-transform: uppercase;
+        padding: 0px 16px;
+    }
+
+    header div.barra-menu i.fas.fa-bars {
+        display: none;
+    }
+
+    /* logos */
+
+    header div.contenedor-logos {
+        order: 1;
+    }
+
+    header div.barra-menu nav {
+        display: block;
+    }
+
+    /* buscador */
+
+    header div.buscador {
+        order: 3;
+        position: relative;
+    }
+
+    header div.buscador div.contenedor-input {
+        display: flex;
+        order: none;
+        align-items: center;
+        width: 161px;
+    }
+
+    header div.buscador div.contenedor-input input {
+        display: block;
+        border: none;
+        padding: 20px;
+        background-color: transparent;
+        border-bottom: 1px solid var(--colorNegro);
+        width: 160px;
+    }
+
+    header div.buscador div.contenedor-input i.fas.fa-search {
+        position: absolute;
+        right: 11px;
+    }
+
+
+
+    /* iconos top */
+
+    header div.barra-menu div.iconos-top {
+        padding: 0px 0px 0px 20px;
+    }
+
+
+}

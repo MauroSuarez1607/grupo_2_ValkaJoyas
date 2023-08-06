@@ -1,0 +1,17 @@
+[
+    {
+        "name":"anillo",
+        "description": "lorem",
+        "price":250,
+        "image":"lorem",
+        "category": "anillo",
+        "model" : "lore",
+        "color": "silver",
+        "material": "nn",
+        "size": "S",
+        "measures" :6,
+        "stones":1,
+        "type-stone": "zafiro",
+        "stock":10
+    }
+]
