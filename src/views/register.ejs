@@ -1,57 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register de Usuarios</title>
-    <link rel="stylesheet" href="/css/styles.css" >
-    <script src="https://kit.fontawesome.com/1b02374fff.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <header>
-        <div class="text-superior">
-            <p>APROVECHA 3 6 Y 12 CUOTAS SIN INTERESES SELECCIONANDO
-                MERCADO PAGO</p>
-        </div>
-        <div class="barra-menu">
-            <i class="fas fa-bars"></i>
-            <div class="contenedor-logos">
-                <div class="logo1">
-                    <img src="/img/Logo_Valka.png" alt="">
-                </div>
-                <div class="logo2">
-                    <img src="/img/Logo_Valka2.png" alt="">
-                </div>
-            </div>
-            <nav>
-                <ul>
-                    <li>novedades</li>
-                    <li>joyas</li>
-                    <li>sale 30%</li>
-                    <li>ideas para regalos</li>
-                </ul>
-            </nav>
-            <div class="buscador">
-                <form action="#">
-                    <div class="contenedor-input">
-                        <input type="text" placeholder="Buscar"> 
-                        <i class="fas fa-search"></i>
-                    </div>
-                </form>
-            </div>
-            <div class="iconos-top">
-                <i class="far fa-user"></i>
-                <i class="far fa-heart"></i>
-                <i class="fas fa-shopping-cart"></i>
-            </div>
-        </div>
-    </header>
+    <%- include('partials/head', {
+        title : 'REGISTER'
+    }) %>
+
+    <body class="home__body">
+    
+        <%- include('partials/header') %>
+
     <section class="register__body__section1">
         <p>Años de trayectoria trabajando con joyeria de calidad nos avalan.</p>
         <p>Amplio surtido en joyas de oro 18k y plata 925</p>
         <p>Brindamos atencion a minoristas, mayoristas, empresa e instituciones.</p>
         <p>Registrate y sé parte de la comunidad de Valka joyas!!!</p>
-        <img src="/img/bannerjoya.png" alt="bannerjoya">
+        <img src="/images/bannerjoya.png" alt="bannerjoya">
     </section>
     <div class="register__body__div__desktop">
     <section class="register__body__section2">
@@ -95,11 +57,11 @@
     <section class="register__body__section3">
         <article class="register__body__section3__article">
           <div class="register__body__section3__article__div--contlargo">
-            <img src="/img/cara.png" alt="cara" class="cara-image">
+            <img src="/images/cara.png" alt="cara" class="cara-image">
           </div>
           <div class="register__body__section3__article__div--contdoble">
-            <img src="/img/anillo1.png" alt="anillo1">
-            <img src="/img/anillo2.png" alt="anillo2">
+            <img src="/images/anillo1.png" alt="anillo1">
+            <img src="/images/anillo2.png" alt="anillo2">
           </div>
         </article>
       </section>
@@ -107,75 +69,7 @@
       <div class="register__body__div2">
 
       </div>
-      <footer>
-        <section class="informacion">
-            <div class="grupo-info">
-                <div class="productos">
-                    <h3>Productos</h3>
-                    <ul>
-                        <li><a href="">Anillos</a></li>
-                        <li><a href="">Collares</a></li>
-                        <li><a href="">Pendientes</a></li>
-                        <li><a href="">Pulseras</a></li>
-                        <li><a href="">Joyeros</a></li>
-                    </ul>
-                </div>
-                <div  class="contacto">
-                    <h3>Contacto</h3>
-                    <ul>
-                        <li><a href="">Atención al cliente</a></li>
-                        <li><a href="">Whatsapp</a></li>
-                    </ul>
-                </div>
-                <div class="nosotros">
-                    <h3>Nosotros</h3>
-                    <ul>
-                        <li><a href="">Tiendas</a></li>
-                        <li><a href="">La Marca</a></li>
-                        <li><a href="">Sostenibilidad</a></li>
-                        <li><a href="">Club Valka</a></li>
-                    </ul>
-                </div>
-                <div class="informacion">
-                    <h3>Información</h3>
-                    <ul>
-                        <li><a href="">Preguntas frecuentes</a></li>
-                        <li><a href="">Guia de talles</a></li>
-                        <li><a href="">Envios y entregas</a></li>
-                        <li><a href="">Estado de mi pedido</a></li>
-                        <li><a href="">Cambios y devoluciones</a></li>
-                        <li><a href="">Cuidados de las joyas</a></li>
-                        <li><a href="">Condiciones generales</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="redes">
-                <nav>
-                    <h3>Comunidad</h3>
-                    <ul>
-                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                        <li><a href=""><i class="fab fa-facebook"></i></a></li>
-                        <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href=""><i class="fab fa-pinterest"></i></a></li>
-                        <li><a href=""><i class="fab fa-spotify"></i></a></li>
-                        <li><a href=""><i class="fab fa-youtube"></i></a></li>
-                    </ul>
-                </nav>
-            </div>
-        </section>
-        
-        <section class="CTA">
-            <h2>¿Quieres<br> un 15%dto?</h2>
-            <p>Suscríbete y consigue 15% dto en tu primera compra y mantente al dia de todo el universo VALKA</p>
-            <form action="/newsletter" method="post">
-                <p>
-                    <input type="email" name="email" placeholder="Ingresa tu email" >
-                </p>
-                <div class="contenedor-button">
-                    <button>Suscríbete ahora <i class="fas fa-arrow-right"></i></button>
-                </div>
-            </form>
-        </section>
-</footer>
+      
+      <%- include('partials/footer') %>
 </body>
 </html>
