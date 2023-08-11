@@ -1,25 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Producto</title>
-    <!-- Hacer titulo dinamico -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- SWIPER SLIDER CSS -->
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-    />
-
-    <!-- LOCAL STYLE -->
-    <link rel="stylesheet" href="/stylesheets/styles.css" />
-    <script
-    src="https://kit.fontawesome.com/1b02374fff.js"
-    crossorigin="anonymous"
-></script>
-
-</head>
+    <%- include('partials/head', {
+        title : 'EDITAR'
+    }) %>
 <body style = "background-color: lightblue;">
     <%- include('partials/header') %>
     <!-- BOOTSTRAP -->
@@ -420,6 +403,6 @@
     margin-left: 20px
     }
     </style>
-    <%- include('partials/footer') %>
+    
 </body>
 </html>

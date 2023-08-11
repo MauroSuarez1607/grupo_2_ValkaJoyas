@@ -63,6 +63,14 @@
         padding: 0px 8px;
         text-align: center;
     }
+
+    .botonSecundario{
+        font-size: 0.875rem;
+        width: 230px;
+        line-height: 0;
+    }
+
+
 }
 
 
