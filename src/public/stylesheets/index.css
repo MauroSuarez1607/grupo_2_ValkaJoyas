@@ -203,6 +203,7 @@ iframe {
 
     .home__section-categorias div.grupo-categorias div.pulseras-pendientes div {
         width: 48%;
+        height: 100%;
     }
 
     .home__section-categorias div.grupo-categorias div.pulseras-pendientes img {
@@ -296,7 +297,7 @@ iframe {
     }
 
     .home__section-categorias div.grupo-categorias div.collares img {
-        height: 92%;
+        height: 100%;
     }
 
     .home__section-categorias div.grupo-categorias div.collares {
@@ -306,14 +307,16 @@ iframe {
 
     .home__section-categorias div.grupo-categorias div.anillos img {
         width: 100%;
+        height: 90%;
     }
 
     .home__section-categorias div.grupo-categorias div.pulseras-pendientes {
         width: 100%;
+        height: 100%;
     }
 
     .home__section-categorias div.grupo-categorias div.pulseras-pendientes img {
-        height: 251px;
+        height: 100%;
     }
 
     .home__section-categorias div.grupo-categorias div.anillos h2 {

@@ -64,7 +64,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                                <% products.forEach(({id,name,brand,price,discount,description,image}) => { %>
+                                                <% products.forEach(({id,name,brand,price,discount,description,image1}) => { %>
                                                     <tr>
                                                         <th scope="row">1</th>
                                                         <td><%=name%></td>
@@ -92,7 +92,7 @@
                                                                     <div class="modal-body">
                                                                         <div class="row">
                                                                             <div class="col-12 col-md-4">
-                                                                                <img src="/images/<%= image %>" class="img-fluid" alt="">
+                                                                                <img src="/images/<%= image1 %>" class="img-fluid" alt="">
                                                                             </div>
                                                                             <div class="col-12 col-md-8">
                                                                                 <h2>$<%= price %></h2>

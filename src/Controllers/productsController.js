@@ -1,8 +1,8 @@
 module.exports = {
-  productDetail: (req, res) => {
+  detail: (req, res) => {
     return res.render('productDetail');
   },
-  productCart: (req, res) => {
+  cart: (req, res) => {
     return res.render('productCart');
   },
   add:(req,res) =>{
