@@ -86,7 +86,8 @@ div.titulo-carousel2 div.navegacion i {
 
 .home__section-productos div.producto div.img-prod {
     position: relative;
-
+    width: 100%;
+    height: 100%;
 }
 
 .home__section-productos div.producto i {
@@ -184,6 +185,7 @@ div.titulo-carousel2 div.navegacion i {
     .home__section-productos {
         position: relative;
         padding: 20px 60px;
+        margin: 20px 0px;
     }
 
     /* titulo carousel2 */

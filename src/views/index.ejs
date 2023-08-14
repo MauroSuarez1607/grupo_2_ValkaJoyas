@@ -109,127 +109,31 @@
                     </div>
                 </div>
            </div>
+           
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="producto">
-                        <div class="img-prod">
-                            <img src="/images/prod1.jpg" alt="producto 1">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="descripcion-prod">
-                            <h5>pendientes de diamantes y oro </h5>
-                            <div class="contenedor-boton">
-                                <button>$6.000</button>
+                <!-- Card de producto -->
+                <% products.forEach(product => { %>
+                    <% if (product.discount >0) { %>
+
+                        <div class="swiper-slide">
+                            <div class="producto">
+                                <div class="img-prod">
+                                    <img src="/images/<%= product.image1%>" alt="producto 1">
+                                    <i class="far fa-heart"></i>
+                                </div>
+                                <div class="descripcion-prod">
+                                    <h5><%= product.name %></h5>
+                                    <div class="contenedor-boton">
+                                        <button>$<%= product.price %></button>
+                                    </div>
+                                    <p><%= product.category %></p>
+                                </div>
                             </div>
-                            <p>Pendientes</p>
                         </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="producto">
-                        <div class="img-prod">
-                            <img src="/images/prod2.jpg" alt="producto 2">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="descripcion-prod">
-                            <h5>anillo de oro rusty</h5>
-                            <div class="contenedor-boton">
-                                <button>$7.300</button>
-                            </div>
-                            <p>Anillos</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="producto">
-                        <div class="img-prod">
-                            <img src="/images/prod3.jpg" alt="producto 3">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="descripcion-prod">
-                            <h5>pendientes de oro</h5>
-                            <div class="contenedor-boton">
-                                <button>$4.500</button>
-                            </div>
-                            <p>Pendientes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="producto">
-                        <div class="img-prod">
-                            <img src="/images/prod3.jpg" alt="producto 4">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="descripcion-prod">
-                            <h5>pendientes de diamantes y oro </h5>
-                            <div class="contenedor-boton">
-                                <button>$8.200</button>
-                            </div>
-                            <p>Pendientes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="producto">
-                        <div class="img-prod">
-                            <img src="/images/prod1.jpg" alt="producto 5">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="descripcion-prod">
-                            <h5>pendientes de diamantes y oro</h5>
-                            <div class="contenedor-boton">
-                                <button>$6.500</button>
-                            </div>
-                            <p>Pendientes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="producto">
-                        <div class="img-prod">
-                            <img src="/images/prod2.jpg" alt="producto 1">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="descripcion-prod">
-                            <h5>pendientes de diamantes y oro</h5>
-                            <div class="contenedor-boton">
-                                <button>$4.000</button>
-                            </div>
-                            <p>Pendientes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="producto">
-                        <div class="img-prod">
-                            <img src="/images/prod1.jpg" alt="producto 5">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="descripcion-prod">
-                            <h5>pendientes de diamantes y oro</h5>
-                            <div class="contenedor-boton">
-                                <button>$10.000</button>
-                            </div>
-                            <p>Pendientes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="producto">
-                        <div class="img-prod">
-                            <img src="/images/prod1.jpg" alt="producto 1">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="descripcion-prod">
-                            <h5>pendientes de diamantes y oro </h5>
-                            <div class="contenedor-boton">
-                                <button>$5.000</button>
-                            </div>
-                            <p>Pendientes</p>
-                        </div>
-                    </div>
-                </div>
+                     
+                    <% } %>
+                    
+                <% }) %>
             </div>
         </div>
     </section>
@@ -257,125 +161,28 @@
                 </div>
            </div>
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="producto">
-                        <div class="img-prod">
-                            <img src="/images/prod1.jpg" alt="producto 1">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="descripcion-prod">
-                            <h5>pendientes de diamantes y oro </h5>
-                            <div class="contenedor-boton">
-                                <button>$6.000</button>
+                <% products.forEach(product => { %>
+                    <% if (product.discount >0) { %>
+
+                        <div class="swiper-slide">
+                            <div class="producto">
+                                <div class="img-prod">
+                                    <img src="/images/<%= product.image1%>" alt="producto 1">
+                                    <i class="far fa-heart"></i>
+                                </div>
+                                <div class="descripcion-prod">
+                                    <h5><%= product.name %></h5>
+                                    <div class="contenedor-boton">
+                                        <button>$<%= product.price %></button>
+                                    </div>
+                                    <p><%= product.category %></p>
+                                </div>
                             </div>
-                            <p>Pendientes</p>
                         </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="producto">
-                        <div class="img-prod">
-                            <img src="/images/prod2.jpg" alt="producto 2">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="descripcion-prod">
-                            <h5>anillo de oro rusty</h5>
-                            <div class="contenedor-boton">
-                                <button>$7.300</button>
-                            </div>
-                            <p>Anillos</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="producto">
-                        <div class="img-prod">
-                            <img src="/images/prod3.jpg" alt="producto 3">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="descripcion-prod">
-                            <h5>pendientes de oro</h5>
-                            <div class="contenedor-boton">
-                                <button>$4.500</button>
-                            </div>
-                            <p>Pendientes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="producto">
-                        <div class="img-prod">
-                            <img src="/images/prod3.jpg" alt="producto 4">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="descripcion-prod">
-                            <h5>pendientes de diamantes y oro </h5>
-                            <div class="contenedor-boton">
-                                <button>$8.200</button>
-                            </div>
-                            <p>Pendientes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="producto">
-                        <div class="img-prod">
-                            <img src="/images/prod1.jpg" alt="producto 5">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="descripcion-prod">
-                            <h5>pendientes de diamantes y oro</h5>
-                            <div class="contenedor-boton">
-                                <button>$6.500</button>
-                            </div>
-                            <p>Pendientes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="producto">
-                        <div class="img-prod">
-                            <img src="/images/prod2.jpg" alt="producto 1">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="descripcion-prod">
-                            <h5>pendientes de diamantes y oro</h5>
-                            <div class="contenedor-boton">
-                                <button>$4.000</button>
-                            </div>
-                            <p>Pendientes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="producto">
-                        <div class="img-prod">
-                            <img src="/images/prod1.jpg" alt="producto 5">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="descripcion-prod">
-                            <h5>pendientes de diamantes y oro</h5>
-                            <div class="contenedor-boton">
-                                <button>$10.000</button>
-                            </div>
-                            <p>Pendientes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="producto">
-                        <div class="img-prod">
-                            <img src="/images/prod1.jpg" alt="producto 1">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <div class="descripcion-prod">
-                            <h5>pendientes de diamantes y oro </h5>
-                            <div class="contenedor-boton">
-                                <button>$5.000</button>
-                            </div>
-                            <p>Pendientes</p>
-                        </div>
-                    </div>
+                     
+                    <% } %>
+                    
+                <% }) %>
                 </div>
             </div>
         </div>

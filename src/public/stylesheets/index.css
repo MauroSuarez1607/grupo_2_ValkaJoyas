@@ -296,11 +296,12 @@ iframe {
     }
 
     .home__section-categorias div.grupo-categorias div.collares img {
-        height: 500px;
+        height: 92%;
     }
 
     .home__section-categorias div.grupo-categorias div.collares {
         width: 35%;
+        /* padding-bottom: 0px; */
     }
 
     .home__section-categorias div.grupo-categorias div.anillos img {
