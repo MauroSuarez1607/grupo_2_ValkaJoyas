@@ -21,7 +21,7 @@
                                             <h5 class="card-title font-weight-bold">Nuevo Producto</h5>
                         
                                             <form action="procesar.php" method="POST" enctype="multipart/form-data">
-                                                <label><h5>DATOS</h5></label><br>
+                                                <label><h5><strong>DATOS</strong></h5></label><br>
                                                 <div class="form-row">
                                                     <div class="form-group col-md-3">
                                                         <label for="referencia" class="col-form-label"><strong>Referencia:</strong></label>
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
 
-                            <label><h5>IMAGENES</h5></label><br>
+                            <label><h5><strong>IMÁGENES</strong></h5></label><br>
                             <div class="form-group row">
                                 <label for="imagenPrincipal" class="col-md-6 btn btn-secondary">Principal:</label>
                                 <div class="col-md-4">
@@ -68,7 +68,7 @@
                                     <input hidden class="form-control" type="file" id="imagenesSecundarias" name="imagenesSecundarias[]" accept="image/*" multiple>
                                 </div>
                             </div>
-                            <label><h5>ClASIFICACIÓN</h5></label><br>
+                            <label><h5><strong>CLASIFICACIÓN</strong></h5></label><br>
                             <label for="categoria"><strong>Categoría:</strong></label>
                             <div class="row align-items-center">
                                 <div class="col-6 col-md-4 col-lg-2">
@@ -339,41 +339,41 @@
                 </div>
             </div>
         </div>
-        <label><h5>ECONOMIA</h5></label><br>
+        <label><h5><strong>ECONOMÍA</strong></h5></label><br>
         <div class="row justify-content-between">
             <div class="col-12 col-md-8">
                 <div class="row justify-content-between">
                     <!-- Campo de Precio Original -->
-                    <div class="col-12 col-md-5 mb-2">
+                    <div class="col-12 col-md-5 mb-2 text-center">
                         <label for="price_orig"><strong>Precio Original:</strong></label>
-                        <input type="number" id="price_orig" name="price_orig" required>
+                        <input type="number" id="price_orig" name="price_orig" class="form-control" required>
                     </div>
                     <!-- Campo de Descuento % -->
-                    <div class="col-12 col-md-3 mb-2">
-                        <label for="discount_%"><strong>Descuento_%:</strong></label>
-                        <input type="number" id="discount_%" name="discount_%" required class="small-input">
+                    <div class="col-12 col-md-2 mb-2 text-center">
+                        <label for="discount_%"><strong>Oferta_%:</strong></label>
+                        <input type="number" id="discount_%" name="discount_%" class="form-control" required>
                     </div>
                     <!-- Campo de Precio Oferta -->
-                    <div class="col-12 col-md-4 mb-2">
+                    <div class="col-12 col-md-5 mb-2 text-center">
                         <label for="price_sale"><strong>Precio Oferta:</strong></label>
-                        <input type="number" id="price_sale" name="price_sale" required>
+                        <input type="number" id="price_sale" name="price_sale" class="form-control" required>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-right">
+        <div class="row justify-content-start">
             <div class="col-12 col-md-6">
-                    <div class="form-group mb-2">
+                    <div class="form-group mb-2 text-center">
                         <label for="stock" class="col-form-label mr-2"><strong>Stock:</strong></label>
                         <input type="number" id="stock" name="stock" class="form-control" required>
                     </div>
             </div>
         </div>
-  
-        <button type="reset" class="btn btn-warning">Reset</button>
-        <button type="submit" class="btn btn-dark">Enviar</button>
 
-    </form>
+    <button type="reset" class="btn btn-warning">Reset</button>
+    <button type="submit" class="btn btn-dark">Enviar</button>
+
+</form>
     <style>
         .checkbox-cell {
             cursor: pointer;
