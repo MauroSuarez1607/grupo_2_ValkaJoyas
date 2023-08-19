@@ -1,15 +1,13 @@
+const Product = require('../data/Product')
+
 module.exports = {
-  detail: (req, res) => {
-    return res.render('productDetail');
-  },
+  add: require('./products/add'),
+  create: require('./products/create'),
+  detail: require('./products/detail'),
+  edit: require('./products/edit'),
+  remove: require('./products/remove'),
+  update: require('./products/update'),
   cart: (req, res) => {
     return res.render('productCart');
-  },
-  add:(req,res) =>{
-    return res.render('productAdd')
-  },
-  edit:(req,res) =>{
-    return res.render('productEdit')
   }
-
 };
