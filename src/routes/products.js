@@ -5,10 +5,10 @@ const {detail,cart,add,edit,remove} = require('../Controllers/productsController
 
 /* /products */
 router
-    .get('/detail', detail)
+    //.get('/detail', detail)
     .get('/cart', cart)
-    .get('/add',add)
-    .get('/edit', edit)
+    //.get('/add',add)
+    //.get('/edit', edit)
     .delete('/remove/:id', remove)
 
 module.exports = router;
