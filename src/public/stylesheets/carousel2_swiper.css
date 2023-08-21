@@ -67,12 +67,10 @@ div.titulo-carousel2 div.navegacion i {
 
 
 .home__section-productos {
-
-    position: relative;
-
-    background-color: var(--colorBlanco);
-
-    padding: 10px 10px 30px 10px;
+position: relative;
+background-color: var(--colorBlanco);
+padding: 10px 10px 30px 10px;
+margin-bottom: 10px;
 }
 
 .home__section-productos h2 {
@@ -81,6 +79,7 @@ div.titulo-carousel2 div.navegacion i {
     font-style: italic;
     text-transform: uppercase;
     margin: 20px 0px 20px 0px;
+    font-size: 1.5rem;
 }
 
 

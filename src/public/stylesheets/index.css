@@ -19,6 +19,7 @@
     font-weight: 400;
     font-style: italic;
     margin: 20px 0px 40px 0px;
+    font-size: 1.3rem;
 }
 
 .home__section-categorias div.grupo-categorias {
@@ -51,6 +52,8 @@
     position: relative;
     bottom: 86px;
     right: 60px;
+    font-size: 1.5rem;
+    /* left: -52px; */
 }
 
 /* Items de compra */
@@ -64,6 +67,7 @@
 
 .home__section-items_compra h5 {
     text-transform: uppercase;
+    font-size: 0.8rem;
 }
 
 .home__section-items_compra i {
@@ -149,6 +153,7 @@
     font-style: italic;
     text-transform: uppercase;
     margin: 10px 0px;
+    font-size: 1.5rem;
 }
 
 .home__section-ubicacion div.tienda-y-maps div {

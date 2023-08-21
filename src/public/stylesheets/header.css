@@ -9,7 +9,8 @@ header {
 header div.text-superior {
     background-color: var(--colorNegro);
     text-align: center;
-    padding: 10px 60px;
+    padding: 10px;
+    /* justify-items: center; */
 }
 
 header div.text-superior p {
@@ -126,7 +127,8 @@ header div.barra-menu div.iconos-top i {
     
 
     header div.text-superior p {
-        font-size: 1.rem;
+        /* font-size: 1rem; */
+        margin: 0px;
     }
 
     /* nav */
@@ -163,6 +165,7 @@ header div.barra-menu div.iconos-top i {
     header div.buscador {
         order: 3;
         position: relative;
+        width: 204px;
     }
 
     header div.buscador div.contenedor-input {
@@ -178,7 +181,7 @@ header div.barra-menu div.iconos-top i {
         padding: 20px;
         background-color: transparent;
         border-bottom: 1px solid var(--colorNegro);
-        width: 160px;
+        width: 205px;
     }
 
     header div.buscador div.contenedor-input i.fas.fa-search {
@@ -191,7 +194,7 @@ header div.barra-menu div.iconos-top i {
     /* iconos top */
 
     header div.barra-menu div.iconos-top {
-        padding: 0px 0px 0px 20px;
+        padding: 0px;
     }
 
 
