@@ -1,395 +1,483 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('partials/head', {
-        title : 'AGREGAR'
-    }) %>
-<body style = "background-color: lightblue;">
-    <%- include('partials/header') %>
-    <!-- BOOTSTRAP -->
-    <div class="container" style = "background-color: lightblue;">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title font-weight-bold">Carga de Productos</h5>
-    
-                        <form action="procesar.php" method="POST" enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title font-weight-bold">Nuevo Producto</h5>
-                        
-                                            <form action="procesar.php" method="POST" enctype="multipart/form-data">
-                                                <label><h5><strong>DATOS</strong></h5></label><br>
-                                                <div class="form-row">
-                                                    <div class="form-group col-md-3">
-                                                        <label for="referencia" class="col-form-label"><strong>Referencia:</strong></label>
-                                                        <input type="text" placeholder="number" id="referencia" name="referencia" class="form-control" required>
-                                                    </div>
-                                                    <div class="form-group col-md-9">
-                                                        <label for="titulo" class="col-form-label"><strong>Título:</strong></label>
-                                                        <input type="text" placeholder="Titulo / Nombre" id="titulo" name="titulo" class="form-control" required>
-                                                    </div>
-                                                </div>
-    
-                            <div class="form-group">
-                                <label for="descripcion"><strong>Descripción:</strong></label>
-                                <textarea placeholder="Detalle del producto" id="descripcion" name="descripcion" class="form-control" style = "resize: none;" required></textarea>
-                            </div>
-    
-                            <div class="form-row">
-                                <div class="form-group col-md">
-                                    <label for="marca"><strong>Marca:</strong></label>
-                                    <input type="text" id="marca" name="marca" class="form-control" required>
-                                </div>
-    
-                                <div class="form-group col-md">
-                                    <label for="modelo"><strong>Modelo:</strong></label>
-                                    <input type="text" id="modelo" name="modelo" class="form-control" required>
-                                </div>
-                                <div class="form-group col-md">
-                                    <label for="collection"><strong>Colección:</strong></label>
-                                    <input type="text" id="collection" name="collection" class="form-control">
-                                </div>
-                            </div>
 
-                            <label><h5><strong>IMÁGENES</strong></h5></label><br>
-                            <div class="form-group row">
-                                <label for="imagenPrincipal" class="col-md-6 btn btn-secondary">Principal:</label>
-                                <div class="col-md-4">
-                                    <input hidden class="form-control" type="file" id="imagenPrincipal" name="imagenPrincipal" accept="image/*" required>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group row">
-                                <label for="imagenesSecundarias" class="col-md-6 btn btn-primary">Secundarias:</label>
-                                <div class="col-md-10">
-                                    <input hidden class="form-control" type="file" id="imagenesSecundarias" name="imagenesSecundarias[]" accept="image/*" multiple>
-                                </div>
-                            </div>
-                            <label><h5><strong>CLASIFICACIÓN</strong></h5></label><br>
-                            <label for="categoria"><strong>Categoría:</strong></label>
-                            <div class="row align-items-center">
-                                <div class="col-6 col-md-4 col-lg-2">
-                                    <input type="radio" id="anillos" name="categoria" value="Anillos" required>
-                                    <label for="anillos">Anillos</label>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-2">
-                                    <input type="radio" id="collares" name="categoria" value="Collares y Cadenas">
-                                    <label for="collares">Collares y Cadenas</label>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-2">
-                                    <input type="radio" id="pulseras" name="categoria" value="Pulseras y Brazaletes">
-                                    <label for="pulseras">Pulseras y Brazaletes</label>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-2">
-                                    <input type="radio" id="pendientes" name="categoria" value="Pendientes y Aretes">
-                                    <label for="pendientes">Pendientes y Aretes</label>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-2">
-                                    <input type="radio" id="Accesorios" name="categoria" value="Accesorios">
-                                    <label for="Accesorios">Accesorios</label>
-                                </div>
-                            </div>
-                        <!-- Producto -->
+<%- include('partials/head', { title : 'AGREGAR' }) %>
 
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-12 col-mb-10 mb-4">
-                                        <label for="producto"><strong>Producto:</strong></label>
-                                        <select id="producto" name="producto" class="form-control" required>
-                                            <option selected>Seleccione una opción</option>
-                                            <!-- Anillos -->
-                                            <option value="Alianzas de Matrimonio">Alianzas de Matrimonio</option>
-                                            <option value="Anillos de Compromiso">Anillos de Compromiso</option>
-                                            <option value="Cintillos">Cintillos</option>
-                                            <option value="Anillos de Diseño">Anillos de Diseño</option>
-                                            <option value="Anillos de Piedras Preciosas">Anillos de Piedras Preciosas</option>
-                                            <!-- Collares y Cadenas -->
-                                            <option value="Cadenas">Cadenas</option>
-                                            <option value="Cadenas con Dijes">Cadenas con Dijes / Perlas</option>
-                                            <option value="Collares de Diseño">Collares de Diseño</option>
-                                            <option value="Collares de Piedras Preciosas">Collares de Piedras Preciosas</option>
-                                            <!-- Collares y Cadenas -->
-                                            <option value="Pulseras de Cadena">Pulseras de Cadena</option>
-                                            <option value="Pulseras de Dijes">Pulseras de Dijes</option>
-                                            <option value="Brazaletes de Diseño">Brazaletes de Diseño</option>
-                                            <option value="Brazaletes de Piedras Preciosas">Brazaletes de Piedras Preciosas</option>
-                                            <!-- Pulseras -->
-                                            <option value="Pulseras de Cadena">Pulseras de Cadena</option>
-                                            <option value="Pulseras de Dijes">Pulseras de Dijes</option>
-                                            <option value="Brazaletes de Diseño">Brazaletes de Diseño</option>
-                                            <option value="Brazaletes de Piedras Preciosas">Brazaletes de Piedras Preciosas</option>
-                                            <!-- Pendientes y Aretes: -->
-                                            <option value="Aros">Aros</option>
-                                            <option value="Argollas">Argollas</option>
-                                            <option value="Aretes de Botón">Aretes de Botón</option>
-                                            <option value="Aretes de Diseño">Aretes de Diseño</option>
-                                            <option value="Pendientes Colgantes">Pendientes Colgantes</option>
-                                            <option value="Pendientes de Piedras Preciosas">Pendientes de Piedras Preciosas</option>
-                                            <!-- Accesorios: -->
-                                            <option value="Dijes">Dijes</option>
-                                            <option value="Joyería de Cabello">Joyería de Cabello</option>
-                                            <option value="Joyería Corporal">Joyería Corporal (piercings)</option>
-                                            <option value="Estuches">Estuches</option>
-                                        </select>
-                                    </div>
-                        
-                                <div class="col-9 mb-6">
-                                    <label for="metal"><strong>Metal:</strong></label>
-                                    <select id="metal" name="metal" class="form-control" required>
-                                            <option selected>Seleccione una opción</option>
-                                            <option value="Oro 18K">Oro 18K (750)</option>
-                                            <option value="Oro 14K">Oro 14K (585)</option>
-                                            <option value="Oro 24K">Oro 24K (999)</option>
-                                            <option value="Oro Blanco 18K">Oro Blanco 18K (750)</option>
-                                            <option value="Oro Blanco 14K">Oro Blanco 14K (585)</option>
-                                            <option value="Oro Amarillo 22K">Oro Amarillo 22K (916)</option>
-                                            <option value="Oro Amarillo 21K">Oro Amarillo 21K (875)</option>
-                                            <option value="Oro Amarillo 20K">Oro Amarillo 20K (833)</option>
-                                            <option value="Oro Verde">Oro Verde</option>
-                                            <option value="Oro Rosa 10K">Oro Rosa 10K</option>
-                                            <option value="Oro Rosa 14K">Oro Rosa 14K</option>
-                                            <option value="Plata 925">Plata 925 (92.5% de pureza)</option>
-                                            <option value="Plata de Ley">Plata de Ley (92.5% de pureza)</option>
-                                            <option value="Plata Fina">Plata Fina (95-99.9% de pureza)</option>
-                                            <option value="Platino 950">Platino 950 (95% de pureza)</option>
-                                            <option value="Platino 900">Platino 900 (90% de pureza)</option>
-                                            <option value="Platino 850">Platino 850 (85% de pureza)</option>
-                                            <option value="Paladio 950">Paladio 950 (95% de pureza)</option>
-                                            <option value="Rodio">Rodio</option>
-                                            <option value="Bronce">Bronce</option>
-                                            <option value="Cobre">Cobre</option>
-                                            <option value="Zinc">Zinc</option>
-                                            <option value="Acero Quirúrgico">Acero Quirúrgico</option>
-                                            <option value="Titanio Grado 5">Titanio Grado 5</option>
-                                            <option value="Titanio Grado 7">Titanio Grado 7</option>
-                                            <option value="Titanio Puro grado 1-4">Titanio Puro grado 1-4</option>
-                                            <option value="Otro material">Otro</option>
-                                    </select>
-                                </div>
-                        
-                                <div class="col-3 mb-4">
-                                    <label for="num_piedras"><strong>N° de Piedras:</strong></label>
-                                    <input type="number" id="num_piedras" name="num_piedras" class="form-control" required>
-                                </div>
-                            </div>
-                        </div>
-                        <label><h5><strong>DETALLE</strong></h5></label><br>
-
-                        <label>Tipo de Piedra:</label><br>
-                        <div class="table-responsive">
-                            <div class="d-flex flex-wrap">
-                                <!-- Opciones de checkbox -->
-                                <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                    <input type="checkbox" id="otro_piedra" name="tipo_piedra[]" value="Otro">
-                                    <label for="otro_piedra">Otro</label>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                    <input type="checkbox" id="topacio" name="tipo_piedra[]" value="Topacio">
-                                    <label for="topacio">Topacio</label>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                    <input type="checkbox" id="cuarzo_variedades" name="tipo_piedra[]" value="Cuarzo (variedades)">
-                                    <label for="cuarzo_variedades">Cuarzo (variedades)</label>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                    <input type="checkbox" id="diamantes" name="tipo_piedra[]" value="Diamantes">
-                                    <label for="diamantes">Diamantes</label>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                    <input type="checkbox" id="rubies" name="tipo_piedra[]" value="Rubíes">
-                                    <label for="rubies">Rubíes</label>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                    <input type="checkbox" id="zafiros" name="tipo_piedra[]" value="Zafiros">
-                                    <label for="zafiros">Zafiros</label>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                    <input type="checkbox" id="esmeraldas" name="tipo_piedra[]" value="Esmeraldas">
-                                    <label for="esmeraldas">Esmeraldas</label>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                    <input type="checkbox" id="jade" name="tipo_piedra[]" value="Jade">
-                                    <label for="jade">Jade</label>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                    <input type="checkbox" id="amatista" name="tipo_piedra[]" value="Amatista">
-                                    <label for="amatista">Amatista</label>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                    <input type="checkbox" id="opal" name="tipo_piedra[]" value="Ópalo">
-                                    <label for="opal">Ópalo</label>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                    <input type="checkbox" id="coral" name="tipo_piedra[]" value="Coral (orgánico)">
-                                    <label for="coral">Coral (orgánico)</label>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                    <input type="checkbox" id="perlas" name="tipo_piedra[]" value="Perlas (orgánico)">
-                                    <label for="perlas">Perlas (orgánico)</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <label><strong>Color Producto:</strong></label><br>
-                        <div class="d-flex flex-wrap">
-                            <!-- Opciones de checkbox -->
-                            <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                <input type="checkbox" id="policromatico" name="colors[]" value="Policromatico">
-                                <label for="policromatico">Policromático</label>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                <input type="checkbox" id="multicolor" name="colors[]" value="Multicolor">
-                                <label for="multicolor">Multicolor</label>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                <input type="checkbox" id="incoloro" name="colors[]" value="Incoloro">
-                                <label for="incoloro">Incoloro</label>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                <input type="checkbox" id="rojo" name="colors[]" value="Rojo">
-                                <label for="rojo">Rojo</label>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                <input type="checkbox" id="azul" name="colors[]" value="Azul">
-                                <label for="azul">Azul</label>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                <input type="checkbox" id="verde" name="colors[]" value="Verde">
-                                <label for="verde">Verde</label>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                <input type="checkbox" id="violeta" name="colors[]" value="Violeta">
-                                <label for="violeta">Violeta</label>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                <input type="checkbox" id="amarillo" name="colors[]" value="Amarillo">
-                                <label for="amarillo">Amarillo</label>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                <input type="checkbox" id="celeste" name="colors[]" value="Celeste">
-                                <label for="celeste">Celeste</label>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                <input type="checkbox" id="naranja" name="colors[]" value="Naranja">
-                                <label for="naranja">Naranja</label>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                <input type="checkbox" id="blanco" name="colors[]" value="Blanco">
-                                <label for="blanco">Blanco</label>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                <input type="checkbox" id="negro" name="colors[]" value="Negro">
-                                <label for="negro">Negro</label>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                <input type="checkbox" id="gris" name="colors[]" value="Gris">
-                                <label for="gris">Gris</label>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                <input type="checkbox" id="plateado" name="colors[]" value="Plateado">
-                                <label for="plateado">Plateado</label>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                <input type="checkbox" id="dorado" name="colors[]" value="Dorado">
-                                <label for="dorado">Dorado</label>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                <input type="checkbox" id="rosa" name="colors[]" value="Rosa">
-                                <label for="rosa">Rosa</label>
-                            </div>
-                        </div>
-
-                        <div class="row justify-content-between">
-                            <div class="col-12 col-md-8">
-                                <div class="row">
-                                    <div class="col-7 col-md-8">
-                                        <label for="tamanio"><strong>Tamaño:</strong></label>
-                                        <input type="text" placeholder="Codigo alfanumerico" id="tamanio" name="tamanio" class="form-control" required>
-                                    </div>
-                                    <div class="col-5 col-md-4">
-                                        <label for="medida"><strong>Medida (mm):</strong></label>
-                                        <input type="number" placeholder="en numeros de mm" id="medida" name="medida" class="form-control" required>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-        <!-- Garantia -->
-
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-8">
+    <body style="background-color: lightblue;">
+        <%- include('partials/header') %>
+            <!-- BOOTSTRAP -->
+            <div class="container" style="background-color: lightblue;">
                 <div class="row">
-                    <div class="col-6">
-                        <label for="garantia"><strong>Garantía:</strong></label><br>
-                        <input type="radio" id="si_garantia" name="garantia" value="Sí" checked>
-                        <label for="si_garantia">Sí</label>
-                        <input type="radio" id="no_garantia" name="garantia" value="No">
-                        <label for="no_garantia">No</label><br>
-                    </div>
-                    <div class="col-6">
-                        <label for="estuche"><strong>Estuche:</strong></label><br>
-                        <input type="radio" id="si_estuche" name="estuche" value="Sí" checked>
-                        <label for="si_estuche">Sí</label>
-                        <input type="radio" id="no_estuche" name="estuche" value="No">
-                        <label for="no_estuche">No</label><br>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title font-weight-bold">Carga de Productos</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <label><h5><strong>ECONOMÍA</strong></h5></label><br>
-        <div class="row justify-content-between">
-            <div class="col-12 col-md-8">
-                <div class="row justify-content-between">
-                    <!-- Campo de Precio Original -->
-                    <div class="col-12 col-md-5 mb-2 text-center">
-                        <label for="price_orig"><strong>Precio Original:</strong></label>
-                        <input type="number" id="price_orig" name="price_orig" class="form-control" required>
-                    </div>
-                    <!-- Campo de Descuento % -->
-                    <div class="col-12 col-md-2 mb-2 text-center">
-                        <label for="discount_%"><strong>Oferta_%:</strong></label>
-                        <input type="number" id="discount_%" name="discount_%" class="form-control" required>
-                    </div>
-                    <!-- Campo de Precio Oferta -->
-                    <div class="col-12 col-md-5 mb-2 text-center">
-                        <label for="price_sale"><strong>Precio Oferta:</strong></label>
-                        <input type="number" id="price_sale" name="price_sale" class="form-control" required>
+            <div class="row">
+                <div class="col-10 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title font-weight-bold">Nuevo Producto</h5>
+                            
+                            <form action="/products/add" method="POST">
+                                <!-- <form action="" method="POST"
+                                                    enctype="multipart/form-data">   -->
+                                <label>
+                                    <h5><strong>DATOS</strong></h5>
+                                </label><br>
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="referencia" class="col-form-label"><strong>Referencia: <br>
+                                                <!--  'ID'  -->
+                                            </strong></label>
+                                        <!-- <input type="text" placeholder="number" id="referencia" -->
+                                        <!-- name="referencia" class="form-control" required> -->
+                                    </div>
+                                    <div class="form-group col-md-9">
+                                        <label for="name" class="col-form-label"><strong>Nombre:</strong></label>
+                                        <input type="text" placeholder="Nombre / Título" id="name" name="name"
+                                            class="form-control" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="description"><strong>Descripción:</strong></label>
+                                    <textarea placeholder="Detalle del producto" id="description" name="description"
+                                        class="form-control" style="resize: none;" required></textarea>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md">
+                                        <label for="brand"><strong>Marca:</strong></label>
+                                        <input type="text" id="brand" name="brand" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group col-md">
+                                        <label for="model"><strong>Modelo:</strong></label>
+                                        <input type="text" id="model" name="model" class="form-control" required>
+                                    </div>
+                                    <div class="form-group col-md">
+                                        <label for="collection"><strong>Colección:</strong></label>
+                                        <input type="text" id="collection" name="collection" class="form-control">
+                                    </div>
+                                </div>
+
+                                <label>
+                                    <h5><strong>IMÁGENES</strong></h5>
+                                </label><br>
+                                <div class="form-group row">
+                                    <label for="image1" class="col-md-6 btn btn-secondary">Principal:</label>
+                                    <div class="col-md-4">
+                                        <input hidden class="form-control" type="file" id="image1" name="image1"
+                                            accept="image/*">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="image2" class="col-md-6 btn btn-primary">Secundarias:</label>
+                                    <div class="col-md-10">
+                                        <input hidden class="form-control" type="file" id="image2" name="image2"
+                                            accept="image/*" multiple>
+                                    </div>
+                                </div>
+                                <label>
+                                    <h5><strong>CLASIFICACIÓN</strong></h5>
+                                </label><br>
+                                <label for="category"><strong>Categoría:</strong></label>
+                                <div class="row align-items-center">
+                                    <div class="col-6 col-md-4 col-lg-2">
+                                        <input type="radio" id="anillos" name="category" value="Anillos" required>
+                                        <label for="anillos">Anillos</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2">
+                                        <input type="radio" id="collares" name="category" value="Collares y Cadenas">
+                                        <label for="collares">Collares y Cadenas</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2">
+                                        <input type="radio" id="pulseras" name="category" value="Pulseras y Brazaletes">
+                                        <label for="pulseras">Pulseras y Brazaletes</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2">
+                                        <input type="radio" id="pendientes" name="category" value="Pendientes y Aretes">
+                                        <label for="pendientes">Pendientes y Aretes</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2">
+                                        <input type="radio" id="Accesorios" name="category" value="Accesorios">
+                                        <label for="Accesorios">Accesorios</label>
+                                    </div>
+                                </div>
+                                <!-- Articulo -->
+                                <div>
+                                    <div>
+
+                                        <!-- <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-12 col-mb-10 mb-4">
+                                                                <label for="article"><strong>Artículo:</strong></label>
+                                                                <select id="article" name="article" class="form-control"
+                                                                    required>
+                                                                    <option selected hidden>Seleccione una opción</option> -->
+                                        <!-- Anillos -->
+                                        <!-- <option value="Alianzas de Matrimonio">Alianzas
+                                                                        de Matrimonio</option>
+                                                                    <option value="Anillos de Compromiso">Anillos de
+                                                                        Compromiso</option>
+                                                                    <option value="Cintillos">Cintillos</option>
+                                                                    <option value="Anillos de Diseño">Anillos de
+                                                                        Diseño</option>
+                                                                    <option value="Anillos de Piedras Preciosas">
+                                                                        Anillos de Piedras Preciosas</option> -->
+                                        <!-- Collares y Cadenas -->
+                                        <!-- <option value="Cadenas">Cadenas</option>
+                                                                    <option value="Cadenas con Dijes">Cadenas con
+                                                                        Dijes / Perlas</option>
+                                                                    <option value="Collares de Diseño">Collares de
+                                                                        Diseño</option>
+                                                                    <option value="Collares de Piedras Preciosas">
+                                                                        Collares de Piedras Preciosas</option>
+                                                                    Collares y Cadenas
+                                                                    <option value="Pulseras de Cadena">Pulseras de
+                                                                        Cadena</option>
+                                                                    <option value="Pulseras de Dijes">Pulseras de
+                                                                        Dijes</option>
+                                                                    <option value="Brazaletes de Diseño">Brazaletes
+                                                                        de Diseño</option>
+                                                                    <option value="Brazaletes de Piedras Preciosas">
+                                                                        Brazaletes de Piedras Preciosas</option> -->
+                                        <!-- Pulseras -->
+                                        <!-- <option value="Pulseras de Cadena">Pulseras de -->
+                                        <!-- Cadena</option>
+                                                                    <option value="Pulseras de Dijes">Pulseras de
+                                                                        Dijes</option>
+                                                                    <option value="Brazaletes de Diseño">Brazaletes
+                                                                        de Diseño</option>
+                                                                    <option value="Brazaletes de Piedras Preciosas">
+                                                                        Brazaletes de Piedras Preciosas</option> -->
+                                        <!-- Pendientes y Aretes: -->
+                                        <!-- <option value="Aros">Aros</option>
+                                                                    <option value="Argollas">Argollas</option> -->
+                                        <!-- <option value="Aretes de Botón">Aretes de Botón
+                                                                    </option>
+                                                                    <option value="Aretes de Diseño">Aretes de
+                                                                        Diseño</option>
+                                                                    <option value="Pendientes Colgantes">Pendientes
+                                                                        Colgantes</option>
+                                                                    <option value="Pendientes de Piedras Preciosas">
+                                                                        Pendientes de Piedras Preciosas</option>
+                                                                    Accesorios: -->
+                                        <!-- <option value="Dijes">Dijes</option>
+                                                                    <option value="Joyería de Cabello">Joyería de
+                                                                        Cabello</option>
+                                                                    <option value="Joyería Corporal">Joyería
+                                                                        Corporal (piercings)</option>
+                                                                    <option value="Estuches">Estuches</option>
+                                                                </select> -->
+                                        <!-- </div> -->
+
+                                        <div class="col-9 mb-6">
+                                            <label for="metal"><strong>Metal:</strong></label>
+                                            <select id="metal" name="metal" class="form-control" required>
+                                                <option selected hidden>Seleccione una opción</option>
+                                                <option value="Oro 18K">Oro 18K (750)</option>
+                                                <option value="Oro 14K">Oro 14K (585)</option>
+                                                <option value="Oro 24K">Oro 24K (999)</option>
+                                                <option value="Oro Blanco 18K">Oro Blanco 18K
+                                                    (750)</option>
+                                                <option value="Oro Blanco 14K">Oro Blanco 14K
+                                                    (585)</option>
+                                                <option value="Oro Amarillo 22K">Oro Amarillo
+                                                    22K (916)</option>
+                                                <option value="Oro Amarillo 21K">Oro Amarillo
+                                                    21K (875)</option>
+                                                <option value="Oro Amarillo 20K">Oro Amarillo
+                                                    20K (833)</option>
+                                                <option value="Oro Verde">Oro Verde</option>
+                                                <option value="Oro Rosa 10K">Oro Rosa 10K
+                                                </option>
+                                                <option value="Oro Rosa 14K">Oro Rosa 14K
+                                                </option>
+                                                <option value="Plata 925">Plata 925 (92.5% de
+                                                    pureza)</option>
+                                                <option value="Plata de Ley">Plata de Ley (92.5%
+                                                    de pureza)</option>
+                                                <option value="Plata Fina">Plata Fina (95-99.9%
+                                                    de pureza)</option>
+                                                <option value="Platino 950">Platino 950 (95% de
+                                                    pureza)</option>
+                                                <option value="Platino 900">Platino 900 (90% de
+                                                    pureza)</option>
+                                                <option value="Platino 850">Platino 850 (85% de
+                                                    pureza)</option>
+                                                <option value="Paladio 950">Paladio 950 (95% de
+                                                    pureza)</option>
+                                                <option value="Rodio">Rodio</option>
+                                                <option value="Bronce">Bronce</option>
+                                                <option value="Cobre">Cobre</option>
+                                                <option value="Zinc">Zinc</option>
+                                                <option value="Acero Quirúrgico">Acero
+                                                    Quirúrgico</option>
+                                                <option value="Titanio Grado 5">Titanio Grado 5
+                                                </option>
+                                                <option value="Titanio Grado 7">Titanio Grado 7
+                                                </option>
+                                                <option value="Titanio Puro grado 1-4">Titanio
+                                                    Puro grado 1-4</option>
+                                                <option value="Otro material">Otro</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-3 mb-4">
+                                            <label for="stones"><strong>N° de
+                                                    Piedras:</strong></label>
+                                            <input type="number" id="stones" name="stones" class="form-control"
+                                                required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label>
+                                    <h5><strong>DETALLE</strong></h5>
+                                </label><br>
+
+                                <label><strong>Tipo de Piedra:</strong></label><br>
+                                <div class="table-responsive">
+                                    <div class="d-flex flex-wrap">
+                                        <!-- Opciones de checkbox -->
+                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                            <input type="checkbox" id="otro_piedra" name="type_stone" value="Otro">
+                                            <label for="otro_piedra">Otro</label>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                            <input type="checkbox" id="topacio" name="type_stone" value="Topacio">
+                                            <label for="topacio">Topacio</label>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                            <input type="checkbox" id="cuarzo_variedades" name="type_stone"
+                                                value="Cuarzo (variedades)">
+                                            <label for="cuarzo_variedades">Cuarzo
+                                                (variedades)</label>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                            <input type="checkbox" id="diamantes" name="type_stone" value="Diamantes">
+                                            <label for="diamantes">Diamantes</label>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                            <input type="checkbox" id="rubies" name="type_stone" value="Rubíes">
+                                            <label for="rubies">Rubíes</label>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                            <input type="checkbox" id="zafiros" name="type_stone" value="Zafiros">
+                                            <label for="zafiros">Zafiros</label>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                            <input type="checkbox" id="esmeraldas" name="type_stone" value="Esmeraldas">
+                                            <label for="esmeraldas">Esmeraldas</label>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                            <input type="checkbox" id="jade" name="type_stone" value="Jade">
+                                            <label for="jade">Jade</label>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                            <input type="checkbox" id="amatista" name="type_stone" value="Amatista">
+                                            <label for="amatista">Amatista</label>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                            <input type="checkbox" id="opal" name="type_stone" value="Ópalo">
+                                            <label for="opal">Ópalo</label>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                            <input type="checkbox" id="coral" name="type_stone"
+                                                value="Coral (orgánico)">
+                                            <label for="coral">Coral (orgánico)</label>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                            <input type="checkbox" id="perlas" name="type_stone"
+                                                value="Perlas (orgánico)">
+                                            <label for="perlas">Perlas (orgánico)</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <label><strong>Color Producto:</strong></label><br>
+                                <div class="d-flex flex-wrap">
+                                    <!-- Opciones de checkbox -->
+                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                        <input type="checkbox" id="policromatico" name="color" value="Policromatico">
+                                        <label for="policromatico">Policromático</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                        <input type="checkbox" id="multicolor" name="color" value="Multicolor">
+                                        <label for="multicolor">Multicolor</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                        <input type="checkbox" id="incoloro" name="color" value="Incoloro">
+                                        <label for="incoloro">Incoloro</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                        <input type="checkbox" id="rojo" name="color" value="Rojo">
+                                        <label for="rojo">Rojo</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                        <input type="checkbox" id="azul" name="color" value="Azul">
+                                        <label for="azul">Azul</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                        <input type="checkbox" id="verde" name="color" value="Verde">
+                                        <label for="verde">Verde</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                        <input type="checkbox" id="violeta" name="color" value="Violeta">
+                                        <label for="violeta">Violeta</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                        <input type="checkbox" id="amarillo" name="color" value="Amarillo">
+                                        <label for="amarillo">Amarillo</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                        <input type="checkbox" id="celeste" name="color" value="Celeste">
+                                        <label for="celeste">Celeste</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                        <input type="checkbox" id="naranja" name="color" value="Naranja">
+                                        <label for="naranja">Naranja</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                        <input type="checkbox" id="blanco" name="color" value="Blanco">
+                                        <label for="blanco">Blanco</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                        <input type="checkbox" id="negro" name="color" value="Negro">
+                                        <label for="negro">Negro</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                        <input type="checkbox" id="gris" name="color" value="Gris">
+                                        <label for="gris">Gris</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                        <input type="checkbox" id="plateado" name="color" value="Plateado">
+                                        <label for="plateado">Plateado</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                        <input type="checkbox" id="dorado" name="color" value="Dorado">
+                                        <label for="dorado">Dorado</label>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
+                                        <input type="checkbox" id="rosa" name="color" value="Rosa">
+                                        <label for="rosa">Rosa</label>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-between">
+                                    <div class="col-12 col-md-8">
+                                        <div class="row">
+                                            <div class="col-7 col-md-8">
+                                                <label for="size"><strong>Tamaño:</strong></label>
+                                                <input type="text" placeholder="Codigo alfanumerico" id="size"
+                                                    name="size" class="form-control" required>
+                                            </div>
+                                            <div class="col-5 col-md-4">
+                                                <label for="measures_mm"><strong>Medida
+                                                        (mm):</strong></label>
+                                                <input type="number" placeholder="en numeros de mm" id="measures_mm"
+                                                    name="measures_mm" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Garantia -->
+
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-md-8">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label for="warranty"><strong>Garantía:</strong></label><br>
+                                                <input type="radio" id="si_warranty" name="warranty" value="true"
+                                                    checked>
+                                                <label for="si_warranty">Sí</label>
+                                                <input type="radio" id="no_warranty" name="warranty" value="false">
+                                                <label for="no_warranty">No</label><br>
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="jewel_keeper"><strong>Guardajoyas:</strong></label><br>
+                                                <input type="radio" id="si_jewel_keeper" name="jewel_keeper"
+                                                    value="true" checked>
+                                                <label for="si_jewel_keeper">Sí</label>
+                                                <input type="radio" id="no_jewel_keeper" name="jewel_keeper"
+                                                    value="false">
+                                                <label for="no_jewel_keeper">No</label><br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label>
+                                    <h5><strong>ECONOMÍA</strong></h5>
+                                </label><br>
+                                <div class="row justify-content-between">
+                                    <div class="col-12 col-md-8">
+                                        <div class="row justify-content-between">
+                                            <!-- Campo de Precio Original -->
+                                            <div class="col-12 col-md-5 mb-2 text-center">
+                                                <label for="price"><strong>Precio
+                                                        Original:</strong></label>
+                                                <input type="number" id="price" name="price" class="form-control"
+                                                    required>
+                                            </div>
+                                            <!-- Campo de Descuento % -->
+                                            <div class="col-12 col-md-2 mb-2 text-center">
+                                                <label for="discount"><strong>Oferta_%:</strong></label>
+                                                <input type="number" id="discount" name="discount" class="form-control"
+                                                    required>
+                                            </div>
+                                            <!-- Campo de Precio Oferta -->
+                                            <!-- <div class="col-12 col-md-5 mb-2 text-center">
+                                                <label for="price_final"><strong>Precio
+                                                        Oferta:</strong></label>
+                                                <input type="number" id="price_final" name="price_final"
+                                                    class="form-control" required>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-start">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group mb-2 text-center">
+                                            <label for="stock"
+                                                class="col-form-label mr-2"><strong>Stock:</strong></label>
+                                            <input type="number" id="stock" name="stock" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="reset" class="btn btn-warning">Reset</button>
+                                <button type="submit" class="btn btn-dark">Enviar</button>
+
+                            </form>
+                            <style>
+                                .checkbox-cell {
+                                    cursor: pointer;
+                                    transition: background-color 0.3s ease-in-out;
+                                }
+
+                                .checkbox-cell:hover {
+                                    background-color: gold;
+                                }
+
+                                .small-input {
+                                    width: 70px;
+                                    justify-content: center;
+                                    text-align: center;
+                                    align-items: center;
+                                    margin-left: 20px
+                                }
+                            </style>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row justify-content-start">
-            <div class="col-12 col-md-6">
-                    <div class="form-group mb-2 text-center">
-                        <label for="stock" class="col-form-label mr-2"><strong>Stock:</strong></label>
-                        <input type="number" id="stock" name="stock" class="form-control" required>
-                    </div>
-            </div>
-        </div>
+    </body>
 
-    <button type="reset" class="btn btn-warning">Reset</button>
-    <button type="submit" class="btn btn-dark">Enviar</button>
-
-</form>
-    <style>
-        .checkbox-cell {
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-        }
-        .checkbox-cell:hover {
-            background-color: gold;
-        }
-        .small-input {
-        width: 70px; 
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-        margin-left: 20px
-    }
-    </style>
-    
-</body>
 </html>
