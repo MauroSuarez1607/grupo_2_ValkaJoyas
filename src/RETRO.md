@@ -107,3 +107,39 @@ Por último adjunto enlace de la retrospectiva realizada en Jamboard.
 Por último adjunto enlace de la retrospectiva realizada en Jamboard.
 
 - [REtrospectiva-Jamboard](https://jamboard.google.com/d/1rStgzLXUXnz188b7Uxe_JnkcuQIW-UlSNOtadx2JLgA/viewer?f=0)
+
+# Retrospectiva del cuarto sprint del proyecto integrador
+
+ #### 1. seguir haciendo:
+ 
+ * Revision final general
+ * Planificacion
+ * Democracia
+ * Responsabilidad
+ * Retrospectiva
+ * Reuniones
+
+ #### 2. Empezar a hacer:
+ 
+ * Ser sinceros
+ * Dividir tareas
+ * Buscar nuevas herramientas de trabajo
+
+ #### 3. Hacer más
+ 
+ * Manejar Trello
+ * Administrar los tiempos
+ * Consultas
+ * Hacer consultas innovadoras
+
+ #### 5. Hacer menos
+ 
+ * Dejar mucho tiempo sin comunicarnos
+
+ #### 6. Dejar de hacer
+ 
+ * Tener verguenza en hacer preguntas para reunirnos o relacionadas con el proyecto.
+
+Por último adjunto enlace de la retrospectiva realizada en Jamboard.
+
+- [REtrospectiva-Jamboard](https://jamboard.google.com/d/1rStgzLXUXnz188b7Uxe_JnkcuQIW-UlSNOtadx2JLgA/viewer?f=0)
