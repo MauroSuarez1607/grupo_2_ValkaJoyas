@@ -22,6 +22,21 @@
     font-size: 1.3rem;
 }
 
+.cont-img{
+    overflow: hidden; 
+}
+
+.imagen-zoom {
+    display: block;
+    max-width: 100%;
+    transition: transform 0.3s ease; /* Agrega una transición suave */
+  }
+  
+.imagen-zoom:hover {
+    transform: scale(1.1); /* Aplica un zoom del 10% al pasar el mouse */
+}
+
+
 .home__section-categorias div.grupo-categorias {
     display: flex;
     flex-direction: column;

@@ -240,6 +240,7 @@ div.titulo-carousel2 div.navegacion i {
 
     .swiper-slide div.descripcion-prod {
         position: relative;
+        background-color: var(--colorBlanco);
     }
 
     .swiper-slide div.contenedor-boton {

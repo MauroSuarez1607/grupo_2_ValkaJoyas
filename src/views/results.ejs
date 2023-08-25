@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head',{title: 'Resultados de tu búsqueda'
+}) %>
+
+<body class="home__body">
+
+    <%- include('partials/header') %>
+    <section class="home__section-productos">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Resultados de la búsqueda  : <%= keywords %></h2>
+			</div>
+			<% if (results.length) { %>
+				<% results.forEach(product => { %>
+					<div class="col-6 col-lg-3">
+						<%-include('partials/product',{
+							...product,
+							toThousand
+						})%>
+					</div>
+				<% }) %>
+			<% }else{ %>
+				<div class="col-12">
+					<h2 class="products-title" style="color: tomato;">No hay productos que coincidan con esa búsqueda</h2>
+				</div>
+			<% } %>
+		</div>
+	</section>
+
+    <!-- Carousel 3 | Swiper  -->
+    <section class="home__section-productos">
+        <div class="swiper mySwiper2 carousel2 ">
+           <div class="titulo-carousel2">
+                <h2>lo mejor de <strong>valka</strong></h2>
+                <div class="navegacion">
+                    <a href="">VER TODO</a>
+                    <div class="flechas">
+                        <!-- Flecha anterior -->
+                        <div class="swiper-button-prev-2"><i class="fas fa-chevron-left"></i></div>
+                        <!-- Flecha siguiente -->
+                        <div class="swiper-button-next-2"><i class="fas fa-chevron-right"></i></div>  
+                    </div>
+                </div>
+           </div>
+            <div class="swiper-wrapper">
+                <% products.forEach(product => { %>
+                    <% if (product.brand === 'Valka') { %>
+                        <%- include('partials/product',{
+                            ...product,
+                            toThousand
+                        }) %>
+                    <% } %>
+                <% }) %>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <%- include('partials/footer') %>
+
+    <!-- SWIPER JS -->
+    <%- include('partials/scripts') %>
+
+
+</body>
+
+</html>

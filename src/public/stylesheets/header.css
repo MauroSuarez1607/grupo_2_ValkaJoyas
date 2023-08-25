@@ -3,7 +3,17 @@
 header {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
+    transition: top 0.3s ease, position 0.3s ease; /* Agrega una transición suave */
+    
+}
+
+.encabezado-fijo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 header div.text-superior {
@@ -16,26 +26,30 @@ header div.text-superior {
 header div.text-superior p {
     color: var(--colorBlanco);
     font-size: 0.6rem;
+    margin-bottom: 0px;
 }
 
 
 header div.barra-menu {
     display: flex;
-    height: 80px;
+    height: 60px;
     align-items: center;
     background: linear-gradient(47deg, #F5EFDA 0%, rgba(245, 239, 218, 0.00) 100%), #FFF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 header div.barra-menu i {
     order: 1;
+    font-size: 18px;
+    /* padding-left: 5px; */
 }
 
 /* logos */
 
 header div.contenedor-logos {
-    order: 3;
+    order: 2;
+    width: 45px;
 }
 
 header div.contenedor-logos div.logo1 {
@@ -48,18 +62,37 @@ header div.contenedor-logos div.logo2 {
 
 header div.barra-menu nav {
     display: none;
-
 }
 
 /* buscador */
 header div.buscador {
-    order: 2;
+    order: 3;
 }
+
+header div.buscador div.contenedor-input {
+    display: flex;
+    order: none;
+    width: 108px;
+    align-items: center;
+}
+
 
 header div.buscador div.contenedor-input input {
-    display: none;
+    display: block;
+    border: none;
+    padding: 10px;
+    background-color: transparent;
+    border-bottom: 1px solid var(--colorNegro);
+    width: 108px;
+    height: 30px;
 }
 
+header div.contenedor-input button.buscar{
+    background-color: #fbf9f0;
+    border: none;
+    position: relative;
+    right: 20px;
+}
 
 /* iconos top */
 
@@ -69,7 +102,7 @@ header div.barra-menu div.iconos-top {
 
 header div.barra-menu div.iconos-top i {
     padding: 0px 4px;
-
+    font-size: 18px;
 }
 
 /* MEDIA QUERIES */
@@ -85,28 +118,57 @@ header div.barra-menu div.iconos-top i {
 
 
     header div.barra-menu {
-        padding: 0px 60px;
-        height: 150px;
+        padding: 0px 30px;
+        height: 100px;
+        align-items: center;
+        justify-content: space-between;
     }
 
     header div.barra-menu i {
         font-size: 1.5rem;
+        right: 10px;
     }
 
     /* logos */
-
+    header div.contenedor-logos {
+       
+        width: 20%;
+    }
+    
     header div.contenedor-logos div.logo1 {
         display: inline-block;
     }
 
     header div.contenedor-logos div.logo1 img {
-        height: 50px;
+        height: 100%;
     }
 
     header div.contenedor-logos div.logo2 {
         display: none;
     }
 
+    /* buscador */
+
+    header div.buscador div.contenedor-input {
+        
+        width: 180px;
+        
+    
+    }
+
+
+    header div.buscador div.contenedor-input input {
+        background-color: transparent;
+        border-bottom: 1px solid var(--colorNegro);
+        width: 180px;
+            
+        height: 50px;
+    }
+
+    header div.contenedor-input button.buscar{
+    
+        right: 30px;
+    }
     /* iconos top */
 
     header div.barra-menu div.iconos-top {
@@ -115,20 +177,22 @@ header div.barra-menu div.iconos-top i {
 
     header div.barra-menu div.iconos-top i {
         padding-right: 10px;
+        font-size: 1.5rem;
     }
-
-
 }
-
-
 
 @media(min-width:1024px) {
 
     
 
     header div.text-superior p {
-        /* font-size: 1rem; */
+        
         margin: 0px;
+    }
+
+    header div.barra-menu {
+        /* height: 100px; */
+        justify-content: space-around;
     }
 
     /* nav */
@@ -138,12 +202,14 @@ header div.barra-menu div.iconos-top i {
 
     header div.barra-menu nav ul {
         display: flex;
-        
+        align-items: center;
+        margin-bottom: 0px;
     }
 
     header div.barra-menu nav ul li {
         text-transform: uppercase;
         padding: 0px 16px;
+        font-size: 0.9rem;
     }
 
     header div.barra-menu i.fas.fa-bars {
@@ -154,6 +220,7 @@ header div.barra-menu div.iconos-top i {
 
     header div.contenedor-logos {
         order: 1;
+        width: 14%;
     }
 
     header div.barra-menu nav {
@@ -171,8 +238,8 @@ header div.barra-menu div.iconos-top i {
     header div.buscador div.contenedor-input {
         display: flex;
         order: none;
-        align-items: center;
         width: 161px;
+        align-items: center;
     }
 
     header div.buscador div.contenedor-input input {
@@ -181,12 +248,13 @@ header div.barra-menu div.iconos-top i {
         padding: 20px;
         background-color: transparent;
         border-bottom: 1px solid var(--colorNegro);
-        width: 205px;
+        width: 180px;
+        height: 50px;
     }
 
-    header div.buscador div.contenedor-input i.fas.fa-search {
+    header div.buscador div.contenedor-input button.buscar{
         position: absolute;
-        right: 11px;
+        bottom: 10px;
     }
 
 

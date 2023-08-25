@@ -13,6 +13,13 @@ a {
     color: var(--colorNegro);
 }
 
+a:hover{
+    text-decoration: none;
+    color: var(--colorNegro);
+    width: 100p;
+}
+
+
 body {
     font-family: var(--tipografia);
 }

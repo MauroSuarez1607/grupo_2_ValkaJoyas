@@ -5,9 +5,9 @@ const {detail,cart,add,edit} = require('../Controllers/productsController');
 
 /* /products */
 router
-    .get('/detail', detail)
-    .get('/cart', cart)
+    .get('/detail/:id/',detail)
+    /* .get('/cart', cart)
     .get('/add',add)
-    .get('/edit', edit)
+    .get('/edit', edit) */
 
 module.exports = router;
