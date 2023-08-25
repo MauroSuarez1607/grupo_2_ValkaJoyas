@@ -1,13 +1,17 @@
-// const { readJSON } = require("../../data");
+const{readJSON} = require("../../data");
 
-// module.exports = (req, res) => {
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-//     const products = readJSON("products.json");
 
-//     const id = req.params.id;
-//     const product = products.find((product) => product.id === +id);
+module.exports = (req,res) =>{
+    const products = readJSON('products.json')
 
-//     return res.render("detail", {
-//         product,
-//     });
-// }
+    const id = req.params.id;
+    const product = products.find((product)=> product.id === +id);
+
+    return res.render('detail',{
+        ...product,
+        toThousand,
+        products
+    });
+}

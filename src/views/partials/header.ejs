@@ -17,14 +17,14 @@
         <li>novedades</li>
         <li>joyas</li>
         <li>sale 30%</li>
-        <li>ideas para regalos</li>
+        <li>regalos</li>
       </ul>
     </nav>
     <div class="buscador">
-      <form action="#">
+      <form action="/search" method="GET">
         <div class="contenedor-input">
-          <input type="text" placeholder="Buscar" />
-          <i class="fas fa-search"></i>
+          <input type="text" name="keywords" placeholder="Buscar" />
+          <button type="submit" class="buscar"><i class="fas fa-search"></i></button>
         </div>
       </form>
     </div>
