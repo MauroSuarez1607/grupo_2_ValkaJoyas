@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head', {
+        title : name
+    }) %>
+
+<body class="home__body">
+    
+    <%- include('partials/header') %>
+
+    <section class="contenedor-detalle">
+        <div class="volver">
+            <a href="/"><i class="fas fa-arrow-left"></i>Volver</a>
+        </div>
+        <div class="detalle">
+            <div class="detalle-img">
+                <img src="/images/<%= image1 %>" alt="">
+            </div>
+            <div class="contenido-producto">
+                <div class="detalle-info">
+                    <h4><%= name %></h4>
+                    <h5>$ <%= price %></h5>
+                    <p><%= description %></p>
+                </div>
+                <button class="botonPrimario"><i class="fas fa-shopping-cart"></i>AÑADIR AL CARRITO</button>
+                <div class="info-extra">
+                    <div class="info-extra-item">
+                        <i class="fas fa-exchange-alt"></i><p> 30 días para cambios y devoluciones</p>
+                    </div>
+                    <div class="info-extra-item">
+                        <i class="fas fa-truck"></i><p> Envio Gratis</p>
+                    </div>
+                    <div class="info-extra-item">
+                        <i class="fas fa-shield-alt"></i><p> 3 años de garantía</p>
+                    </div>
+                </div>
+                <div class="detalle-info">
+                    <h6>SKU: <%= id %></h6>
+                    <ul>
+                        <li>Modelo : <%= model %> </li>
+                        <li>Marca : <%= brand %></li>
+                        <li>Metal : <%= metal %> </li>
+                        <li>Tamaño : <%= size %></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CARROUSEL PRODUCTOS RELACIONADOS -->
+    <section class="home__section-productos">
+        <div class="swiper mySwiper2 carousel2 ">
+           <div class="titulo-carousel2">
+                <h2>También te puede gustar </h2>
+                <div class="navegacion">
+                    <a href="">VER TODO</a>
+                    <div class="flechas">
+                        <!-- Flecha anterior -->
+                        <div class="swiper-button-prev-2"><i class="fas fa-chevron-left"></i></div>
+                        <!-- Flecha siguiente -->
+                        <div class="swiper-button-next-2"><i class="fas fa-chevron-right"></i></div>  
+                    </div>
+                </div>
+           </div>
+            <div class="swiper-wrapper">
+                <!-- Card de producto -->
+                <% products.forEach(product => { %>
+                    <% if (product.category === "Anillos") { %>
+                        <%- include('partials/product',{
+                            ...product,
+                            toThousand
+                        }) %>
+                    <% } %> 
+                <% }) %>
+            </div>
+        </div>
+    </section>
+        
+    <!-- FOOTER -->
+    <%- include('partials/footer') %>
+    <!-- SWIPER JS -->
+    <%- include('partials/scripts') %>
+    
+</body>
+</html>

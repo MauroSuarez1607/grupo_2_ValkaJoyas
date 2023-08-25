@@ -46,22 +46,22 @@
     <section class="home__section-categorias">
         <h3>"Encuentra la joya que captura tu esencia."</h3>
         <div class="grupo-categorias">
-            <div class="collares">
-                <img src="/images/categoria1.jpg" alt="">
+            <div class="collares cont-img">
+                <img src="/images/categoria1.jpg" alt="" class="imagen-zoom">
                 <h2>collares</h2>
             </div>
             <div class="tres-categorias">
-                <div class="anillos">
-                    <img src="/images/categoria2.jpg" alt="">
+                <div class="anillos cont-img">
+                    <img src="/images/categoria2.jpg" alt="" class="imagen-zoom" >
                     <h2>anillos</h2>
                 </div>
                 <div class="pulseras-pendientes">
-                    <div class="pulseras">
-                        <img src="/images/categoria3.jpg" alt="">
+                    <div class="pulseras cont-img">
+                        <img src="/images/categoria3.jpg" alt="" class="imagen-zoom">
                         <h2>pulseras</h2>
                     </div>
-                    <div class="pendientes">
-                        <img src="/images/categoria4.jpg" alt="">
+                    <div class="pendientes cont-img">
+                        <img src="/images/categoria4.jpg" alt="" class="imagen-zoom">
                         <h2>pendientes</h2>
                     </div>
                 </div>
@@ -109,30 +109,15 @@
                     </div>
                 </div>
            </div>
-           
             <div class="swiper-wrapper">
                 <!-- Card de producto -->
                 <% products.forEach(product => { %>
-                    <% if (product.discount >0) { %>
-
-                        <div class="swiper-slide">
-                            <div class="producto">
-                                <div class="img-prod">
-                                    <img src="/images/<%= product.image1%>" alt="producto 1">
-                                    <i class="far fa-heart"></i>
-                                </div>
-                                <div class="descripcion-prod">
-                                    <h5><%= product.name %></h5>
-                                    <div class="contenedor-boton">
-                                        <button>$<%= product.price %></button>
-                                    </div>
-                                    <p><%= product.category %></p>
-                                </div>
-                            </div>
-                        </div>
-                     
-                    <% } %>
-                    
+                    <% if (product.brand != "Valka") { %>
+                        <%- include('partials/product',{
+                            ...product,
+                            toThousand
+                        }) %>
+                    <% } %> 
                 <% }) %>
             </div>
         </div>
@@ -162,26 +147,12 @@
            </div>
             <div class="swiper-wrapper">
                 <% products.forEach(product => { %>
-                    <% if (product.discount >0) { %>
-
-                        <div class="swiper-slide">
-                            <div class="producto">
-                                <div class="img-prod">
-                                    <img src="/images/<%= product.image1%>" alt="producto 1">
-                                    <i class="far fa-heart"></i>
-                                </div>
-                                <div class="descripcion-prod">
-                                    <h5><%= product.name %></h5>
-                                    <div class="contenedor-boton">
-                                        <button>$<%= product.price %></button>
-                                    </div>
-                                    <p><%= product.category %></p>
-                                </div>
-                            </div>
-                        </div>
-                     
+                    <% if (product.brand === 'Valka') { %>
+                        <%- include('partials/product',{
+                            ...product,
+                            toThousand
+                        }) %>
                     <% } %>
-                    
                 <% }) %>
                 </div>
             </div>

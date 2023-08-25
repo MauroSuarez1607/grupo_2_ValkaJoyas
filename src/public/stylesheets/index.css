@@ -19,7 +19,23 @@
     font-weight: 400;
     font-style: italic;
     margin: 20px 0px 40px 0px;
+    font-size: 1.3rem;
 }
+
+.cont-img{
+    overflow: hidden; 
+}
+
+.imagen-zoom {
+    display: block;
+    max-width: 100%;
+    transition: transform 0.3s ease; /* Agrega una transición suave */
+  }
+  
+.imagen-zoom:hover {
+    transform: scale(1.1); /* Aplica un zoom del 10% al pasar el mouse */
+}
+
 
 .home__section-categorias div.grupo-categorias {
     display: flex;
@@ -51,6 +67,8 @@
     position: relative;
     bottom: 86px;
     right: 60px;
+    font-size: 1.5rem;
+    /* left: -52px; */
 }
 
 /* Items de compra */
@@ -64,6 +82,7 @@
 
 .home__section-items_compra h5 {
     text-transform: uppercase;
+    font-size: 0.8rem;
 }
 
 .home__section-items_compra i {
@@ -149,6 +168,7 @@
     font-style: italic;
     text-transform: uppercase;
     margin: 10px 0px;
+    font-size: 1.5rem;
 }
 
 .home__section-ubicacion div.tienda-y-maps div {

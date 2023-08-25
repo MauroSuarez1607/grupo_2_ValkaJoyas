@@ -1,0 +1,17 @@
+<div class="swiper-slide">
+    <a href="/products/detail/<%=id%>">
+        <div class="producto">
+            <div class="img-prod">
+                <img src="/images/<%= image1%>" alt="producto <%= id %>">
+                <i class="far fa-heart"></i>
+            </div>
+            <div class="descripcion-prod">
+                <h5><%= name %></h5>
+                <div class="contenedor-boton">
+                    <button>$<%= toThousand(price) %></button>
+                </div>
+                <p><%= category %></p>
+            </div>
+        </div>
+    </a>
+</div>
