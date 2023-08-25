@@ -23,7 +23,7 @@
                         <div class="card-body">
                             <h5 class="card-title font-weight-bold">Nuevo Producto</h5>
                             
-                            <form action="/products/add" method="POST">
+                            <form action="/products/add" method="POST" enctype="multipart/form-data">
                                 <!-- <form action="" method="POST"
                                                     enctype="multipart/form-data">   -->
                                 <label>
@@ -71,16 +71,16 @@
                                 </label><br>
                                 <div class="form-group row">
                                     <label for="image1" class="col-md-6 btn btn-secondary">Principal:</label>
-                                    <div class="col-md-4">
-                                        <input hidden class="form-control" type="file" id="image1" name="image1"
+                                    <div class="col-md-6">
+                                        <input class="form-control" type="file" id="image1" name="image1"
                                             accept="image/*">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="image2" class="col-md-6 btn btn-primary">Secundarias:</label>
-                                    <div class="col-md-10">
-                                        <input hidden class="form-control" type="file" id="image2" name="image2"
+                                    <div class="col-md-6">
+                                        <input class="form-control" type="file" id="image2" name="image2"
                                             accept="image/*" multiple>
                                     </div>
                                 </div>
@@ -255,10 +255,9 @@
                                             <label for="topacio">Topacio</label>
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="cuarzo_variedades" name="type_stone"
-                                                value="Cuarzo (variedades)">
-                                            <label for="cuarzo_variedades">Cuarzo
-                                                (variedades)</label>
+                                            <input type="checkbox" id="cuarzo" name="type_stone"
+                                                value="Cuarzo">
+                                            <label for="cuarzo">Cuarzo</label>
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
                                             <input type="checkbox" id="diamantes" name="type_stone" value="Diamantes">
@@ -289,14 +288,12 @@
                                             <label for="opal">Ópalo</label>
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="coral" name="type_stone"
-                                                value="Coral (orgánico)">
-                                            <label for="coral">Coral (orgánico)</label>
+                                            <input type="checkbox" id="coral" name="type_stone" value="Coral">
+                                            <label for="coral">Coral</label>
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="perlas" name="type_stone"
-                                                value="Perlas (orgánico)">
-                                            <label for="perlas">Perlas (orgánico)</label>
+                                            <input type="checkbox" id="perlas" name="type_stone" value="Perlas">
+                                            <label for="perlas">Perlas</label>
                                         </div>
                                     </div>
                                 </div>

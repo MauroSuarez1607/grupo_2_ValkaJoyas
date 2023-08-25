@@ -1,5 +1,5 @@
 
-// const { unlinkSync, existsSync } = require("fs");
+const { unlinkSync, existsSync } = require("fs");
 const { readJSON, writeJSON } = require("../../data");
 
 module.exports = (req, res) => {
@@ -10,9 +10,9 @@ module.exports = (req, res) => {
   const productsModify = products.map(product => {
     if (product.id === +id) {
 
-      // req.file &&
-      //   existsSync(`./public/images/${product.image1}`) &&
-      //   unlinkSync(`./public/images/${product.image1}`);
+      req.file &&
+        existsSync(`./src/public/images/${product.image1}`) &&
+        unlinkSync(`./src/public/images/${product.image1}`);
 
       product.name = name.trim();
       product.description = description.trim();
@@ -20,7 +20,7 @@ module.exports = (req, res) => {
       product.model = model.trim();
       product.collection = collection.trim();
       // **************IMAGENES****************************
-      product.image1 = null;
+      // product.image1 = null;
       product.image2 = null;
       // **************CLASIFICACIÓN***********************
       //  product.article = article;
@@ -28,8 +28,8 @@ module.exports = (req, res) => {
       product.metal = metal;
       product.stones = +stones;
       // **************DETALLE***********************
-      product.type_stone = type_stone;
-      product.color = color;
+      product.type_stone = Array.isArray(type_stone) && type_stone.length > 0 ? type_stone : (type_stone ? [type_stone] : []);
+      product.color = Array.isArray(color) && color.length > 0 ? color : (color ? [color] : []);
       product.size = size;
       product.measures_mm = +measures_mm;
       product.warranty = warranty;
@@ -39,8 +39,8 @@ module.exports = (req, res) => {
       product.discount = +discount;
       product.stock = +stock;
 
-
-      // product.image1 = req.file ? req.file.filename : product.image1;
+    // **************MULTER**************************** 
+      product.image1 = req.file ? req.file.filename : product.image1;
 
     }
 

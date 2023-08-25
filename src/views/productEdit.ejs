@@ -36,7 +36,7 @@
                                 </div>
                             </form>
 
-                            <form action="/products/update/<%= id %>?_method=PUT" method="POST">
+                            <form action="/products/update/<%= id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                                 <!-- <form action="/products/update/ id " method="POST"> -->
                                                                           
                                 <label>
@@ -86,18 +86,24 @@
                                     <h5><strong>IMÁGENES</strong></h5>
                                 </label><br>
                                 <div class="form-group row">
-                                    <label for="image1" class="col-md-6 btn btn-secondary">Principal:</label>
-                                    <div class="col-md-4">
+                                    <label for="image1" class="col-md-6 btn btn-secondary d-flex align-items-center justify-content-center">Principal:</label>
+                                    <div class="col-md-6">
                                         <input hidden class="form-control" type="file" id="image1" name="image1"
                                             accept="image/*">
+                                            <div class="col-12 col-md-4">
+                                                <img src="/images/<%= image1 %>" class="img-fluid" alt="<%= image1 %>">
+                                            </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="image2" class="col-md-6 btn btn-primary">Secundarias:</label>
-                                    <div class="col-md-10">
+                                    <label for="image2" class="col-md-6 btn btn-primary d-flex align-items-center justify-content-center">Secundarias:</label>
+                                    <div class="col-md-6">
                                         <input hidden class="form-control" type="file" id="image2" name="image2"
                                             accept="image/*" multiple>
+                                            <div class="col-12 col-md-4">
+                                                <img src="/images/<%= image2 %>" class="img-fluid" alt="">
+                                            </div>
                                     </div>
                                 </div>
                                 <label>
@@ -301,56 +307,149 @@
                                     <div class="d-flex flex-wrap">
                                         <!-- Opciones de checkbox -->
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="otro_piedra" name="type_stone" value="Otro">
-                                            <label for="otro_piedra">Otro</label>
+
+                                            <label for="otro_piedra">
+                                                <input type="checkbox" id="otro_piedra" name="type_stone"  value="<%= type_stone %>"
+                                                    <% if (type_stone.includes("Otro") === true) { %>
+                                                checked
+                                              <% } %>
+                                               > 
+                                              Otro
+                                            </label>
+
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="topacio" name="type_stone" value="Topacio">
-                                            <label for="topacio">Topacio</label>
+
+                                            <label for="topacio">
+                                                <input type="checkbox" id="topacio" name="type_stone"  value="<%= type_stone %>"
+                                                    <% if (type_stone.includes("Topacio") === true) { %>
+                                                checked
+                                              <% } %>
+                                               > 
+                                              Topacio
+                                            </label>
+
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="cuarzo_variedades" name="type_stone"
-                                                value="Cuarzo (variedades)">
-                                            <label for="cuarzo_variedades">Cuarzo
-                                                (variedades)</label>
+
+                                            <label for="cuarzo">
+                                                <input type="checkbox" id="cuarzo" name="type_stone"  value="<%= type_stone %>"
+                                                    <% if (type_stone.includes("Cuarzo") === true) { %>
+                                                checked
+                                              <% } %>
+                                               > 
+                                              Cuarzo
+                                            </label>
+
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="diamantes" name="type_stone" value="Diamantes">
-                                            <label for="diamantes">Diamantes</label>
+
+                                            <label for="diamantes">
+                                                <input type="checkbox" id="diamantes" name="type_stone"  value="<%= type_stone %>"
+                                                    <% if (type_stone.includes("Diamantes") === true) { %>
+                                                checked
+                                              <% } %>
+                                               > 
+                                              Diamantes
+                                            </label>
+                                            
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="rubies" name="type_stone" value="Rubíes">
-                                            <label for="rubies">Rubíes</label>
+
+                                            <label for="rubies">
+                                                <input type="checkbox" id="rubies" name="type_stone"  value="<%= type_stone %>"
+                                                    <% if (type_stone.includes("Rubíes") === true) { %>
+                                                checked
+                                              <% } %>
+                                               > 
+                                              Rubíes
+                                            </label>
+
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="zafiros" name="type_stone" value="Zafiros">
-                                            <label for="zafiros">Zafiros</label>
+
+                                            <label for="zafiros">
+                                                <input type="checkbox" id="zafiros" name="type_stone"  value="<%= type_stone %>"
+                                                    <% if (type_stone.includes("Zafiros") === true) { %>
+                                                checked
+                                              <% } %>
+                                               > 
+                                              Zafiros
+                                            </label>
+
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="esmeraldas" name="type_stone" value="Esmeraldas">
-                                            <label for="esmeraldas">Esmeraldas</label>
+
+                                            <label for="esmeraldas">
+                                                <input type="checkbox" id="esmeraldas" name="type_stone"  value="<%= type_stone %>"
+                                                    <% if (type_stone.includes("Esmeraldas") === true) { %>
+                                                checked
+                                              <% } %>
+                                               > 
+                                              Esmeraldas
+                                            </label>
+
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="jade" name="type_stone" value="Jade">
-                                            <label for="jade">Jade</label>
+
+                                            <label for="jade">
+                                                <input type="checkbox" id="jade" name="type_stone"  value="<%= type_stone %>"
+                                                    <% if (type_stone.includes("Jade") === true) { %>
+                                                checked
+                                              <% } %>
+                                               > 
+                                              Jade
+                                            </label>
+
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="amatista" name="type_stone" value="Amatista">
-                                            <label for="amatista">Amatista</label>
+                                           
+                                            <label for="amatista">
+                                                <input type="checkbox" id="amatista" name="type_stone"  value="<%= type_stone %>"
+                                                    <% if (type_stone.includes("Amatista") === true) { %>
+                                                checked
+                                              <% } %>
+                                               > 
+                                              Amatista
+                                            </label>
+
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="opal" name="type_stone" value="Ópalo">
-                                            <label for="opal">Ópalo</label>
+
+                                            <label for="opal">
+                                                <input type="checkbox" id="opal" name="type_stone"  value="<%= type_stone %>"
+                                                    <% if (type_stone.includes("Ópalo") === true) { %>
+                                                checked
+                                              <% } %>
+                                               > 
+                                              Ópalo
+                                            </label>
+
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="coral" name="type_stone"
-                                                value="Coral (orgánico)">
+
+                                            <label for="coral">
+                                                <input type="checkbox" id="coral" name="type_stone"  value="<%= type_stone %>"
+                                                    <% if (type_stone.includes("Coral") === true) { %>
+                                                checked
+                                              <% } %>
+                                               > 
+                                              Coral
+                                            </label>
+
                                             <label for="coral">Coral (orgánico)</label>
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="perlas" name="type_stone"
-                                                value="Perlas (orgánico)">
-                                            <label for="perlas">Perlas (orgánico)</label>
+
+                                            <label for="perlas">
+                                                <input type="checkbox" id="perlas" name="type_stone"  value="<%= type_stone %>"
+                                                    <% if (type_stone.includes("Perlas") === true) { %>
+                                                checked
+                                              <% } %>
+                                               > 
+                                              Perlas
+                                            </label>
+
                                         </div>
                                     </div>
                                 </div>
@@ -360,11 +459,11 @@
                                     <!-- Opciones de checkbox -->
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
                                         <label for="policromatico">
-                                            <input type="checkbox" id="policromatico" name="color" value="<%= color %>"
+                                            <input type="checkbox" id="policromatico" name="color"  value="<%= color %>"
                                                 <% if (color.includes("Policromatico") === true) { %>
                                             checked
                                           <% } %>
-                                          >
+                                           > 
                                           Policromatico
                                         </label>
 
@@ -376,7 +475,7 @@
                                                 <% if (color.includes("Multicolor") === true) { %>
                                             checked
                                           <% } %>
-                                          >
+                                           >
                                           Multicolor
                                         </label>
 
@@ -388,7 +487,7 @@
                                                 <% if (color.includes("Incoloro") === true) { %>
                                             checked
                                           <% } %>
-                                          >
+                                           >
                                           Incoloro
                                         </label>
 
@@ -400,7 +499,7 @@
                                                 <% if (color.includes("Rojo") === true) { %>
                                             checked
                                           <% } %>
-                                          >
+                                           >
                                           Rojo
                                         </label>
 
