@@ -36,46 +36,49 @@
                                 </div>
                             </form>
 
-                            <form action="/products/add" method="POST">
-                                <!-- <form action="" method="POST"
-                                                                        enctype="multipart/form-data">   -->
+                            <form action="" method="POST">
+                                <!-- <form action="/products/update/ id " method="POST"> -->
+                                                                          
                                 <label>
                                     <h5><strong>DATOS</strong></h5>
                                 </label><br>
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
-                                        <label for="referencia" class="col-form-label"><strong>Referencia: <br>
-                                                <!--  'ID'  -->
-                                            </strong></label>
+                                        <label for="referencia" class="col-form-label"><strong>Referencia: </strong></label> 
+                                        <br>    
+                                        <div class="d-flex justify-content-center">
+                                        <span class="bg-warning" style="font-size: 1.5em;">   <%=id%> </span>
+                                        </div>
                                         <!-- <input type="text" placeholder="number" id="referencia" -->
                                         <!-- name="referencia" class="form-control" required> -->
                                     </div>
                                     <div class="form-group col-md-9">
                                         <label for="name" class="col-form-label"><strong>Nombre:</strong></label>
-                                        <input type="text" placeholder="Nombre / Título" id="name" name="name"
-                                            class="form-control" required>
+                                        <input type="text" placeholder="Nombre / Título" id="name" name="name" class="form-control" value="<%=name%>" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="description"><strong>Descripción:</strong></label>
                                     <textarea placeholder="Detalle del producto" id="description" name="description"
-                                        class="form-control" style="resize: none;" required></textarea>
+                                        class="form-control" style="resize: none;"  required><%= description %>
+                                    </textarea>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md">
                                         <label for="brand"><strong>Marca:</strong></label>
-                                        <input type="text" id="brand" name="brand" class="form-control" required>
+                                        <input type="text" id="brand" name="brand" class="form-control" value="<%=brand%>" required>
+                                        
                                     </div>
 
                                     <div class="form-group col-md">
                                         <label for="model"><strong>Modelo:</strong></label>
-                                        <input type="text" id="model" name="model" class="form-control" required>
+                                        <input type="text" id="model" name="model" class="form-control" value="<%=model%>" required>
                                     </div>
                                     <div class="form-group col-md">
                                         <label for="collection"><strong>Colección:</strong></label>
-                                        <input type="text" id="collection" name="collection" class="form-control">
+                                        <input type="text" id="collection" name="collection" class="form-control" value="<%=collection%>">
                                     </div>
                                 </div>
 
@@ -103,24 +106,61 @@
                                 <label for="category"><strong>Categoría:</strong></label>
                                 <div class="row align-items-center">
                                     <div class="col-6 col-md-4 col-lg-2">
-                                        <input type="radio" id="anillos" name="category" value="Anillos" required>
-                                        <label for="anillos">Anillos</label>
+                                        
+                                        <label for="anillos">
+                                            <input type="radio" id="anillos" name="category" value="<%= category %>"
+                                              <% if (category === "Anillos") { %>
+                                                checked
+                                              <% } %>
+                                            >
+                                            Anillos
+                                          </label>
+
+                                      </div>
+                                    <div class="col-6 col-md-4 col-lg-2">
+                                        
+                                        <label for="collares">
+                                            <input type="radio" id="collares" name="category" value="<%= category %>"
+                                              <% if (category === "Collares y Cadenas") { %>
+                                                checked
+                                              <% } %>
+                                            >
+                                            Collares y Cadenas
+                                          </label>
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2">
-                                        <input type="radio" id="collares" name="category" value="Collares y Cadenas">
-                                        <label for="collares">Collares y Cadenas</label>
+                                       
+                                        <label for="pulseras">
+                                            <input type="radio" id="pulseras" name="category" value="<%= category %>"
+                                              <% if (category === "Pulseras y Brazaletes") { %>
+                                                checked
+                                              <% } %>
+                                            >
+                                            Pulseras y Brazaletes
+                                          </label>
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2">
-                                        <input type="radio" id="pulseras" name="category" value="Pulseras y Brazaletes">
-                                        <label for="pulseras">Pulseras y Brazaletes</label>
+
+                                        <label for="pendientes">
+                                            <input type="radio" id="pendientes" name="category" value="<%= category %>"
+                                              <% if (category === "Pendientes y Aretes") { %>
+                                                checked
+                                              <% } %>
+                                            >
+                                            Pendientes y Aretes
+                                          </label>
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2">
-                                        <input type="radio" id="pendientes" name="category" value="Pendientes y Aretes">
-                                        <label for="pendientes">Pendientes y Aretes</label>
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2">
-                                        <input type="radio" id="Accesorios" name="category" value="Accesorios">
-                                        <label for="Accesorios">Accesorios</label>
+
+
+                                        <label for="accesorios">
+                                            <input type="radio" id="accesorios" name="category" value="<%= category %>"
+                                              <% if (category === "Accesorios") { %>
+                                                checked
+                                              <% } %>
+                                            >
+                                            Accesorios
+                                          </label>
                                     </div>
                                 </div>
                                 <!-- Articulo -->
@@ -247,7 +287,7 @@
                                         <div class="col-3 mb-4">
                                             <label for="stones"><strong>N° de
                                                     Piedras:</strong></label>
-                                            <input type="number" id="stones" name="stones" class="form-control"
+                                            <input type="number" id="stones" name="stones" class="form-control" value="<%=stones%>"
                                                 required>
                                         </div>
                                     </div>
@@ -319,68 +359,196 @@
                                 <div class="d-flex flex-wrap">
                                     <!-- Opciones de checkbox -->
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <input type="checkbox" id="policromatico" name="color" value="Policromatico">
-                                        <label for="policromatico">Policromático</label>
+                                        <label for="policromatico">
+                                            <input type="checkbox" id="policromatico" name="color" value="<%= color %>"
+                                                <% if (color.includes("Policromatico") === true) { %>
+                                            checked
+                                          <% } %>
+                                          >
+                                          Policromatico
+                                        </label>
+
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <input type="checkbox" id="multicolor" name="color" value="Multicolor">
-                                        <label for="multicolor">Multicolor</label>
+
+                                        <label for="multicolor">
+                                            <input type="checkbox" id="multicolor" name="color" value="<%= color %>"
+                                                <% if (color.includes("Multicolor") === true) { %>
+                                            checked
+                                          <% } %>
+                                          >
+                                          Multicolor
+                                        </label>
+
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <input type="checkbox" id="incoloro" name="color" value="Incoloro">
-                                        <label for="incoloro">Incoloro</label>
+
+                                        <label for="incoloro">
+                                            <input type="checkbox" id="incoloro" name="color" value="<%= color %>"
+                                                <% if (color.includes("Incoloro") === true) { %>
+                                            checked
+                                          <% } %>
+                                          >
+                                          Incoloro
+                                        </label>
+
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <input type="checkbox" id="rojo" name="color" value="Rojo">
-                                        <label for="rojo">Rojo</label>
+
+                                        <label for="rojo">
+                                            <input type="checkbox" id="rojo" name="color" value="<%= color %>"
+                                                <% if (color.includes("Rojo") === true) { %>
+                                            checked
+                                          <% } %>
+                                          >
+                                          Rojo
+                                        </label>
+
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <input type="checkbox" id="azul" name="color" value="Azul">
-                                        <label for="azul">Azul</label>
+
+                                        <label for="azul">
+                                            <input type="checkbox" id="azul" name="color" value="<%= color %>"
+                                                <% if (color.includes("Azul") === true) { %>
+                                            checked
+                                          <% } %>
+                                          >
+                                          Azul
+                                        </label>
+
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <input type="checkbox" id="verde" name="color" value="Verde">
-                                        <label for="verde">Verde</label>
+
+                                        <label for="verde">
+                                            <input type="checkbox" id="verde" name="color" value="<%= color %>"
+                                                <% if (color.includes("Verde") === true) { %>
+                                            checked
+                                          <% } %>
+                                          >
+                                          Verde
+                                        </label>
+
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <input type="checkbox" id="violeta" name="color" value="Violeta">
-                                        <label for="violeta">Violeta</label>
+
+                                        <label for="violeta">
+                                            <input type="checkbox" id="violeta" name="color" value="<%= color %>"
+                                                <% if (color.includes("Violeta") === true) { %>
+                                            checked
+                                          <% } %>
+                                          >
+                                          Violeta
+                                        </label>
+                                                                            
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <input type="checkbox" id="amarillo" name="color" value="Amarillo">
-                                        <label for="amarillo">Amarillo</label>
+
+                                        
+                                        <label for="amarillo">
+                                            <input type="checkbox" id="amarillo" name="color" value="<%= color %>"
+                                                <% if (color.includes("Amarillo") === true) { %>
+                                            checked
+                                          <% } %>
+                                          >
+                                          Amarillo
+                                        </label>
+
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <input type="checkbox" id="celeste" name="color" value="Celeste">
-                                        <label for="celeste">Celeste</label>
+
+                                        <label for="celeste">
+                                            <input type="checkbox" id="celeste" name="color" value="<%= color %>"
+                                                <% if (color.includes("Celeste") === true) { %>
+                                            checked
+                                          <% } %>
+                                          >
+                                          Celeste
+                                        </label>
+
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <input type="checkbox" id="naranja" name="color" value="Naranja">
-                                        <label for="naranja">Naranja</label>
+
+                                        <label for="naranja">
+                                            <input type="checkbox" id="naranja" name="color" value="<%= color %>"
+                                                <% if (color.includes("Naranja") === true) { %>
+                                            checked
+                                          <% } %>
+                                          >
+                                          Naranja
+                                        </label>
+
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <input type="checkbox" id="blanco" name="color" value="Blanco">
-                                        <label for="blanco">Blanco</label>
+
+                                        <label for="blanco">
+                                            <input type="checkbox" id="blanco" name="color" value="<%= color %>"
+                                                <% if (color.includes("Blanco") === true) { %>
+                                            checked
+                                          <% } %>
+                                          >
+                                          Blanco
+                                        </label>
+
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <input type="checkbox" id="negro" name="color" value="Negro">
-                                        <label for="negro">Negro</label>
+
+                                        <label for="negro">
+                                            <input type="checkbox" id="negro" name="color" value="<%= color %>"
+                                                <% if (color.includes("Negro") === true) { %>
+                                            checked
+                                          <% } %>
+                                          >
+                                          Negro
+                                        </label>
+
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <input type="checkbox" id="gris" name="color" value="Gris">
-                                        <label for="gris">Gris</label>
+
+                                        <label for="gris">
+                                            <input type="checkbox" id="gris" name="color" value="<%= color %>"
+                                                <% if (color.includes("Gris") === true) { %>
+                                            checked
+                                          <% } %>
+                                          >
+                                          Gris
+                                        </label>
+
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <input type="checkbox" id="plateado" name="color" value="Plateado">
-                                        <label for="plateado">Plateado</label>
+
+                                        <label for="plateado">
+                                            <input type="checkbox" id="plateado" name="color" value="<%= color %>"
+                                                <% if (color.includes("Plateado") === true) { %>
+                                            checked
+                                          <% } %>
+                                          >
+                                          Plateado
+                                        </label>
+
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <input type="checkbox" id="dorado" name="color" value="Dorado">
-                                        <label for="dorado">Dorado</label>
+
+                                        <label for="dorado">
+                                            <input type="checkbox" id="dorado" name="color" value="<%= color %>"
+                                                <% if (color.includes("Dorado") === true) { %>
+                                            checked
+                                          <% } %>
+                                          >
+                                          Dorado
+                                        </label>
+
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <input type="checkbox" id="rosa" name="color" value="Rosa">
-                                        <label for="rosa">Rosa</label>
+
+                                        <label for="rosa">
+                                            <input type="checkbox" id="rosa" name="color" value="<%= color %>"
+                                                <% if (color.includes("Rosa") === true) { %>
+                                            checked
+                                          <% } %>
+                                          >
+                                          Rosa
+                                        </label>
+
                                     </div>
                                 </div>
 
@@ -390,13 +558,13 @@
                                             <div class="col-7 col-md-8">
                                                 <label for="size"><strong>Tamaño:</strong></label>
                                                 <input type="text" placeholder="Codigo alfanumerico" id="size"
-                                                    name="size" class="form-control" required>
+                                                    name="size" class="form-control" value="<%=size%>" required>
                                             </div>
                                             <div class="col-5 col-md-4">
                                                 <label for="measures_mm"><strong>Medida
                                                         (mm):</strong></label>
                                                 <input type="number" placeholder="en numeros de mm" id="measures_mm"
-                                                    name="measures_mm" class="form-control" required>
+                                                    name="measures_mm" class="form-control" value="<%=measures_mm%>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -408,22 +576,45 @@
                                     <div class="col-12 col-md-8">
                                         <div class="row">
                                             <div class="col-6">
-                                                <label for="warranty"><strong>Garantía:</strong></label><br>
-                                                <input type="radio" id="si_warranty" name="warranty" value="true"
-                                                    checked>
-                                                <label for="si_warranty">Sí</label>
-                                                <input type="radio" id="no_warranty" name="warranty" value="false">
-                                                <label for="no_warranty">No</label><br>
+                                                <strong> Garantía:</strong> <br>
+                                                <label for="warranty">
+                                                    <input type="radio" id="si_warranty" name="warranty" value="<%= warranty %>"
+                                                      <% if (warranty == "true") { %>
+                                                        checked 
+                                                      <% } %>
+                                                    >
+                                                    <strong> Si </strong>
+                                                  </label><br>
+                                                  <label for="warranty">
+                                                  <input type="radio" id="no_warranty" name="warranty" value="<%= warranty %>"
+                                                  <% if (warranty == "false") { %>
+                                                    checked 
+                                                  <% } %>
+                                                >
+                                                <strong> No </strong>
+                                              </label><br>
                                             </div>
+                                            
                                             <div class="col-6">
-                                                <label for="jewel_keeper"><strong>Guardajoyas:</strong></label><br>
-                                                <input type="radio" id="si_jewel_keeper" name="jewel_keeper"
-                                                    value="true" checked>
-                                                <label for="si_jewel_keeper">Sí</label>
-                                                <input type="radio" id="no_jewel_keeper" name="jewel_keeper"
-                                                    value="false">
-                                                <label for="no_jewel_keeper">No</label><br>
+                                                <strong> Guardajoyas:</strong> <br>
+                                                <label for="jewel_keeper">
+                                                    <input type="radio" id="si_jewel_keeper" name="jewel_keeper" value="<%= jewel_keeper %>"
+                                                      <% if (jewel_keeper == "true") { %>
+                                                        checked 
+                                                      <% } %>
+                                                    >
+                                                    <strong> Si </strong>
+                                                  </label><br>
+                                                  <label for="jewel_keeper">
+                                                  <input type="radio" id="no_jewel_keeper" name="jewel_keeper" value="<%= jewel_keeper %>"
+                                                  <% if (jewel_keeper == "false") { %>
+                                                    checked 
+                                                  <% } %>
+                                                >
+                                                <strong> No </strong>
+                                              </label><br>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -437,13 +628,13 @@
                                             <div class="col-12 col-md-5 mb-2 text-center">
                                                 <label for="price"><strong>Precio
                                                         Original:</strong></label>
-                                                <input type="number" id="price" name="price" class="form-control"
+                                                <input type="number" id="price" name="price" class="form-control" value="<%=price%>"
                                                     required>
                                             </div>
                                             <!-- Campo de Descuento % -->
                                             <div class="col-12 col-md-2 mb-2 text-center">
                                                 <label for="discount"><strong>Oferta_%:</strong></label>
-                                                <input type="number" id="discount" name="discount" class="form-control"
+                                                <input type="number" id="discount" name="discount" class="form-control" value="<%=discount%>"
                                                     required>
                                             </div>
                                             <!-- Campo de Precio Oferta -->
@@ -461,7 +652,7 @@
                                         <div class="form-group mb-2 text-center">
                                             <label for="stock"
                                                 class="col-form-label mr-2"><strong>Stock:</strong></label>
-                                            <input type="number" id="stock" name="stock" class="form-control" required>
+                                            <input type="number" id="stock" name="stock" class="form-control" value="<%=stock%>" required>
                                         </div>
                                     </div>
                                 </div>

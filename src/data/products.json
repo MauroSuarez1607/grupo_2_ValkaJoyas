@@ -493,8 +493,65 @@
       "size": "arte2",
       "measures_mm": 800,
       "warranty": "false",
+      "jewel_keeper": "false",
       "price": 8000,
       "discount": 50,
       "stock": 1
+   },
+   {
+      "id": 18,
+      "name": "anillo",
+      "description": "anillo prueba",
+      "brand": "afe",
+      "model": "afe",
+      "collection": "afe",
+      "image1": null,
+      "image2": null,
+      "category": "Anillos",
+      "metal": "Platino 900",
+      "stones": 20,
+      "type_stone": [
+         "Otro",
+         "Esmeraldas"
+      ],
+      "color": [
+         "Policromatico",
+         "Violeta"
+      ],
+      "size": "arte",
+      "measures_mm": 15,
+      "warranty": "true",
+      "jewel_keeper": "true",
+      "price": 1000,
+      "discount": 20,
+      "stock": 5
+   },
+   {
+      "id": 19,
+      "name": "collares",
+      "description": "collares  y no se",
+      "brand": "arte",
+      "model": "arte2",
+      "collection": "carte",
+      "image1": null,
+      "image2": null,
+      "category": "Collares y Cadenas",
+      "metal": "Rodio",
+      "stones": 2,
+      "type_stone": [
+         "Topacio",
+         "Cuarzo (variedades)"
+      ],
+      "color": [
+         "Policromatico",
+         "Gris"
+      ],
+      "size": "arrrrrr",
+      "measures_mm": 20,
+      "warranty": "true",
+      "jewel_keeper": "true",
+      "price": 1000,
+      "discount": 20,
+      "stock": 10
    }
 ]

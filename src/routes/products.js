@@ -1,23 +1,25 @@
 const express = require('express');
 const router = express.Router();
+// const upload = require('../middlewares/upload');
 
-const {add,create} = require('../Controllers/productsController');
+const {add, edit, create, update} = require('../Controllers/productsController');
 
 /* /products */
 router
     // .get('/detail', detail)
     // .get('/cart', cart)
     .get('/add',add)
-    // .get('/edit', edit)
+    .get('/edit/:id', edit)
     .post('/add',create)
     // .get('/add',add)
+    .put('/update/:id',update)
 
 
 module.exports = router;
 
 
 
-
+// , upload.single('image')
 
 
 
