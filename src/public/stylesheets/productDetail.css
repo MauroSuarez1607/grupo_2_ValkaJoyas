@@ -68,7 +68,7 @@ section.contenedor-detalle div.detalle-info {
 
 @media(min-width:768px) {
 
- 
+
 
   section.contenedor-detalle div.detalle {
 
@@ -96,7 +96,7 @@ section.contenedor-detalle div.detalle-info {
 
   }
 
-  
+
 
 
 }
@@ -105,6 +105,13 @@ section.contenedor-detalle div.detalle-info {
 
 
 @media(min-width:1024px) {
+
+
+  section.contenedor-detalle {
+
+    padding-bottom: 40px;
+
+  }
 
 
   section.contenedor-detalle div.detalle {
