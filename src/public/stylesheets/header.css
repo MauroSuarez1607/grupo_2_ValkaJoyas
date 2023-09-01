@@ -20,7 +20,7 @@ header div.text-superior {
     background-color: var(--colorNegro);
     text-align: center;
     padding: 10px;
-    /* justify-items: center; */
+    
 }
 
 header div.text-superior p {
@@ -191,8 +191,10 @@ header div.barra-menu div.iconos-top i {
     }
 
     header div.barra-menu {
-        /* height: 100px; */
-        justify-content: space-around;
+        
+/* height: 100px; */
+        
+justify-content: space-around;
     }
 
     /* nav */

@@ -1,9 +1,11 @@
 :root {
-    --tipografiaTitulos : 'PT Serif';
-    --tipografia : 'lato';
+    --tipografiaTitulos :
+    'PT Serif';
+    --tipografia :
+    'lato';
     --colorNegro : black;
     --colorGris : grey;
     --colorBlanco : white;
-    --colorCeleste : lightblue;
+    --colorCeleste: rgb(228 241 245);
     --colorArena : #eed8a7;
 }

@@ -3,7 +3,7 @@
 /* <------------MOBILE-------------> */
 
 footer{
-    background: var(--colorArena);
+    background: linear-gradient(47deg, #F5EFDA 100%, rgba(245, 239, 218, 0.00) 100%), #FFF;
     padding: 20px;
     display: flex;
     flex-direction: column;
