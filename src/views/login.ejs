@@ -4,11 +4,44 @@
         title : 'LOGIN'
     }) %>
 
-    <body class="home__body">
+<body class="home__body">
     
-        <%- include('partials/header') %>
+    <%- include('partials/header') %>
+
+
+    <main class="container mt-5 mb-5 bg-white">
+        <div class="row justify-content-around">
+          <div class="col-md-4 col-12 mt-5">
+            <h3>INICIAR SESIÓN</h3>
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required name="email">
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <div class="mb-3">
+                    <input type="checkbox" value="" id="remember">
+                    <label class="form-check-label" for="remember">Recuerdame</label>
+                </div>
+                <button type="submit" class="botonPrimario">INGRESAR <i class="fas fa-arrow-right"></i></button>
+            </form>
+          </div>
+          <div class="col-md-4 col-12 mt-5 mb-5">
+            <h3>UNITE AL CLUB VALKA. OBTENÉ LOS BENEFICIOS</h3>
+            <p>Unite al Valkaclub. Obtené recompensas hoy mismo:</p>
+            <div class="d-flex align-items-center"><i class="fas fa-check"></i><p>15% de descuento en tu próxima compra</p></div>
+            <div class="d-flex align-items-center"><i class="fas fa-check"></i><p>Acceso a productos y rebajas exclusivas para miembros</p></div>
+            <div class="d-flex align-items-center"><i class="fas fa-check"></i><p>Oferta y promociones especiales</p></div>
+            <a href="/users/register"><button class="botonPrimario">REGISTRARME <i class="fas fa-arrow-right"></i></button></a>
+          </div>
+        </div>
+    </main>
+      
     
-    <section class="login__body__section1">
+<!--     <section class="login__body__section1">
         <p>Años de trayectoria trabajando con joyeria de calidad nos avalan.</p>
         <p>Amplio surtido en joyas de oro 18k y plata 925</p>
         <p>Brindamos atencion a minoristas, mayoristas, empresa e instituciones.</p>
@@ -57,7 +90,7 @@
     </div>
       <div class="login__body__div2">
 
-      </div>
+      </div> -->
       <%- include('partials/footer') %>
 </body>
 </html>

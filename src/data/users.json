@@ -1,8 +1,8 @@
 [
     {
         "id":1,
-        "firstName":"Giselda",
-        "lastName":"Arevalo",
+        "name":"Giselda",
+        "surname":"Arevalo",
         "email":"giselda.arevalo@formar.com",
         "password":"pN2|c)@C@rMsy_c",
         "rol":"Admin",
@@ -10,8 +10,8 @@
     },
     {
         "id":2,
-        "firstName":"Cristian",
-        "lastName":"Sanguine",
+        "name":"Cristian",
+        "surname":"Sanguine",
         "email":"cristian.sanguine@formar.com",
         "password":"sI8|.m'?f}",
         "rol":"Admin",
@@ -19,8 +19,8 @@
     },
     {
         "id":3,
-        "firstName":"Mauro",
-        "lastName":"Suarez",
+        "name":"Mauro",
+        "surname":"Suarez",
         "email":"mauro.suarez@formar.com",
         "password":"hV5!5ja>GP8_",
         "rol":"Admin",
@@ -28,17 +28,17 @@
     },
     {
         "id":4,
-        "firstName":"Eric",
-        "lastName":"Mena",
+        "name":"Eric",
+        "surname":"Mena",
         "email":"eric.mena@formar.com",
-        "password":"yS5~2Kt+","rol":"Admin",
-        "rol":"Regular",
+        "password":"yS5~2Kt+",
+        "rol":"Admin",
         "image":"/images/avatars/polloCorazon.jpg"
     },
     {
         "id":5,
-        "firstName":"Emanuel",
-        "lastName":"Arroyo",
+        "name":"Emanuel",
+        "surname":"Arroyo",
         "email":"emanuel.arroyo@formar.com",
         "password":"gI0}l,JvOF",
         "rol":"Regular",

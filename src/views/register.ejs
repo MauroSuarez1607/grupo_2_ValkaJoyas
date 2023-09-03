@@ -4,11 +4,50 @@
         title : 'REGISTER'
     }) %>
 
-    <body class="home__body">
+<body class="home__body">
     
-        <%- include('partials/header') %>
+    <%- include('partials/header') %>
 
-    <section class="register__body__section1">
+    <main class="container mt-5 mb-5 bg-white">
+        <div class="row justify-content-around">
+          <div class="col-12 col-md-10 col-lg-8 mx-auto mt-5 mb-5">
+            <h3>REGÍSTRATE</h3>
+            <form method="POST">
+              <div class="row">
+                <div class="col-12 col-md-6 mb-3">
+                  <label for="name" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="name" required name="name">
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                  <label for="surname" class="form-label">Apellido</label>
+                  <input type="text" class="form-control" id="surname" required name="surname">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control col-12" id="email" required name="email">
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-6 mb-3">
+                  <label for="password" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                  <label for="password2" class="form-label">Confirmar contraseña</label>
+                  <input type="password" class="form-control" id="password2" name="password2" required>
+                </div>
+              </div>
+              <button type="submit" class="botonPrimario">CREAR CUENTA</button>
+            </form>
+          </div>
+        </div>
+    </main>
+      
+
+
+
+
+    <!-- <section class="register__body__section1">
         <p>Años de trayectoria trabajando con joyeria de calidad nos avalan.</p>
         <p>Amplio surtido en joyas de oro 18k y plata 925</p>
         <p>Brindamos atencion a minoristas, mayoristas, empresa e instituciones.</p>
@@ -68,7 +107,7 @@
     </div>
       <div class="register__body__div2">
 
-      </div>
+      </div> -->
       
       <%- include('partials/footer') %>
 </body>
