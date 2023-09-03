@@ -10,13 +10,14 @@ const {
     updateProfile,
     logout
 }= require('../Controllers/usersController');
+const { uploadImageUser } = require('../middlewares/uploadImageUsers');
 
 
 
 /* /users */
 router
     .get('/register', register )
-    //.post('/register', processRegister )
+    .post('/register', uploadImageUser.single('image'), processRegister )
     .get('/login', login )
     //.post('/login', processLogin )
     //.get('/profile', profile)

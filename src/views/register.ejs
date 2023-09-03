@@ -12,7 +12,7 @@
         <div class="row justify-content-around">
           <div class="col-12 col-md-10 col-lg-8 mx-auto mt-5 mb-5">
             <h3>REGÍSTRATE</h3>
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
               <div class="row">
                 <div class="col-12 col-md-6 mb-3">
                   <label for="name" class="form-label">Nombre</label>
@@ -23,9 +23,15 @@
                   <input type="text" class="form-control" id="surname" required name="surname">
                 </div>
               </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control col-12" id="email" required name="email">
+              <div class="row">
+                <div class="col-12 col-md-6 mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control col-12" id="email" required name="email">
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                  <label for="image" class="form-label">Agregar imagen</label>
+                  <input class="form-control" type="file" id="image" name="image">
+                </div>
               </div>
               <div class="row">
                 <div class="col-12 col-md-6 mb-3">
