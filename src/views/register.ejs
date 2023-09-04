@@ -12,21 +12,40 @@
         <div class="row justify-content-around">
           <div class="col-12 col-md-10 col-lg-8 mx-auto mt-5 mb-5">
             <h3>REGÍSTRATE</h3>
+            <hr>
             <form method="POST" enctype="multipart/form-data">
               <div class="row">
                 <div class="col-12 col-md-6 mb-3">
                   <label for="name" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" id="name" required name="name">
+                  <input 
+                    type="text" 
+                    class="form-control <%= locals.errors && (errors.name && 'is-invalid') %>" 
+                    id="name" required 
+                    value="<%= locals.old && (old.name && old.name) %>"
+                    name="name">
+                  <small class="ms-2 text-danger"><%= locals.errors && (errors.name && errors.name.msg) %></small>
                 </div>
                 <div class="col-12 col-md-6 mb-3">
                   <label for="surname" class="form-label">Apellido</label>
-                  <input type="text" class="form-control" id="surname" required name="surname">
+                  <input 
+                    type="text" 
+                    class="form-control <%= locals.errors && (errors.surname && 'is-invalid') %>" 
+                    id="surname" 
+                    value="<%= locals.old && (old.surname && old.surname) %>"
+                    name="surname">
+                    <small class="ms-2 text-danger"><%= locals.errors && (errors.surname && errors.surname.msg) %></small>
                 </div>
               </div>
               <div class="row">
                 <div class="col-12 col-md-6 mb-3">
                   <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control col-12" id="email" required name="email">
+                  <input 
+                    type="email" 
+                    class="form-control col-12 <%= locals.errors && (errors.email && 'is-invalid') %>" 
+                    id="email"
+                    value="<%= locals.old && (old.email && old.email) %>"
+                    name="email">
+                    <small class="ms-2 text-danger"><%= locals.errors && (errors.email && errors.email.msg) %></small>
                 </div>
                 <div class="col-12 col-md-6 mb-3">
                   <label for="image" class="form-label">Agregar imagen</label>
@@ -36,11 +55,21 @@
               <div class="row">
                 <div class="col-12 col-md-6 mb-3">
                   <label for="password" class="form-label">Contraseña</label>
-                  <input type="password" class="form-control" id="password" name="password" required>
+                  <input 
+                    type="password" 
+                    class="form-control" 
+                    id="password"
+                    name="password">
+                    <small class="ms-2 text-danger"><%= locals.errors && (errors.password && errors.password.msg) %></small>
                 </div>
                 <div class="col-12 col-md-6 mb-3">
                   <label for="password2" class="form-label">Confirmar contraseña</label>
-                  <input type="password" class="form-control" id="password2" name="password2" required>
+                  <input 
+                    type="password" 
+                    class="form-control" 
+                    id="password2"
+                    name="password2">
+                    <small class="ms-2 text-danger"><%= locals.errors && (errors.password2 && errors.password2.msg) %></small>
                 </div>
               </div>
               <button type="submit" class="botonPrimario">CREAR CUENTA</button>

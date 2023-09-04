@@ -43,5 +43,23 @@
       "password": "gI0}l,JvOF",
       "rol": "Regular",
       "image": "/images/avatars/polloCorazon.jpg"
+   },
+   {
+      "id": "bd2893af-1155-410c-9d5e-18e3a17b2937",
+      "name": "manzana",
+      "surname": "pera",
+      "email": "manzana@gmail.com",
+      "password": "$2a$10$wzx2aQ4nUUjePXjMU8F5OuBPOCF3xftoy2Ef6oAYu2GunNM/1NvZa",
+      "rol": "Regular",
+      "image": null
+   },
+   {
+      "id": "888171ed-4fa2-4e0d-b27f-340d8f6c46bc",
+      "name": "pera",
+      "surname": "pera",
+      "email": "maria@maria.com",
+      "password": "$2a$10$Q6eXMpVBxl7F.Td.bOqloeEHohKZWpaxnkiqfXRU6tkIR.qnXPVBi",
+      "rol": "Regular",
+      "image": null
    }
 ]
