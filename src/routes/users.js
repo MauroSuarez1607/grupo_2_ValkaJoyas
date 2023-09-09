@@ -12,18 +12,20 @@ const {
 }= require('../Controllers/usersController');
 const { uploadImageUser } = require('../middlewares/uploadImageUsers');
 const registerValidator = require('../validations/registerValidator');
-
+const checkNotUserLogin = require('../middlewares/checkNotUserLogin')
+const loginValidator = require('../validations/loginValidator')
+const checkUserLogin = require('../middlewares/checkUserLogin')
 
 
 /* /users */
 router
-    .get('/register', register )
+    .get('/register', checkNotUserLogin, register )
     .post('/register', uploadImageUser.single('image'), registerValidator, processRegister )
-    .get('/login', login )
-    //.post('/login', processLogin )
-    .get('/profile', profile)
+    .get('/login', checkNotUserLogin, login )
+    .post('/login', loginValidator, processLogin )
+    .get('/profile', checkUserLogin, profile)
     //.put('/update-profile',updateProfile)
-    //.get('/logout',logout)
+    .get('/logout',logout)
     
 
 module.exports = router;
