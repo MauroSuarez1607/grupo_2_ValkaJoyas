@@ -1,1 +1,52 @@
-[]
+[
+   {
+      "id": "23f4aef8-2946-46b5-9a6f-d3042a200273",
+      "name": "Giselda",
+      "surname": "Arevalo",
+      "email": "gisel.arevalo@gmail.com",
+      "password": "$2a$10$FPoLdX945nudWo19Tpk0X.T.njfYXKQ0sqOG7ioez8.NYfTRAlR3S",
+      "rol": "Admin",
+      "image": null,
+      "birthday": null
+   },
+   {
+      "id": "7aa2ecc3-47fe-41c8-ad78-84b8f7172723",
+      "name": "Cristian",
+      "surname": "Sanguine",
+      "email": "cristian.sanguine@gmail.com",
+      "password": "$2a$10$eDUSEOpqnAGN8n9jspAQm.TfzXil7XWzgq5sFEkcKf1108QXoL1MC",
+      "rol": "Admin",
+      "image": null,
+      "birthday": null
+   },
+   {
+      "id": "ec92f5d6-4493-49bc-ab00-0c4cbd56027b",
+      "name": "Mauro",
+      "surname": "Suarez",
+      "email": "mauro.suarez@gmail.com",
+      "password": "$2a$10$dAWN34byF87qG0Hgm1C9SumMaPLrq1hDgDfQhbBLp.8Kp4JXtC/fq",
+      "rol": "Admin",
+      "image": null,
+      "birthday": null
+   },
+   {
+      "id": "8f539824-a0a8-4ae7-8aa7-ed87069a8aa9",
+      "name": "Emanuel",
+      "surname": "Arroyo",
+      "email": "emanuel.arroyo@gmail.com",
+      "password": "$2a$10$0MayeE.apYS1Koelzc3f/OyrVGEwSWoD5DvWeI6pvRE1VDeg3RlDq",
+      "rol": "Admin",
+      "image": null,
+      "birthday": null
+   },
+   {
+      "id": "7cb93b5c-5e5f-408e-a9fd-2eda1081cccb",
+      "name": "Eric",
+      "surname": "Mena",
+      "email": "eric.mena@gmail.com",
+      "password": "$2a$10$Isn68vQKf5/8ggLowvTr0uKdlXmYUMpPFDdz4WIcMr3G1kR0YAxFC",
+      "rol": "Admin",
+      "image": null,
+      "birthday": null
+   }
+]
