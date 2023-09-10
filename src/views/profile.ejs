@@ -8,39 +8,47 @@
 
             <main class="container mt-5 mb-5 bg-white">
                 <div class="row">
-                    <div class="col-12 col-md-10 col-lg-8 mx-auto mt-5 mb-5">
+                    <div class="col-12 col-md-10 mx-auto mt-5 mb-5">
                         <div class="card-body">
                             <h3>Mi Perfil</h3>
                             <hr>
-                            <form method="POST" enctype="multipart/form-data">
-                                <div class="col-12 col-md-6 mb-3">
-                                    <label for="name" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="name" required name="name">
+                            <form method="POST" action="/users/update-profile?_method=PUT" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 mb-5">
+                                        <img src="/images/<%= image %>" alt="" class="img-fluid">
+                                    </div>
+                                    <div>
+                                        <div class="col-12 mb-3">
+                                            <label for="name" class="form-label">Nombre</label>
+                                            <input type="text" class="form-control" id="name" name="name" required value="<%= name %>">
+                                        </div>
+                                        <div class="col-12  mb-3">
+                                            <label for="surname" class="form-label">Apellido</label>
+                                            <input type="text" class="form-control" id="surname" required name="surname" value="<%= surname %>">
+                                        </div>
+                                        <div class="col-12 mb-3">
+                                            <label for="image" class="form-label">Agregar imagen</label>
+                                            <input class="form-control" type="file" id="image" name="image">
+                                        </div>
+                                        <div class="col-12 mb-3">
+                                            <label class="form-label" for="birthday">Cumpleaños</label>
+                                            <input class="form-control" type="date" id="birthday" name="birthday">
+                                        </div>
+                                        <div class="col-12  mb-3">
+                                            <label class="form-label" for="gender">Género</label>
+                                            <select class="form-select" name="gender" id="gender">
+                                                <option selected hidden value="">Seleccione su género</option>
+                                                <option value="v">Hombre</option>
+                                                <option value="m">Mujer</option>
+                                                <option value="o">Prefiero no decirlo</option>
+                                            </select>
+                                        </div>
+                                        <div class="d-flex justify-content-end">
+                                            <button type="submit" class="botonPrimario">GUARDAR</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-12 col-md-6 mb-3">
-                                    <label for="surname" class="form-label">Apellido</label>
-                                    <input type="text" class="form-control" id="surname" required name="surname">
-                                </div>
-                                <div class="col-12 col-md-6 mb-3">
-                                    <label class="form-label" for="birthday">Cumpleaños</label>
-                                    <input class="form-control" type="date" id="birthday" name="birthday">
-                                </div>
-                                <div class="col-12 col-md-6 mb-3">
-                                    <label class="form-label" for="gender">Género</label>
-                                    <select class="form-select" name="gender" id="gender">
-                                        <option selected hidden value="">Seleccione su género</option>
-                                        <option value="v">Hombre</option>
-                                        <option value="m">Mujer</option>
-                                        <option value="o">Prefiero no decirlo</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-md-6 mb-3">
-                                    <label for="image" class="form-label">Agregar imagen</label>
-                                    <input class="form-control" type="file" id="image" name="image">
-                                </div>
-                                <div class="d-flex justify-content-end">
-                                    <button type="submit" class="botonPrimario">GUARDAR</button>
-                                </div>
+                                
 
                             </form>
                         </div>

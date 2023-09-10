@@ -31,17 +31,25 @@
     <div class="iconos-top">
       <% if (!locals.userLogin) { %>
         <a href="/users/login"><i class="far fa-user"></i></a>
-        <a href="/users/register"><i class="fas fa-pen"></i></a>
-      <% }else { %>
-        <% if (userLogin.rol === 'Admin') { %>
-          <a href="/admin">Bienvenid@ ADMIN <%= userLogin.name %>!  </a>         
-        <% }else { %>
-        <a href="/users/profile">Bienvenid@ <%= userLogin.name %>!  </a>
-        <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
-        <% }%>
-        <% }%>
         <a href=""><i class="far fa-heart"></i></a>
         <a href=""><i class="fas fa-shopping-cart"></i></a>
+      <% }else { %>
+        <% if (userLogin.rol === 'Admin') { %>
+          <a href="/admin"><strong>ADMIN</strong></a>  
+          <br>
+          <a href="/users/profile">Bienvenid@<%= userLogin.name %>!</a>
+          <a href=""><i class="far fa-heart"></i></a>
+          <a href=""><i class="fas fa-shopping-cart"></i></a>
+          <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
+               
+        <% }else { %>
+          <a href="/users/profile">Bienvenid@ <%= userLogin.name %>!  </a>
+          <a href=""><i class="far fa-heart"></i></a>
+          <a href=""><i class="fas fa-shopping-cart"></i></a>
+          <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
+        <% }%>
+      <% }%>
+        
     </div>
   </div>
 </header>
