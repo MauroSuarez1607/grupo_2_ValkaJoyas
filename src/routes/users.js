@@ -24,7 +24,7 @@ router
     .get('/login', checkNotUserLogin, login )
     .post('/login', loginValidator, processLogin )
     .get('/profile', checkUserLogin, profile)
-    .put('/update-profile',updateProfile)
+    .put('/update-profile',uploadImageUser.single('image'),updateProfile)
     .get('/logout',logout)
     
 

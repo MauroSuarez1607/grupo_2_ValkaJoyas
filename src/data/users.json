@@ -6,8 +6,9 @@
       "email": "gisel.arevalo@gmail.com",
       "password": "$2a$10$FPoLdX945nudWo19Tpk0X.T.njfYXKQ0sqOG7ioez8.NYfTRAlR3S",
       "rol": "Admin",
-      "image": null,
-      "birthday": null
+      "image": "giselda_foto.png",
+      "birthday": null,
+      "gender": null
    },
    {
       "id": "7aa2ecc3-47fe-41c8-ad78-84b8f7172723",
@@ -16,8 +17,9 @@
       "email": "cristian.sanguine@gmail.com",
       "password": "$2a$10$eDUSEOpqnAGN8n9jspAQm.TfzXil7XWzgq5sFEkcKf1108QXoL1MC",
       "rol": "Admin",
-      "image": null,
-      "birthday": null
+      "image": "cris_foto.png",
+      "birthday": null,
+      "gender": null
    },
    {
       "id": "ec92f5d6-4493-49bc-ab00-0c4cbd56027b",
@@ -26,8 +28,9 @@
       "email": "mauro.suarez@gmail.com",
       "password": "$2a$10$dAWN34byF87qG0Hgm1C9SumMaPLrq1hDgDfQhbBLp.8Kp4JXtC/fq",
       "rol": "Admin",
-      "image": null,
-      "birthday": null
+      "image": "mauro_foto.png",
+      "birthday": null,
+      "gender": null
    },
    {
       "id": "8f539824-a0a8-4ae7-8aa7-ed87069a8aa9",
@@ -36,8 +39,9 @@
       "email": "emanuel.arroyo@gmail.com",
       "password": "$2a$10$0MayeE.apYS1Koelzc3f/OyrVGEwSWoD5DvWeI6pvRE1VDeg3RlDq",
       "rol": "Admin",
-      "image": null,
-      "birthday": null
+      "image": "emma_foto.png",
+      "birthday": null,
+      "gender": null
    },
    {
       "id": "7cb93b5c-5e5f-408e-a9fd-2eda1081cccb",
@@ -46,7 +50,19 @@
       "email": "eric.mena@gmail.com",
       "password": "$2a$10$Isn68vQKf5/8ggLowvTr0uKdlXmYUMpPFDdz4WIcMr3G1kR0YAxFC",
       "rol": "Admin",
-      "image": null,
-      "birthday": null
+      "image": "eric_foto.png",
+      "birthday": null,
+      "gender": null
+   },
+   {
+      "id": "953cddf9-ed80-49d7-b8ba-ae33fb1c57dc",
+      "name": "amalia",
+      "surname": "rodry",
+      "email": "amalia@gmail.com",
+      "password": "$2a$10$VItKrLTDfoJU/6LXU2sKyefLXm3KCLXr0yKYmPO1yiVosuVr/CStC",
+      "rol": "Regular",
+      "image": "1694381547690_users_.jpg",
+      "birthday": null,
+      "gender": null
    }
 ]

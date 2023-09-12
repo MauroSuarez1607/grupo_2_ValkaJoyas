@@ -10,6 +10,8 @@ const User = function ({name,email,surname,password,image}){
     this.rol = "Regular";
     this.image = image;
     this.birthday = null
+    this.gender = null
+
 }
 
 module.exports = User;
