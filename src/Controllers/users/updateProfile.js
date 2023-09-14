@@ -4,9 +4,8 @@ module.exports = (req,res) => {
     
     const users = readJSON('users.json');
     const userId = req.session.userLogin.id;
-   
-
     const {name,surname,gender,birthday}= req.body;
+    
 
     const usersModify = users.map(user =>{
         if( user.id === userId){
@@ -14,16 +13,16 @@ module.exports = (req,res) => {
                 ...user,
                 name,
                 surname,
-                gender,
-                birthday,
+                gender: req.body.gender? gender : user.gender,
+                birthday: req.body.birthday? birthday: user.birthday,
                 image: req.file?.filename || user.image
             }
         }
        return user
     });
     writeJSON(usersModify,'users.json');
-    const user = usersModify.find(({id}) => id === userId )
-    return res.render('profile', {
-        ...user
-    });
+
+    
+    return res.redirect('/users/profile')
+    
 }

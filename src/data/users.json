@@ -56,13 +56,13 @@
    },
    {
       "id": "953cddf9-ed80-49d7-b8ba-ae33fb1c57dc",
-      "name": "amalia",
-      "surname": "rodry",
+      "name": "Amalia",
+      "surname": "Ramos",
       "email": "amalia@gmail.com",
       "password": "$2a$10$VItKrLTDfoJU/6LXU2sKyefLXm3KCLXr0yKYmPO1yiVosuVr/CStC",
       "rol": "Regular",
-      "image": "1694381547690_users_.jpg",
-      "birthday": null,
-      "gender": null
+      "image": "1694562521769_users_.jpg",
+      "birthday": "2023-08-28",
+      "gender": "m"
    }
 ]
