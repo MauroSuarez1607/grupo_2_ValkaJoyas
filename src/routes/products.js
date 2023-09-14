@@ -10,7 +10,7 @@ router
     .get('/add',add)
     .get('/edit/:id', edit)
     .delete('/remove/:id', remove)
-    .post('/add', upload.single('image1'),create)
-    .put('/update/:id', upload.single('image1'),update)
+    .post('/add', upload.fields([{ name: 'image1'},{ name: 'image2'}]), create)
+    .put('/update/:id', upload.fields([{ name: 'image1'},{ name: 'image2'}]), update)
 
 module.exports = router;

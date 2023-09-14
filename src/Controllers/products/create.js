@@ -7,8 +7,8 @@ module.exports = (req, res) => {
   const products = readJSON('products.json')
     const data = {
       ...req.body,
-      image1 : req.file ? req.file.filename : null,
-      image2: req.files ? req.files.map(file => file.filename) : null,
+      image1: req.files && req.files.image1 && req.files.image1.length > 0 ? req.files.image1[0].filename : null,
+      image2: req.files && req.files.image2 ? req.files.image2.map((image) => image.filename) : [],
     }
 
 
@@ -19,11 +19,5 @@ module.exports = (req, res) => {
   writeJSON(products, 'products.json')
 
     return res.redirect('/admin') //  POST
-
-
-
-  // if(req.file){
-  //   existsSync('./public/images/' + req.file.filename) && unlinkSync('./public/images/' + req.file.filename)
-  // }
 
 }

@@ -3,7 +3,7 @@ const products = readJSON('products.json')
 
 // const { v4: uuidv4 } = require("uuid");
 
-const Product = function ({name, description, brand, model, collection, category, metal, stones, type_stone, color, size, measures_mm, warranty, jewel_keeper, price, discount, stock, image1}) {
+const Product = function ({name, description, brand, model, collection, category, metal, stones, type_stone, color, size, measures_mm, warranty, jewel_keeper, price, discount, stock, image1, image2}) {
   // this.id = uuidv4();
   this.id = products[products.length - 1].id + 1;
   // **************DATOS****************************
@@ -13,8 +13,8 @@ const Product = function ({name, description, brand, model, collection, category
   this.model = model.trim();
   this.collection = collection.trim();
  // **************IMAGENES****************************
- this.image1 = image1;
- this.image2 = null;
+ this.image1 = Array.isArray(image1) && image1.length > 0 ? image1 : (image1 ? [image1] : []); /* tal vez poner aca en vez de [] un null */
+ this.image2 = image2;
  // **************CLASIFICACIÓN***********************
 //  this.article = article;
  this.category = category;

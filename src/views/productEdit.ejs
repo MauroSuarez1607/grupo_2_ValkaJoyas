@@ -86,10 +86,10 @@
                                     <h5><strong>IMÁGENES</strong></h5>
                                 </label><br>
                                 <div class="form-group row">
-                                    <label for="image1" class="col-md-6 btn btn-secondary d-flex align-items-center justify-content-center">Principal:</label>
-                                    <div class="col-md-6">
+                                    <label for="image1" class="col-md-4 btn btn-secondary d-flex align-items-center justify-content-center">Principal:</label>
+                                    <div class="col-md-4">
                                         <input hidden class="form-control" type="file" id="image1" name="image1"
-                                            accept="image/*">
+                                            accept="image/*" required>
                                             <div class="col-12 col-md-4">
                                                 <img src="/images/<%= image1 %>" class="img-fluid" alt="<%= image1 %>">
                                             </div>
@@ -97,15 +97,19 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="image2" class="col-md-6 btn btn-primary d-flex align-items-center justify-content-center">Secundarias:</label>
-                                    <div class="col-md-6">
-                                        <input hidden class="form-control" type="file" id="image2" name="image2"
-                                            accept="image/*" multiple>
-                                            <div class="col-12 col-md-4">
-                                                <img src="/images/<%= image2 %>" class="img-fluid" alt="">
-                                            </div>
+                                    <label for="image2" class="col-md-4 btn btn-primary d-flex align-items-center justify-content-center">Secundarias:</label>
+                                    <div class="col-md-4">
+                                      <input hidden class="form-control" type="file" id="image2" name="image2"
+                                        accept="image/*" multiple>
+                                      <div class="col-12 col-md-6">
+                                        <div class="d-flex">
+                                          <% image2.forEach(function(image) { %>
+                                            <img src="/images/<%= image %>" class="img-fluid mr-1 mb-1 d-inline" alt="">
+                                          <% }) %>
+                                        </div>
+                                      </div>
                                     </div>
-                                </div>
+                                  </div>
                                 <label>
                                     <h5><strong>CLASIFICACIÓN</strong></h5>
                                 </label><br>
