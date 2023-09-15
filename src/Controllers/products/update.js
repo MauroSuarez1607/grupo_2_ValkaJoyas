@@ -12,7 +12,7 @@ module.exports = (req, res) => {
 
       // Problema: si hay imagenes cargadas de antemano, pero no cargo nada en la actualizacion, igualmente esas imagenes se borran
 
-      if (req.files && req.files.length > 0) {
+      if (req.files && req.files.image1 && req.files.image1.length > 0) {
         existsSync(`./src/public/images/${product.image1}`) && unlinkSync(`./src/public/images/${product.image1}`);
       }
   

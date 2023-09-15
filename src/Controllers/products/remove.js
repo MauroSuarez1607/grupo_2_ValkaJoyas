@@ -1,3 +1,4 @@
+const { unlinkSync, existsSync } = require("fs");
 const { readJSON, writeJSON } = require("../../data")
 
 module.exports = (req,res) => {
@@ -6,10 +7,25 @@ module.exports = (req,res) => {
 
     const productDelete = products.filter(product => product.id !== +id)
 
-    existsSync(`./src/public/images/${product.image1}`) &&
-    unlinkSync(`./src/public/images/${product.image1}`);
+    products.forEach(product => {
+        if (product.id === +id) {
+          if (product.image1) {
+            existsSync(`./src/public/images/${product.image1}`) &&
+              unlinkSync(`./src/public/images/${product.image1}`);
+          }
+      
+          if (product.image2 && product.image2.length > 0) {
+            product.image2.forEach(images => {
+              existsSync(`./src/public/images/${images}`) &&
+                unlinkSync(`./src/public/images/${images}`);
+            });
+          }
+        }
+      });
+
 // linea arriba para eliminar img de public
     writeJSON(productDelete, 'products.json')
 
     return res.redirect('/admin')
 }
+
