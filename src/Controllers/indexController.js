@@ -1,5 +1,10 @@
 const products = require('../data/products.json')
 
+// lineas para actualizar automaticamente sin recargar navegador
+const path = require("path");
+const { readFileSync, writeFileSync } = require("fs");
+
+
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
@@ -10,6 +15,9 @@ module.exports = {
         })
     },
     admin : (req,res)=>{
+        // lineas para recargar automaticamente el navegador
+        const seeadmin = path.join(__dirname,'../data/products.json');
+        const products = JSON.parse(readFileSync(seeadmin, 'utf-8'));
         return res.render('admin',{
             products
         })
