@@ -24,7 +24,7 @@
                                         aria-controls="nav-profile" aria-selected="false">Marcas</button>
                                     <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-contact" type="button" role="tab"
-                                        aria-controls="nav-contact" aria-selected="false">Tutoriales</button>
+                                        aria-controls="nav-contact" aria-selected="false">Categorias</button>
                                     <button class="nav-link" id="nav-disabled-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-disabled" type="button" role="tab"
                                         aria-controls="nav-disabled" aria-selected="false"
@@ -32,10 +32,11 @@
                                 </div>
                             </nav>
                             <div class="tab-content " id="nav-tabContent">
+                                <!-- PRODUCTOS -->
                                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                                     aria-labelledby="nav-home-tab" tabindex="0">
                                     <div class="d-flex flex-column flex-md-row gap-2 justify-content-between  my-3">
-                                        <a href="/products/add" class="btn btn-dark"><i class="fas fa-plus">Agregar</i></a>
+                                        <a href="/products/add" class="btn btn-dark"><i class="fas fa-plus"></i>Agregar</a>
                                         <form action="/products/search" class="d-flex gap-2 flex-column flex-md-row" >
                                             <!-- Seleccionar por marca -->
                                             <select class="form-control" aria-label="Default select example">
@@ -49,8 +50,9 @@
                                             <button type="submit" class="btn btn-dark"> <i class="fas fa-search"></i></button>
                                         </form>
                                     </div>
+                                    <!-- tabla -->
                                     <div class="table-responsive">
-                                        <!-- tabla -->
+                                        
                                         <table class="table table-striped ">
                                             <thead>
                                             <tr>
@@ -64,9 +66,10 @@
                                             </tr>
                                             </thead>
                                             <tbody>
+                                                <% let counter = 1; %>
                                                 <% products.forEach(({id,name,brand,price,discount,description,image1}) => { %>
                                                     <tr>
-                                                        <th scope="row">1</th>
+                                                        <th scope="row"><%= counter %></th>
                                                         <td><%=name%></td>
                                                         <td><%=brand? brand : 'sin  especificar'%></td>
                                                         <td><%=price%></td>
@@ -130,17 +133,72 @@
                                                             </div>
                                                         </td>
                                                     </tr>                                                                
-                                                
+                                                    <% counter++; %>
                                                 <% }) %>
                                             
                                             </tbody>
                                         </table>
-                                    </div>
+                                    </div>    
                                 </div>
+                                <!-- MARCAS -->
                                 <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                    aria-labelledby="nav-profile-tab" tabindex="0">Todas las marcas</div>
+                                    aria-labelledby="nav-profile-tab" tabindex="0">Todas las marcas
+                                    <div class="table-responsive">
+                                        
+                                        <table class="table table-striped ">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Marca</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% let counter2 = 1; %>
+                                                <% let uniqueBrands = new Set(); %>
+                                                <% products.forEach(({brand}) => { %>
+                                                    <% if (!uniqueBrands.has(brand)) { %>
+                                                        <tr>
+                                                            <th scope="row"><%= counter2 %></th>
+                                                            <td><%= brand %></td>
+                                                        </tr>
+                                                        <% uniqueBrands.add(brand); %>
+                                                        <% counter2++; %>
+                                                    <% } %>
+                                                    
+                                                <% }) %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                                <!-- CATEGORIAS -->
                                 <div class="tab-pane fade" id="nav-contact" role="tabpanel"
-                                    aria-labelledby="nav-contact-tab" tabindex="0">Todos los tutoriales</div>
+                                    aria-labelledby="nav-contact-tab" tabindex="0">Todos las categorias
+                                    <table class="table table-striped ">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Categoria</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% let counter3 = 1; %>
+                                            <% let uniqueCategories = new Set(); %>
+                                            <% products.forEach(({category}) => { %>
+                                                <% if (!uniqueCategories.has(category)) { %>
+                                                    <tr>
+                                                        <th scope="row"><%= counter3 %></th>
+                                                        <td><%= category %></td>
+                                                    </tr>
+                                                    <% uniqueCategories.add(category); %>
+                                                    <% counter3++; %>
+                                                <% } %>
+                                                
+                                            <% }) %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- TAB DESABILITADO -->
                                 <div class="tab-pane fade" id="nav-disabled" role="tabpanel"
                                     aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
                             </div>
