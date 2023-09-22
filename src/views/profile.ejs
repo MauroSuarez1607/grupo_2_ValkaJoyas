@@ -34,10 +34,10 @@
                                             <label class="form-label" for="birthday">Cumpleaños</label>
                                             <input class="form-control" type="date" id="birthday" name="birthday" value="<%= birthday %>">
                                         </div>
-                                        <div class="col-12  mb-3">
-                                            <label class="form-label" for="gender">Género</label>
-                                            <select class="form-select" name="gender" id="gender">
-                                                <option value="" disabled>Seleccione su género</option>
+                                        <div class="col-12  mb-3 form-floating">
+                                            <label class="form-label" for="gender" id="floatingSelect">Género</label>
+                                            <select class="form-control" name="gender" id="gender">
+                                                <option value="<%= null %>" selected>Seleccione su género</option>
                                                 <option value="v" <%= gender === 'v' ? 'selected' : '' %>>Hombre</option>
                                                 <option value="m" <%= gender === 'm' ? 'selected' : '' %>>Mujer</option>
                                                 <option value="o" <%= gender === 'o' ? 'selected' : '' %>>Prefiero no decirlo</option>
@@ -57,6 +57,9 @@
             </main>
 
         <%- include('partials/footer') %>
+
+
+    <%- include('partials/scripts') %>
     </body>
 
 </html>
