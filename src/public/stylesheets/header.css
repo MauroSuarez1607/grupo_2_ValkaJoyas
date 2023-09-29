@@ -8,13 +8,13 @@ header {
     
 }
 
-.encabezado-fijo {
+/* .encabezado-fijo {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-}
+} */
 
 header div.text-superior {
     background-color: var(--colorNegro);
