@@ -34,7 +34,7 @@
         <a href=""><i class="far fa-heart"></i></a>
         <a href=""><i class="fas fa-shopping-cart"></i></a>
       <% }else { %>
-        <% if (userLogin.rol === 'Admin') { %>
+        <% if (userLogin.rol === 1) { %>
           <a href="/admin"><strong>ADMIN</strong></a>  
           <br>
           <a href="/users/profile">Bienvenid@<%= userLogin.name %>!</a>
