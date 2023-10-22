@@ -1,12 +1,14 @@
 "use strict";
 
-const collections = [
-  {  
-    name : ' ',
+
+const collectionsJSON = require('../../data/collections.json')
+const collections = collectionsJSON.map(collection => {
+  return {
+    name : collection,
     createdAt : new Date,
-    updatedAt : new Date  
+    updatedAt : new Date
   }
-]
+})
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
