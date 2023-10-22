@@ -11,27 +11,51 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Product.belongsTo(models.Brand, {
+        as : 'brand',
+        foreignKey : 'brandId'
+      })
+      Product.belongsTo(models.Model, {
+        as : 'model',
+        foreignKey : 'modelId'
+      })
+      Product.belongsTo(models.Collection, {
+        as : 'collection',
+        foreignKey : 'collectionId'
+      })
+      Product.belongsTo(models.Metal, {
+        as : 'metal',
+        foreignKey : 'metalId'
+      })
+      Product.belongsTo(models.Type_stone, {
+        as : 'type_stone',
+        foreignKey : 'type_stoneId'
+      })
+      Product.belongsTo(models.Category, {
+        as : 'category',
+        foreignKey : 'categoryId'
+      })
     }
   }
   Product.init({
     name: DataTypes.STRING,
-    price: DataTypes.INTEGER,
-    discount: DataTypes.INTEGER,
     description: DataTypes.TEXT,
     image1: DataTypes.STRING,
     image2: DataTypes.STRING,
     stones: DataTypes.INTEGER,
     size: DataTypes.STRING,
-    measuresMm: DataTypes.INTEGER,
+    measures_mm: DataTypes.INTEGER,
     warranty: DataTypes.BOOLEAN,
-    jewelKeeper: DataTypes.BOOLEAN,
+    jewel_keeper: DataTypes.BOOLEAN,
+    price: DataTypes.INTEGER,
+    discount: DataTypes.INTEGER,
     stock: DataTypes.INTEGER,
     brandId: DataTypes.INTEGER,
     modelId: DataTypes.INTEGER,
     collectionId: DataTypes.INTEGER,
-    categoryId: DataTypes.INTEGER,
     metalId: DataTypes.INTEGER,
-    type_stoneId: DataTypes.INTEGER
+    type_stoneId: DataTypes.INTEGER,
+    categoryId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Product',

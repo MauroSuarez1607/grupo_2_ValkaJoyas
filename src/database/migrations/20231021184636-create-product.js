@@ -13,17 +13,8 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull : false
       },
-      price: {
-        type: Sequelize.INTEGER.UNSIGNED,
-        allowNull : false
-      },
-      discount: {
-        type: Sequelize.INTEGER.UNSIGNED,
-        defaultValue : 0
-      },
       description: {
-        type: Sequelize.TEXT,
-        allowNull : false
+        type: Sequelize.TEXT
       },
       image1: {
         type: Sequelize.STRING
@@ -33,28 +24,31 @@ module.exports = {
       },
       stones: {
         type: Sequelize.INTEGER.UNSIGNED,
-        allowNull : false,
         defaultValue : 0
       },
       size: {
-        type: Sequelize.STRING,
-        allowNull : false
+        type: Sequelize.STRING
       },
-      measuresMm: {
-        type: Sequelize.INTEGER.UNSIGNED,
-        allowNull : false
+      measures_mm: {
+        type: Sequelize.INTEGER
       },
       warranty: {
-        type: Sequelize.BOOLEAN,
-        allowNull : false
+        type: Sequelize.BOOLEAN
       },
-      jewelKeeper: {
-        type: Sequelize.BOOLEAN,
-        allowNull : false
+      jewel_keeper: {
+        type: Sequelize.BOOLEAN
+      },
+      price: {
+        type: Sequelize.INTEGER.UNSIGNED,
+        defaultValue : 0
+      },
+      discount: {
+        type: Sequelize.INTEGER.UNSIGNED,
+        defaultValue : 0
       },
       stock: {
         type: Sequelize.INTEGER.UNSIGNED,
-        allowNull : false
+        defaultValue : 0
       },
       brandId: {
         type: Sequelize.INTEGER,
@@ -80,14 +74,6 @@ module.exports = {
           }
         }
       },
-      categoryId: {
-        type: Sequelize.INTEGER,
-        references : {
-          model : {
-            tableName : 'Categories'
-          }
-        }
-      },
       metalId: {
         type: Sequelize.INTEGER,
         references : {
@@ -101,6 +87,14 @@ module.exports = {
         references : {
           model : {
             tableName : 'Type_stones'
+          }
+        }
+      },
+      categoryId: {
+        type: Sequelize.INTEGER,
+        references : {
+          model : {
+            tableName : 'Categories'
           }
         }
       },
