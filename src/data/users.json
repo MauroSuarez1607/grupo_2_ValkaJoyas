@@ -5,7 +5,7 @@
       "surname": "Arevalo",
       "email": "gisel.arevalo@gmail.com",
       "password": "$2a$10$FPoLdX945nudWo19Tpk0X.T.njfYXKQ0sqOG7ioez8.NYfTRAlR3S",
-      "rol": "Admin",
+      "rol": 1,
       "image": "giselda_foto.png",
       "birthday": null,
       "gender": null
