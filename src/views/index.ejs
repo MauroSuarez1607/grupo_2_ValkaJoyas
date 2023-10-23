@@ -117,13 +117,13 @@
            </div>
             <div class="swiper-wrapper">
                 <!-- Card de producto -->
-                <% products.forEach(product => { %>
-                    <% if (product.brand != "Valka") { %>
-                        <%- include('partials/product',{
-                            ...product,
-                            toThousand
+                <% novedades.forEach(product => { %>
+                    <% if (product.brandId != 1) { %>
+                        <%- include('partials/product', {
+                            product: product, 
+                            toThousand: toThousand
                         }) %>
-                    <% } %> 
+                    <% } %>
                 <% }) %>
             </div>
         </div>
@@ -152,11 +152,11 @@
                 </div>
            </div>
             <div class="swiper-wrapper">
-                <% products.forEach(product => { %>
-                    <% if (product.brand === 'Valka') { %>
-                        <%- include('partials/product',{
-                            ...product,
-                            toThousand
+                <% novedades.forEach(product => { %>
+                    <% if (product.brandId === 2) { %>
+                        <%- include('partials/product', {
+                            product: product, 
+                            toThousand: toThousand
                         }) %>
                     <% } %>
                 <% }) %>
