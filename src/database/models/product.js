@@ -15,9 +15,9 @@ module.exports = (sequelize, DataTypes) => {
         as : 'brand',
         foreignKey : 'brandId'
       })
-      Product.belongsTo(models.Model, {
-        as : 'model',
-        foreignKey : 'modelId'
+      Product.belongsTo(models.Design, {
+        as : 'design',
+        foreignKey : 'designId'
       })
       Product.belongsTo(models.Collection, {
         as : 'collection',
@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
     discount: DataTypes.INTEGER,
     stock: DataTypes.INTEGER,
     brandId: DataTypes.INTEGER,
-    modelId: DataTypes.INTEGER,
+    designId: DataTypes.INTEGER,
     collectionId: DataTypes.INTEGER,
     metalId: DataTypes.INTEGER,
     type_stoneId: DataTypes.INTEGER,

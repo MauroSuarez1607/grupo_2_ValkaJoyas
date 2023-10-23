@@ -16,7 +16,7 @@ const products = productsJSON.map(product => {
     discount: product.discount,
     stock: product.stock,
     brandId : product.brand,
-    modelId : product.model,
+    designId : product.design,
     collectionId : product.collection,
     metalId : product.metal,
     type_stoneId : product.type_stone,

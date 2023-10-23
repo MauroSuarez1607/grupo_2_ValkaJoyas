@@ -58,11 +58,11 @@ module.exports = {
           }
         }
       },
-      modelId: {
+      designId: {
         type: Sequelize.INTEGER,
         references : {
           model : {
-            tableName : 'Models'
+            tableName : 'Designs'
           }
         }
       },
