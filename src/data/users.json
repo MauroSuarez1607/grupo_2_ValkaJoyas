@@ -5,10 +5,10 @@
       "surname": "Arevalo",
       "email": "gisel.arevalo@gmail.com",
       "password": "$2a$10$FPoLdX945nudWo19Tpk0X.T.njfYXKQ0sqOG7ioez8.NYfTRAlR3S",
-      "rol": 1,
+      "roleId": 1,
       "image": "giselda_foto.png",
       "birthday": null,
-      "gender": 1
+      "genderId": 1
    },
    {
       "id": 2,
@@ -16,10 +16,10 @@
       "surname": "Sanguine",
       "email": "cristian.sanguine@gmail.com",
       "password": "$2a$10$eDUSEOpqnAGN8n9jspAQm.TfzXil7XWzgq5sFEkcKf1108QXoL1MC",
-      "rol": 1,
+      "roleId": 1,
       "image": "cris_foto.png",
       "birthday": null,
-      "gender": null
+      "genderId": null
    },
    {
       "id": 3,
@@ -27,10 +27,10 @@
       "surname": "Suarez",
       "email": "mauro.suarez@gmail.com",
       "password": "$2a$10$dAWN34byF87qG0Hgm1C9SumMaPLrq1hDgDfQhbBLp.8Kp4JXtC/fq",
-      "rol": 1,
+      "roleId": 1,
       "image": "mauro_foto.png",
       "birthday": null,
-      "gender": null
+      "genderId": null
    },
    {
       "id": 4,
@@ -38,10 +38,10 @@
       "surname": "Arroyo",
       "email": "emanuel.arroyo@gmail.com",
       "password": "$2a$10$0MayeE.apYS1Koelzc3f/OyrVGEwSWoD5DvWeI6pvRE1VDeg3RlDq",
-      "rol": 1,
+      "roleId": 1,
       "image": "emma_foto.png",
       "birthday": null,
-      "gender": null
+      "genderId": null
    },
    {
       "id": 5,
@@ -49,10 +49,10 @@
       "surname": "Mena",
       "email": "eric.mena@gmail.com",
       "password": "$2a$10$Isn68vQKf5/8ggLowvTr0uKdlXmYUMpPFDdz4WIcMr3G1kR0YAxFC",
-      "rol": 1,
+      "roleId": 1,
       "image": "eric_foto.png",
       "birthday": null,
-      "gender": null
+      "genderId": null
    },
    {
       "id": 6,
@@ -60,9 +60,9 @@
       "surname": "Ramos",
       "email": "amalia@gmail.com",
       "password": "$2a$10$VItKrLTDfoJU/6LXU2sKyefLXm3KCLXr0yKYmPO1yiVosuVr/CStC",
-      "rol": 2,
+      "roleId": 2,
       "image": "1694562521769_users_.jpg",
       "birthday": "2023-08-28",
-      "gender": 1
+      "genderId": 1
    }
 ]
