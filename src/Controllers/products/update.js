@@ -5,7 +5,11 @@ const { readJSON, writeJSON } = require("../../data");
 module.exports = (req, res) => {
   const products = readJSON("products.json");
   const id = req.params.id;
-  const { name, description, brand, model, collection, category, metal, stones, type_stone, color, size, measures_mm, warranty, jewel_keeper, price, discount, stock } = req.body;
+  const { name, description, brand, model, collection, category, metal, stones, size, measures_mm, warranty, jewel_keeper, price, discount, stock, type_stone, } = req.body;
+  let {editStone} = req.body;
+
+  let editStoneEnd = JSON.parse(editStone);
+
 
   const productsModify = products.map((product) => {
     if (product.id === +id) {
@@ -37,8 +41,8 @@ module.exports = (req, res) => {
       product.metal = metal;
       product.stones = +stones;
       // **************DETALLE***********************
-      product.type_stone = Array.isArray(type_stone) && type_stone.length > 0 ? type_stone : (type_stone ? [type_stone] : []);
-      product.color = Array.isArray(color) && color.length > 0 ? color : (color ? [color] : []);
+      product.type_stone = (Array.isArray(editStoneEnd) && editStoneEnd.length > 0) ? editStoneEnd : [];
+      // product.color = Array.isArray(color) && color.length > 0 ? color : (color ? [color] : []);
       product.size = size;
       product.measures_mm = +measures_mm;
       product.warranty = warranty;
@@ -53,10 +57,13 @@ module.exports = (req, res) => {
     product.image2 = req.files && req.files.image2 ? req.files.image2.map((file) => file.filename) : product.image2;
     }
   // }
+
     return product;
   });
+
 
   writeJSON(productsModify, "products.json");
 
   return res.redirect("/admin");
+
 };
