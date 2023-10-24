@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
         as : 'role',
         foreignKey : 'roleId'
       })
+      User.belongsTo(models.Gender, {
+        as : 'gender',
+        foreignKey : 'genderId'
+      })
     }
   }
   User.init({
@@ -24,7 +28,6 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     image: DataTypes.STRING,
     birthday: DataTypes.DATE,
-    gender: DataTypes.STRING,
     roleId: DataTypes.INTEGER,
     genderId: DataTypes.INTEGER
   }, {

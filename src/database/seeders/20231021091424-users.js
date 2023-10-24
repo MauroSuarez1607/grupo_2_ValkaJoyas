@@ -1,38 +1,27 @@
 "use strict";
 
+const usersJSON = require('../../data/users.json')
+const users = usersJSON.map(user => {
+  return {
+    id: user.id,
+    name : user.name,
+    surname: user.surname,
+    email: user.email,
+    password : user.password,
+    image : user.image,
+    birthday : user.birthday,
+    genderId : user.genderId,
+    roleId:user.roleId,
+
+    createdAt : new Date,
+    updatedAt : new Date
+  }
+})
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert(
-      "Users",
-      [
-        {
-        name: "Admin",
-        surname: "Valka",
-        email: "admin@gmail.com",
-        password:
-          "$2a$10$FPoLdX945nudWo19Tpk0X.T.njfYXKQ0sqOG7ioez8.NYfTRAlR3S",
-        image: null,
-        birthday: null,
-        roleId: 1,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-      {
-        name: "User",
-        surname: "Valka",
-        email: "user@gmail.com",
-        password:
-          "$2a$10$FPoLdX945nudWo19Tpk0X.T.njfYXKQ0sqOG7ioez8.NYfTRAlR3S",
-        image: null,
-        birthday: null,
-        roleId: 2,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      }
-    ],
-      {}
-    );
+    await queryInterface.bulkInsert("Users", users, {});
   },
 
   async down(queryInterface, Sequelize) {

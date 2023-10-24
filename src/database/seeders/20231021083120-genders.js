@@ -1,9 +1,9 @@
 "use strict";
 
-const rolesJSON = require('../../data/roles.json')
-const roles = rolesJSON.map(rol => {
+const gendersJSON = require('../../data/genders.json')
+const genders = gendersJSON.map(gender => {
   return {
-    name : rol,
+    name : gender,
     createdAt : new Date,
     updatedAt : new Date
   }
@@ -12,10 +12,10 @@ const roles = rolesJSON.map(rol => {
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert("Roles", roles, {});
+    await queryInterface.bulkInsert("Genders", genders, {});
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("Roles", null, {});
+    await queryInterface.bulkDelete("Genders", null, {});
   },
 };
