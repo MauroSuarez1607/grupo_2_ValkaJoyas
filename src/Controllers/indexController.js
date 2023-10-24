@@ -42,7 +42,7 @@ module.exports = {
         
         
     },
-
+    //FALTA ADMIN
     admin : (req,res)=>{
         // lineas para recargar automaticamente el navegador
         /* const seeadmin = path.join(__dirname,'../data/products.json');
@@ -80,15 +80,26 @@ module.exports = {
                             }
                         }
                     ]
+                },
+                include: {
+                    model: db.Category,
+                    as: 'category', // Alias configurado en el modelo
+                    attributes: ['name']
                 }
-            });
+            }); 
     
             // Obtener productos para el slider
             const productsForSlider = await db.Product.findAll({
                 where: {
                     // Define la condición para los productos del slider
                 },
-                order: db.sequelize.random() 
+                include: {
+                    model: db.Category,
+                    as: 'category', // Alias configurado en el modelo
+                    attributes: ['name']
+                },
+                order: db.sequelize.random(),
+                
             });
     
             return res.render('results', {
@@ -105,21 +116,61 @@ module.exports = {
     
     
 	
-    category: (req, res) => {
-        /* const category = req.params.category;
-        let filteredProducts = products;
+    category: async (req, res) => {
+        
+        const category = req.params.category;
+    
+        try {
+            let filteredProducts;
+    
+            if (category === 'todos') {
+                // Si la categoría es 'todos', obtén todos los productos
+                filteredProducts = await db.Product.findAll({
+                    include: {
+                        model: db.Category,
+                        as: 'category', // Alias configurado en el modelo
+                        attributes: ['name']
+                    },
+                });
+            } else {
+                // Si la categoría no es 'todos', filtra por categoría
+                filteredProducts = await db.Product.findAll({
+                    where: {},
+                    include: {
+                        model: db.Category,
+                        as: 'category',
+                        attributes: ['name'],
+                        where: {
+                            name: category
+                        }
+                    }
+                });
+            }
 
+             // Obtener productos para el slider
+            const productsForSlider = await db.Product.findAll({
+                where: {
+                    // Define la condición para los productos del slider
+                },
+                include: {
+                    model: db.Category,
+                    as: 'category', // Alias configurado en el modelo
+                    attributes: ['name']
+                },
+                order: db.sequelize.random() 
+            });
+    
+            return res.render('category', {
+                products: filteredProducts,
+                productsForSlider,
+                category,
+                toThousand
+            });
 
-        if (category !== 'todos') {
-            filteredProducts = products.filter(product => product.category.toLowerCase() === category.toLowerCase());
+        } catch (error) {
+            console.log(error);
+            return res.status(500).send('Error en la consulta de la base de datos');
         }
-
-        return res.render('category', {
-            products,
-            filteredProducts,
-            category,
-            toThousand
-        }); */
     }
 
 }

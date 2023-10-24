@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include('partials/head', {
-        title : name
+        title : product.name
     }) %>
 
 <body class="home__body">
@@ -14,13 +14,13 @@
         </div>
         <div class="detalle">
             <div class="detalle-img">
-                <img src="/images/<%= image1 %>" alt="">
+                <img src="/images/<%= product.image1 %>" alt="">
             </div>
             <div class="contenido-producto">
                 <div class="detalle-info">
-                    <h4><%= name %></h4>
-                    <h5>$ <%= price %></h5>
-                    <p><%= description %></p>
+                    <h4><%= product.name %></h4>
+                    <h5>$ <%= product.price %></h5>
+                    <p><%= product.description %></p>
                 </div>
                 <button class="botonPrimario"><i class="fas fa-shopping-cart"></i>AÑADIR AL CARRITO</button>
                 <div class="info-extra">
@@ -35,12 +35,12 @@
                     </div>
                 </div>
                 <div class="detalle-info">
-                    <h6>SKU: <%= id %></h6>
+                    <h6>SKU: <%= product.id %></h6>
                     <ul>
-                        <li>Modelo : <%= model %> </li>
-                        <li>Marca : <%= brand %></li>
-                        <li>Metal : <%= metal %> </li>
-                        <li>Tamaño : <%= size %></li>
+                        <li>Modelo : <%= product.design.name %> </li>
+                        <li>Marca : <%= product.brand.name %></li>
+                        <li>Metal : <%= product.metal.name %> </li>
+                        <li>Tamaño : <%= product.size %></li>
                     </ul>
                 </div>
             </div>
@@ -63,13 +63,11 @@
            </div>
             <div class="swiper-wrapper">
                 <!-- Card de producto -->
-                <% products.forEach(product => { %>
-                    <% if (product.category === "Anillos") { %>
-                        <%- include('partials/product',{
-                            ...product,
-                            toThousand
-                        }) %>
-                    <% } %> 
+                <% productsForSlider.forEach(product => { %>
+                    <%- include('partials/product',{
+                        product: product, 
+                        toThousand
+                    }) %>
                 <% }) %>
             </div>
         </div>

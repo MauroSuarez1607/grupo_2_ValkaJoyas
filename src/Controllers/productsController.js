@@ -1,4 +1,3 @@
-const Product = require('../data/Product')
 
 module.exports = {
   add: require('./products/add'),
