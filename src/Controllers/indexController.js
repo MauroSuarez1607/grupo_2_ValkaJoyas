@@ -51,10 +51,29 @@ module.exports = {
             products
         }) */
         const products = db.Product.findAll({
-            include : ['brand','price','images']
+            include : [
+
+                {
+                    model: db.Category,
+                    as: 'category', // Alias configurado en el modelo
+                    attributes: ['name']
+                },
+                {
+                    model: db.Brand,
+                    as: 'brand', // Alias configurado en el modelo
+                    attributes: ['name']
+                }
+                
+            
+            ]
+            
         });
         const brands = db.Brand.findAll({
             order : ['name']
+        })
+
+        const categories = db.Category.findAll({
+
         })
 
         Promise.all([products, brands])
