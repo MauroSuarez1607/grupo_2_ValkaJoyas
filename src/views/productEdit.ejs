@@ -43,7 +43,7 @@
                                 </div>
                             </form>
 
-                            <form action="/products/update/<%= id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                            <form action="/products/update/<%= id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
                                 <!-- <form action="/products/update/ id " method="POST"> -->
                                                                           
                                 <label>
@@ -256,53 +256,34 @@
                                         <div class="col-9 mb-6">
                                             <label for="metal"><strong>Metal:</strong></label>
                                             <select id="metal" name="metal" class="form-control" required>
-                                                <option selected hidden>Seleccione una opción
-                                                </option>
-                                                <option value="Oro 18K">Oro 18K (750)</option>
-                                                <option value="Oro 14K">Oro 14K (585)</option>
-                                                <option value="Oro 24K">Oro 24K (999)</option>
-                                                <option value="Oro Blanco 18K">Oro Blanco 18K
-                                                    (750)</option>
-                                                <option value="Oro Blanco 14K">Oro Blanco 14K
-                                                    (585)</option>
-                                                <option value="Oro Amarillo 22K">Oro Amarillo
-                                                    22K (916)</option>
-                                                <option value="Oro Amarillo 21K">Oro Amarillo
-                                                    21K (875)</option>
-                                                <option value="Oro Amarillo 20K">Oro Amarillo
-                                                    20K (833)</option>
-                                                <option value="Oro Verde">Oro Verde</option>
-                                                <option value="Oro Rosa 10K">Oro Rosa 10K
-                                                </option>
-                                                <option value="Oro Rosa 14K">Oro Rosa 14K
-                                                </option>
-                                                <option value="Plata 925">Plata 925 (92.5% de
-                                                    pureza)</option>
-                                                <option value="Plata de Ley">Plata de Ley (92.5%
-                                                    de pureza)</option>
-                                                <option value="Plata Fina">Plata Fina (95-99.9%
-                                                    de pureza)</option>
-                                                <option value="Platino 950">Platino 950 (95% de
-                                                    pureza)</option>
-                                                <option value="Platino 900">Platino 900 (90% de
-                                                    pureza)</option>
-                                                <option value="Platino 850">Platino 850 (85% de
-                                                    pureza)</option>
-                                                <option value="Paladio 950">Paladio 950 (95% de
-                                                    pureza)</option>
-                                                <option value="Rodio">Rodio</option>
-                                                <option value="Bronce">Bronce</option>
-                                                <option value="Cobre">Cobre</option>
-                                                <option value="Zinc">Zinc</option>
-                                                <option value="Acero Quirúrgico">Acero
-                                                    Quirúrgico</option>
-                                                <option value="Titanio Grado 5">Titanio Grado 5
-                                                </option>
-                                                <option value="Titanio Grado 7">Titanio Grado 7
-                                                </option>
-                                                <option value="Titanio Puro grado 1-4">Titanio
-                                                    Puro grado 1-4</option>
-                                                <option value="Otro material">Otro</option>
+                                                <option selected hidden>Seleccione una opción</option>
+                                                <option value="Oro 18K" <% if (metal === "Oro 18K") { %> selected <% } %>>Oro 18K (750)</option>
+                                                <option value="Oro 14K" <% if (metal === "Oro 14K") { %> selected <% } %>>Oro 14K (585)</option>
+                                                <option value="Oro 24K" <% if (metal === "Oro 24K") { %> selected <% } %>>Oro 24K (999)</option>
+                                                <option value="Oro Blanco 18K" <% if (metal === "Oro Blanco 18K") { %> selected <% } %>>Oro Blanco 18K (750)</option>
+                                                <option value="Oro Blanco 14K" <% if (metal === "Oro Blanco 14K") { %> selected <% } %>>Oro Blanco 14K (585)</option>
+                                                <option value="Oro Amarillo 22K" <% if (metal === "Oro Amarillo 22K") { %> selected <% } %>>Oro Amarillo 22K (916)</option>
+                                                <option value="Oro Amarillo 21K" <% if (metal === "Oro Amarillo 21K") { %> selected <% } %>>Oro Amarillo 21K (875)</option>
+                                                <option value="Oro Amarillo 20K" <% if (metal === "Oro Amarillo 20K") { %> selected <% } %>>Oro Amarillo 20K (833)</option>
+                                                <option value="Oro Verde" <% if (metal === "Oro Verde") { %> selected <% } %>>Oro Verde</option>
+                                                <option value="Oro Rosa 10K" <% if (metal === "Oro Rosa 10K") { %> selected <% } %>>Oro Rosa 10K</option>
+                                                <option value="Oro Rosa 14K" <% if (metal === "Oro Rosa 14K") { %> selected <% } %>>Oro Rosa 14K</option>
+                                                <option value="Plata 925" <% if (metal === "Plata 925") { %> selected <% } %>>Plata 925 (92.5% de pureza)</option>
+                                                <option value="Plata de Ley" <% if (metal === "Plata de Ley") { %> selected <% } %>>Plata de Ley (92.5% de pureza)</option>
+                                                <option value="Plata Fina" <% if (metal === "Plata Fina") { %> selected <% } %>>Plata Fina (95-99.9% de pureza)</option>
+                                                <option value="Platino 950" <% if (metal === "Platino 950") { %> selected <% } %>>Platino 950 (95% de pureza)</option>
+                                                <option value="Platino 900" <% if (metal === "Platino 900") { %> selected <% } %>>Platino 900 (90% de pureza)</option>
+                                                <option value="Platino 850" <% if (metal === "Platino 850") { %> selected <% } %>>Platino 850 (85% de pureza)</option>
+                                                <option value="Paladio 950" <% if (metal === "Paladio 950") { %> selected <% } %>>Paladio 950 (95% de pureza)</option>
+                                                <option value="Rodio" <% if (metal === "Rodio") { %> selected <% } %>>Rodio</option>
+                                                <option value="Bronce" <% if (metal === "Bronce") { %> selected <% } %>>Bronce</option>
+                                                <option value="Cobre" <% if (metal === "Cobre") { %> selected <% } %>>Cobre</option>
+                                                <option value="Zinc" <% if (metal === "Zinc") { %> selected <% } %>>Zinc</option>
+                                                <option value="Acero Quirúrgico" <% if (metal === "Acero Quirúrgico") { %> selected <% } %>>Acero Quirúrgico</option>
+                                                <option value="Titanio Grado 5" <% if (metal === "Titanio Grado 5") { %> selected <% } %>>Titanio Grado 5</option>
+                                                <option value="Titanio Grado 7" <% if (metal === "Titanio Grado 7") { %> selected <% } %>>Titanio Grado 7</option>
+                                                <option value="Titanio Puro grado 1-4" <% if (metal === "Titanio Puro grado 1-4") { %> selected <% } %>>Titanio Puro grado 1-4</option>
+                                                <option value="Otro material" <% if (metal === "Otro material") { %> selected <% } %>>Otro</option>
                                             </select>
                                         </div>
 
@@ -325,7 +306,7 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="otro_piedra">
-                                                <input type="checkbox" id="otro_piedra" name="type_stone"  value="<%= type_stone %>"
+                                                <input type="checkbox" id="Otro" name="type_stone"  value="<%= type_stone %>"
                                                     <% if (type_stone.includes("Otro") === true) { %>
                                                 checked
                                               <% } %>
@@ -337,7 +318,7 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="topacio">
-                                                <input type="checkbox" id="topacio" name="type_stone"  value="<%= type_stone %>"
+                                                <input type="checkbox" id="Topacio" name="type_stone"  value="<%= type_stone %>"
                                                     <% if (type_stone.includes("Topacio") === true) { %>
                                                 checked
                                               <% } %>
@@ -349,7 +330,7 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="cuarzo">
-                                                <input type="checkbox" id="cuarzo" name="type_stone"  value="<%= type_stone %>"
+                                                <input type="checkbox" id="Cuarzo" name="type_stone"  value="<%= type_stone %>"
                                                     <% if (type_stone.includes("Cuarzo") === true) { %>
                                                 checked
                                               <% } %>
@@ -361,7 +342,7 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="diamantes">
-                                                <input type="checkbox" id="diamantes" name="type_stone"  value="<%= type_stone %>"
+                                                <input type="checkbox" id="Diamantes" name="type_stone"  value="<%= type_stone %>"
                                                     <% if (type_stone.includes("Diamantes") === true) { %>
                                                 checked
                                               <% } %>
@@ -373,7 +354,7 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="rubies">
-                                                <input type="checkbox" id="rubies" name="type_stone"  value="<%= type_stone %>"
+                                                <input type="checkbox" id="Rubíes" name="type_stone"  value="<%= type_stone %>"
                                                     <% if (type_stone.includes("Rubíes") === true) { %>
                                                 checked
                                               <% } %>
@@ -385,7 +366,7 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="zafiros">
-                                                <input type="checkbox" id="zafiros" name="type_stone"  value="<%= type_stone %>"
+                                                <input type="checkbox" id="Zafiros" name="type_stone"  value="<%= type_stone %>"
                                                     <% if (type_stone.includes("Zafiros") === true) { %>
                                                 checked
                                               <% } %>
@@ -397,7 +378,7 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="esmeraldas">
-                                                <input type="checkbox" id="esmeraldas" name="type_stone"  value="<%= type_stone %>"
+                                                <input type="checkbox" id="Esmeraldas" name="type_stone"  value="<%= type_stone %>"
                                                     <% if (type_stone.includes("Esmeraldas") === true) { %>
                                                 checked
                                               <% } %>
@@ -409,7 +390,7 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="jade">
-                                                <input type="checkbox" id="jade" name="type_stone"  value="<%= type_stone %>"
+                                                <input type="checkbox" id="Jade" name="type_stone"  value="<%= type_stone %>"
                                                     <% if (type_stone.includes("Jade") === true) { %>
                                                 checked
                                               <% } %>
@@ -421,7 +402,7 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
                                            
                                             <label for="amatista">
-                                                <input type="checkbox" id="amatista" name="type_stone"  value="<%= type_stone %>"
+                                                <input type="checkbox" id="Amatista" name="type_stone"  value="<%= type_stone %>"
                                                     <% if (type_stone.includes("Amatista") === true) { %>
                                                 checked
                                               <% } %>
@@ -433,7 +414,7 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="opal">
-                                                <input type="checkbox" id="opal" name="type_stone"  value="<%= type_stone %>"
+                                                <input type="checkbox" id="Ópalo" name="type_stone"  value="<%= type_stone %>"
                                                     <% if (type_stone.includes("Ópalo") === true) { %>
                                                 checked
                                               <% } %>
@@ -445,7 +426,7 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="coral">
-                                                <input type="checkbox" id="coral" name="type_stone"  value="<%= type_stone %>"
+                                                <input type="checkbox" id="Coral" name="type_stone"  value="<%= type_stone %>"
                                                     <% if (type_stone.includes("Coral") === true) { %>
                                                 checked
                                               <% } %>
@@ -457,7 +438,7 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="perlas">
-                                                <input type="checkbox" id="perlas" name="type_stone"  value="<%= type_stone %>"
+                                                <input type="checkbox" id="Perlas" name="type_stone"  value="<%= type_stone %>"
                                                     <% if (type_stone.includes("Perlas") === true) { %>
                                                 checked
                                               <% } %>
@@ -469,202 +450,12 @@
                                     </div>
                                 </div>
 
-                                <label><strong>Color Producto:</strong></label><br>
-                                <div class="d-flex flex-wrap">
-                                    <!-- Opciones de checkbox -->
-                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                        <label for="policromatico">
-                                            <input type="checkbox" id="policromatico" name="color"  value="<%= color %>"
-                                                <% if (color.includes("Policromatico") === true) { %>
-                                            checked
-                                          <% } %>
-                                           > 
-                                          Policromatico
-                                        </label>
+                                 <!-- <label><strong>Color Producto:</strong></label><br>
+                                <div class="d-flex flex-wrap"> -->
+                                    
+                                    <!-- BORRE COLOR PRODUCTO -->
 
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-
-                                        <label for="multicolor">
-                                            <input type="checkbox" id="multicolor" name="color" value="<%= color %>"
-                                                <% if (color.includes("Multicolor") === true) { %>
-                                            checked
-                                          <% } %>
-                                           >
-                                          Multicolor
-                                        </label>
-
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-
-                                        <label for="incoloro">
-                                            <input type="checkbox" id="incoloro" name="color" value="<%= color %>"
-                                                <% if (color.includes("Incoloro") === true) { %>
-                                            checked
-                                          <% } %>
-                                           >
-                                          Incoloro
-                                        </label>
-
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-
-                                        <label for="rojo">
-                                            <input type="checkbox" id="rojo" name="color" value="<%= color %>"
-                                                <% if (color.includes("Rojo") === true) { %>
-                                            checked
-                                          <% } %>
-                                           >
-                                          Rojo
-                                        </label>
-
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-
-                                        <label for="azul">
-                                            <input type="checkbox" id="azul" name="color" value="<%= color %>"
-                                                <% if (color.includes("Azul") === true) { %>
-                                            checked
-                                          <% } %>
-                                          >
-                                          Azul
-                                        </label>
-
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-
-                                        <label for="verde">
-                                            <input type="checkbox" id="verde" name="color" value="<%= color %>"
-                                                <% if (color.includes("Verde") === true) { %>
-                                            checked
-                                          <% } %>
-                                          >
-                                          Verde
-                                        </label>
-
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-
-                                        <label for="violeta">
-                                            <input type="checkbox" id="violeta" name="color" value="<%= color %>"
-                                                <% if (color.includes("Violeta") === true) { %>
-                                            checked
-                                          <% } %>
-                                          >
-                                          Violeta
-                                        </label>
-                                                                            
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-
-                                        
-                                        <label for="amarillo">
-                                            <input type="checkbox" id="amarillo" name="color" value="<%= color %>"
-                                                <% if (color.includes("Amarillo") === true) { %>
-                                            checked
-                                          <% } %>
-                                          >
-                                          Amarillo
-                                        </label>
-
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-
-                                        <label for="celeste">
-                                            <input type="checkbox" id="celeste" name="color" value="<%= color %>"
-                                                <% if (color.includes("Celeste") === true) { %>
-                                            checked
-                                          <% } %>
-                                          >
-                                          Celeste
-                                        </label>
-
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-
-                                        <label for="naranja">
-                                            <input type="checkbox" id="naranja" name="color" value="<%= color %>"
-                                                <% if (color.includes("Naranja") === true) { %>
-                                            checked
-                                          <% } %>
-                                          >
-                                          Naranja
-                                        </label>
-
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-
-                                        <label for="blanco">
-                                            <input type="checkbox" id="blanco" name="color" value="<%= color %>"
-                                                <% if (color.includes("Blanco") === true) { %>
-                                            checked
-                                          <% } %>
-                                          >
-                                          Blanco
-                                        </label>
-
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-
-                                        <label for="negro">
-                                            <input type="checkbox" id="negro" name="color" value="<%= color %>"
-                                                <% if (color.includes("Negro") === true) { %>
-                                            checked
-                                          <% } %>
-                                          >
-                                          Negro
-                                        </label>
-
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-
-                                        <label for="gris">
-                                            <input type="checkbox" id="gris" name="color" value="<%= color %>"
-                                                <% if (color.includes("Gris") === true) { %>
-                                            checked
-                                          <% } %>
-                                          >
-                                          Gris
-                                        </label>
-
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-
-                                        <label for="plateado">
-                                            <input type="checkbox" id="plateado" name="color" value="<%= color %>"
-                                                <% if (color.includes("Plateado") === true) { %>
-                                            checked
-                                          <% } %>
-                                          >
-                                          Plateado
-                                        </label>
-
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-
-                                        <label for="dorado">
-                                            <input type="checkbox" id="dorado" name="color" value="<%= color %>"
-                                                <% if (color.includes("Dorado") === true) { %>
-                                            checked
-                                          <% } %>
-                                          >
-                                          Dorado
-                                        </label>
-
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-
-                                        <label for="rosa">
-                                            <input type="checkbox" id="rosa" name="color" value="<%= color %>"
-                                                <% if (color.includes("Rosa") === true) { %>
-                                            checked
-                                          <% } %>
-                                          >
-                                          Rosa
-                                        </label>
-
-                                    </div>
-                                </div>
+                                <!-- </div> -->
 
                                 <div class="row justify-content-between">
                                     <div class="col-12 col-md-8">
@@ -756,10 +547,43 @@
                                     </div>
                                 </div>
 
-                                <!-- <button type="reset" class="btn btn-warning">Reset</button> -->
-                                <button type="submit" class="btn btn-dark">Actualizar</button>
 
-                            </form>
+
+                                    <!-- Otros elementos del formulario aquí -->
+                                
+                                    <input type="hidden" name="editStone" id="valoresEditStone">
+                                
+                                    <button type="submit" id="edicion" class="btn btn-dark">Actualizar</button>
+                                </form>
+                                
+                            <!-- EXPLICACION: vaciar el array de type_stone (del json o BD) cuando se apreta el boton actualizar, luego recorre los checkout 
+                                y los carga en el arrat vacio  (UNICAMENTE Ocurre esto si se apreta el boton actualizar)  -->
+
+                                <script>
+                                    
+                                    let botonActualizar = document.querySelector('button#edicion');
+                                    botonActualizar.addEventListener("click", function() {
+                                        let checkboxes = document.querySelectorAll('input[type="checkbox"]'); // Obtener todas las casillas de verificación
+                            
+                                        let type_stone = []; // Crear un nuevo array para almacenar los valores
+                            
+                                        checkboxes.forEach(function(checkbox) {
+                                            if (checkbox.checked) { // Verificar si el checkbox está marcado
+                                                type_stone.push(checkbox.id);
+                                            }
+                                        });
+
+                                        let editStone = JSON.stringify(type_stone);
+
+                                        // Actualizar el valor del campo oculto en el formulario con los valoresTexto
+                                        document.getElementById('valoresEditStone').value = editStone;
+                                    
+                                    });
+                                </script>
+                            
+
+
+
                             <style>
                                 .checkbox-cell {
                                     cursor: pointer;
