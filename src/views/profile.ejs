@@ -12,19 +12,21 @@
                         <div class="card-body">
                             <h3>Mi Perfil</h3>
                             <hr>
-                            <form method="POST" action="/users/update-profile?_method=PUT" enctype="multipart/form-data">
+                            <form action="/users/update-profile?_method=PUT" method="POST" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-12 col-md-6 mb-5">
-                                        <img src="/images/<%= image %>" alt="" class="img-fluid">
+                                        <img src="/images/<%= image ? image : '1694562521769_users_.jpg' %>" alt="imagen de perfil" class="img-fluid">
                                     </div>
                                     <div>
                                         <div class="col-12 mb-3">
                                             <label for="name" class="form-label">Nombre</label>
-                                            <input type="text" class="form-control" id="name" name="name"  value="<%= name %>">
+                                            <input type="text" class="form-control <%= locals.errors && (errors.name && 'is-invalid') %>" id="name" name="name"  value="<%= locals.old && (old.name && old.name) %>">
+                                            <small class="ms-2 text-danger"><%= locals.errors && (errors.name && errors.name.msg) %></small>
                                         </div>
                                         <div class="col-12  mb-3">
                                             <label for="surname" class="form-label">Apellido</label>
-                                            <input type="text" class="form-control" id="surname" name="surname" value="<%= surname %>">
+                                            <input type="text" class="form-control <%= locals.errors && (errors.surname && 'is-invalid') %>" id="surname" name="surname" value="<%= locals.old && (old.surname && old.surname) %>">
+                                            <small class="ms-2 text-danger"><%= locals.errors && (errors.surname && errors.surname.msg) %></small>
                                         </div>
                                         <div class="col-12 mb-3">
                                             <label for="image" class="form-label">Agregar imagen</label>
@@ -37,10 +39,9 @@
                                         <div class="col-12  mb-3 form-floating">
                                             <label class="form-label" for="gender" id="floatingSelect">Género</label>
                                             <select class="form-control" name="gender" id="gender">
-                                                <option value="<%= null %>" selected>Seleccione su género</option>
-                                                <option value="v" <%= gender === 'v' ? 'selected' : '' %>>Hombre</option>
-                                                <option value="m" <%= gender === 'm' ? 'selected' : '' %>>Mujer</option>
-                                                <option value="o" <%= gender === 'o' ? 'selected' : '' %>>Prefiero no decirlo</option>
+                                                <option value="hombre" <%= genderId === "hombre" && 'selected' %>>Hombre</option>
+                                                <option value="mujer" <%= genderId === "mujer" && 'selected' %>>Mujer</option>
+                                                <option value="no binario" <%= genderId === "no binario" && 'selected' %>>No binario</option>
                                             </select>
                                         </div>
                                         <div class="d-flex justify-content-end">
