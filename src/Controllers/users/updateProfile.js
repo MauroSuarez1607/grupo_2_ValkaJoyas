@@ -1,13 +1,46 @@
+const {validationResult} = require('express-validator')
+const db = require('../../database/models')
 
-const { readJSON, writeJSON } = require("../../data");
 module.exports = (req,res) => {
-    
-    const users = readJSON('users.json');
-    const userId = req.session.userLogin.id;
-    const {name,surname,gender,birthday}= req.body;
-    
 
-    const usersModify = users.map(user =>{
+    const errors = validationResult(req)
+
+    if(errors.isEmpty()){
+        const {name,surname,gender,birthday}= req.body;
+
+        db.User.update(
+            {
+                name : name.trim(),
+                surname : surname.trim(),
+                gender,
+                birthday
+            },
+            {
+                where : {
+                    id : req.session.userLogin.id
+                }
+            }
+        )
+            .then(response => {
+                console.log(response)
+                return res.redirect('/')
+            })
+            .catch(error => console.log(error))
+
+    }else {
+        db.User.findByPk(req.session.userLogin.id)
+        .then(user => {
+            return res.render('profile', {
+                ...user.dataValues,
+                errors : errors.mapped()
+            })
+        })
+        .catch(error => console.log(error))
+    }
+    
+    // NO BORRAR MAUROOO!!!
+
+    /*const usersModify = users.map(user =>{
         if( user.id === userId){
             return {
                 ...user,
@@ -18,11 +51,5 @@ module.exports = (req,res) => {
                 image: req.file?.filename || user.image
             }
         }
-       return user
-    });
-    writeJSON(usersModify,'users.json');
-
-    
-    return res.redirect('/users/profile')
-    
+       return user*/    
 }

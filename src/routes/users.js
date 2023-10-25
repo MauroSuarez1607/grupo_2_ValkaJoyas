@@ -15,6 +15,7 @@ const registerValidator = require('../validations/registerValidator');
 const checkNotUserLogin = require('../middlewares/checkNotUserLogin')
 const loginValidator = require('../validations/loginValidator')
 const checkUserLogin = require('../middlewares/checkUserLogin')
+const profileValidator = require('../validations/profileValidator')
 
 
 /* /users */
@@ -24,7 +25,7 @@ router
     .get('/login', checkNotUserLogin, login )
     .post('/login', loginValidator, processLogin )
     .get('/profile', checkUserLogin, profile)
-    .put('/update-profile',uploadImageUser.single('image'),updateProfile)
+    .put('/update-profile',uploadImageUser.single('image'), profileValidator,updateProfile)
     .get('/logout',logout)
     
 

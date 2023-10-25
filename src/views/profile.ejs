@@ -20,12 +20,12 @@
                                     <div>
                                         <div class="col-12 mb-3">
                                             <label for="name" class="form-label">Nombre</label>
-                                            <input type="text" class="form-control <%= locals.errors && (errors.name && 'is-invalid') %>" id="name" name="name"  value="<%= locals.old && (old.name && old.name) %>">
+                                            <input type="text" class="form-control <%= locals.errors && (errors.name && 'is-invalid') %>" id="name" name="name"  value="<%= name || locals.old && (old.name && old.name) %>">
                                             <small class="ms-2 text-danger"><%= locals.errors && (errors.name && errors.name.msg) %></small>
                                         </div>
                                         <div class="col-12  mb-3">
                                             <label for="surname" class="form-label">Apellido</label>
-                                            <input type="text" class="form-control <%= locals.errors && (errors.surname && 'is-invalid') %>" id="surname" name="surname" value="<%= locals.old && (old.surname && old.surname) %>">
+                                            <input type="text" class="form-control <%= locals.errors && (errors.surname && 'is-invalid') %>" id="surname" name="surname" value="<%= surname || old && (old.surname && old.surname) %>">
                                             <small class="ms-2 text-danger"><%= locals.errors && (errors.surname && errors.surname.msg) %></small>
                                         </div>
                                         <div class="col-12 mb-3">
