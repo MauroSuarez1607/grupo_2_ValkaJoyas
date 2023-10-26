@@ -42,14 +42,8 @@ module.exports = {
         
         
     },
-    //FALTA ADMIN
+    
     admin : (req,res)=>{
-        // lineas para recargar automaticamente el navegador
-        /* const seeadmin = path.join(__dirname,'../data/products.json');
-        const products = JSON.parse(readFileSync(seeadmin, 'utf-8'));
-        return res.render('admin',{
-            products
-        }) */
         const products = db.Product.findAll({
             include : [
 
