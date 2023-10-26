@@ -40,10 +40,7 @@
                                         <form action="/products/search" class="d-flex gap-2 flex-column flex-md-row" >
                                             <!-- Seleccionar por marca -->
                                             <select class="form-control" aria-label="Default select example" name="brand">
-                                                <!-- <option selected hidden >Filtrar por marca</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option> -->
+
                                                 <% if (locals.brand) { %>
                                                     <% brands.forEach(item => { %>                                                        
                                                         <option <%= +brand === item.id && 'selected' %>  value="<%= item.id %>"><%= item.name %></option>
@@ -77,11 +74,11 @@
                                             </thead>
                                             <tbody>
                                                 <% let counter = 1; %>
-                                                <% products.forEach(({id,name,brandId,price,discount,description,image1}) => { %>
+                                                <% products.forEach(({id,name,brand,price,discount,description,image1}) => { %>
                                                     <tr>
                                                         <th scope="row"><%= counter %></th>
                                                         <td><%=name%></td>
-                                                        <td><%=brandId? brandId : 'sin  especificar'%></td>
+                                                        <td><%=brand? brand.name : 'sin  especificar'%></td>
                                                         <td><%=price%></td>
                                                         <td><%=discount%></td>
                                                         <td><%=price -(discount*price/100)%></td>
@@ -165,13 +162,13 @@
                                             <tbody>
                                                 <% let counter2 = 1; %>
                                                 <% let uniqueBrands = new Set(); %>
-                                                <% products.forEach(({brandId}) => { %>
-                                                    <% if (!uniqueBrands.has(brandId)) { %>
+                                                <% products.forEach(({brand}) => { %>
+                                                    <% if (!uniqueBrands.has(brand.name)) { %>
                                                         <tr>
                                                             <th scope="row"><%= counter2 %></th>
-                                                            <td><%= brandId %></td>
+                                                            <td><%= brand.name %></td>
                                                         </tr>
-                                                        <% uniqueBrands.add(brandId); %>
+                                                        <% uniqueBrands.add(brand.name); %>
                                                         <% counter2++; %>
                                                     <% } %>
                                                     
@@ -195,16 +192,17 @@
                                             <% let counter3 = 1; %>
                                             <% let uniqueCategories = new Set(); %>
                                             <% products.forEach(({category}) => { %>
-                                                <% if (!uniqueCategories.has(category)) { %>
+                                                <% if (!uniqueCategories.has(category.name)) { %>
                                                     <tr>
                                                         <th scope="row"><%= counter3 %></th>
-                                                        <td><%= category %></td>
+                                                        <td><%= category.name %></td>
                                                     </tr>
-                                                    <% uniqueCategories.add(category); %>
+                                                    <% uniqueCategories.add(category.name); %>
                                                     <% counter3++; %>
                                                 <% } %>
                                                 
                                             <% }) %>
+                                            
                                         </tbody>
                                     </table>
                                 </div>
