@@ -6,14 +6,15 @@ module.exports = (req,res) => {
     const errors = validationResult(req)
 
     if(errors.isEmpty()){
-        const {name,surname,gender,birthday}= req.body;
+        const {name,surname,birthday,genderId}= req.body; //agregar image?
 
         db.User.update(
             {
                 name : name.trim(),
                 surname : surname.trim(),
-                gender,
-                birthday
+                birthday,
+                genderId,
+                // agregar image?
             },
             {
                 where : {

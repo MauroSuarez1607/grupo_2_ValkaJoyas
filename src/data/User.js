@@ -7,11 +7,10 @@ const User = function ({name,email,surname,password,image}){
     this.surname = surname.trim();
     this.email = email.trim();
     this.password = hashSync(password.trim(),10)
-    this.rol = "Regular";
+    this.roleId = 2;
     this.image = image;
     this.birthday = null
-    this.gender = null
-
+    this.genderId = null
 }
 
 module.exports = User;

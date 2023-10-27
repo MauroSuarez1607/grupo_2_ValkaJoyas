@@ -37,12 +37,13 @@
                                             <input class="form-control" type="date" id="birthday" name="birthday" value="<%= birthday %>">
                                         </div>
                                         <div class="col-12  mb-3 form-floating">
-                                            <label class="form-label" for="gender" id="floatingSelect">Género</label>
-                                            <select class="form-control" name="gender" id="gender">
-                                                <option value="2" <%= genderId === 2 ? 'selected' : '' %>>Hombre</option>
-                                                <option value="1" <%= genderId === 1 ? 'selected' : '' %>>Mujer</option>
-                                                <option value="3" <%= genderId === 3 ? 'selected' : '' %>>No binario</option>
-                                            </select>
+                                            <label class="form-label" for="genderId" id="floatingSelect">Género</label>
+                                            <select class="form-control" name="genderId" id="genderId">
+                                                <option value="" disabled selected></option>
+                                                <option value="2" <%= genderId === 'hombre' && 'selected' %>>Hombre</option>
+                                                <option value="1" <%= genderId === 'mujer' && 'selected' %>>Mujer</option>
+                                                <option value="3" <%= genderId === 'no binario' && 'selected' %>>No binario</option>
+                                            </select>                                            
                                             
                                         </div>
                                         <div class="d-flex justify-content-end">
