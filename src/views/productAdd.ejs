@@ -53,16 +53,16 @@
                                 <div class="form-row">
                                     <div class="form-group col-md">
                                         <label for="brand"><strong>Marca:</strong></label>
-                                        <input type="text" id="brand" name="brand" class="form-control" required>
+                                        <input id="brand" name="brand" class="form-control" required type="number" min="1" max="2" placeholder="numero 1 o 2">
                                     </div>
 
                                     <div class="form-group col-md">
                                         <label for="model"><strong>Modelo:</strong></label>
-                                        <input type="text" id="model" name="model" class="form-control" required>
+                                        <input id="model" name="model" class="form-control" required type="number" min="1" max="11" placeholder="numero 1 a 11">
                                     </div>
                                     <div class="form-group col-md">
                                         <label for="collection"><strong>Colección:</strong></label>
-                                        <input type="text" id="collection" name="collection" class="form-control">
+                                        <input id="collection" name="collection" class="form-control" required type="number" min="1" max="4" placeholder="numero 1 a 4">
                                     </div>
                                 </div>
 
@@ -90,23 +90,23 @@
                                 <label for="category"><strong>Categoría:</strong></label>
                                 <div class="row align-items-center">
                                     <div class="col-6 col-md-4 col-lg-2">
-                                        <input type="radio" id="anillos" name="category" value="Anillos" required>
+                                        <input type="radio" id="anillos" name="category" value="1" required>
                                         <label for="anillos">Anillos</label>
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2">
-                                        <input type="radio" id="collares" name="category" value="Collar">
+                                        <input type="radio" id="collares" name="category" value="2">
                                         <label for="collares">Collar</label>
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2">
-                                        <input type="radio" id="pulseras" name="category" value="Pulseras">
+                                        <input type="radio" id="pulseras" name="category" value="3">
                                         <label for="pulseras">Pulseras</label>
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2">
-                                        <input type="radio" id="pendientes" name="category" value="Pendientes">
+                                        <input type="radio" id="pendientes" name="category" value="4">
                                         <label for="pendientes">Pendientes</label>
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2">
-                                        <input type="radio" id="Accesorios" name="category" value="Accesorios">
+                                        <input type="radio" id="Accesorios" name="category" value="5">
                                         <label for="Accesorios">Accesorios</label>
                                     </div>
                                 </div>
@@ -180,54 +180,12 @@
 
                                         <div class="col-9 mb-6">
                                             <label for="metal"><strong>Metal:</strong></label>
-                                            <select id="metal" name="metal" class="form-control" required>
+                                            <select id="metal" name="metal" class="form-control">
                                                 <option selected hidden>Seleccione una opción</option>
-                                                <option value="Oro 18K">Oro 18K (750)</option>
-                                                <option value="Oro 14K">Oro 14K (585)</option>
-                                                <option value="Oro 24K">Oro 24K (999)</option>
-                                                <option value="Oro Blanco 18K">Oro Blanco 18K
-                                                    (750)</option>
-                                                <option value="Oro Blanco 14K">Oro Blanco 14K
-                                                    (585)</option>
-                                                <option value="Oro Amarillo 22K">Oro Amarillo
-                                                    22K (916)</option>
-                                                <option value="Oro Amarillo 21K">Oro Amarillo
-                                                    21K (875)</option>
-                                                <option value="Oro Amarillo 20K">Oro Amarillo
-                                                    20K (833)</option>
-                                                <option value="Oro Verde">Oro Verde</option>
-                                                <option value="Oro Rosa 10K">Oro Rosa 10K
-                                                </option>
-                                                <option value="Oro Rosa 14K">Oro Rosa 14K
-                                                </option>
-                                                <option value="Plata 925">Plata 925 (92.5% de
-                                                    pureza)</option>
-                                                <option value="Plata de Ley">Plata de Ley (92.5%
-                                                    de pureza)</option>
-                                                <option value="Plata Fina">Plata Fina (95-99.9%
-                                                    de pureza)</option>
-                                                <option value="Platino 950">Platino 950 (95% de
-                                                    pureza)</option>
-                                                <option value="Platino 900">Platino 900 (90% de
-                                                    pureza)</option>
-                                                <option value="Platino 850">Platino 850 (85% de
-                                                    pureza)</option>
-                                                <option value="Paladio 950">Paladio 950 (95% de
-                                                    pureza)</option>
-                                                <option value="Rodio">Rodio</option>
-                                                <option value="Bronce">Bronce</option>
-                                                <option value="Cobre">Cobre</option>
-                                                <option value="Zinc">Zinc</option>
-                                                <option value="Acero Quirúrgico">Acero
-                                                    Quirúrgico</option>
-                                                <option value="Titanio Grado 5">Titanio Grado 5
-                                                </option>
-                                                <option value="Titanio Grado 7">Titanio Grado 7
-                                                </option>
-                                                <option value="Titanio Puro grado 1-4">Titanio
-                                                    Puro grado 1-4</option>
-                                                <option value="Otro material">Otro</option>
-                                            </select>
+                                                <% metals.forEach(metal => { %>
+                                                  <option value="<%= metal.id %>" <%= metal.id === 1 ? 'selected' : '' %>><%= metal.name %></option>
+                                                <% }); %>
+                                              </select>
                                         </div>
 
                                         <div class="col-3 mb-4">
@@ -247,52 +205,52 @@
                                     <div class="d-flex flex-wrap">
                                         <!-- Opciones de checkbox -->
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Otro" name="type_stone" value="Otro">
+                                            <input type="checkbox" id="Otro" name="type_stone" value="1">
                                             <label for="otro_piedra">Otro</label>
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Topacio" name="type_stone" value="Topacio">
+                                            <input type="checkbox" id="Topacio" name="type_stone" value="2">
                                             <label for="topacio">Topacio</label>
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
                                             <input type="checkbox" id="Cuarzo" name="type_stone"
-                                                value="Cuarzo">
+                                                value="3">
                                             <label for="cuarzo">Cuarzo</label>
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Diamantes" name="type_stone" value="Diamantes">
+                                            <input type="checkbox" id="Diamantes" name="type_stone" value="4">
                                             <label for="diamantes">Diamantes</label>
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Rubíes" name="type_stone" value="Rubíes">
+                                            <input type="checkbox" id="Rubíes" name="type_stone" value="5">
                                             <label for="rubies">Rubíes</label>
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Zafiros" name="type_stone" value="Zafiros">
+                                            <input type="checkbox" id="Zafiros" name="type_stone" value="6">
                                             <label for="zafiros">Zafiros</label>
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Esmeraldas" name="type_stone" value="Esmeraldas">
+                                            <input type="checkbox" id="Esmeraldas" name="type_stone" value="7">
                                             <label for="esmeraldas">Esmeraldas</label>
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Jade" name="type_stone" value="Jade">
+                                            <input type="checkbox" id="Jade" name="type_stone" value="8">
                                             <label for="jade">Jade</label>
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Amatista" name="type_stone" value="Amatista">
+                                            <input type="checkbox" id="Amatista" name="type_stone" value="9">
                                             <label for="amatista">Amatista</label>
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Ópalo" name="type_stone" value="Ópalo">
+                                            <input type="checkbox" id="Ópalo" name="type_stone" value="10">
                                             <label for="opal">Ópalo</label>
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Coral" name="type_stone" value="Coral">
+                                            <input type="checkbox" id="Coral" name="type_stone" value="11">
                                             <label for="coral">Coral</label>
                                         </div>
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Perlas" name="type_stone" value="Perlas">
+                                            <input type="checkbox" id="Perlas" name="type_stone" value="12">
                                             <label for="perlas">Perlas</label>
                                         </div>
                                     </div>

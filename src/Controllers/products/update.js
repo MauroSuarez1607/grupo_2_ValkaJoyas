@@ -1,7 +1,7 @@
 
 const { unlinkSync, existsSync } = require("fs");
 const { readJSON, writeJSON } = require("../../data");
-
+// SPRINT 6
 module.exports = (req, res) => {
   const products = readJSON("products.json");
   const id = req.params.id;
