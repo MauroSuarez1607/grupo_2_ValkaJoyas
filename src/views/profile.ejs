@@ -39,10 +39,10 @@
                                         <div class="col-12  mb-3 form-floating">
                                             <label class="form-label" for="genderId" id="floatingSelect">Género</label>
                                             <select class="form-control" name="genderId" id="genderId">
-                                                <option value="" disabled selected></option>
-                                                <option value="2" <%= genderId === 'hombre' && 'selected' %>>Hombre</option>
-                                                <option value="1" <%= genderId === 'mujer' && 'selected' %>>Mujer</option>
-                                                <option value="3" <%= genderId === 'no binario' && 'selected' %>>No binario</option>
+                                                <option value="" disabled selected><%= genderId %></option>
+                                                <option value="1" <%= genderId === 'mujer' && 'selected' %>>Mujer (1)</option>
+                                                <option value="2" <%= genderId === 'hombre' && 'selected' %>>Hombre (2)</option>
+                                                <option value="3" <%= genderId === 'no binario' && 'selected' %>>No binario (3)</option>
                                             </select>                                            
                                             
                                         </div>
