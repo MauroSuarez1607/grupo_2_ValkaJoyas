@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- SPRINT 6 -->
+
 <!-- CARRECEL Esto luego pasar a un .css correspondiente -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -43,8 +43,8 @@
                                 </div>
                             </form>
 
-                            <form action="/products/update/<%= id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
-                                <!-- <form action="/products/update/ id " method="POST"> -->
+                            <form action="/products/update/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
+                    
                                                                           
                                 <label>
                                     <h5><strong>DATOS</strong></h5>
@@ -54,38 +54,40 @@
                                         <label for="referencia" class="col-form-label"><strong>Referencia: </strong></label> 
                                         <br>    
                                         <div class="d-flex justify-content-center">
-                                        <span class="bg-warning" style="font-size: 1.5em;">   <%=id%> </span>
+                                        <span class="bg-warning" style="font-size: 1.5em;">  
+                                             <!-- %=id%  -->
+                                            </span>
                                         </div>
                                         <!-- <input type="text" placeholder="number" id="referencia" -->
                                         <!-- name="referencia" class="form-control" required> -->
                                     </div>
                                     <div class="form-group col-md-9">
                                         <label for="name" class="col-form-label"><strong>Nombre:</strong></label>
-                                        <input type="text" placeholder="Nombre / Título" id="name" name="name" class="form-control" value="<%=name%>" required>
+                                        <input type="text" placeholder="Nombre / Título" id="name" name="name" class="form-control" value="<%=product.name%>" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="description"><strong>Descripción:</strong></label>
                                     <textarea placeholder="Detalle del producto" id="description" name="description"
-                                        class="form-control" style="resize: none;"  required><%= description %>
+                                        class="form-control" style="resize: none;"  required><%= product.description %>
                                     </textarea>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md">
                                         <label for="brand"><strong>Marca:</strong></label>
-                                        <input type="text" id="brand" name="brand" class="form-control" value="<%=brand%>" required>
+                                        <input type="text" id="brand" name="brand" class="form-control" value="<%=product.brandId%>" required>
                                         
                                     </div>
 
                                     <div class="form-group col-md">
                                         <label for="model"><strong>Modelo:</strong></label>
-                                        <input type="text" id="model" name="model" class="form-control" value="<%=model%>" required>
+                                        <input type="text" id="model" name="model" class="form-control" value="<%=product.model%>" required>
                                     </div>
                                     <div class="form-group col-md">
                                         <label for="collection"><strong>Colección:</strong></label>
-                                        <input type="text" id="collection" name="collection" class="form-control" value="<%=collection%>">
+                                        <input type="text" id="collection" name="collection" class="form-control" value="<%=product.collection%>">
                                     </div>
                                 </div>
 
@@ -98,7 +100,7 @@
                                         <input hidden class="form-control" type="file" id="image1" name="image1"
                                             accept="image/*" required>
                                             <div class="col-12 col-md-4">
-                                                <img src="/images/<%= image1 %>" class="img-fluid" alt="<%= image1 %>">
+                                                <img src="/images/<%= product.image1 %>" class="img-fluid" alt="<%= product.image1 %>">
                                             </div>
                                     </div>
                                 </div>
@@ -113,11 +115,7 @@
                                 <div class="form-group row d-md-none">  <!-- Esto ocultará el carrusel en pantallas más grandes -->
                                       <div id="imageCarousel" class="carousel slide" data-ride="carousel">
                                         <div class="carousel-inner">
-                                          <% image2.forEach(function(image, index) { %>
-                                            <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
-                                              <img src="/images/<%= image %>" class="d-block w-100" alt="">
-                                            </div>
-                                          <% }) %>
+                                          <!-- CODIGO DE FUNCION FORECHER PARA IMAGE2 como es ARRAY la debo descomprimir -->
                                         </div>
                                         <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
                                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -133,9 +131,7 @@
                                 <div class="form-group row d-none d-md-block"> <!-- Esto ocultará el formulario en pantallas moviles -->
                                       <div class="col-12 col-md-6">
                                         <div class="d-flex">
-                                          <% image2.forEach(function(image) { %>
-                                            <img src="/images/<%= image %>" class="img-fluid mr-1 mb-1 d-inline" alt="">
-                                          <% }) %>
+         <!-- CODIGO DE FUNCION FORECHER PARA IMAGE2 como es ARRAY la debo descomprimir -->
                                         </div>
                                       </div>
                                 </div>
@@ -150,7 +146,7 @@
                                     <div class="col-6 col-md-4 col-lg-2">
                                         
                                         <label for="anillos">
-                                            <input type="radio" id="anillos" name="category" value="Anillos" <% if (category === "Anillos") { %> checked <% } %>>
+                                            <input type="radio" id="anillos" name="category" value="Anillos" <% if (product.category === "Anillos") { %> checked <% } %>>
                                             Anillos
                                         </label>
 
@@ -158,21 +154,21 @@
                                     <div class="col-6 col-md-4 col-lg-2">
                                         
                                         <label for="collares">
-                                            <input type="radio" id="collares" name="category" value="Collar" <% if (category === "Collar") { %> checked <% } %>>
+                                            <input type="radio" id="collares" name="category" value="Collar" <% if (product.category === "Collar") { %> checked <% } %>>
                                             Collar
                                           </label>
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2">
                                        
                                         <label for="pulseras">
-                                            <input type="radio" id="pulseras" name="category" value="Pulseras" <% if (category === "Pulseras") { %> checked <% } %>>
+                                            <input type="radio" id="pulseras" name="category" value="Pulseras" <% if (product.category === "Pulseras") { %> checked <% } %>>
                                             Pulseras
                                           </label>
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2">
 
                                         <label for="pendientes">
-                                            <input type="radio" id="pendientes" name="category" value="Pendientes" <% if (category === "Pendientes") { %> checked <% } %>>
+                                            <input type="radio" id="pendientes" name="category" value="Pendientes" <% if (product.category === "Pendientes") { %> checked <% } %>>
                                             Pendientes
                                           </label>
                                     </div>
@@ -180,7 +176,7 @@
 
 
                                         <label for="accesorios">
-                                            <input type="radio" id="accesorios" name="category" value="Accesorios" <% if (category === "Accesorios") { %> checked <% } %>>
+                                            <input type="radio" id="accesorios" name="category" value="Accesorios" <% if (product.category === "Accesorios") { %> checked <% } %>>
                                             Accesorios
                                           </label>
                                     </div>
@@ -257,40 +253,40 @@
                                             <label for="metal"><strong>Metal:</strong></label>
                                             <select id="metal" name="metal" class="form-control" required>
                                                 <option selected hidden>Seleccione una opción</option>
-                                                <option value="Oro 18K" <% if (metal === "Oro 18K") { %> selected <% } %>>Oro 18K (750)</option>
-                                                <option value="Oro 14K" <% if (metal === "Oro 14K") { %> selected <% } %>>Oro 14K (585)</option>
-                                                <option value="Oro 24K" <% if (metal === "Oro 24K") { %> selected <% } %>>Oro 24K (999)</option>
-                                                <option value="Oro Blanco 18K" <% if (metal === "Oro Blanco 18K") { %> selected <% } %>>Oro Blanco 18K (750)</option>
-                                                <option value="Oro Blanco 14K" <% if (metal === "Oro Blanco 14K") { %> selected <% } %>>Oro Blanco 14K (585)</option>
-                                                <option value="Oro Amarillo 22K" <% if (metal === "Oro Amarillo 22K") { %> selected <% } %>>Oro Amarillo 22K (916)</option>
-                                                <option value="Oro Amarillo 21K" <% if (metal === "Oro Amarillo 21K") { %> selected <% } %>>Oro Amarillo 21K (875)</option>
-                                                <option value="Oro Amarillo 20K" <% if (metal === "Oro Amarillo 20K") { %> selected <% } %>>Oro Amarillo 20K (833)</option>
-                                                <option value="Oro Verde" <% if (metal === "Oro Verde") { %> selected <% } %>>Oro Verde</option>
-                                                <option value="Oro Rosa 10K" <% if (metal === "Oro Rosa 10K") { %> selected <% } %>>Oro Rosa 10K</option>
-                                                <option value="Oro Rosa 14K" <% if (metal === "Oro Rosa 14K") { %> selected <% } %>>Oro Rosa 14K</option>
-                                                <option value="Plata 925" <% if (metal === "Plata 925") { %> selected <% } %>>Plata 925 (92.5% de pureza)</option>
-                                                <option value="Plata de Ley" <% if (metal === "Plata de Ley") { %> selected <% } %>>Plata de Ley (92.5% de pureza)</option>
-                                                <option value="Plata Fina" <% if (metal === "Plata Fina") { %> selected <% } %>>Plata Fina (95-99.9% de pureza)</option>
-                                                <option value="Platino 950" <% if (metal === "Platino 950") { %> selected <% } %>>Platino 950 (95% de pureza)</option>
-                                                <option value="Platino 900" <% if (metal === "Platino 900") { %> selected <% } %>>Platino 900 (90% de pureza)</option>
-                                                <option value="Platino 850" <% if (metal === "Platino 850") { %> selected <% } %>>Platino 850 (85% de pureza)</option>
-                                                <option value="Paladio 950" <% if (metal === "Paladio 950") { %> selected <% } %>>Paladio 950 (95% de pureza)</option>
-                                                <option value="Rodio" <% if (metal === "Rodio") { %> selected <% } %>>Rodio</option>
-                                                <option value="Bronce" <% if (metal === "Bronce") { %> selected <% } %>>Bronce</option>
-                                                <option value="Cobre" <% if (metal === "Cobre") { %> selected <% } %>>Cobre</option>
-                                                <option value="Zinc" <% if (metal === "Zinc") { %> selected <% } %>>Zinc</option>
-                                                <option value="Acero Quirúrgico" <% if (metal === "Acero Quirúrgico") { %> selected <% } %>>Acero Quirúrgico</option>
-                                                <option value="Titanio Grado 5" <% if (metal === "Titanio Grado 5") { %> selected <% } %>>Titanio Grado 5</option>
-                                                <option value="Titanio Grado 7" <% if (metal === "Titanio Grado 7") { %> selected <% } %>>Titanio Grado 7</option>
-                                                <option value="Titanio Puro grado 1-4" <% if (metal === "Titanio Puro grado 1-4") { %> selected <% } %>>Titanio Puro grado 1-4</option>
-                                                <option value="Otro material" <% if (metal === "Otro material") { %> selected <% } %>>Otro</option>
+                                                <option value="Oro 18K" <% if (product.metal === "Oro 18K") { %> selected <% } %>>Oro 18K (750)</option>
+                                                <option value="Oro 14K" <% if (product.metal === "Oro 14K") { %> selected <% } %>>Oro 14K (585)</option>
+                                                <option value="Oro 24K" <% if (product.metal === "Oro 24K") { %> selected <% } %>>Oro 24K (999)</option>
+                                                <option value="Oro Blanco 18K" <% if (product.metal === "Oro Blanco 18K") { %> selected <% } %>>Oro Blanco 18K (750)</option>
+                                                <option value="Oro Blanco 14K" <% if (product.metal === "Oro Blanco 14K") { %> selected <% } %>>Oro Blanco 14K (585)</option>
+                                                <option value="Oro Amarillo 22K" <% if (product.metal === "Oro Amarillo 22K") { %> selected <% } %>>Oro Amarillo 22K (916)</option>
+                                                <option value="Oro Amarillo 21K" <% if (product.metal === "Oro Amarillo 21K") { %> selected <% } %>>Oro Amarillo 21K (875)</option>
+                                                <option value="Oro Amarillo 20K" <% if (product.metal === "Oro Amarillo 20K") { %> selected <% } %>>Oro Amarillo 20K (833)</option>
+                                                <option value="Oro Verde" <% if (product.metal === "Oro Verde") { %> selected <% } %>>Oro Verde</option>
+                                                <option value="Oro Rosa 10K" <% if (product.metal === "Oro Rosa 10K") { %> selected <% } %>>Oro Rosa 10K</option>
+                                                <option value="Oro Rosa 14K" <% if (product.metal === "Oro Rosa 14K") { %> selected <% } %>>Oro Rosa 14K</option>
+                                                <option value="Plata 925" <% if (product.metal === "Plata 925") { %> selected <% } %>>Plata 925 (92.5% de pureza)</option>
+                                                <option value="Plata de Ley" <% if (product.metal === "Plata de Ley") { %> selected <% } %>>Plata de Ley (92.5% de pureza)</option>
+                                                <option value="Plata Fina" <% if (product.metal === "Plata Fina") { %> selected <% } %>>Plata Fina (95-99.9% de pureza)</option>
+                                                <option value="Platino 950" <% if (product.metal === "Platino 950") { %> selected <% } %>>Platino 950 (95% de pureza)</option>
+                                                <option value="Platino 900" <% if (product.metal === "Platino 900") { %> selected <% } %>>Platino 900 (90% de pureza)</option>
+                                                <option value="Platino 850" <% if (product.metal === "Platino 850") { %> selected <% } %>>Platino 850 (85% de pureza)</option>
+                                                <option value="Paladio 950" <% if (product.metal === "Paladio 950") { %> selected <% } %>>Paladio 950 (95% de pureza)</option>
+                                                <option value="Rodio" <% if (product.metal === "Rodio") { %> selected <% } %>>Rodio</option>
+                                                <option value="Bronce" <% if (product.metal === "Bronce") { %> selected <% } %>>Bronce</option>
+                                                <option value="Cobre" <% if (product.metal === "Cobre") { %> selected <% } %>>Cobre</option>
+                                                <option value="Zinc" <% if (product.metal === "Zinc") { %> selected <% } %>>Zinc</option>
+                                                <option value="Acero Quirúrgico" <% if (product.metal === "Acero Quirúrgico") { %> selected <% } %>>Acero Quirúrgico</option>
+                                                <option value="Titanio Grado 5" <% if (product.metal === "Titanio Grado 5") { %> selected <% } %>>Titanio Grado 5</option>
+                                                <option value="Titanio Grado 7" <% if (product.metal === "Titanio Grado 7") { %> selected <% } %>>Titanio Grado 7</option>
+                                                <option value="Titanio Puro grado 1-4" <% if (product.metal === "Titanio Puro grado 1-4") { %> selected <% } %>>Titanio Puro grado 1-4</option>
+                                                <option value="Otro material" <% if (product.metal === "Otro material") { %> selected <% } %>>Otro</option>
                                             </select>
                                         </div>
 
                                         <div class="col-3 mb-4">
                                             <label for="stones"><strong>N° de
                                                     Piedras:</strong></label>
-                                            <input type="number" id="stones" name="stones" class="form-control" value="<%=stones%>"
+                                            <input type="number" id="stones" name="stones" class="form-control" value="<%=product.stones%>"
                                                 required>
                                         </div>
                                     </div>
@@ -306,10 +302,8 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="otro_piedra">
-                                                <input type="checkbox" id="Otro" name="type_stone"  value="<%= type_stone %>"
-                                                    <% if (type_stone.includes("Otro") === true) { %>
-                                                checked
-                                              <% } %>
+                                                <input type="checkbox" id="Otro" name="type_stone"  value="<%= product.type_stone %>"        >
+                                                    <!-- BORRE 3 lineas includes no corresponde a funcion -->
                                                > 
                                               Otro
                                             </label>
@@ -318,10 +312,8 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="topacio">
-                                                <input type="checkbox" id="Topacio" name="type_stone"  value="<%= type_stone %>"
-                                                    <% if (type_stone.includes("Topacio") === true) { %>
-                                                checked
-                                              <% } %>
+                                                <input type="checkbox" id="Topacio" name="type_stone"  value="<%= product.type_stone %>" >
+                                                    <!-- BORRE 3 lineas includes no corresponde a funcion -->
                                                > 
                                               Topacio
                                             </label>
@@ -330,10 +322,8 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="cuarzo">
-                                                <input type="checkbox" id="Cuarzo" name="type_stone"  value="<%= type_stone %>"
-                                                    <% if (type_stone.includes("Cuarzo") === true) { %>
-                                                checked
-                                              <% } %>
+                                                <input type="checkbox" id="Cuarzo" name="type_stone"  value="<%= product.type_stone %>"     >
+                                                    <!-- BORRE 3 lineas includes no corresponde a funcion -->
                                                > 
                                               Cuarzo
                                             </label>
@@ -342,10 +332,8 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="diamantes">
-                                                <input type="checkbox" id="Diamantes" name="type_stone"  value="<%= type_stone %>"
-                                                    <% if (type_stone.includes("Diamantes") === true) { %>
-                                                checked
-                                              <% } %>
+                                                <input type="checkbox" id="Diamantes" name="type_stone"  value="<%= product.type_stone %>"    >
+                                                    <!-- BORRE 3 lineas includes no corresponde a funcion -->
                                                > 
                                               Diamantes
                                             </label>
@@ -354,10 +342,8 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="rubies">
-                                                <input type="checkbox" id="Rubíes" name="type_stone"  value="<%= type_stone %>"
-                                                    <% if (type_stone.includes("Rubíes") === true) { %>
-                                                checked
-                                              <% } %>
+                                                <input type="checkbox" id="Rubíes" name="type_stone"  value="<%= product.type_stone %>"    >
+                                                    <!-- BORRE 3 lineas includes no corresponde a funcion -->
                                                > 
                                               Rubíes
                                             </label>
@@ -366,10 +352,8 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="zafiros">
-                                                <input type="checkbox" id="Zafiros" name="type_stone"  value="<%= type_stone %>"
-                                                    <% if (type_stone.includes("Zafiros") === true) { %>
-                                                checked
-                                              <% } %>
+                                                <input type="checkbox" id="Zafiros" name="type_stone"  value="<%= product.type_stone %>"       >
+                                                    <!-- BORRE 3 lineas includes no corresponde a funcion -->
                                                > 
                                               Zafiros
                                             </label>
@@ -378,10 +362,8 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="esmeraldas">
-                                                <input type="checkbox" id="Esmeraldas" name="type_stone"  value="<%= type_stone %>"
-                                                    <% if (type_stone.includes("Esmeraldas") === true) { %>
-                                                checked
-                                              <% } %>
+                                                <input type="checkbox" id="Esmeraldas" name="type_stone"  value="<%= product.type_stone %>"     >
+                                                    <!-- BORRE 3 lineas includes no corresponde a funcion -->
                                                > 
                                               Esmeraldas
                                             </label>
@@ -390,10 +372,8 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="jade">
-                                                <input type="checkbox" id="Jade" name="type_stone"  value="<%= type_stone %>"
-                                                    <% if (type_stone.includes("Jade") === true) { %>
-                                                checked
-                                              <% } %>
+                                                <input type="checkbox" id="Jade" name="type_stone"  value="<%= product.type_stone %>"        >
+                                                    <!-- BORRE 3 lineas includes no corresponde a funcion -->
                                                > 
                                               Jade
                                             </label>
@@ -402,10 +382,8 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
                                            
                                             <label for="amatista">
-                                                <input type="checkbox" id="Amatista" name="type_stone"  value="<%= type_stone %>"
-                                                    <% if (type_stone.includes("Amatista") === true) { %>
-                                                checked
-                                              <% } %>
+                                                <input type="checkbox" id="Amatista" name="type_stone"  value="<%= product.type_stone %>"      >
+                                                    <!-- BORRE 3 lineas includes no corresponde a funcion -->
                                                > 
                                               Amatista
                                             </label>
@@ -414,10 +392,8 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="opal">
-                                                <input type="checkbox" id="Ópalo" name="type_stone"  value="<%= type_stone %>"
-                                                    <% if (type_stone.includes("Ópalo") === true) { %>
-                                                checked
-                                              <% } %>
+                                                <input type="checkbox" id="Ópalo" name="type_stone"  value="<%= product.type_stone %>"      >
+                                                    <!-- BORRE 3 lineas includes no corresponde a funcion -->
                                                > 
                                               Ópalo
                                             </label>
@@ -426,10 +402,8 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="coral">
-                                                <input type="checkbox" id="Coral" name="type_stone"  value="<%= type_stone %>"
-                                                    <% if (type_stone.includes("Coral") === true) { %>
-                                                checked
-                                              <% } %>
+                                                <input type="checkbox" id="Coral" name="type_stone"  value="<%= product.type_stone %>"        >
+                                                    <!-- BORRE 3 lineas includes no corresponde a funcion -->
                                                > 
                                               Coral
                                             </label>
@@ -438,10 +412,8 @@
                                         <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
 
                                             <label for="perlas">
-                                                <input type="checkbox" id="Perlas" name="type_stone"  value="<%= type_stone %>"
-                                                    <% if (type_stone.includes("Perlas") === true) { %>
-                                                checked
-                                              <% } %>
+                                                <input type="checkbox" id="Perlas" name="type_stone"  value="<%= product.type_stone %>"       >
+                                                    <!-- BORRE 3 lineas includes no corresponde a funcion -->
                                                > 
                                               Perlas
                                             </label>
@@ -463,13 +435,13 @@
                                             <div class="col-7 col-md-8">
                                                 <label for="size"><strong>Tamaño:</strong></label>
                                                 <input type="text" placeholder="Codigo alfanumerico" id="size"
-                                                    name="size" class="form-control" value="<%=size%>" required>
+                                                    name="size" class="form-control" value="<%=product.size%>" required>
                                             </div>
                                             <div class="col-5 col-md-4">
                                                 <label for="measures_mm"><strong>Medida
                                                         (mm):</strong></label>
                                                 <input type="number" placeholder="en numeros de mm" id="measures_mm"
-                                                    name="measures_mm" class="form-control" value="<%=measures_mm%>" required>
+                                                    name="measures_mm" class="form-control" value="<%=product.measures_mm%>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -484,11 +456,11 @@
                                                 <strong> Garantía:</strong> <br>
                                                 <label for="si_warranty">
                                                     <strong> Si </strong>
-                                                    <input type="radio" id="si_warranty" name="warranty" value="true" <% if (warranty == "true") { %> checked <% } %>>
+                                                    <input type="radio" id="si_warranty" name="warranty" value="true" <% if (product.warranty == "true") { %> checked <% } %>>
                                                 </label><br>
                                                 <label for="no_warranty"></label>
                                                 <strong> No </strong>
-                                                <input type="radio" id="no_warranty" name="warranty" value="false" <% if (warranty == "false") { %> checked <% } %>>
+                                                <input type="radio" id="no_warranty" name="warranty" value="false" <% if (product.warranty == "false") { %> checked <% } %>>
                                                 </label><br>
                                             </div>
                                             
@@ -497,11 +469,11 @@
                                                 <strong>Guardajoyas:</strong> <br>
                                                 <label for="si_jewel_keeper">
                                                     <strong> Si </strong>
-                                                    <input type="radio" id="si_jewel_keeper" name="jewel_keeper" value="true" <% if (jewel_keeper == "true") { %> checked <% } %>>
+                                                    <input type="radio" id="si_jewel_keeper" name="jewel_keeper" value="true" <% if (product.jewel_keeper == "true") { %> checked <% } %>>
                                                 </label><br>
                                                 <strong> No </strong>
                                                 <label for="no_jewel_keeper">
-                                                    <input type="radio" id="no_jewel_keeper" name="jewel_keeper" value="false" <% if (jewel_keeper == "false") { %> checked <% } %>>
+                                                    <input type="radio" id="no_jewel_keeper" name="jewel_keeper" value="false" <% if (product.jewel_keeper == "false") { %> checked <% } %>>
                                                 </label><br>
                                             
                                         </div>
@@ -518,13 +490,13 @@
                                             <div class="col-12 col-md-5 mb-2 text-center">
                                                 <label for="price"><strong>Precio
                                                         Original:</strong></label>
-                                                <input type="number" id="price" name="price" class="form-control" value="<%=price%>"
+                                                <input type="number" id="price" name="price" class="form-control" value="<%=product.price%>"
                                                     required>
                                             </div>
                                             <!-- Campo de Descuento % -->
                                             <div class="col-12 col-md-2 mb-2 text-center">
                                                 <label for="discount"><strong>Oferta_%:</strong></label>
-                                                <input type="number" id="discount" name="discount" class="form-control" value="<%=discount%>"
+                                                <input type="number" id="discount" name="discount" class="form-control" value="<%=product.discount%>"
                                                     required>
                                             </div>
                                             <!-- Campo de Precio Oferta -->
@@ -542,7 +514,7 @@
                                         <div class="form-group mb-2 text-center">
                                             <label for="stock"
                                                 class="col-form-label mr-2"><strong>Stock:</strong></label>
-                                            <input type="number" id="stock" name="stock" class="form-control" value="<%=stock%>" required>
+                                            <input type="number" id="stock" name="stock" class="form-control" value="<%=product.stock%>" required>
                                         </div>
                                     </div>
                                 </div>
