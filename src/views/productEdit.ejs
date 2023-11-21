@@ -76,6 +76,7 @@
 
                                 <div class="form-row">
                                     <div class="form-group col-md">
+                                        <!-- Que una vez obtenido el ID, en lugar de mostrar el numero que muestre el name asociado, me quedo pendiente eso -->
                                         <label for="brand"><strong>Marca:</strong></label>
                                         <input type="text" id="brand" name="brand" class="form-control" value="<%=product.brandId%>" required>
                                         
@@ -83,11 +84,11 @@
 
                                     <div class="form-group col-md">
                                         <label for="model"><strong>Modelo:</strong></label>
-                                        <input type="text" id="model" name="model" class="form-control" value="<%=product.model%>" required>
+                                        <input type="text" id="model" name="model" class="form-control" value="<%=product.designId%>" required>
                                     </div>
                                     <div class="form-group col-md">
                                         <label for="collection"><strong>Colección:</strong></label>
-                                        <input type="text" id="collection" name="collection" class="form-control" value="<%=product.collection%>">
+                                        <input type="text" id="collection" name="collection" class="form-control" value="<%=product.collectionId%>">
                                     </div>
                                 </div>
 
@@ -146,7 +147,7 @@
                                     <div class="col-6 col-md-4 col-lg-2">
                                         
                                         <label for="anillos">
-                                            <input type="radio" id="anillos" name="category" value="Anillos" <% if (product.category === "Anillos") { %> checked <% } %>>
+                                            <input type="radio" id="anillos" name="category" value="Anillos" <% if (product.categoryId == "1") { %> checked <% } %>>
                                             Anillos
                                         </label>
 
@@ -154,21 +155,21 @@
                                     <div class="col-6 col-md-4 col-lg-2">
                                         
                                         <label for="collares">
-                                            <input type="radio" id="collares" name="category" value="Collar" <% if (product.category === "Collar") { %> checked <% } %>>
+                                            <input type="radio" id="collares" name="category" value="Collar" <% if (product.categoryId == "2") { %> checked <% } %>>
                                             Collar
                                           </label>
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2">
                                        
                                         <label for="pulseras">
-                                            <input type="radio" id="pulseras" name="category" value="Pulseras" <% if (product.category === "Pulseras") { %> checked <% } %>>
+                                            <input type="radio" id="pulseras" name="category" value="Pulseras" <% if (product.categoryId == "3") { %> checked <% } %>>
                                             Pulseras
                                           </label>
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-2">
 
                                         <label for="pendientes">
-                                            <input type="radio" id="pendientes" name="category" value="Pendientes" <% if (product.category === "Pendientes") { %> checked <% } %>>
+                                            <input type="radio" id="pendientes" name="category" value="Pendientes" <% if (product.categoryId == "4") { %> checked <% } %>>
                                             Pendientes
                                           </label>
                                     </div>
@@ -176,7 +177,7 @@
 
 
                                         <label for="accesorios">
-                                            <input type="radio" id="accesorios" name="category" value="Accesorios" <% if (product.category === "Accesorios") { %> checked <% } %>>
+                                            <input type="radio" id="accesorios" name="category" value="Accesorios" <% if (product.categoryId == "5") { %> checked <% } %>>
                                             Accesorios
                                           </label>
                                     </div>
@@ -253,33 +254,32 @@
                                             <label for="metal"><strong>Metal:</strong></label>
                                             <select id="metal" name="metal" class="form-control" required>
                                                 <option selected hidden>Seleccione una opción</option>
-                                                <option value="Oro 18K" <% if (product.metal === "Oro 18K") { %> selected <% } %>>Oro 18K (750)</option>
-                                                <option value="Oro 14K" <% if (product.metal === "Oro 14K") { %> selected <% } %>>Oro 14K (585)</option>
-                                                <option value="Oro 24K" <% if (product.metal === "Oro 24K") { %> selected <% } %>>Oro 24K (999)</option>
-                                                <option value="Oro Blanco 18K" <% if (product.metal === "Oro Blanco 18K") { %> selected <% } %>>Oro Blanco 18K (750)</option>
-                                                <option value="Oro Blanco 14K" <% if (product.metal === "Oro Blanco 14K") { %> selected <% } %>>Oro Blanco 14K (585)</option>
-                                                <option value="Oro Amarillo 22K" <% if (product.metal === "Oro Amarillo 22K") { %> selected <% } %>>Oro Amarillo 22K (916)</option>
-                                                <option value="Oro Amarillo 21K" <% if (product.metal === "Oro Amarillo 21K") { %> selected <% } %>>Oro Amarillo 21K (875)</option>
-                                                <option value="Oro Amarillo 20K" <% if (product.metal === "Oro Amarillo 20K") { %> selected <% } %>>Oro Amarillo 20K (833)</option>
-                                                <option value="Oro Verde" <% if (product.metal === "Oro Verde") { %> selected <% } %>>Oro Verde</option>
-                                                <option value="Oro Rosa 10K" <% if (product.metal === "Oro Rosa 10K") { %> selected <% } %>>Oro Rosa 10K</option>
-                                                <option value="Oro Rosa 14K" <% if (product.metal === "Oro Rosa 14K") { %> selected <% } %>>Oro Rosa 14K</option>
-                                                <option value="Plata 925" <% if (product.metal === "Plata 925") { %> selected <% } %>>Plata 925 (92.5% de pureza)</option>
-                                                <option value="Plata de Ley" <% if (product.metal === "Plata de Ley") { %> selected <% } %>>Plata de Ley (92.5% de pureza)</option>
-                                                <option value="Plata Fina" <% if (product.metal === "Plata Fina") { %> selected <% } %>>Plata Fina (95-99.9% de pureza)</option>
-                                                <option value="Platino 950" <% if (product.metal === "Platino 950") { %> selected <% } %>>Platino 950 (95% de pureza)</option>
-                                                <option value="Platino 900" <% if (product.metal === "Platino 900") { %> selected <% } %>>Platino 900 (90% de pureza)</option>
-                                                <option value="Platino 850" <% if (product.metal === "Platino 850") { %> selected <% } %>>Platino 850 (85% de pureza)</option>
-                                                <option value="Paladio 950" <% if (product.metal === "Paladio 950") { %> selected <% } %>>Paladio 950 (95% de pureza)</option>
-                                                <option value="Rodio" <% if (product.metal === "Rodio") { %> selected <% } %>>Rodio</option>
-                                                <option value="Bronce" <% if (product.metal === "Bronce") { %> selected <% } %>>Bronce</option>
-                                                <option value="Cobre" <% if (product.metal === "Cobre") { %> selected <% } %>>Cobre</option>
-                                                <option value="Zinc" <% if (product.metal === "Zinc") { %> selected <% } %>>Zinc</option>
-                                                <option value="Acero Quirúrgico" <% if (product.metal === "Acero Quirúrgico") { %> selected <% } %>>Acero Quirúrgico</option>
-                                                <option value="Titanio Grado 5" <% if (product.metal === "Titanio Grado 5") { %> selected <% } %>>Titanio Grado 5</option>
-                                                <option value="Titanio Grado 7" <% if (product.metal === "Titanio Grado 7") { %> selected <% } %>>Titanio Grado 7</option>
-                                                <option value="Titanio Puro grado 1-4" <% if (product.metal === "Titanio Puro grado 1-4") { %> selected <% } %>>Titanio Puro grado 1-4</option>
-                                                <option value="Otro material" <% if (product.metal === "Otro material") { %> selected <% } %>>Otro</option>
+                                                <option value="Oro 18K" <% if (product.metalId == "1") { %> selected <% } %>>Oro 18K (750)</option>
+                                                <option value="Oro 14K" <% if (product.metalId == "2") { %> selected <% } %>>Oro 14K (585)</option>
+                                                <option value="Oro 24K" <% if (product.metalId == "3") { %> selected <% } %>>Oro 24K (999)</option>
+                                                <option value="Oro Blanco 18K" <% if (product.metalId == "4") { %> selected <% } %>>Oro Blanco 18K (750)</option>
+                                                <option value="Oro Blanco 14K" <% if (product.metalId == "5") { %> selected <% } %>>Oro Blanco 14K (585)</option>
+                                                <option value="Oro Amarillo 22K" <% if (product.metalId == "6") { %> selected <% } %>>Oro Amarillo 22K (916)</option>
+                                                <option value="Oro Amarillo 21K" <% if (product.metalId == "7") { %> selected <% } %>>Oro Amarillo 21K (875)</option>
+                                                <option value="Oro Amarillo 20K" <% if (product.metalId == "8") { %> selected <% } %>>Oro Amarillo 20K (833)</option>
+                                                <option value="Oro Verde" <% if (product.metalId == "9") { %> selected <% } %>>Oro Verde</option>
+                                                <option value="Oro Rosa 10K" <% if (product.metalId == "10") { %> selected <% } %>>Oro Rosa 10K</option>
+                                                <option value="Oro Rosa 14K" <% if (product.metalId == "11") { %> selected <% } %>>Oro Rosa 14K</option>
+                                                <option value="Plata 925" <% if (product.metalId == "12") { %> selected <% } %>>Plata 925 (92.5% de pureza)</option>
+                                                <option value="Plata de Ley" <% if (product.metalId == "13") { %> selected <% } %>>Plata de Ley (92.5% de pureza)</option>
+                                                <option value="Plata Fina" <% if (product.metalId == "14") { %> selected <% } %>>Plata Fina (95-99.9% de pureza)</option>
+                                                <option value="Platino 950" <% if (product.metalId == "15") { %> selected <% } %>>Platino 950 (95% de pureza)</option>
+                                                <option value="Platino 850" <% if (product.metalId == "16") { %> selected <% } %>>Platino 850 (85% de pureza)</option>
+                                                <option value="Paladio 950" <% if (product.metalId == "17") { %> selected <% } %>>Paladio 950 (95% de pureza)</option>
+                                                <option value="Rodio" <% if (product.metalId == "18") { %> selected <% } %>>Rodio</option>
+                                                <option value="Bronce" <% if (product.metalId == "19") { %> selected <% } %>>Bronce</option>
+                                                <option value="Cobre" <% if (product.metalId == "20") { %> selected <% } %>>Cobre</option>
+                                                <option value="Zinc" <% if (product.metalId == "21") { %> selected <% } %>>Zinc</option>
+                                                <option value="Acero Quirúrgico" <% if (product.metalId == "22") { %> selected <% } %>>Acero Quirúrgico</option>
+                                                <option value="Titanio Grado 5" <% if (product.metalId == "23") { %> selected <% } %>>Titanio Grado 5</option>
+                                                <option value="Titanio Grado 7" <% if (product.metalId == "24") { %> selected <% } %>>Titanio Grado 7</option>
+                                                <option value="Titanio Puro grado 1-4" <% if (product.metalId == "25") { %> selected <% } %>>Titanio Puro grado 1-4</option>
+                                                <option value="Otro material" <% if (product.metalId == "26") { %> selected <% } %>>Otro</option>
                                             </select>
                                         </div>
 
