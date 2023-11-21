@@ -21,35 +21,38 @@
       </ul>
     </nav>
     <div class="buscador">
-      <form action="/search" method="GET">
+      <form action="/search" id="formKeywords" method="GET">
         <div class="contenedor-input">
-          <input type="text" name="keywords" placeholder="Buscar" />
-          <button type="submit" class="buscar"><i class="fas fa-search"></i></button>
+          <input type="text" id="keywords" name="keywords" placeholder="Buscar" />
+          <small id="msgErr-keywords" class="ms-2 text-danger"></small>
+          <button type="submit" class="buscar">
+            <i class="fas fa-search"></i>
+          </button>
+          <small id="msgErr-empty" class="ms-2 text-danger"></small>
         </div>
       </form>
     </div>
     <div class="iconos-top">
       <% if (!locals.userLogin) { %>
-        <a href="/users/login"><i class="far fa-user"></i></a>
-        <a href=""><i class="far fa-heart"></i></a>
-        <a href=""><i class="fas fa-shopping-cart"></i></a>
+      <a href="/users/login"><i class="far fa-user"></i></a>
+      <a href=""><i class="far fa-heart"></i></a>
+      <a href=""><i class="fas fa-shopping-cart"></i></a>
+      <% }else { %> <% if (userLogin.rol === 1) { %>
+      <a href="/admin"><strong>ADMIN</strong></a>
+      <br />
+      <a href="/users/profile">Bienvenid@<%= userLogin.name %>!</a>
+      <a href=""><i class="far fa-heart"></i></a>
+      <a href=""><i class="fas fa-shopping-cart"></i></a>
+      <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
+
       <% }else { %>
-        <% if (userLogin.rol === 1) { %>
-          <a href="/admin"><strong>ADMIN</strong></a>  
-          <br>
-          <a href="/users/profile">Bienvenid@<%= userLogin.name %>!</a>
-          <a href=""><i class="far fa-heart"></i></a>
-          <a href=""><i class="fas fa-shopping-cart"></i></a>
-          <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
-               
-        <% }else { %>
-          <a href="/users/profile">Bienvenid@ <%= userLogin.name %>!  </a>
-          <a href=""><i class="far fa-heart"></i></a>
-          <a href=""><i class="fas fa-shopping-cart"></i></a>
-          <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
-        <% }%>
-      <% }%>
-        
+      <a href="/users/profile">Bienvenid@ <%= userLogin.name %>! </a>
+      <a href=""><i class="far fa-heart"></i></a>
+      <a href=""><i class="fas fa-shopping-cart"></i></a>
+      <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
+      <% }%> <% }%>
     </div>
   </div>
+  
+  <!-- <script src="/javascripts/search.js"></script> -->
 </header>
