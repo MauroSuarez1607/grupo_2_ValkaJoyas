@@ -26,5 +26,11 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "src/data/*.json",
+      "public/javascripts/*"
+    ]
   }
 }
