@@ -22,12 +22,14 @@
             </div>
             <div class="mb-3 mt-3">
               <label for="password" class="form-label">Contraseña</label>
-              <input
+              <div class="input-group mb-3">
+                <input
+                class="form-control <%= locals.errors && (errors.password && 'is-invalid') %>"
                 type="password"
-                class="form-control <%= locals.errors && (errors.password && 'is.invalid') %>"
                 id="password"
-                name="password"
-              />
+                name="password"/>                    
+                <span class="input-group-text"><i id="viewPassword" class="fa fa-eye"></i></span>
+              </div>
               <small id="msgError-password" class="text-danger ms-2"></small>
               <% if (locals.errors && errors.password) { %>
               <div class="mb-3">
