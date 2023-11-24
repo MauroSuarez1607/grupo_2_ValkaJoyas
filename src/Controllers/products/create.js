@@ -1,104 +1,114 @@
-const {existsSync, unlinkSync} = require('fs');
+// sprint 7
+const { validationResult } = require("express-validator");
 
-const Product = require('../../data/Product');
-
+const { existsSync, unlinkSync } = require('fs');
 const db = require("../../database/models");
 
-// const { readJSON, writeJSON } = require('../../data');
+module.exports = async (req, res) => {
+  try {
+    const errors = validationResult(req);
 
-// module.exports = (req, res) => {
-  
-//   const products = readJSON('products.json')
-//     const data = {
-//       ...req.body,
-//       image1: req.files && req.files.image1 && req.files.image1.length > 0 ? req.files.image1[0].filename : null,
-//       image2: req.files && req.files.image2 ? req.files.image2.map((image) => image.filename) : [],
-//     }
+    // Sprint 7
+    if (errors.isEmpty()) {
+      const { name, description, brand, model, collection, category, metal, stones, type_stone, size, measures_mm, warranty, jewel_keeper, price, discount, stock, image1, image2 } = req.body;
 
+      // Buscar la marca por su nombre
+      let brandResult = await db.Brand.findOne({ where: { name: brand } });
 
+      if (!brandResult) {
+        // Si la marca no existe, créala
+        brandResult = await db.Brand.create({ name: brand });
+      }
 
-//   let newProducto = new Product(data) // Se trae la función constructora con el destructuring del body
-//   products.push(newProducto);
+      // Buscar el diseño por su nombre
+      let designResult = await db.Design.findOne({ where: { name: model } });
 
-//   writeJSON(products, 'products.json')
+      if (!designResult) {
+        // Si el diseño no existe, créalo
+        designResult = await db.Design.create({ name: model });
+      }
 
-//     return res.redirect('/admin') //  POST
+      // Buscar la colección por su nombre
+      let collectionResult = await db.Collection.findOne({ where: { name: collection } });
 
-// }
-module.exports = (req, res) => {
+      if (!collectionResult) {
+        // Si la colección no existe, créala
+        collectionResult = await db.Collection.create({ name: collection });
+      }
 
-  
-  const { name, description, brand, model, collection, category, metal, stones, type_stone, size, measures_mm, warranty, jewel_keeper, price, discount, stock, image1, image2 } = req.body;
+      const productData = {
+        name: name.trim(),
+        description: description.trim(),
+        brandId: brandResult.id,
+        designId: designResult.id,
+        collectionId: collectionResult ? collectionResult.id : null,
+        categoryId: category,
+        metalId: metal,
+        stones,
+        type_stoneId: type_stone,
+        size: size.trim(),
+        measures_mm,
+        warranty: warranty === "true" ? 1 : 0,
+        jewel_keeper: jewel_keeper === "true" ? 1 : 0,
+        price,
+        discount: discount || 0,
+        stock,
+        image1: req.files && req.files.image1 && req.files.image1.length > 0 ? req.files.image1[0].filename : null,
+        image2: req.files && req.files.image2 ? req.files.image2.map((image) => image.filename).join(", ") : null,
+      };
 
-  db.Product.create({
-    name: name.trim(),
-    description: description.trim(),
-    brandId: brand.trim(),
-    designId: model.trim(),
-    collectionId: collection.trim(),
-    categoryId: category,
-    metalId: metal,
-    stones,
-    type_stoneId: type_stone,
-    size: size.trim(),
-    measures_mm,
-    warranty: warranty === "true" ? 1 : 0,
-    jewel_keeper: jewel_keeper === "true" ? 1 : 0,
-    price,
-    discount: discount || 0,
-    stock,
-    image1: req.files && req.files.image1 && req.files.image1.length > 0 ? req.files.image1[0].filename : null,
-    image2: req.files && req.files.image2 ? req.files.image2.map((image) => image.filename).join(", ") : null,
-  
+      // Crear el producto
+      const product = await db.Product.create(productData);
 
-  })
+      // Procesar imágenes
+      if (req.files.image1) {
+        const image1 = req.files.image1.map((file) => {
+          return {
+            file: file.filename,
+            main: false,
+            productId: product.id,
+          };
+        });
 
+        await db.Image.bulkCreate(image1, {
+          validate: true,
+        });
 
+        // Eliminar archivos de imágenes si es necesario
+        if (req.files.length) {
+          req.files.forEach((file) => {
+            existsSync("./public/images/" + file.filename) && unlinkSync("./public/images/" + file.filename);
+          });
+        }
 
-
-
-  
-  .then((product) => {
-    if (req.files.image2) {
-      const image2 = req.files.image2.map((file) => {
-        return {
-          file: file.filename,
-          main: false,
-          productId: product.id,
-        };
-      });
-
-      db.Image.bulkCreate(image2, {
-        validate: true,
-      }).then((response) => {
+        // Redirigir después de un exitoso proceso
         return res.redirect("/admin");
-      });
+      } else {
+        // Redirigir después de un exitoso proceso
+        return res.redirect("/admin");
+      }
     } else {
-      return res.redirect("/admin");
-    }
-  })
-  .catch((error) => console.log(error));
+      // Eliminar archivos de imágenes si es necesario
+      if (req.files.length) {
+        req.files.forEach((file) => {
+          existsSync("./public/images/" + file.filename) && unlinkSync("./public/images/" + file.filename);
+        });
+      }
 
-  if (req.files.length) {
-    req.files.forEach((file) => {
-      existsSync("./public/images/" + file.filename) && unlinkSync("./public/images/" + file.filename);
-    });
-  }
+      const metals = await db.Metal.findAll({
+        order: ["name"],
+      });
 
-  const metals = db.Metal.findAll({
-    order: ["name"],
-  });
-
-  Promise.all([metals])
-  .then(([metals]) => {
-    return res.render("productAdd", {
-      metals,
+      // Renderizar la vista con errores y datos antiguos
+      return res.render("productAdd", {
+        metals,
         errors: errors.mapped(),
         old: req.body,
       });
-    })
-    .catch((error) => console.log(error));
-
-
- 
-}
+    }
+  } catch (error) {
+    // Manejar errores internos del servidor
+    console.log(error);
+    return res.status(500).send("Error interno del servidor");
+  }
+};

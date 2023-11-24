@@ -1,6 +1,9 @@
 const { readJSON } = require('../data');
 const products = readJSON('products.json')
 
+// sprint 7
+const validationResult = require("express-validator")
+
 // const { v4: uuidv4 } = require("uuid");
 
 const Product = function ({name, description, brand, model, collection, category, metal, stones, type_stone, size, measures_mm, warranty, jewel_keeper, price, discount, stock, image1, image2}) {

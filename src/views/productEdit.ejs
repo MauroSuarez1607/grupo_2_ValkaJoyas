@@ -27,11 +27,10 @@
                 <div class="col-10 mx-auto">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title font-weight-bold">Edicion Producto</h5>
+                            <h5 class="card-title font-weight-bold">Edición Producto</h5>
                             <form class="form-inline">
                                 <div class="form-group mr-2">
-                                    <label for="inputBusqueda"><em><strong> Busqueda
-                                                del Producto:</strong></em></label>
+                                    <label for="inputBusqueda"><em><strong> Busqueda del Producto:</strong></em></label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="inputBusqueda"
                                             placeholder="Ingrese titulo del producto">
@@ -55,59 +54,80 @@
                                         <br>    
                                         <div class="d-flex justify-content-center">
                                         <span class="bg-warning" style="font-size: 1.5em;">  
-                                             <!-- %=id%  -->
+                                           <%=product.id%>
                                             </span>
                                         </div>
                                         <!-- <input type="text" placeholder="number" id="referencia" -->
                                         <!-- name="referencia" class="form-control" required> -->
                                     </div>
                                     <div class="form-group col-md-9">
-                                        <label for="name" class="col-form-label"><strong>Nombre:</strong></label>
-                                        <input type="text" placeholder="Nombre / Título" id="name" name="name" class="form-control" value="<%=product.name%>" required>
+                                        <label for="formName" class="col-form-label"><strong>Nombre:</strong></label>
+                                        <input type="text" placeholder="Nombre / Título" minlength="3" maxlength="25" id="name" name="name"
+                                            class="form-control"
+                                            value="<%=product.name%>" <%= locals.old && (old.name && old.name) %>
+                                            >
+                                            <small id="msg-name" class="ms-2 text-danger">
+                                                <%= locals.errors && (errors.name && errors.name.msg) %>
+                                            </small>
                                     </div>
                                 </div>
+
 
                                 <div class="form-group">
                                     <label for="description"><strong>Descripción:</strong></label>
                                     <textarea placeholder="Detalle del producto" id="description" name="description"
-                                        class="form-control" style="resize: none;"  required><%= product.description %>
-                                    </textarea>
+                                        class="form-control"
+                                        style="resize: none;"><%= product.description %> <%= locals.old && (old.description && old.description) %></textarea>
+                                        <small id="msg-description" class="ms-2 text-danger">
+                                            <%= locals.errors && (errors.description && errors.description.msg) %>
+                                        </small>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md">
-                                        <!-- Que una vez obtenido el ID, en lugar de mostrar el numero que muestre el name asociado, me quedo pendiente eso -->
-                                        <label for="brand"><strong>Marca:</strong></label>
-                                        <input type="text" id="brand" name="brand" class="form-control" value="<%=product.brandId%>" required>
-                                        
+                                        <label for="brand" class="d-block text-center"><strong>Marca:</strong></label>
+                                        <span class="d-block text-center"><%= product.brandId %></span>
                                     </div>
-
+                                    
                                     <div class="form-group col-md">
-                                        <label for="model"><strong>Modelo:</strong></label>
-                                        <input type="text" id="model" name="model" class="form-control" value="<%=product.designId%>" required>
+                                        <label for="model" class="d-block text-center"><strong>Modelo:</strong></label>
+                                        <span class="d-block text-center"><%= product.designId %></span>
                                     </div>
+                                    
                                     <div class="form-group col-md">
-                                        <label for="collection"><strong>Colección:</strong></label>
-                                        <input type="text" id="collection" name="collection" class="form-control" value="<%=product.collectionId%>">
+                                        <label for="collection" class="d-block text-center"><strong>Colección:</strong></label>
+                                        <input type="text" minlength="3" maxlength="25" id="collection" name="collection" 
+                                            class="form-control text-center"
+                                            value="<%= product.collectionId %>" <%= locals.old && (old.collection && old.collection) %>
+                                        >
+                                        <small id="msg-collection" class="ms-2 text-danger">
+                                            <%= locals.errors && (errors.collection && errors.collection.msg) %>
+                                        </small>
                                     </div>
                                 </div>
+                                    
 
                                 <label>
                                     <h5><strong>IMÁGENES</strong></h5>
                                 </label><br>
-                                <div class="form-group row">
+                                <div class="form-group row ml-2 mr-2">
                                     <label for="image1" class="col-md-4 btn btn-secondary d-flex align-items-center justify-content-center">Principal:</label>
                                     <div class="col-md-4">
-                                        <input hidden class="form-control" type="file" id="image1" name="image1"
-                                            accept="image/*" required>
-                                            <div class="col-12 col-md-4">
-                                                <img src="/images/<%= product.image1 %>" class="img-fluid" alt="<%= product.image1 %>">
-                                            </div>
+                                        <input type="file" accept="image/*" id="image1" name="image1"
+                                               hidden class="form-control" 
+                                               value="<%= locals.old && (old.image1 && old.image1) %>"
+                                        >
+                                        <small id="msg-image1" class="ms-2 text-danger">
+                                            <%= locals.errors && (errors.image1 && errors.image1.msg) %>
+                                        </small>
+                                        <div class="col-12 col-md-4">
+                                            <img src="/images/<%= product.image1 %>" class="img-fluid" alt="<%= product.image1 %>">
+                                        </div>
                                     </div>
                                 </div>
 
                             <div>
-                                <div class="form-group row"> <!-- Contenedor de CARGA de 2da imagen -->
+                                <div class="form-group row ml-2 mr-2"> <!-- Contenedor de CARGA de 2da imagen -->
                                 <label for="image2" class="col-md-4 btn btn-primary d-flex align-items-center justify-content-center">Secundarias:</label>
                                 <div class="col-md-4">
                                   <input hidden class="form-control" type="file" id="image2" name="image2" accept="image/*" multiple>
@@ -144,150 +164,90 @@
                                 </label><br>
                                 <label for="category"><strong>Categoría:</strong></label>
                                 <div class="row align-items-center">
-                                    <div class="col-6 col-md-4 col-lg-2">
-                                        
-                                        <label for="anillos">
-                                            <input type="radio" id="anillos" name="category" value="Anillos" <% if (product.categoryId == "1") { %> checked <% } %>>
-                                            Anillos
-                                        </label>
-
-                                      </div>
-                                    <div class="col-6 col-md-4 col-lg-2">
-                                        
-                                        <label for="collares">
-                                            <input type="radio" id="collares" name="category" value="Collar" <% if (product.categoryId == "2") { %> checked <% } %>>
-                                            Collar
-                                          </label>
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2">
-                                       
-                                        <label for="pulseras">
-                                            <input type="radio" id="pulseras" name="category" value="Pulseras" <% if (product.categoryId == "3") { %> checked <% } %>>
-                                            Pulseras
-                                          </label>
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2">
-
-                                        <label for="pendientes">
-                                            <input type="radio" id="pendientes" name="category" value="Pendientes" <% if (product.categoryId == "4") { %> checked <% } %>>
-                                            Pendientes
-                                          </label>
-                                    </div>
-                                    <div class="col-6 col-md-4 col-lg-2">
-
-
-                                        <label for="accesorios">
-                                            <input type="radio" id="accesorios" name="category" value="Accesorios" <% if (product.categoryId == "5") { %> checked <% } %>>
-                                            Accesorios
-                                          </label>
-                                    </div>
+                                    <% if (product.categoryId == '1') { %>
+                                        <div class="col-8 col-md-6 col-lg-4 d-flex align-items-center">
+                                            <label for="anillos">
+                                                <p><strong>Elección:</strong> Anillos </p>
+                                            </label>
+                                        </div>
+                                    <% } else if (product.categoryId == '2') { %>
+                                        <div class="col-8 col-md-6 col-lg-4 d-flex align-items-center">
+                                            <label for="collares">
+                                                <p><strong>Elección:</strong> Collar </p>
+                                            </label>
+                                        </div>
+                                    <% } else if (product.categoryId == '3') { %>
+                                        <div class="col-8 col-md-6 col-lg-4 d-flex align-items-center">
+                                            <label for="pulseras">
+                                                <p><strong>Elección:</strong> Pulseras </p> 
+                                            </label>
+                                        </div>
+                                    <% } else if (product.categoryId == '4') { %>
+                                        <div class="col-8 col-md-6 col-lg-4 d-flex align-items-center">
+                                            <label for="pendientes">
+                                                <p><strong>Elección:</strong> Pendientes </p>
+                                            </label>
+                                        </div>
+                                    <% } else if (product.categoryId == '5') { %>
+                                        <div class="col-8 col-md-6 col-lg-4 d-flex align-items-center">
+                                            <label for="accesorios">
+                                                <p><strong>Elección:</strong> Accesorios </p>
+                                            </label>
+                                        </div>
+                                    <% } %>
                                 </div>
+
                                 <!-- Articulo -->
                                 <div>
                                     <div>
 
-                                        <!-- <div class="form-group">
-                                                                            <div class="row">
-                                                                                <div class="col-12 col-mb-10 mb-4">
-                                                                                    <label for="article"><strong>Artículo:</strong></label>
-                                                                                    <select id="article" name="article" class="form-control"
-                                                                                        required>
-                                                                                        <option selected hidden>Seleccione una opción</option> -->
-                                        <!-- Anillos -->
-                                        <!-- <option value="Alianzas de Matrimonio">Alianzas
-                                                                                            de Matrimonio</option>
-                                                                                        <option value="Anillos de Compromiso">Anillos de
-                                                                                            Compromiso</option>
-                                                                                        <option value="Cintillos">Cintillos</option>
-                                                                                        <option value="Anillos de Diseño">Anillos de
-                                                                                            Diseño</option>
-                                                                                        <option value="Anillos de Piedras Preciosas">
-                                                                                            Anillos de Piedras Preciosas</option> -->
-                                        <!-- Collares y Cadenas -->
-                                        <!-- <option value="Cadenas">Cadenas</option>
-                                                                                        <option value="Cadenas con Dijes">Cadenas con
-                                                                                            Dijes / Perlas</option>
-                                                                                        <option value="Collares de Diseño">Collares de
-                                                                                            Diseño</option>
-                                                                                        <option value="Collares de Piedras Preciosas">
-                                                                                            Collares de Piedras Preciosas</option>
-                                                                                        Collares y Cadenas
-                                                                                        <option value="Pulseras de Cadena">Pulseras de
-                                                                                            Cadena</option>
-                                                                                        <option value="Pulseras de Dijes">Pulseras de
-                                                                                            Dijes</option>
-                                                                                        <option value="Brazaletes de Diseño">Brazaletes
-                                                                                            de Diseño</option>
-                                                                                        <option value="Brazaletes de Piedras Preciosas">
-                                                                                            Brazaletes de Piedras Preciosas</option> -->
-                                        <!-- Pulseras -->
-                                        <!-- <option value="Pulseras de Cadena">Pulseras de -->
-                                        <!-- Cadena</option>
-                                                                                        <option value="Pulseras de Dijes">Pulseras de
-                                                                                            Dijes</option>
-                                                                                        <option value="Brazaletes de Diseño">Brazaletes
-                                                                                            de Diseño</option>
-                                                                                        <option value="Brazaletes de Piedras Preciosas">
-                                                                                            Brazaletes de Piedras Preciosas</option> -->
-                                        <!-- Pendientes y Aretes: -->
-                                        <!-- <option value="Aros">Aros</option>
-                                                                                        <option value="Argollas">Argollas</option> -->
-                                        <!-- <option value="Aretes de Botón">Aretes de Botón
-                                                                                        </option>
-                                                                                        <option value="Aretes de Diseño">Aretes de
-                                                                                            Diseño</option>
-                                                                                        <option value="Pendientes Colgantes">Pendientes
-                                                                                            Colgantes</option>
-                                                                                        <option value="Pendientes de Piedras Preciosas">
-                                                                                            Pendientes de Piedras Preciosas</option>
-                                                                                        Accesorios: -->
-                                        <!-- <option value="Dijes">Dijes</option>
-                                                                                        <option value="Joyería de Cabello">Joyería de
-                                                                                            Cabello</option>
-                                                                                        <option value="Joyería Corporal">Joyería
-                                                                                            Corporal (piercings)</option>
-                                                                                        <option value="Estuches">Estuches</option>
-                                                                                    </select> -->
-                                        <!-- </div> -->
-
                                         <div class="col-9 mb-6">
                                             <label for="metal"><strong>Metal:</strong></label>
-                                            <select id="metal" name="metal" class="form-control" required>
-                                                <option selected hidden>Seleccione una opción</option>
-                                                <option value="Oro 18K" <% if (product.metalId == "1") { %> selected <% } %>>Oro 18K (750)</option>
-                                                <option value="Oro 14K" <% if (product.metalId == "2") { %> selected <% } %>>Oro 14K (585)</option>
-                                                <option value="Oro 24K" <% if (product.metalId == "3") { %> selected <% } %>>Oro 24K (999)</option>
-                                                <option value="Oro Blanco 18K" <% if (product.metalId == "4") { %> selected <% } %>>Oro Blanco 18K (750)</option>
-                                                <option value="Oro Blanco 14K" <% if (product.metalId == "5") { %> selected <% } %>>Oro Blanco 14K (585)</option>
-                                                <option value="Oro Amarillo 22K" <% if (product.metalId == "6") { %> selected <% } %>>Oro Amarillo 22K (916)</option>
-                                                <option value="Oro Amarillo 21K" <% if (product.metalId == "7") { %> selected <% } %>>Oro Amarillo 21K (875)</option>
-                                                <option value="Oro Amarillo 20K" <% if (product.metalId == "8") { %> selected <% } %>>Oro Amarillo 20K (833)</option>
-                                                <option value="Oro Verde" <% if (product.metalId == "9") { %> selected <% } %>>Oro Verde</option>
-                                                <option value="Oro Rosa 10K" <% if (product.metalId == "10") { %> selected <% } %>>Oro Rosa 10K</option>
-                                                <option value="Oro Rosa 14K" <% if (product.metalId == "11") { %> selected <% } %>>Oro Rosa 14K</option>
-                                                <option value="Plata 925" <% if (product.metalId == "12") { %> selected <% } %>>Plata 925 (92.5% de pureza)</option>
-                                                <option value="Plata de Ley" <% if (product.metalId == "13") { %> selected <% } %>>Plata de Ley (92.5% de pureza)</option>
-                                                <option value="Plata Fina" <% if (product.metalId == "14") { %> selected <% } %>>Plata Fina (95-99.9% de pureza)</option>
-                                                <option value="Platino 950" <% if (product.metalId == "15") { %> selected <% } %>>Platino 950 (95% de pureza)</option>
-                                                <option value="Platino 850" <% if (product.metalId == "16") { %> selected <% } %>>Platino 850 (85% de pureza)</option>
-                                                <option value="Paladio 950" <% if (product.metalId == "17") { %> selected <% } %>>Paladio 950 (95% de pureza)</option>
-                                                <option value="Rodio" <% if (product.metalId == "18") { %> selected <% } %>>Rodio</option>
-                                                <option value="Bronce" <% if (product.metalId == "19") { %> selected <% } %>>Bronce</option>
-                                                <option value="Cobre" <% if (product.metalId == "20") { %> selected <% } %>>Cobre</option>
-                                                <option value="Zinc" <% if (product.metalId == "21") { %> selected <% } %>>Zinc</option>
-                                                <option value="Acero Quirúrgico" <% if (product.metalId == "22") { %> selected <% } %>>Acero Quirúrgico</option>
-                                                <option value="Titanio Grado 5" <% if (product.metalId == "23") { %> selected <% } %>>Titanio Grado 5</option>
-                                                <option value="Titanio Grado 7" <% if (product.metalId == "24") { %> selected <% } %>>Titanio Grado 7</option>
-                                                <option value="Titanio Puro grado 1-4" <% if (product.metalId == "25") { %> selected <% } %>>Titanio Puro grado 1-4</option>
-                                                <option value="Otro material" <% if (product.metalId == "26") { %> selected <% } %>>Otro</option>
-                                            </select>
+                                            <p><strong>Elección:</strong> <%= getMetalName(product.metalId) %></p>
                                         </div>
+                                        
+                                        <% function getMetalName(metalId) {
+                                            switch (metalId) {
+                                                case 1: return "Oro 18K (750)";
+                                                case 2: return "Oro 14K (585)";
+                                                case 3: return "Oro 24K (999)";
+                                                case 4: return "Oro Blanco 18K (750)";
+                                                case 5: return "Oro Blanco 14K (585)";
+                                                case 6: return "Oro Amarillo 22K (916)";
+                                                case 7: return "Oro Amarillo 21K (875)";
+                                                case 8: return "Oro Amarillo 20K (833)";
+                                                case 9: return "Oro Verde";
+                                                case 10: return "Oro Rosa 10K";
+                                                case 11: return "Oro Rosa 14K";
+                                                case 12: return "Plata 925 (92.5% de pureza)";
+                                                case 13: return "Plata de Ley (92.5% de pureza)";
+                                                case 14: return "Plata Fina (95-99.9% de pureza)";
+                                                case 15: return "Platino 950 (95% de pureza)";
+                                                case 16: return "Platino 850 (85% de pureza)";
+                                                case 17: return "Paladio 950 (95% de pureza)";
+                                                case 18: return "Rodio";
+                                                case 19: return "Bronce";
+                                                case 20: return "Cobre";
+                                                case 21: return "Zinc";
+                                                case 22: return "Acero Quirúrgico";
+                                                case 23: return "Titanio Grado 5";
+                                                case 24: return "Titanio Grado 7";
+                                                case 25: return "Titanio Puro grado 1-4";
+                                                case 26: return "Otro";
+                                                default: return "Seleccione una opción";
+                                            }
+                                        } %>
+                                        
 
                                         <div class="col-3 mb-4">
-                                            <label for="stones"><strong>N° de
-                                                    Piedras:</strong></label>
-                                            <input type="number" id="stones" name="stones" class="form-control" value="<%=product.stones%>"
-                                                required>
+                                            <label for="stones"><strong>N° de Piedras:</strong></label>
+                                            <input type="number" id="stones" name="stones" 
+                                            class="form-control"
+                                                value="<%= product.stones %>" <%= locals.old && (old.stones && old.stones) %>
+                                                >
+                                            <small id="msg-stones" class="ms-2 text-danger">
+                                                <%= locals.errors && (errors.stones && errors.stones.msg) %>
+                                            </small>
                                         </div>
                                     </div>
                                 </div>
@@ -304,7 +264,7 @@
                                             <label for="otro_piedra">
                                                 <input type="checkbox" id="Otro" name="type_stone"  value="<%= product.type_stone %>"        >
                                                     <!-- BORRE 3 lineas includes no corresponde a funcion -->
-                                               > 
+                                                
                                               Otro
                                             </label>
 
@@ -314,7 +274,7 @@
                                             <label for="topacio">
                                                 <input type="checkbox" id="Topacio" name="type_stone"  value="<%= product.type_stone %>" >
                                                     <!-- BORRE 3 lineas includes no corresponde a funcion -->
-                                               > 
+                                                
                                               Topacio
                                             </label>
 
@@ -324,7 +284,7 @@
                                             <label for="cuarzo">
                                                 <input type="checkbox" id="Cuarzo" name="type_stone"  value="<%= product.type_stone %>"     >
                                                     <!-- BORRE 3 lineas includes no corresponde a funcion -->
-                                               > 
+                                                
                                               Cuarzo
                                             </label>
 
@@ -334,7 +294,7 @@
                                             <label for="diamantes">
                                                 <input type="checkbox" id="Diamantes" name="type_stone"  value="<%= product.type_stone %>"    >
                                                     <!-- BORRE 3 lineas includes no corresponde a funcion -->
-                                               > 
+                                                
                                               Diamantes
                                             </label>
                                             
@@ -344,7 +304,7 @@
                                             <label for="rubies">
                                                 <input type="checkbox" id="Rubíes" name="type_stone"  value="<%= product.type_stone %>"    >
                                                     <!-- BORRE 3 lineas includes no corresponde a funcion -->
-                                               > 
+                                                
                                               Rubíes
                                             </label>
 
@@ -354,7 +314,7 @@
                                             <label for="zafiros">
                                                 <input type="checkbox" id="Zafiros" name="type_stone"  value="<%= product.type_stone %>"       >
                                                     <!-- BORRE 3 lineas includes no corresponde a funcion -->
-                                               > 
+                                                
                                               Zafiros
                                             </label>
 
@@ -364,7 +324,7 @@
                                             <label for="esmeraldas">
                                                 <input type="checkbox" id="Esmeraldas" name="type_stone"  value="<%= product.type_stone %>"     >
                                                     <!-- BORRE 3 lineas includes no corresponde a funcion -->
-                                               > 
+                                                
                                               Esmeraldas
                                             </label>
 
@@ -374,7 +334,7 @@
                                             <label for="jade">
                                                 <input type="checkbox" id="Jade" name="type_stone"  value="<%= product.type_stone %>"        >
                                                     <!-- BORRE 3 lineas includes no corresponde a funcion -->
-                                               > 
+                                                
                                               Jade
                                             </label>
 
@@ -384,7 +344,7 @@
                                             <label for="amatista">
                                                 <input type="checkbox" id="Amatista" name="type_stone"  value="<%= product.type_stone %>"      >
                                                     <!-- BORRE 3 lineas includes no corresponde a funcion -->
-                                               > 
+                                                
                                               Amatista
                                             </label>
 
@@ -394,7 +354,7 @@
                                             <label for="opal">
                                                 <input type="checkbox" id="Ópalo" name="type_stone"  value="<%= product.type_stone %>"      >
                                                     <!-- BORRE 3 lineas includes no corresponde a funcion -->
-                                               > 
+                                                
                                               Ópalo
                                             </label>
 
@@ -404,7 +364,7 @@
                                             <label for="coral">
                                                 <input type="checkbox" id="Coral" name="type_stone"  value="<%= product.type_stone %>"        >
                                                     <!-- BORRE 3 lineas includes no corresponde a funcion -->
-                                               > 
+                                                
                                               Coral
                                             </label>
 
@@ -414,7 +374,7 @@
                                             <label for="perlas">
                                                 <input type="checkbox" id="Perlas" name="type_stone"  value="<%= product.type_stone %>"       >
                                                     <!-- BORRE 3 lineas includes no corresponde a funcion -->
-                                               > 
+                                                
                                               Perlas
                                             </label>
 
@@ -434,52 +394,82 @@
                                         <div class="row">
                                             <div class="col-7 col-md-8">
                                                 <label for="size"><strong>Tamaño:</strong></label>
-                                                <input type="text" placeholder="Codigo alfanumerico" id="size"
-                                                    name="size" class="form-control" value="<%=product.size%>" required>
+                                                <input type="text" placeholder="Codigo alfanumerico" id="size" name="size" 
+                                                class="form-control" 
+                                                value="<%= product.size %>" <%= locals.old && (old.size && old.size) %>
+                                                >
+                                                <small id="msg-size" class="ms-2 text-danger">
+                                                    <%= locals.errors && (errors.size && errors.size.msg) %>
+                                                </small>
                                             </div>
                                             <div class="col-5 col-md-4">
-                                                <label for="measures_mm"><strong>Medida
-                                                        (mm):</strong></label>
-                                                <input type="number" placeholder="en numeros de mm" id="measures_mm"
-                                                    name="measures_mm" class="form-control" value="<%=product.measures_mm%>" required>
+                                                <label for="measures_mm"><strong>Medida (mm):</strong></label>
+                                                <input type="number" placeholder="en numeros de mm" id="measures_mm" name="measures_mm" 
+                                                class="form-control" 
+                                                value="<%= product.measures_mm %>" <%= locals.old && (old.measures_mm && old.measures_mm) %>
+                                                >
+                                                <small id="msg-measures_mm" class="ms-2 text-danger">
+                                                    <%= locals.errors && (errors.measures_mm && errors.measures_mm.msg) %>
+                                                </small>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                                 <!-- Garantia -->
 
                                 <div class="row justify-content-center">
                                     <div class="col-12 col-md-8">
                                         <div class="row">
                                             <div class="col-6">
-                                                <strong> Garantía:</strong> <br>
-                                                <label for="si_warranty">
-                                                    <strong> Si </strong>
-                                                    <input type="radio" id="si_warranty" name="warranty" value="true" <% if (product.warranty == "true") { %> checked <% } %>>
-                                                </label><br>
-                                                <label for="no_warranty"></label>
-                                                <strong> No </strong>
-                                                <input type="radio" id="no_warranty" name="warranty" value="false" <% if (product.warranty == "false") { %> checked <% } %>>
-                                                </label><br>
+                                                <strong> Garantía:</strong><br>
+                                                <div>
+                                                <label class="form-check-label ml-4 mr-4" for="si_warranty"><strong> Si </strong></label>
+                                                    <input type="radio" id="si_warranty" name="warranty"
+                                                    class="form-check-input" 
+                                                    value="true"   <%= (locals.old && old.warranty === 'true') || (product.warranty == '1') ? 'checked' : '' %>
+                                                    >
+                                                    <small id="msg-warranty1" class="d-block ms-2 text-danger">
+                                                        <%= locals.errors && (errors.warranty && errors.warranty.msg) %>
+                                                     </small>
+                                                    </div>
+                                                    <div>
+                                                <label class="form-check-label ml-4 mr-4" for="no_warranty"><strong> No </strong></label>
+                                                    <input type="radio" id="no_warranty" name="warranty"
+                                                    class="form-check-input"
+                                                    value="false" <%= (locals.old && old.warranty === 'false') || (product.warranty == '0') ? 'checked' : '' %>
+                                                    >
+                                                    <small id="msg-warranty2" class="d-block ms-2 text-danger">
+                                                        <%= locals.errors && (errors.warranty && errors.warranty.msg) %>
+                                                    </small>
+                                                </div>
                                             </div>
-                                            
-                                            
+                                
                                             <div class="col-6">
                                                 <strong>Guardajoyas:</strong> <br>
-                                                <label for="si_jewel_keeper">
-                                                    <strong> Si </strong>
-                                                    <input type="radio" id="si_jewel_keeper" name="jewel_keeper" value="true" <% if (product.jewel_keeper == "true") { %> checked <% } %>>
-                                                </label><br>
-                                                <strong> No </strong>
-                                                <label for="no_jewel_keeper">
-                                                    <input type="radio" id="no_jewel_keeper" name="jewel_keeper" value="false" <% if (product.jewel_keeper == "false") { %> checked <% } %>>
-                                                </label><br>
-                                            
+                                                <div>
+                                                    <label class="form-check-label ml-4 mr-4" for="si_jewel_keeper"><strong> Si </strong></label>
+                                                    <input type="radio" id="si_jewel_keeper" name="jewel_keeper"
+                                                    class="form-check-input"
+                                                    value="true" <%= (locals.old && old.jewel_keeper === 'true') || (product.jewel_keeper == '1') ? 'checked' : '' %>
+                                                    >
+                                                    <small id="msg-jewel_keeper1" class="d-block ms-2 text-danger">
+                                                        <%= locals.errors && (errors.jewel_keeper && errors.jewel_keeper.msg) %>
+                                                     </small>
+                                                </div>
+                                                <div>
+                                                <label class="form-check-label ml-4 mr-4" for="no_jewel_keeper"><strong> No </strong></label>
+                                                    <input type="radio" id="no_jewel_keeper" name="jewel_keeper"
+                                                    class="form-check-input"
+                                                    value="false" <%= (locals.old && old.jewel_keeper === 'false') || (product.jewel_keeper == '0') ? 'checked' : '' %>
+                                                    >
+                                                    <small id="msg-jewel_keeper2" class="d-block ms-2 text-danger">
+                                                        <%= locals.errors && (errors.jewel_keeper && errors.jewel_keeper.msg) %>
+                                                    </small>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                                 <label>
                                     <h5><strong>ECONOMÍA</strong></h5>
                                 </label><br>
@@ -488,39 +478,44 @@
                                         <div class="row justify-content-between">
                                             <!-- Campo de Precio Original -->
                                             <div class="col-12 col-md-5 mb-2 text-center">
-                                                <label for="price"><strong>Precio
-                                                        Original:</strong></label>
-                                                <input type="number" id="price" name="price" class="form-control" value="<%=product.price%>"
-                                                    required>
+                                                <label for="price"><strong>Precio Original:</strong></label>
+                                                <input type="number" id="price" name="price" 
+                                                class="form-control" 
+                                                value="<%= product.price %>" <%= locals.old && (old.price && old.price) %>
+                                                >
+                                                <small id="msg-price" class="ms-2 text-danger">
+                                                    <%= locals.errors && (errors.price && errors.price.msg) %>
+                                                </small>
                                             </div>
                                             <!-- Campo de Descuento % -->
                                             <div class="col-12 col-md-2 mb-2 text-center">
                                                 <label for="discount"><strong>Oferta_%:</strong></label>
-                                                <input type="number" id="discount" name="discount" class="form-control" value="<%=product.discount%>"
-                                                    required>
+                                                <input type="number" id="discount" name="discount" 
+                                                class="form-control" 
+                                                value="<%= product.discount %>" <%= locals.old && (old.discount && old.discount) %>
+                                                >
+                                                <small id="msg-discount" class="ms-2 text-danger">
+                                                    <%= locals.errors && (errors.discount && errors.discount.msg) %>
+                                                </small>
                                             </div>
-                                            <!-- Campo de Precio Oferta -->
-                                            <!-- <div class="col-12 col-md-5 mb-2 text-center">
-                                                                    <label for="price_final"><strong>Precio
-                                                                            Oferta:</strong></label>
-                                                                    <input type="number" id="price_final" name="price_final"
-                                                                        class="form-control" required>
-                                                                </div> -->
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content-start">
                                     <div class="col-12 col-md-6">
                                         <div class="form-group mb-2 text-center">
-                                            <label for="stock"
-                                                class="col-form-label mr-2"><strong>Stock:</strong></label>
-                                            <input type="number" id="stock" name="stock" class="form-control" value="<%=product.stock%>" required>
+                                            <label for="stock" class="col-form-label mr-2"><strong>Stock:</strong></label>
+                                            <input type="number" id="stock" name="stock" 
+                                            class="form-control"
+                                            value="<%= product.stock %>" <%= locals.old && (old.stock && old.stock) %>
+                                            >
+                                            <small id="msg-stock" class="ms-2 text-danger">
+                                                <%= locals.errors && (errors.stock && errors.stock.msg) %>
+                                            </small>
                                         </div>
                                     </div>
                                 </div>
-
-
-
+                                
                                     <!-- Otros elementos del formulario aquí -->
                                 
                                     <input type="hidden" name="editStone" id="valoresEditStone">
