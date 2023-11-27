@@ -7,7 +7,11 @@ const {check, body} = require('express-validator');
 // Aclaro: ahora si uso las mismas validaciones que Form de CrearProducto porque es similar a Form de ActProduct
 
 module.exports = [
-    check('name').notEmpty().withMessage('El nombre del producto es obligatorio'),
+    check('name').notEmpty().withMessage('El nombre del producto es obligatorio')
+    .isLength({
+        min : 3,
+        max : 50,
+    }).withMessage('La descripción debe tener entre 3 y 50 caracteres'),
     check('description')
     .notEmpty().withMessage('La descripción es requerida').bail()
     .isLength({
@@ -15,7 +19,11 @@ module.exports = [
         max : 500
     }).withMessage('La descripción debe tener entre 20 y 500 caracteres'),
     check('collection')
-        .notEmpty().withMessage('La colección es requerida'),
+        .notEmpty().withMessage('La colección es requerida')
+        .isLength({
+            min : 3,
+            max : 15,
+        }).withMessage('La descripción debe tener entre 3 y 15 caracteres'),
         
     check('stones')
         .notEmpty().withMessage('Debes indicar el número de piedras').bail()

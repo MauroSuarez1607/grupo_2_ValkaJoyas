@@ -3,19 +3,36 @@
 const {check, body} = require('express-validator');
 
 module.exports = [
-    check('name').notEmpty().withMessage('El nombre del producto es obligatorio'),
+    check('name').notEmpty().withMessage('El nombre del producto es obligatorio')
+    .isLength({
+        min : 3,
+        max : 50,
+    }).withMessage('La descripción debe tener entre 3 y 50 caracteres'),
     check('description')
     .notEmpty().withMessage('La descripción es requerida').bail()
     .isLength({
         min : 20,
         max : 500
     }).withMessage('La descripción debe tener entre 20 y 500 caracteres'),
+   
     check('brand')
-        .notEmpty().withMessage('La marca es requerida'),
+        .notEmpty().withMessage('La marca es requerida')
+        .isLength({
+            min : 3,
+            max : 15,
+        }).withMessage('La descripción debe tener entre 3 y 15 caracteres'),
     check('model')
-        .notEmpty().withMessage('El modelo es requerido'),
+        .notEmpty().withMessage('El modelo es requerido')
+        .isLength({
+            min : 3,
+            max : 15,
+        }).withMessage('La descripción debe tener entre 3 y 15 caracteres'),
     check('collection')
-        .notEmpty().withMessage('La colección es requerida'),
+        .notEmpty().withMessage('La colección es requerida')
+        .isLength({
+            min : 3,
+            max : 15,
+        }).withMessage('La descripción debe tener entre 3 y 15 caracteres'),
     check('category')
         .notEmpty().withMessage('Elige alguna categoría')
         .isIn(['1', '2', '3', '4', '5']).withMessage('Categoría no válida'),

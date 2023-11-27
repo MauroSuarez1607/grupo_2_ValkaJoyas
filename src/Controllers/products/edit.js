@@ -33,7 +33,7 @@ module.exports = (req, res) => {
         return res.render("productEdit", {
           product,
           metals,
-        //   old: req.body
+          old: req.body
         });
       })
       .catch((error) => console.log(error));
