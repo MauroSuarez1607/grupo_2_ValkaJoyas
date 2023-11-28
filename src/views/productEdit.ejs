@@ -86,19 +86,19 @@
                                 <div class="form-row">
                                     <div class="form-group col-md">
                                         <label for="brand" class="d-block text-center"><strong>Marca:</strong></label>
-                                        <span class="d-block text-center"><%= product.brandId %></span>
+                                        <span class="d-block text-center"><%= brandName %></span>
                                     </div>
                                     
                                     <div class="form-group col-md">
                                         <label for="model" class="d-block text-center"><strong>Modelo:</strong></label>
-                                        <span class="d-block text-center"><%= product.designId %></span>
+                                        <span class="d-block text-center"><%= designName %></span>
                                     </div>
                                     
                                     <div class="form-group col-md">
                                         <label for="collection" class="d-block text-center"><strong>Colección:</strong></label>
                                         <input type="text" minlength="3" maxlength="25" id="collection" name="collection" 
                                             class="form-control text-center"
-                                            value="<%= locals.old && locals.old.collection ? locals.old.collection : product.collectionId %>"
+                                            value="<%= locals.old && locals.old.collection ? locals.old.collection : collectionName %>"
                                         >
                                         <small id="msg-collection" class="ms-2 text-danger">
                                             <%= locals.errors && (errors.collection && errors.collection.msg) %>
