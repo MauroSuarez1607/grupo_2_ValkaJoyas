@@ -6,6 +6,7 @@
     <body style="background-color: lightblue;">
         <%- include('partials/header') %>
             <!-- BOOTSTRAP -->
+            <main class="main_create"> 
             <div class="container" style="background-color: lightblue;">
                 <div class="row">
                     <div class="col-12">
@@ -39,8 +40,8 @@
                                     </div>
                                     <div class="form-group col-md-9">
                                         <label for="formName" class="col-form-label"><strong>Nombre:</strong></label>
-                                        <input type="text" placeholder="Nombre / Título" minlength="3" maxlength="25" id="name" name="name"
-                                            class="form-control"
+                                        <input type="text" placeholder="Nombre / Título" minlength="3" maxlength="25" id="formName" name="name"
+                                            class="form-control <%= locals.errors && (errors.name && 'is-invalid') %>"
                                             value="<%= locals.old && (old.name && old.name) %>"
                                             >
                                         <small id="msg-name" class="ms-2 text-danger">
@@ -50,14 +51,18 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="description"><strong>Descripción:</strong></label>
-                                    <textarea placeholder="Escriba el detalle del producto" id="description" name="description"
-                                        class="form-control" 
-                                        style="resize: none;" 
-                                        value="<%= locals.old && (old.description && old.description) %>"></textarea>
+                                    <label for="description" class="form-label"><strong>Descripción:</strong></label>
+                                    <textarea placeholder="Escriba el detalle del producto" rows="3" cols="20" id="description" name="description"
+                                        class="form-control <%= locals.errors && (errors.description && 'is-invalid')%>"
+                                        style="resize: none;"
+                                        <%= locals.old && (old.description && old.description) %>></textarea>
                                     <small id="msg-description" class="ms-2 text-danger">
                                         <%= locals.errors && (errors.description && errors.description.msg) %>
                                     </small>
+                                    <div class="d-flex justify-content-left col-2">
+                                        <p id="numTotal" class=""></p>
+                                        <p > /300</p>
+                                    </div>
                                 </div>
 
                                 <div class="form-row">
@@ -408,6 +413,7 @@
                                 <button type="submit" class="btn btn-dark">Añadir</button>
 
                             </form>
+                        
                             <style>
                                 .checkbox-cell {
                                     cursor: pointer;
@@ -430,6 +436,8 @@
                     </div>
                 </div>
             </div>
+        </main>
+        <script src="/javascripts/productAddValidation.js"></script>
     </body>
 
 </html>

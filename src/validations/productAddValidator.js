@@ -5,34 +5,34 @@ const {check, body} = require('express-validator');
 module.exports = [
     check('name').notEmpty().withMessage('El nombre del producto es obligatorio')
     .isLength({
-        min : 3,
+        min : 5,
         max : 50,
-    }).withMessage('La descripción debe tener entre 3 y 50 caracteres'),
+    }).withMessage('La descripción debe tener entre 5 y 50 caracteres'),
     check('description')
     .notEmpty().withMessage('La descripción es requerida').bail()
     .isLength({
         min : 20,
-        max : 500
-    }).withMessage('La descripción debe tener entre 20 y 500 caracteres'),
+        max : 300
+    }).withMessage('La descripción debe tener entre 20 y 300 caracteres'),
    
     check('brand')
         .notEmpty().withMessage('La marca es requerida')
         .isLength({
             min : 3,
-            max : 15,
-        }).withMessage('La descripción debe tener entre 3 y 15 caracteres'),
+            max : 25,
+        }).withMessage('La descripción debe tener entre 3 y 25 caracteres'),
     check('model')
         .notEmpty().withMessage('El modelo es requerido')
         .isLength({
             min : 3,
-            max : 15,
-        }).withMessage('La descripción debe tener entre 3 y 15 caracteres'),
+            max : 25,
+        }).withMessage('La descripción debe tener entre 3 y 25 caracteres'),
     check('collection')
         .notEmpty().withMessage('La colección es requerida')
         .isLength({
             min : 3,
-            max : 15,
-        }).withMessage('La descripción debe tener entre 3 y 15 caracteres'),
+            max : 25,
+        }).withMessage('La descripción debe tener entre 3 y 25 caracteres'),
     check('category')
         .notEmpty().withMessage('Elige alguna categoría')
         .isIn(['1', '2', '3', '4', '5']).withMessage('Categoría no válida'),
@@ -43,7 +43,11 @@ module.exports = [
         .isInt({ min: 0 }).withMessage('El número de piedras debe ser un entero positivo o 0'),
 
     check('size')
-        .notEmpty().withMessage('Debes indicar el tamaño').bail(),
+        .notEmpty().withMessage('Debes indicar el tamaño').bail()
+        .isLength({
+            min : 3,
+            max : 15,
+        }).withMessage('La descripción debe tener entre 3 y 15 caracteres'),
     check('measures_mm')
         .notEmpty().withMessage('Debes indicar la medida en mm').bail()
         .isInt({ min: 0 }).withMessage('La medida debe ser un número entero positivo o 0'),

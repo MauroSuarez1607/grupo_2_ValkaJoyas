@@ -1,2 +1,6 @@
 .main__titulo-h1 {
 }
+
+.is-invalid{
+    border: solid 1px red !important;
+  }

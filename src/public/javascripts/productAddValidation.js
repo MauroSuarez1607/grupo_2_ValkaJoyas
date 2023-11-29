@@ -8,8 +8,7 @@ window.onload = function () {
       let textareaValue = textarea.value;
       console.log(e.key);
 
-    //   ver la livekey
-      if (liveKey < 351) {
+      if (liveKey < 350) {
         $("numTotal").innerText = liveKey;
       } else {
         textarea.value = textareaValue.substring(0, 300);
@@ -74,11 +73,69 @@ window.onload = function () {
     }
   });
 
-    // ----------------marca (NO HAY)
-  
+    // ----------------marca
+  $("brand").addEventListener("focus", function (e) {
+    $("msg-brand").innerHTML = null;
+    this.classList.remove("is-invalid");
+  });
 
-  // ----------------modelo (no HAY)
- 
+  $("brand").addEventListener("blur", function (e) {
+    switch (true) {
+      case !this.value.trim():
+        $("msg-brand").innerHTML = "Debes ingresar una marca";
+        this.classList.add("is-invalid");
+        break;
+      case this.value.trim().length < 3:
+        $("msg-brand").innerHTML = "Debes ingresar como minimo 3 caracteres";
+        this.classList.add("is-invalid");
+        break;
+      case this.value.trim().length > 25:
+        $("msg-brand").innerHTML = "Unicamente hasta 25 caracteres";
+        this.classList.add("is-invalid");
+        break;
+      case !/^[a-zA-Z0-9\s]*$/.test(this.value.trim()):
+        $("msg-brand").innerHTML = "Solo se permiten letras y números";
+        this.classList.add("is-invalid");
+        break;
+      default:
+        $("msg-brand").innerHTML = null;
+        this.classList.add("is-valid");
+        this.classList.remove("is-invalid");
+        break;
+    }
+  });
+
+  // ----------------modelo
+  $("model").addEventListener("focus", function (e) {
+    $("msg-model").innerHTML = null;
+    this.classList.remove("is-invalid");
+  });
+
+  $("model").addEventListener("blur", function (e) {
+    switch (true) {
+      case !this.value.trim():
+        $("msg-model").innerHTML = "Debes ingresar un modelo";
+        this.classList.add("is-invalid");
+        break;
+      case this.value.trim().length < 3:
+        $("msg-model").innerHTML = "Debes ingresar como minimo 3 caracteres";
+        this.classList.add("is-invalid");
+        break;
+      case this.value.trim().length > 25:
+        $("msg-model").innerHTML = "Unicamente hasta 25 caracteres";
+        this.classList.add("is-invalid");
+        break;
+      case !/^[a-zA-Z0-9\s]*$/.test(this.value.trim()):
+        $("msg-model").innerHTML = "Solo se permiten letras y números";
+        this.classList.add("is-invalid");
+        break;
+      default:
+        $("msg-model").innerHTML = null;
+        this.classList.add("is-valid");
+        this.classList.remove("is-invalid");
+        break;
+    }
+  });
 
     // ----------------colección
   $("collection").addEventListener("focus", function (e) {
@@ -113,14 +170,31 @@ window.onload = function () {
   });
 
   // ------------------------- CLASIFICACIÓN ---------------------------------------
-  // ----------------metal (NO HAY)
- 
+  // ----------------metal
+  $("metal").addEventListener("focus", function (e) {
+    $("msg-metal").innerHTML = null;
+    this.classList.remove("is-invalid");
+  });
+
+  $("metal").addEventListener("blur", function (e) {
+    switch (true) {
+      case !this.value:
+        $("msg-metal").innerHTML = "Debes seleccionar un tipo de metal";
+        this.classList.add("is-invalid");
+        break;
+      default:
+        $("msg-metal").innerHTML = null;
+        this.classList.add("is-valid");
+        this.classList.remove("is-invalid");
+        break;
+    }
+  });
+
   // ----------------numero de piedras
   $("stones").addEventListener("focus", function (e) {
     $("msg-stones").innerHTML = null;
     this.classList.remove("is-invalid");
   });
-
 
   $("stones").addEventListener("blur", function (e) {
     switch (true) {
@@ -292,7 +366,7 @@ $("stock").addEventListener("blur", function (e) {
 
 // ----------------------------------------FINAL-------------------------------------------
 
-  $("productEdit").addEventListener("submit", function (event) {
+  $("productAdd").addEventListener("submit", function (event) {
     event.preventDefault();
 
     const elementsFormProduct = this.elements;
