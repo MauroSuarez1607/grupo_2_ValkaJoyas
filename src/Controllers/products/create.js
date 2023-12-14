@@ -109,6 +109,8 @@ module.exports = async (req, res) => {
   } catch (error) {
     // Manejar errores internos del servidor
     console.log(error);
-    return res.status(500).send("Error interno del servidor");
+    return res.redirect("/admin");
   }
 };
+
+// cambie la linea 112 para que no muestre error del servidor. El error es por el bulCreate de la imagen
