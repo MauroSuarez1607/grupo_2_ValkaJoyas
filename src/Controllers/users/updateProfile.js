@@ -1,12 +1,14 @@
 const {validationResult} = require('express-validator')
 const db = require('../../database/models')
 
-module.exports = (req,res) => {
+module.exports = async (req,res) => {
 
     const errors = validationResult(req)
 
     if(errors.isEmpty()){
         const {name,surname,birthday,genderId}= req.body; //agregar image?
+
+        const user = await db.User.findByPk(req.session.userLogin.id)
 
         db.User.update(
             {
@@ -14,7 +16,7 @@ module.exports = (req,res) => {
                 surname : surname.trim(),
                 birthday,
                 genderId,
-                // agregar image?
+                image : req.file ? req.file.filename : user.image
             },
             {
                 where : {
@@ -29,14 +31,21 @@ module.exports = (req,res) => {
             .catch(error => console.log(error))
 
     }else {
-        db.User.findByPk(req.session.userLogin.id)
-        .then(user => {
-            return res.render('profile', {
-                ...user.dataValues,
-                errors : errors.mapped()
+
+        const genders = db.Gender.findAll()
+        const user = db.User.findByPk(req.session.userLogin.id)
+        
+        Promise.all([genders, user])
+        .then(([genders, user]) => {
+                const birthday = new Date (user.birthday).toISOString()
+                return res.render('profile', {
+                    ...user.dataValues,
+                    birthday : birthday.split('T')[0],
+                    genders,
+                    errors : errors.mapped()
+                })
             })
-        })
-        .catch(error => console.log(error))
+            .catch(error => console.log(error))
     }
     
     // NO BORRAR MAUROOO!!!

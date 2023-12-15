@@ -78,5 +78,24 @@ window.onload = async function(e){
         }
     });
     
+    $("formProfile").addEventListener("submit", function (event) {
+        event.preventDefault();
+    
+        const elementForm = this.elements;
+        let error = false;
+    
+        for (let i = 0; i < elementForm.length - 4; i++) {
+          if (
+            !elementForm[i].value.trim() ||
+            elementForm[i].classList.contains("is-invalid")
+          ) {
+            error = true;
+            elementForm[i].classList.add("is-invalid");
+            $("msgErr-empty").innerHTML = "EL FORMULARIO TIENE ERRORES";
+          }
+        }
+    
+        !error && this.submit();
+      });
 
 }

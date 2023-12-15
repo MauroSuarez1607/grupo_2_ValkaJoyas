@@ -6,438 +6,372 @@
     <body style="background-color: lightblue;">
         <%- include('partials/header') %>
             <!-- BOOTSTRAP -->
-            <main class="main_create"> 
-            <div class="container" style="background-color: lightblue;">
-                <div class="row">
-                    <div class="col-12">
+            <main class="main_create">
+             
+                <div class="row mt-5">
+                    <div class="col-12 col-md-10 col-lg-8 mx-auto">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title font-weight-bold">Carga de Productos</h5>
+                                <h2 class="card-title font-weight-bold">Nuevo Producto</h2>
+                                <hr>
+                                <form action="/products/add" method="POST" enctype="multipart/form-data"
+                                    id="productAdd">
+                                    <!-- <form action="" method="POST"
+                                                    enctype="multipart/form-data">   -->
+                                    <label>
+                                        <h5><strong>DATOS</strong></h5>
+                                    </label><br>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <label for="referencia" class="col-form-label"><strong>Referencia:
+                                                </strong></label>
+                                            <br>
+                                            <div class="d-flex justify-content-center">
+                                                <span class="bg-warning" style="font-size: 1.5em;">ID nuevo</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-9">
+                                            <label for="formName"
+                                                class="col-form-label"><strong>Nombre:</strong></label>
+                                            <input type="text" placeholder="Nombre / Título" minlength="3"
+                                                maxlength="25" id="formName" name="name"
+                                                class="form-control <%= locals.errors && (errors.name && 'is-invalid') %>"
+                                                value="<%= locals.old && (old.name && old.name) %>">
+                                            <small id="msg-name" class="ms-2 text-danger">
+                                                <%= locals.errors && (errors.name && errors.name.msg) %>
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="description"
+                                            class="form-label"><strong>Descripción:</strong></label>
+                                        <textarea placeholder="Escriba el detalle del producto" rows="3" cols="20"
+                                            id="description" name="description"
+                                            class="form-control <%= locals.errors && (errors.description && 'is-invalid')%>"
+                                            style="resize: none;" <%=locals.old && (old.description && old.description)
+                                            %>></textarea>
+                                        <small id="msg-description" class="ms-2 text-danger">
+                                            <%= locals.errors && (errors.description && errors.description.msg) %>
+                                        </small>
+                                        <div class="d-flex justify-content-left col-2">
+                                            <p id="numTotal" class=""></p>
+                                            <p> /300</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md">
+                                            <label for="brand"
+                                                class="d-block text-center"><strong>Marca:</strong></label>
+                                            <select name="brand" id="brand" class="form-control">
+                                                <option value="" hidden selected>Seleccione...</option>
+                                                <% brands.forEach(({name, id})=> { %>
+                                                    <option value="<%= id %>" <%=locals.old && (old.brand==id)
+                                                        && 'selected' %>><%= name %>
+                                                    </option>
+                                                    <% }) %>
+                                            </select>
+
+                                            <small id="msg-brand" class="ms-2 text-danger">
+                                                <%= locals.errors && (errors.brand && errors.brand.msg) %>
+                                            </small>
+                                        </div>
+
+                                        <div class="form-group col-md">
+                                            <label for="model"
+                                                class="d-block text-center"><strong>Modelo:</strong></label>
+                                            <select name="model" id="model" class="form-control">
+                                                <option value="" hidden selected>Seleccione...</option>
+                                                <% designs.forEach(({name, id})=> { %>
+                                                    <option value="<%= id %>" <%=locals.old && (old.model==id)
+                                                        && 'selected' %>><%= name %>
+                                                    </option>
+                                                    <% }) %>
+                                            </select>
+                                            <small id="msg-model" class="ms-2 text-danger">
+                                                <%= locals.errors && (errors.model && errors.model.msg) %>
+                                            </small>
+                                        </div>
+                                        <div class="form-group col-md">
+                                            <label for="collection"
+                                                class="d-block text-center"><strong>Colección:</strong></label>
+                                            <select name="collection" id="collection" class="form-control">
+                                                <option value="" hidden selected>Seleccione...</option>
+                                                <% collections.forEach(({name, id})=> { %>
+                                                    <option value="<%= id %>" <%=locals.old && (old.collection==id)
+                                                        && 'selected' %>><%= name %>
+                                                    </option>
+                                                    <% }) %>
+                                            </select>
+                                            <small id="msg-collection" class="ms-2 text-danger">
+                                                <%= locals.errors && (errors.collection && errors.collection.msg) %>
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <label>
+                                        <h5><strong>IMÁGENES</strong></h5>
+                                    </label><br>
+                                    <div class="container">
+
+
+                                        <div class="row">
+                                            <div class="col-12 col-md-6">
+                                                <div class="col-12">
+                                                    <label for="image1" class="btn btn-secondary">Principal:</label>
+                                                    <div class="col-12">
+                                                        <input type="file" accept="image/*" id="image1" name="image1"
+                                                            hidden class="form-control"
+                                                            value="<%= locals.old && (old.image1 && old.image1) %>">
+                                                        <small id="msg-image1" class="ms-2 text-danger">
+                                                            <%= locals.errors && (errors.image1 && errors.image1.msg) %>
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 m-2 border border-1 w-100" style="height: 200px;">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="col-12">
+                                                    <label for="image2"
+                                                        class="btn btn-primary">Secundarias:</label>
+                                                    <div class="col-md-4">
+                                                        <input hidden class="form-control" type="file" id="image2"
+                                                            name="image2" accept="image/*" multiple>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 m-2  border border-1 w-100" style="height: 200px;">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <label>
+                                        <h5><strong>CLASIFICACIÓN</strong></h5>
+                                    </label><br>
+                                    <label for="category"><strong>Categoría:</strong></label>
+                                    <!-- %= errors && errors.category ? 'is-invalid' : '' %  agregar mayor y menor-->
+                                    <div class="d-flex">
+                                        <% categories.forEach(({name, id})=> { %>
+                                            <div class="form-check m-4">
+                                                <input type="radio" id="<%= name %>" name="category"
+                                                    class="form-check-input" value="<%= id %>" <%=locals.old &&
+                                                    old.category===id && 'checked' %>
+                                                >
+                                                <label for="<%= name %>" class="form-check-label">
+                                                    <%= name %>
+                                                </label>
+                                                <small id="msg-category1" class="d-block ms-2 text-danger">
+                                                    <%= locals.errors && (errors.category && errors.category.msg) %>
+                                                </small>
+                                            </div>
+                                            <% }) %>
+
+                                    </div>
+                                   
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-12 col-md-6">
+                                                <label for="metal"><strong>Metal:</strong></label>
+                                                <select id="metal" name="metal" class="form-control">
+                                                    <option selected hidden value="">Seleccione una opción</option>
+                                                    <% metals.forEach(metal=> { %>
+                                                        <option value="<%= metal.id %>" <%=locals.old &&
+                                                            (old.metal===metal.id && 'selected' )%> >
+                                                            <%= metal.name %>
+                                                        </option>
+                                                        <% }); %>
+                                                </select>
+                                                <small id="msg-metal" class="ms-2 text-danger">
+                                                    <%= locals.errors && (errors.metal && errors.metal.msg) %>
+                                                </small>
+                                            </div>
+
+                                            <div class="col-12  col-md-6">
+                                                <label for="stones"><strong>N° de Piedras:</strong></label>
+                                                <input type="number" id="stones" name="stones" class="form-control"
+                                                    value="<%= locals.old && (old.stones && old.stones) %>">
+                                                <small id="msg-stones" class="ms-2 text-danger">
+                                                    <%= locals.errors && (errors.stones && errors.stones.msg) %>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <label>
+                                        <h5><strong>DETALLE</strong></h5>
+                                    </label><br>
+
+                                    <label><strong>Tipo de Piedra:</strong></label><br>
+                                        <div class="d-flex flex-wrap">
+                                            <% types.forEach(({id, name}) => { %>
+                                                <div class="form-check m-2" style="width: 100px;">
+                                                    <input type="checkbox" class="form-check-input" id="<%= name %>" name="type_stone" value="<%= id %>">
+                                                    <label class="form-check-label" for="<%= name %>"><%= name %></label>
+                                                </div>
+                                            <% }) %>
+                                        
+                                        </div>
+                                    <div class="row mt-4">
+                                        <div class="col-12 col-md-3">
+                                                <!-- Campo "Tamaño" -->
+                                                    <label for="size"><strong>Tamaño:</strong></label>
+                                                    <input type="text" placeholder="Codigo alfanumerico" id="size"
+                                                        name="size" class="form-control"
+                                                        value="<%= locals.old && (old.size && old.size) %>">
+                                                    <small id="msg-size" class="ms-2 text-danger">
+                                                        <%= locals.errors && (errors.size && errors.size.msg) %>
+                                                    </small>
+                                        </div>
+                                                <!-- Campo "Medida (mm)" -->
+                                                <div class="col-12 col-md-3">
+                                                    <label for="measures_mm"><strong>Medida (mm):</strong></label>
+                                                    <input type="number" placeholder="en numeros de mm" id="measures_mm"
+                                                        name="measures_mm" class="form-control"
+                                                        value="<%= locals.old && (old.measures_mm && old.measures_mm) %>">
+                                                    <small id="msg-measures_mm" class="ms-2 text-danger">
+                                                        <%= locals.errors && (errors.measures_mm &&
+                                                            errors.measures_mm.msg) %>
+                                                    </small>
+                                                </div>
+                                                <div class="col-12 col-md-3">
+                                                    <strong>Garantía:</strong><br>
+                                                    <div class="d-flex mt-3">
+                                                    <div>
+                                                        <label class="form-check-label ml-4 mr-4"
+                                                            for="si_warranty"><strong> Si </strong></label>
+                                                        <input type="radio" id="si_warranty" name="warranty"
+                                                            class="form-check-input" value="true" <%=locals.old &&
+                                                            old.warranty==="true" ? 'checked' : '' %>
+                                                        checked>
+                                                        <small id="msg-warranty1" class="d-block ms-2 text-danger">
+                                                            <%= locals.errors && (errors.warranty &&
+                                                                errors.warranty.msg) %>
+                                                        </small>
+                                                    </div>
+                                                    <div>
+                                                        <label class="form-check-label ml-4 mr-4"
+                                                            for="no_warranty"><strong> No </strong></label>
+                                                        <input type="radio" id="no_warranty" name="warranty"
+                                                            class="form-check-input" value="false" <%=locals.old &&
+                                                            old.warranty==="false" ? 'checked' : '' %>
+                                                        >
+                                                        <small id="msg-warranty2" class="d-block ms-2 text-danger">
+                                                            <%= locals.errors && (errors.warranty &&
+                                                                errors.warranty.msg) %>
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                    <div class="col-12 col-md-3">
+                                                        <strong>Guardajoyas:</strong><br>
+                                                        <div class="d-flex mt-3">
+                                                            <div>
+                                                                <label class="form-check-label ml-4 mr-4"
+                                                                    for="si_jewel_keeper"><strong> Si </strong></label>
+                                                                <input type="radio" id="si_jewel_keeper" name="jewel_keeper"
+                                                                    class="form-check-input" value="true" <%=locals.old &&
+                                                                    old.jewel_keeper==="true" ? 'checked' : '' %>
+                                                                checked>
+                                                                <small id="msg-jewel_keeper1" class="d-block ms-2 text-danger">
+                                                                    <%= locals.errors && (errors.jewel_keeper &&
+                                                                        errors.jewel_keeper.msg) %>
+                                                                </small>
+                                                            </div>
+                                                            <div>
+                                                                <label class="form-check-label ml-4 mr-4"
+                                                                    for="no_jewel_keeper"><strong> No </strong></label>
+                                                                <input type="radio" id="no_jewel_keeper" name="jewel_keeper"
+                                                                    class="form-check-input" value="false" <%=locals.old &&
+                                                                    old.jewel_keeper==="false" ? 'checked' : '' %>
+                                                                >
+                                                                <small id="msg-jewel_keeper2" class="d-block ms-2 text-danger">
+                                                                    <%= locals.errors && (errors.jewel_keeper &&
+                                                                        errors.jewel_keeper.msg) %>
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                     
+                                      <div class="container">
+
+                                        <hr>
+                                    <label>
+                                        <h5><strong>ECONOMÍA</strong></h5>
+                                    </label><br>
+                                    <div class="row">
+                                        <div class="col-12 col-md-4">
+                                            <!-- Campo de Precio Original -->
+                                                    <label for="price"><strong>Precio Original:</strong></label>
+                                                    <input type="number" id="price" name="price" class="form-control"
+                                                        value="<%= locals.old && (old.price && old.price) %>">
+                                                    <small id="msg-price" class="ms-2 text-danger">
+                                                        <%= locals.errors && (errors.price && errors.price.msg) %>
+                                                    </small>
+
+                                            </div>
+                                                <!-- Campo de Descuento % -->
+                                                <div class="col-12 col-md-4">
+                                                    <label for="discount"><strong>Oferta_%:</strong></label>
+                                                    <input type="number" id="discount" name="discount"
+                                                        class="form-control" value=<%=locals.old && (old.discount &&
+                                                        old.discount) %>
+                                                    >
+                                                    <small id="msg-discount" class="ms-2 text-danger">
+                                                        <%= locals.errors && (errors.discount && errors.discount.msg) %>
+                                                    </small>
+                                                </div>
+                                         
+                                                <div class="col-12 col-md-4">
+                                                    <div class="form-group mb-2 text-center">
+                                                <label for="stock"
+                                                    class="col-form-label mr-2"><strong>Stock:</strong></label>
+                                                <input type="number" id="stock" name="stock" class="form-control"
+                                                    value="<%= locals.old && (old.stock && old.stock) %>">
+                                                <small id="msg-stock" class="ms-2 text-danger">
+                                                    <%= locals.errors && (errors.stock && errors.stock.msg) %>
+                                                </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mt-4">
+                                    <button type="submit" class="btn btn-dark">Añadir producto</button>
+                                </div>
+                                    
+
+                                </form>
+
+                                <style>
+                                    .checkbox-cell {
+                                        cursor: pointer;
+                                        transition: background-color 0.3s ease-in-out;
+                                    }
+
+                                    .checkbox-cell:hover {
+                                        background-color: gold;
+                                    }
+
+                                    .small-input {
+                                        width: 70px;
+                                        justify-content: center;
+                                        text-align: center;
+                                        align-items: center;
+                                        margin-left: 20px
+                                    }
+                                </style>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-10 mx-auto">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title font-weight-bold">Nuevo Producto</h5>
-                            
-                            <form action="/products/add" method="POST" enctype="multipart/form-data" id="productAdd">
-                                <!-- <form action="" method="POST"
-                                                    enctype="multipart/form-data">   -->
-                                <label>
-                                    <h5><strong>DATOS</strong></h5>
-                                </label><br>
-                                <div class="form-row">
-                                    <div class="form-group col-md-3">
-                                        <label for="referencia" class="col-form-label"><strong>Referencia: </strong></label> 
-                                        <br>    
-                                        <div class="d-flex justify-content-center">
-                                        <span class="bg-warning" style="font-size: 1.5em;">ID nuevo</span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-9">
-                                        <label for="formName" class="col-form-label"><strong>Nombre:</strong></label>
-                                        <input type="text" placeholder="Nombre / Título" minlength="3" maxlength="25" id="formName" name="name"
-                                            class="form-control <%= locals.errors && (errors.name && 'is-invalid') %>"
-                                            value="<%= locals.old && (old.name && old.name) %>"
-                                            >
-                                        <small id="msg-name" class="ms-2 text-danger">
-                                            <%= locals.errors && (errors.name && errors.name.msg) %>
-                                        </small>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="description" class="form-label"><strong>Descripción:</strong></label>
-                                    <textarea placeholder="Escriba el detalle del producto" rows="3" cols="20" id="description" name="description"
-                                        class="form-control <%= locals.errors && (errors.description && 'is-invalid')%>"
-                                        style="resize: none;"
-                                        <%= locals.old && (old.description && old.description) %>></textarea>
-                                    <small id="msg-description" class="ms-2 text-danger">
-                                        <%= locals.errors && (errors.description && errors.description.msg) %>
-                                    </small>
-                                    <div class="d-flex justify-content-left col-2">
-                                        <p id="numTotal" class=""></p>
-                                        <p > /300</p>
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group col-md">
-                                        <label for="brand" class="d-block text-center"><strong>Marca:</strong></label>
-                                        <input type="text" minlength="3" maxlength="25" id="brand" name="brand" 
-                                        class="form-control text-center"
-                                        value="<%= locals.old && (old.brand && old.brand) %>"
-                                        >
-                                        <small id="msg-brand" class="ms-2 text-danger">
-                                            <%= locals.errors && (errors.brand && errors.brand.msg) %>
-                                        </small>
-                                    </div> 
-
-                                    <div class="form-group col-md">
-                                        <label for="model" class="d-block text-center"><strong>Modelo:</strong></label>
-                                        <input type="text" minlength="3" maxlength="25" id="model" name="model" 
-                                        class="form-control text-center"
-                                        value="<%= locals.old && (old.model && old.model) %>"
-                                        >
-                                        <small id="msg-model" class="ms-2 text-danger"
-                                        ><%= locals.errors && (errors.model && errors.model.msg) %>
-                                        </small>
-                                    </div>
-                                    <div class="form-group col-md">
-                                        <label for="collection" class="d-block text-center"><strong>Colección:</strong></label>
-                                        <input type="text" minlength="3" maxlength="25" id="collection" name="collection" 
-                                        class="form-control text-center"
-                                        value="<%= locals.old && (old.collection && old.collection) %>"
-                                        >
-                                        <small id="msg-collection" class="ms-2 text-danger"
-                                        ><%= locals.errors && (errors.collection && errors.collection.msg) %>
-                                        </small>
-                                    </div>
-                                </div>
-
-                                <label>
-                                    <h5><strong>IMÁGENES</strong></h5>
-                                </label><br>
-                                <div class="form-group row ml-2 mr-2">
-                                    <label for="image1" class="col-md-4 btn btn-secondary d-flex align-items-center justify-content-center">Principal:</label>
-                                    <div class="col-md-4">
-                                        <input  type="file" accept="image/*" id="image1" name="image1"
-                                        hidden class="form-control" 
-                                        value="<%= locals.old && (old.image1 && old.image1) %>"
-                                        >
-                                        <small id="msg-image1" class="ms-2 text-danger"
-                                        ><%= locals.errors && (errors.image1 && errors.image1.msg) %>
-                                        </small>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row ml-2 mr-2">
-                                    <label for="image2" class="col-md-4 btn btn-primary d-flex align-items-center justify-content-center">Secundarias:</label>
-                                    <div class="col-md-4">
-                                        <input hidden class="form-control" type="file" id="image2" name="image2"
-                                            accept="image/*" multiple>
-                                    </div>
-                                </div>
-                                <label>
-                                    <h5><strong>CLASIFICACIÓN</strong></h5>
-                                </label><br>
-                                <label for="category"><strong>Categoría:</strong></label>
-                                <!-- %= errors && errors.category ? 'is-invalid' : '' %  agregar mayor y menor-->
-                                <div class="row align-items-center ml-3">
-                                    <!-- Campo "Anillos" (valor "1") -->
-                                    <div class="col-6 col-md-4 col-lg-2 ">
-                                        <input type="radio" id="anillos" name="category"
-                                        class="form-check-input "
-                                        value="1" <%= locals.old && old.category === '1' ? 'checked' : '' %>
-                                        >
-                                        <label for="anillos">Anillos</label>
-                                        <small id="msg-category1" class="d-block ms-2 text-danger">
-                                            <%= locals.errors && (errors.category && errors.category.msg) %>
-                                        </small>
-                                    </div>   
-                                    <!-- Campo "Collar" (valor "2") -->
-                                    <div class="col-6 col-md-4 col-lg-2 ">
-                                        <input type="radio" id="collares" name="category"
-                                            class="form-check-input "
-                                            value="2" <%= locals.old && old.category === '2' ? 'checked' : '' %>
-                                        >
-                                        <label for="collares">Collar</label>
-                                        <small id="msg-category2" class="d-block ms-2 text-danger">
-                                            <%= locals.errors && (errors.category && errors.category.msg) %>
-                                        </small>
-                                    </div>
-                                    <!-- Campo "Pulseras" (valor "3") -->
-                                    <div class="col-6 col-md-4 col-lg-2 ">
-                                        <input type="radio" id="pulseras" name="category"
-                                            class="form-check-input "
-                                            value="3" <%= locals.old && old.category === '3' ? 'checked' : '' %>
-                                        >
-                                        <label for="pulseras">Pulseras</label>
-                                        <small id="msg-category3" class="d-block ms-2 text-danger">
-                                            <%= locals.errors && (errors.category && errors.category.msg) %>
-                                        </small>
-                                    </div>
-                                    <!-- Campo "Pendientes" (valor "4") -->
-                                    <div class="col-6 col-md-4 col-lg-2 ">
-                                        <input type="radio" id="pendientes" name="category"
-                                            class="form-check-input "
-                                            value="4" <%= locals.old && old.category === '4' ? 'checked' : '' %>
-                                        >
-                                        <label for="pendientes">Pendientes</label>
-                                        <small id="msg-category4" class="d-block ms-2 text-danger">
-                                            <%= locals.errors && (errors.category && errors.category.msg) %>
-                                        </small>
-                                    </div>
-                                    <!-- Campo "Accesorios" (valor "5") -->
-                                    <div class="col-6 col-md-4 col-lg-2 ">
-                                        <input type="radio" id="Accesorios" name="category"
-                                            class="form-check-input"
-                                            value="5" <%= locals.old && old.category === '5' ? 'checked' : '' %>
-                                        >
-                                        <label for="Accesorios">Accesorios</label>
-                                        <small id="msg-category5" class="d-block ms-2 text-danger">
-                                            <%= locals.errors && (errors.category && errors.category.msg) %>
-                                        </small>
-                                    </div>
-                                </div>
-                                <!-- Articulo -->
-                                <div>
-                                    <div>
-
-                                        <div class="col-9 mb-6">
-                                            <label for="metal"><strong>Metal:</strong></label>
-                                            <select id="metal" name="metal" 
-                                            class="form-control">
-                                                <option selected hidden value="">Seleccione una opción</option>
-                                                <% metals.forEach(metal => { %>
-                                                    <option value="<%= metal.id %>" <%=locals.old && (old.metal===metal.id
-                                                        && 'selected' )%> >
-                                                        <%= metal.name %>
-                                                    </option>
-                                                <% }); %>
-                                              </select>
-                                              <small id="msg-metal" class="ms-2 text-danger">
-                                                <%= locals.errors && (errors.metal && errors.metal.msg) %>
-                                            </small>
-                                        </div>
-
-                                        <div class="col-3 mb-4">
-                                            <label for="stones"><strong>N° de Piedras:</strong></label>
-                                                <input type="number" id="stones" name="stones" 
-                                                class="form-control"
-                                                value="<%= locals.old && (old.stones && old.stones) %>"
-                                                >
-                                            <small id="msg-stones" class="ms-2 text-danger">
-                                                <%= locals.errors && (errors.stones && errors.stones.msg) %>
-                                            </small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <label>
-                                    <h5><strong>DETALLE</strong></h5>
-                                </label><br>
-
-                                <label><strong>Tipo de Piedra:</strong></label><br>
-                                <div class="table-responsive">
-                                    <div class="d-flex flex-wrap">
-                                        <!-- Opciones de checkbox -->
-                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Otro" name="type_stone" value="1">
-                                            <label for="otro_piedra">Otro</label>
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Topacio" name="type_stone" value="2">
-                                            <label for="topacio">Topacio</label>
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Cuarzo" name="type_stone"
-                                                value="3">
-                                            <label for="cuarzo">Cuarzo</label>
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Diamantes" name="type_stone" value="4">
-                                            <label for="diamantes">Diamantes</label>
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Rubíes" name="type_stone" value="5">
-                                            <label for="rubies">Rubíes</label>
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Zafiros" name="type_stone" value="6">
-                                            <label for="zafiros">Zafiros</label>
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Esmeraldas" name="type_stone" value="7">
-                                            <label for="esmeraldas">Esmeraldas</label>
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Jade" name="type_stone" value="8">
-                                            <label for="jade">Jade</label>
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Amatista" name="type_stone" value="9">
-                                            <label for="amatista">Amatista</label>
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Ópalo" name="type_stone" value="10">
-                                            <label for="opal">Ópalo</label>
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Coral" name="type_stone" value="11">
-                                            <label for="coral">Coral</label>
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-2 mb-2 checkbox-cell">
-                                            <input type="checkbox" id="Perlas" name="type_stone" value="12">
-                                            <label for="perlas">Perlas</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row justify-content-between">
-                                    <div class="col-12 col-md-8">
-                                        <div class="row">
-                                            <!-- Campo "Tamaño" -->
-                                            <div class="col-7 col-md-8">
-                                                <label for="size"><strong>Tamaño:</strong></label>
-                                                <input type="text" placeholder="Codigo alfanumerico" id="size" name="size"
-                                                    class="form-control"
-                                                    value="<%= locals.old && (old.size && old.size) %>"
-                                                    >
-                                                <small id="msg-size" class="ms-2 text-danger">
-                                                    <%= locals.errors && (errors.size && errors.size.msg) %>
-                                                </small>
-                                            </div>
-                                            <!-- Campo "Medida (mm)" -->
-                                            <div class="col-5 col-md-4">
-                                                <label for="measures_mm"><strong>Medida (mm):</strong></label>
-                                                <input type="number" placeholder="en numeros de mm" id="measures_mm" name="measures_mm"
-                                                    class="form-control"
-                                                    value="<%= locals.old && (old.measures_mm && old.measures_mm) %>"
-                                                    >
-                                                <small id="msg-measures_mm" class="ms-2 text-danger">
-                                                    <%= locals.errors && (errors.measures_mm && errors.measures_mm.msg) %>
-                                                </small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Garantia -->
-
-                                <div class="row justify-content-center">
-                                    <div class="col-12 col-md-8">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <strong>Garantía:</strong><br>
-                                                <div>
-                                                    <label class="form-check-label ml-4 mr-4" for="si_warranty"><strong> Si </strong></label>
-                                                    <input type="radio" id="si_warranty" name="warranty"
-                                                    class="form-check-input"
-                                                    value="true" <%= locals.old && old.warranty === "true" ? 'checked' : '' %>
-                                                        checked>
-                                                    <small id="msg-warranty1" class="d-block ms-2 text-danger">
-                                                            <%= locals.errors && (errors.warranty && errors.warranty.msg) %>
-                                                    </small>
-                                                </div>
-                                                <div>
-                                                    <label class="form-check-label ml-4 mr-4" for="no_warranty"><strong> No </strong></label>
-                                                    <input type="radio" id="no_warranty" name="warranty" 
-                                                    class="form-check-input"
-                                                    value="false" <%= locals.old && old.warranty === "false" ? 'checked' : '' %>
-                                                    >
-                                                    <small id="msg-warranty2" class="d-block ms-2 text-danger">
-                                                        <%= locals.errors && (errors.warranty && errors.warranty.msg) %>
-                                                    </small>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <strong>Guardajoyas:</strong><br>
-                                                <div>
-                                                    <label class="form-check-label ml-4 mr-4" for="si_jewel_keeper"><strong> Si </strong></label>
-                                                    <input type="radio" id="si_jewel_keeper" name="jewel_keeper"
-                                                        class="form-check-input"
-                                                        value="true" <%= locals.old && old.jewel_keeper === "true" ? 'checked' : '' %>
-                                                        checked>
-                                                    <small id="msg-jewel_keeper1" class="d-block ms-2 text-danger">
-                                                        <%= locals.errors && (errors.jewel_keeper && errors.jewel_keeper.msg) %>
-                                                    </small>
-                                                </div>
-                                                <div>
-                                                    <label class="form-check-label ml-4 mr-4" for="no_jewel_keeper"><strong> No </strong></label>
-                                                    <input type="radio" id="no_jewel_keeper" name="jewel_keeper" 
-                                                        class="form-check-input"
-                                                        value="false" <%= locals.old && old.jewel_keeper === "false" ? 'checked' : '' %>
-                                                    >
-                                                    <small id="msg-jewel_keeper2" class="d-block ms-2 text-danger">
-                                                        <%= locals.errors && (errors.jewel_keeper && errors.jewel_keeper.msg) %>
-                                                    </small>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <label>
-                                    <h5><strong>ECONOMÍA</strong></h5>
-                                </label><br>
-                                <div class="row justify-content-between">
-                                    <div class="col-12 col-md-8">
-                                        <div class="row justify-content-between">
-                                            <!-- Campo de Precio Original -->
-                                            <div class="col-12 col-md-5 mb-2 text-center">
-                                                <label for="price"><strong>Precio Original:</strong></label>
-                                                <input type="number" id="price" name="price" 
-                                                class="form-control"
-                                                value="<%= locals.old && (old.price && old.price) %>"
-                                                >
-                                                <small id="msg-price" class="ms-2 text-danger">
-                                                    <%= locals.errors && (errors.price && errors.price.msg) %>
-                                                </small>
-                                            </div>
-                                            <!-- Campo de Descuento % -->
-                                            <div class="col-12 col-md-2 mb-2 text-center">
-                                                <label for="discount"><strong>Oferta_%:</strong></label>
-                                                <input type="number" id="discount" name="discount" 
-                                                class="form-control"
-                                                value= <%= locals.old && (old.discount && old.discount) %>
-                                                >
-                                                <small id="msg-discount" class="ms-2 text-danger">
-                                                    <%= locals.errors && (errors.discount && errors.discount.msg) %>
-                                                </small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-start">
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group mb-2 text-center">
-                                            <label for="stock" class="col-form-label mr-2"><strong>Stock:</strong></label>
-                                            <input type="number" id="stock" name="stock" 
-                                            class="form-control"
-                                            value="<%= locals.old && (old.stock && old.stock) %>"
-                                            >
-                                            <small id="msg-stock" class="ms-2 text-danger">
-                                                <%= locals.errors && (errors.stock && errors.stock.msg) %>
-                                            </small>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <button type="reset" class="btn btn-warning">Reset</button>
-                                <button type="submit" class="btn btn-dark">Añadir</button>
-
-                            </form>
-                        
-                            <style>
-                                .checkbox-cell {
-                                    cursor: pointer;
-                                    transition: background-color 0.3s ease-in-out;
-                                }
-
-                                .checkbox-cell:hover {
-                                    background-color: gold;
-                                }
-
-                                .small-input {
-                                    width: 70px;
-                                    justify-content: center;
-                                    text-align: center;
-                                    align-items: center;
-                                    margin-left: 20px
-                                }
-                            </style>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <script src="/javascripts/productAddValidation.js"></script>
+            </main>
+            <script src="/javascripts/productAddValidation.js"></script>
     </body>
 
 </html>
