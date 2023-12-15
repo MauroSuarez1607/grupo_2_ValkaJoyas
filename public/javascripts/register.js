@@ -193,7 +193,7 @@ window.onload = function () {
     const elementForm = this.elements;
     let error = false;
 
-    for (let i = 0; i < elementForm.length; i++) {
+    for (let i = 0; i < elementForm.length - 1; i++) {
       if (
         !elementForm[i].value.trim() ||
         elementForm[i].classList.contains("is-invalid")

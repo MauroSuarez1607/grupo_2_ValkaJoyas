@@ -38,9 +38,9 @@ module.exports = [
         })
         .catch(() => Promise.reject("El email ya se encuentra registrado"));
     }),
-  body("images")
+  body("image")
     .custom((value, { req }) => {
-      if (req.files.image) {
+      if (req.file) {
         return true;
       }
       return false;
