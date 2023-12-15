@@ -56,7 +56,6 @@ module.exports = (sequelize, DataTypes) => {
     designId: DataTypes.INTEGER,
     collectionId: DataTypes.INTEGER,
     metalId: DataTypes.INTEGER,
-    type_stoneId: DataTypes.INTEGER,
     categoryId: DataTypes.INTEGER
   }, {
     sequelize,

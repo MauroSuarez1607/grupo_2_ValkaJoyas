@@ -82,14 +82,6 @@ module.exports = {
           }
         }
       },
-      type_stoneId: {
-        type: Sequelize.INTEGER,
-        references : {
-          model : {
-            tableName : 'Type_stones'
-          }
-        }
-      },
       categoryId: {
         type: Sequelize.INTEGER,
         references : {

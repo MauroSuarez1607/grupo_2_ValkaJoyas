@@ -42,28 +42,6 @@
       "image": "emma_foto.png",
       "birthday": null,
       "genderId": null
-   },
-   {
-      "id": 5,
-      "name": "Eric",
-      "surname": "Mena",
-      "email": "eric.mena@gmail.com",
-      "password": "$2a$10$Isn68vQKf5/8ggLowvTr0uKdlXmYUMpPFDdz4WIcMr3G1kR0YAxFC",
-      "roleId": 1,
-      "image": "eric_foto.png",
-      "birthday": null,
-      "genderId": null
-   },
-   {
-      "id": 6,
-      "name": "Amalia",
-      "surname": "Ramos",
-      "email": "amalia@gmail.com",
-      "password": "$2a$10$VItKrLTDfoJU/6LXU2sKyefLXm3KCLXr0yKYmPO1yiVosuVr/CStC",
-      "roleId": 2,
-      "image": "1694562521769_users_.jpg",
-      "birthday": "2023-08-28",
-      "genderId": 1
    }
   
 ]
