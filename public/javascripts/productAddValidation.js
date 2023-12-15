@@ -85,10 +85,7 @@ window.onload = function () {
         $("msg-brand").innerHTML = "Debes ingresar una marca";
         this.classList.add("is-invalid");
         break;
-      case this.value.trim().length < 3:
-        $("msg-brand").innerHTML = "Debes ingresar como minimo 3 caracteres";
-        this.classList.add("is-invalid");
-        break;
+    
       case this.value.trim().length > 25:
         $("msg-brand").innerHTML = "Unicamente hasta 25 caracteres";
         this.classList.add("is-invalid");
@@ -117,10 +114,6 @@ window.onload = function () {
         $("msg-model").innerHTML = "Debes ingresar un modelo";
         this.classList.add("is-invalid");
         break;
-      case this.value.trim().length < 3:
-        $("msg-model").innerHTML = "Debes ingresar como minimo 3 caracteres";
-        this.classList.add("is-invalid");
-        break;
       case this.value.trim().length > 25:
         $("msg-model").innerHTML = "Unicamente hasta 25 caracteres";
         this.classList.add("is-invalid");
@@ -147,10 +140,6 @@ window.onload = function () {
     switch (true) {
       case !this.value.trim():
         $("msg-collection").innerHTML = "Debes ingresar una colección";
-        this.classList.add("is-invalid");
-        break;
-      case this.value.trim().length < 3:
-        $("msg-collection").innerHTML = "Debes ingresar como minimo 3 caracteres";
         this.classList.add("is-invalid");
         break;
       case this.value.trim().length > 25:
@@ -366,7 +355,7 @@ $("stock").addEventListener("blur", function (e) {
 
 // ----------------------------------------FINAL-------------------------------------------
 
-  $("productAdd").addEventListener("submit", function (event) {
+/*   $("productAdd").addEventListener("submit", function (event) {
     event.preventDefault();
 
     const elementsFormProduct = this.elements;
@@ -384,7 +373,7 @@ $("stock").addEventListener("blur", function (e) {
     }
 
     !error && this.submit()
-  });
+  }); */
   
 
 };
