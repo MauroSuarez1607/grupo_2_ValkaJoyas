@@ -7,44 +7,20 @@ const db = require("../../database/models");
 module.exports = async (req, res) => {
   try {
     const errors = validationResult(req);
-
+    console.log(req.body);
     // Sprint 7
     if (errors.isEmpty()) {
-      const { name, description, brand, model, collection, category, metal, stones, type_stone, size, measures_mm, warranty, jewel_keeper, price, discount, stock, image1, image2 } = req.body;
-
-      // Buscar la marca por su nombre
-      let brandResult = await db.Brand.findOne({ where: { name: brand } });
-
-      if (!brandResult) {
-        // Si la marca no existe, créala
-        brandResult = await db.Brand.create({ name: brand });
-      }
-
-      // Buscar el diseño por su nombre
-      let designResult = await db.Design.findOne({ where: { name: model } });
-
-      if (!designResult) {
-        // Si el diseño no existe, créalo
-        designResult = await db.Design.create({ name: model });
-      }
-
-      // Buscar la colección por su nombre
-      let collectionResult = await db.Collection.findOne({ where: { name: collection } });
-
-      if (!collectionResult) {
-        // Si la colección no existe, créala
-        collectionResult = await db.Collection.create({ name: collection });
-      }
+      const { name, description, countStones, brand, model, collection, category, metal, stones, size, measures_mm, warranty, jewel_keeper, price, discount, stock} = req.body;
 
       const productData = {
         name: name.trim(),
         description: description.trim(),
-        brandId: brandResult.id,
-        designId: designResult.id,
-        collectionId: collectionResult ? collectionResult.id : null,
+        brandId: brand,
+        designId: model,
+        collectionId: collection,
         categoryId: category,
         metalId: metal,
-        stones,
+        stones : countStones,
         type_stoneId: type_stone,
         size: size.trim(),
         measures_mm,
@@ -95,16 +71,42 @@ module.exports = async (req, res) => {
         });
       }
 
-      const metals = await db.Metal.findAll({
+      const metals = db.Metal.findAll({
         order: ["name"],
       });
-
-      // Renderizar la vista con errores y datos antiguos
-      return res.render("productAdd", {
-        metals,
-        errors: errors.mapped(),
-        old: req.body,
+      const brands = db.Brand.findAll({
+        order : ["name"]
       });
+      const categories = db.Category.findAll({
+        order : ["name"]
+      });
+      const collections = db.Collection.findAll({
+        order : ["name"]
+      });
+      const designs = db.Design.findAll({
+        order : ["name"]
+      });
+  
+      const types = db.Type_stone.findAll({
+        order : ["name"]
+      })
+
+      Promise.all([metals, brands, categories, collections, designs, types])
+      .then(([metals, brands, categories, collections, designs, types]) => {
+    // Renderizar la vista con errores y datos antiguos
+    return res.render("productAdd", {
+      metals,
+      brands,
+      categories,
+      collections,
+      designs,
+      types,
+      errors: errors.mapped(),
+      old: req.body,
+    });
+      })
+
+  
     }
   } catch (error) {
     // Manejar errores internos del servidor

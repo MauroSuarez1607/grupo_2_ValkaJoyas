@@ -22,7 +22,7 @@ module.exports = {
       image2: {
         type: Sequelize.STRING
       },
-      stones: {
+      countStones: {
         type: Sequelize.INTEGER.UNSIGNED,
         defaultValue : 0
       },

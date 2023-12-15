@@ -27,13 +27,15 @@ module.exports = (sequelize, DataTypes) => {
         as : 'metal',
         foreignKey : 'metalId'
       })
-      Product.belongsTo(models.Type_stone, {
-        as : 'type_stone',
-        foreignKey : 'type_stoneId'
-      })
       Product.belongsTo(models.Category, {
         as : 'category',
         foreignKey : 'categoryId'
+      })
+      Product.belongsToMany(models.Type_stone, {
+        as : 'stones',
+        foreignKey : 'productId',
+        otherKey : 'type_stoneId',
+        through : 'Product_stone'
       })
     }
   }
@@ -42,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT,
     image1: DataTypes.STRING,
     image2: DataTypes.STRING,
-    stones: DataTypes.INTEGER,
+    countStones: DataTypes.INTEGER,
     size: DataTypes.STRING,
     measures_mm: DataTypes.INTEGER,
     warranty: DataTypes.BOOLEAN,
