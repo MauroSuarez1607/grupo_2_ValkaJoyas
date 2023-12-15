@@ -7,7 +7,7 @@ const products = productsJSON.map(product => {
     description: product.description,
     image1: product.image1,
     image2: product.image2,
-    stones: product.stones,
+    countStones: product.countStones,
     size: product.size,
     measures_mm: product.measures_mm,
     warranty: product.warranty,
@@ -19,7 +19,6 @@ const products = productsJSON.map(product => {
     designId : product.design,
     collectionId : product.collection,
     metalId : product.metal,
-    type_stoneId : product.type_stone,
     categoryId : product.category,
     createdAt : new Date,
     updatedAt : new Date

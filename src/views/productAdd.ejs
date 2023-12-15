@@ -46,11 +46,10 @@
                                     <div class="form-group">
                                         <label for="description"
                                             class="form-label"><strong>Descripción:</strong></label>
-                                        <textarea placeholder="Escriba el detalle del producto" rows="3" cols="20"
+                                        <textarea placeholder="Escriba el detalle del producto" rows="3" 
                                             id="description" name="description"
                                             class="form-control <%= locals.errors && (errors.description && 'is-invalid')%>"
-                                            style="resize: none;" <%=locals.old && (old.description && old.description)
-                                            %>></textarea>
+                                            style="resize: none;"><%=(locals.old && old.description) && old.description%></textarea>
                                         <small id="msg-description" class="ms-2 text-danger">
                                             <%= locals.errors && (errors.description && errors.description.msg) %>
                                         </small>
@@ -120,13 +119,13 @@
                                             <div class="col-12 col-md-6">
                                                 <div class="col-12">
                                                     <label for="image1" class="btn btn-secondary">Principal:</label>
+                                                    <small id="msg-image1" class="ms-2 text-danger">
+                                                        <%= locals.errors && (errors.image1 && errors.image1.msg) %>
+                                                    </small>
                                                     <div class="col-12">
                                                         <input type="file" accept="image/*" id="image1" name="image1"
-                                                            hidden class="form-control"
-                                                            value="<%= locals.old && (old.image1 && old.image1) %>">
-                                                        <small id="msg-image1" class="ms-2 text-danger">
-                                                            <%= locals.errors && (errors.image1 && errors.image1.msg) %>
-                                                        </small>
+                                                            hidden class="form-control">
+                                                       
                                                     </div>
                                                 </div>
                                                 <div class="col-12 m-2 border border-1 w-100" style="height: 200px;">
@@ -154,20 +153,20 @@
                                         <h5><strong>CLASIFICACIÓN</strong></h5>
                                     </label><br>
                                     <label for="category"><strong>Categoría:</strong></label>
-                                    <!-- %= errors && errors.category ? 'is-invalid' : '' %  agregar mayor y menor-->
+                                    <small id="msg-category1" class="d-block ms-2 text-danger">
+                                        <%= locals.errors && (errors.category && errors.category.msg) %>
+                                    </small>
                                     <div class="d-flex">
                                         <% categories.forEach(({name, id})=> { %>
                                             <div class="form-check m-4">
                                                 <input type="radio" id="<%= name %>" name="category"
                                                     class="form-check-input" value="<%= id %>" <%=locals.old &&
-                                                    old.category===id && 'checked' %>
+                                                    old.category == id && 'checked' %>
                                                 >
                                                 <label for="<%= name %>" class="form-check-label">
                                                     <%= name %>
                                                 </label>
-                                                <small id="msg-category1" class="d-block ms-2 text-danger">
-                                                    <%= locals.errors && (errors.category && errors.category.msg) %>
-                                                </small>
+                                             
                                             </div>
                                             <% }) %>
 
@@ -178,10 +177,9 @@
                                             <div class="col-12 col-md-6">
                                                 <label for="metal"><strong>Metal:</strong></label>
                                                 <select id="metal" name="metal" class="form-control">
-                                                    <option selected hidden value="">Seleccione una opción</option>
-                                                    <% metals.forEach(metal=> { %>
+                                                    <option selected hidden value="">Seleccione una opción...</option>                                                    <% metals.forEach(metal=> { %>
                                                         <option value="<%= metal.id %>" <%=locals.old &&
-                                                            (old.metal===metal.id && 'selected' )%> >
+                                                            (old.metal == metal.id && 'selected' )%> >
                                                             <%= metal.name %>
                                                         </option>
                                                         <% }); %>
@@ -192,11 +190,11 @@
                                             </div>
 
                                             <div class="col-12  col-md-6">
-                                                <label for="stones"><strong>N° de Piedras:</strong></label>
-                                                <input type="number" id="stones" name="stones" class="form-control"
-                                                    value="<%= locals.old && (old.stones && old.stones) %>">
-                                                <small id="msg-stones" class="ms-2 text-danger">
-                                                    <%= locals.errors && (errors.stones && errors.stones.msg) %>
+                                                <label for="countStones"><strong>N° de Piedras:</strong></label>
+                                                <input type="number" id="countStones" name="countStones" class="form-control"
+                                                    value="<%= locals.old && (old.countStones && old.countStones) %>">
+                                                <small id="msg-countStones" class="ms-2 text-danger">
+                                                    <%= locals.errors && (errors.countStones && errors.countStones.msg) %>
                                                 </small>
                                             </div>
                                         </div>
@@ -206,11 +204,16 @@
                                         <h5><strong>DETALLE</strong></h5>
                                     </label><br>
 
-                                    <label><strong>Tipo de Piedra:</strong></label><br>
+                                    <label><strong>Tipo de Piedra:</strong></label>
+                                    <small id="msg-size" class="ms-2 text-danger">
+                                        <%= locals.errors && (errors.stones && errors.stones.msg) %>
+                                    </small>
+                                    <br>
+
                                         <div class="d-flex flex-wrap">
                                             <% types.forEach(({id, name}) => { %>
                                                 <div class="form-check m-2" style="width: 100px;">
-                                                    <input type="checkbox" class="form-check-input" id="<%= name %>" name="type_stone" value="<%= id %>">
+                                                    <input type="checkbox" class="form-check-input" id="<%= name %>" name="stones" value="<%= id %>" <%= (locals.old && old.stones) ? (old.stones == id || old.stones.includes(String(id))) && 'checked'  : null %>>
                                                     <label class="form-check-label" for="<%= name %>"><%= name %></label>
                                                 </div>
                                             <% }) %>
