@@ -1,5 +1,6 @@
 "use strict";
 
+const { hashSync } = require('bcryptjs');
 const usersJSON = require('../../data/users.json')
 const users = usersJSON.map(user => {
   return {
@@ -17,6 +18,22 @@ const users = usersJSON.map(user => {
     updatedAt : new Date
   }
 })
+
+const userEric = {
+  id : 5,
+  name : "Eric",
+    surname: "Mena",
+    email: "eric@gmail.com",
+    password : hashSync("123123",10),
+    image : "eric_foto.png",
+    birthday : null,
+    genderId : null,
+    roleId: 1,
+    createdAt : new Date,
+    updatedAt : new Date
+}
+
+users.push(userEric)
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {

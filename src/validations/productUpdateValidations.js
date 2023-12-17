@@ -1,10 +1,6 @@
+
 // sprint 7
 const {check, body} = require('express-validator');
-
-// Se podria hacer un formulario de actualizacion de productos donde algunos campos esten fijos (no sean input, sino label con la informacion de la base de datos)
-// Con esto se podria disminuir la cantidad de validaciones y solo modificar los datos importantes.
-
-// Aclaro: ahora si uso las mismas validaciones que Form de CrearProducto porque es similar a Form de ActProduct
 
 module.exports = [
     check('name').notEmpty().withMessage('El nombre del producto es obligatorio')
@@ -18,16 +14,27 @@ module.exports = [
         min : 20,
         max : 300
     }).withMessage('La descripción debe tener entre 20 y 300 caracteres'),
+   
+    check('brand')
+        .notEmpty().withMessage('La marca es requerida'),
+    check('model')
+        .notEmpty().withMessage('El modelo es requerido'),
     check('collection')
-        .notEmpty().withMessage('La colección es requerida')
-        .isLength({
-            min : 3,
-            max : 25,
-        }).withMessage('La descripción debe tener entre 3 y 25 caracteres'),
-        
-    check('stones')
-        .notEmpty().withMessage('Debes indicar el número de piedras').bail()
-        .isInt({ min: 0 }).withMessage('El número de piedras debe ser un entero positivo o 0'),
+        .notEmpty().withMessage('La colección es requerida'),
+    check('category')
+        .notEmpty().withMessage('Elige alguna categoría'),
+    check('metal')
+        .notEmpty().withMessage('El tipo de metal es requerido'),
+        check('countStones')
+        .notEmpty().withMessage('La cantidad de piedras es requerida'),
+    body('stones')
+        .custom((value, {req}) => {
+            const valueArray = value ? Array.isArray(value) ? value : [value] : null
+            if(valueArray.length){
+                return true
+            }
+            return false
+        }).withMessage('Debes indicar el número de piedras'),
 
     check('size')
         .notEmpty().withMessage('Debes indicar el tamaño').bail()
@@ -65,13 +72,5 @@ module.exports = [
         .notEmpty().withMessage('Debes indicar la cantidad de stock').bail()
         .isInt({ min: 0 }).withMessage('El stock debe ser un número entero positivo o 0'),
 
-    body('image1')
-        .custom((value, {req}) => {
-           if(req.files.image1){
-                return true
-           }
-           return false
-        }).withMessage('No has subido ninguna imagen')
-]
-
+    ]
 // falta validacion limitando la cantidad de imagenes secundarias a poner

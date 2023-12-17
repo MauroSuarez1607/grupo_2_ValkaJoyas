@@ -2,20 +2,20 @@ const { validationResult } = require("express-validator");
 const { unlinkSync, existsSync } = require("fs");
 const db = require("../../database/models");
 
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
   const errors = validationResult(req);
-
   // Sprint 7
   if (errors.isEmpty()) {
     const id = req.params.id;
     const {
       name,
       description,
-      // brand,
-      // model,
+      countStones,
+      brand,
+      model,
       collection,
-      categoryid,
-      metalid,
+      category,
+      metal,
       stones,
       size,
       measures_mm,
@@ -24,128 +24,115 @@ module.exports = (req, res) => {
       price,
       discount,
       stock,
-      type_stone,
     } = req.body;
 
-    let collectionResult;
 
-    // Buscar la colección por su nombre
-    return db.Collection.findOne({ where: { name: collection } })
-      .then((result) => {
-        collectionResult = result;
-
-        // Si la colección no existe, créala
-        if (!collectionResult) {
-          return db.Collection.create({ name: collection });
-        }
-
-        return collectionResult;
-      })
-      .then((createdCollection) => {
-        collectionResult = createdCollection;
-
-        // Buscar el producto por su ID
-        return db.Product.findByPk(id);
-      })
-      .then((product) => {
-        // Eliminar imágenes existentes si se proporcionan nuevas imágenes
-        if (req.files && req.files.images) {
-          product.images.forEach((image) => {
-            const imagePath = `./src/public/images/${image.file}`;
-            existsSync(imagePath) && unlinkSync(imagePath);
-          });
-        }
+    const product = await db.Product.findByPk(req.params.id,{
+      include: ['images']
+    })   
 
         // Actualizar el producto en la base de datos
-        return db.Product.update(
+        
+     db.Product.update(
           {
             name: name.trim(),
             description: description.trim(),
-            collectionId: collectionResult ? collectionResult.id : null,
-            categoryId: categoryid,
-            metalId: metalid,
-            stones,
-            type_stoneId: type_stone,
+            collectionId :collection,
+            categoryId: category,
+            designId : model,
+            metalId : metal,
+            brandId : brand,
+            countStones,
             size: size.trim(),
             measures_mm,
-            warranty: warranty === "true" ? 1 : 0,
-            jewel_keeper: jewel_keeper === "true" ? 1 : 0,
+            warranty,
+            jewel_keeper,
             price,
             discount: discount || 0,
             stock,
-            image1:
-              req.files && req.files.image1 && req.files.image1.length > 0
-                ? req.files.image1[0].filename
-                : null,
-            image2:
-              req.files && req.files.image2
-                ? req.files.image2.map((image) => image.filename).join(", ")
-                : null,
+            image1: req.files.image1 ? req.files.image1[0].filename: product.image1,
+
           },
           {
             where: {
               id,
             },
           }
-        );
-      })
-      .then(() => {
-        // Eliminar imágenes existentes de la base de datos
-        if (req.files && req.files.images) {
-          return db.Image.destroy({
-            where: {
-              productId: id,
-            },
-          });
+        ).then(() => {
+
+
+
+          if (req.files.image1) {
+
+            const imagePath = `./public/images/${product.image1}`;
+            existsSync(imagePath) && unlinkSync(imagePath);
+
         }
-      })
-      .then(() => {
-        // Crear nuevas imágenes en la base de datos
-        if (req.files && req.files.images) {
-          const images = req.files.images.map((file) => {
+
+        if (req.files.image2) {
+          product.images.forEach((image) => {
+            const imagePath = `./public/images/${image.file}`;
+            existsSync(imagePath) && unlinkSync(imagePath);
+          });
+          const images = req.files.image2.map((file) => {
             return {
               file: file.filename,
-              main: false,
-              productId: id,
+              productId: req.params.id,
             };
           });
 
-          return db.Image.bulkCreate(images, {
+          db.Image.bulkCreate(images, {
             validate: true,
           });
+          return res.redirect('/admin')
+        }else {
+          return res.redirect('/admin')
+
         }
-      })
-      .then(() => {
-        // Redirigir después de un exitoso proceso
-        return res.redirect("/admin");
-      })
+
+        })
+  
       .catch((error) => console.log(error));
   } else {
     // Manejar el caso en que hay errores en la validación
-    const product = db.Product.findByPk(req.params.id, {
-      include: ["brand", "design", "collection"],
-    });
     const metals = db.Metal.findAll({
       order: ["name"],
     });
-
-    // Ejecutar ambas promesas en paralelo
-    Promise.all([product, metals])
-      .then(([product, metals]) => {
-        const brandName = product.brand ? product.brand.name : null;
-        const designName = product.design ? product.design.name : null;
-        const collectionName = product.collection ? product.collection.name : null;
-
-        res.render("productEdit", {
-          product,
-          metals,
-          brandName,
-          designName,
-          collectionName,
-          errors: errors.mapped(),
-          old: req.body,
-        });
-      })
-      .catch((error) => console.log(error));
+    const brands = db.Brand.findAll({
+      order : ["name"]
+    });
+    const categories = db.Category.findAll({
+      order : ["name"]
+    });
+    const collections = db.Collection.findAll({
+      order : ["name"]
+    });
+    const designs = db.Design.findAll({
+      order : ["name"]
+    });
+  
+    const types = db.Type_stone.findAll({
+      order : ["name"]
+    })
+  
+    const product = db.Product.findByPk(req.params.id,{
+      include : ['stones','images']
+    })
+      
+    Promise.all([metals, brands, categories, collections, designs, types, product])
+    .then(([metals, brands, categories, collections, designs, types, product]) => {
+      const stonesArray = product.stones.map(stone => stone.id)
+      return res.render("productEdit", {
+        metals,
+        brands,
+        categories,
+        collections,
+        designs,
+        types,
+        stonesArray,
+        ...product.dataValues,
+        errrors : errors.mapped()
+      });
+    })
   }
 };

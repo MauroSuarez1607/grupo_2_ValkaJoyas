@@ -177,7 +177,8 @@
                                             <div class="col-12 col-md-6">
                                                 <label for="metal"><strong>Metal:</strong></label>
                                                 <select id="metal" name="metal" class="form-control">
-                                                    <option selected hidden value="">Seleccione una opción...</option>                                                    <% metals.forEach(metal=> { %>
+                                                    <option selected hidden value="">Seleccione una opción...</option>                                                    
+                                                    <% metals.forEach(metal=> { %>
                                                         <option value="<%= metal.id %>" <%=locals.old &&
                                                             (old.metal == metal.id && 'selected' )%> >
                                                             <%= metal.name %>
