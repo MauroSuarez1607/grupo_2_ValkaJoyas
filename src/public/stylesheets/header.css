@@ -265,6 +265,7 @@ justify-content: space-around;
 
     header div.barra-menu div.iconos-top {
         padding: 0px;
+        display: flex;
     }
 
 

@@ -13,6 +13,10 @@ a {
     color: var(--colorNegro);
 }
 
+button i.fa-shopping-cart {
+    color: var(--colorNegro);
+}
+
 a:hover{
     text-decoration: none;
     color: var(--colorNegro);
