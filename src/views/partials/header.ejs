@@ -25,7 +25,7 @@
         <div class="contenedor-input">
           <input type="text" id="keywords" name="keywords" placeholder="Buscar" />
           <small id="msgErr-keywords" class="ms-2 text-danger"></small>
-          <button type="submit" class="buscar">
+          <button type="submit" class="buscar" onclick="event.preventDefault(); document.getElementById('keywords').value && submit()">
             <i class="fas fa-search"></i>
           </button>
         </div>
