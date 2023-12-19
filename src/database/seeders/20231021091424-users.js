@@ -33,7 +33,22 @@ const userEric = {
     updatedAt : new Date
 }
 
+const regularUser = {
+  id : 6,
+  name : "Usuario",
+    surname: "Regular",
+    email: "user@gmail.com",
+    password : hashSync("123123",10),
+    image : "user_image_default.png",
+    birthday : null,
+    genderId : null,
+    roleId: 2,
+    createdAt : new Date,
+    updatedAt : new Date
+}
+
 users.push(userEric)
+users.push(regularUser)
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {

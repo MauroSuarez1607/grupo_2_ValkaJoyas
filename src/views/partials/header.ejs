@@ -37,10 +37,10 @@
         <a href=""><i class="far fa-heart"></i></a>
       <% }else { %>
         <% if (userLogin.rol === 1) { %>
-          <a href="/admin"><strong>ADMIN</strong></a>  
+        
           <br>
           <a href="/users/profile">Bienvenid@<%= userLogin.name %>!</a>
-          <a href=""><i class="far fa-heart"></i></a>
+          <a href="/admin"><i class="fas fa-cogs"></i></a>  
           <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
                
         <% }else { %>
@@ -55,18 +55,63 @@
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
             <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Mi carrito</h1>
+              <div class="modal-content bg-transparent border-0">
+                <div class="">
+                  <section class="carrito_resumen">
+                    <h1>Mi Compra</h1>
+                    <button class="bg-transparent border-0 text-white"  data-bs-dismiss="modal">Seguir comprando</button>
+                </section>
                 </div>
-                <div class="modal-body" id="cart-body">
+                <div class="">
+                  <section>
+                   
+                    <article class="carrito_producto"  id="cart-body">
+                      <div class="d-flex flex-column align-items-center">
+                        <figure style="width: 100px;">
+                          <img src="/images/prod1.jpg" class="img-fluid">
+                        </figure>
+                        <figcaption>
+                          Pendiente de Diamantes
+                        </figcaption>
+                      </div>
+                      
+                        <div>
+                          <small>precio:</small>
+                          <p> $6.000,00</p>
+                        </div>
+
+                          <div class="carrito_producto_cantidad">
+
+                            <button><i class="fas fa-minus"></i></button>
+                            <h5>10</h5>
+                            <button><i class="fas fa-plus"></i></button>
+
+                        </div>
+                       
+                        <div class="carrito_producto_subtotal">
+                          <small>subtotal</small>
+                          <p>
+                            $6.000,00
+                          </p>
+                          </div>
+                       
+                    </article>
+                </section>
+                <section class="">
+                  <div class="carrito_compra_cuadro">
+                      <div class="carrito_compra_total">
+                          <p>TOTAL A PAGAR</p>
+                          <b>$6.000,00</b>
+                      </div>
+                  </div>
+                  <div class="d-flex justify-content-between mt-3">
+                    <button class="carrito_compra_pagar">Vaciar carrito</button>
+                    <button class="carrito_compra_pagar">Proceder al Pago</button>
+                  </div>
                   
+              </section>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger disabled" onclick="emptyCart()" id="btn-empty-cart">Vaciar carrito</button>
-                  <button type="button" class="btn btn-success" data-bs-dismiss="modal">Seguir comprando</button>
-                  <button type="button" class="btn btn-primary">Finalizar compra</button>
-                </div>
+            
               </div>
             </div>
           </div>

@@ -39,36 +39,50 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     gap: 10px;
-    border-radius: 10%;
-    margin: 10px;
+    margin: 10px 0;
     background-color: var(--colorArena);
     padding: 10px;
 }
   
 .carrito_producto_imagen img {
-    width: 80%;
-    left: 30px;
-    position: relative;
+    width: 100%;
+   
+   
     border: solid 1px var(--colorNegro);
+}
+
+.carrito_producto_cantidad {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-around;
+    width: 80px;
 }
 
 .carrito_producto_cantidad button {
-    width: 35px;
-    border-radius: 67%;
-    height: 35px;
+   border: none;
+   background-color: transparent;
     font-size: 20px;
-    border: solid 1px var(--colorNegro);
-    background-color: var(--colorCeleste);
+    font-weight: 900;
+   width: 20px;
+    cursor: pointer;
 }
 
-.carrito_producto_cantidad span {
-    font-size: 30px;
+.carrito_producto_cantidad button:hover {
+    transform: scale(1.1);
+    
+ }
+
+.carrito_producto_cantidad h5 {
+    font-size: 16px;
+    text-align: end;
+    width: 50px;
 }
 
-.carrito_producto_borrar input {
+.carrito_producto_borrar {
     border: solid 1px;
     background-color: var(--colorArena);
     font-size: 20px;
@@ -87,7 +101,6 @@
 .carrito_compra_cuadro {
     display: flex;
     flex-direction: column;
-    margin: 10px;
     padding: 10px 0;
     gap: 8px;
     text-align: center;
@@ -146,16 +159,16 @@
 
     .carrito_resumen a {
         border: none;
-        transition: all 0.5s;
     }
 
     .carrito_contenido_div-h2 {
         display: flex;
         width: 100%;
         gap: 30px;
-        margin-right: 70px;
         flex-direction: row;
         justify-content: flex-end;
+        padding: 0px 10px;
+
     }
 
     .carrito_contenido h2 {
@@ -164,13 +177,12 @@
   
     .carrito_producto {
         flex-direction: row;
-        gap: 30px;
-        flex: 1;
+        gap: 10px;
         border-radius: 0%;
     }
 
     .carrito_producto_imagen img {
-        width: 60%;
+        width: 100%;
     }
 
     .carrito_producto_cantidad {
@@ -189,10 +201,6 @@
   
 @media (min-width: 1024px) {
 
-    .carrito_resumen a:hover {
-        border: solid 5px var(--colorBlanco);
-    }
-
     .carrito_contenido {
       margin-top: 10px;
     }
@@ -202,9 +210,7 @@
     }
 
   
-    .carrito_producto {
-      flex: 1;
-    }
+
   
     .carrito_compra {
       flex: 1;
