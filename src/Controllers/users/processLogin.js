@@ -49,7 +49,7 @@ module.exports = (req, res) => {
                   return {
                     id,
                     name,
-                    image1,
+                    image: image1,
                     price,
                     discount,
                     stock,

@@ -1,12 +1,13 @@
-const express = require('express')
-const { showAll, addItem, removeItem, emptyCart } = require('../Controllers/apiCartController')
-const router = express.Router()
+const express = require('express');
+const { showAll, addItem, removeItem, emptyCart, removeAllItem } = require('../Controllers/apiCartController')
+const router = express.Router();
 
 /* /cart */
 router
-    .get('/',showAll)
+    .get('/', showAll)
     .post('/', addItem)
-    .delete('/:id',removeItem)
+    .delete('/', removeItem)
+    .delete('/item-all',removeAllItem)
     .delete('/all',emptyCart)
 
-module.exports = router
+module.exports = router;

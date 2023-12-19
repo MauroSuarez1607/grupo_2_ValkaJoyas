@@ -43,15 +43,21 @@
     width: 100%;
     gap: 10px;
     margin: 10px 0;
-    background-color: var(--colorArena);
+    background-color: var(--colorBlanco);
     padding: 10px;
+    border-bottom: 1px solid var(--colorArena);
+}
+
+.carrito_producto_nombre {
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
   
 .carrito_producto_imagen img {
     width: 100%;
    
-   
-    border: solid 1px var(--colorNegro);
+    box-shadow: 2px 2px 5px 2px gray;
 }
 
 .carrito_producto_cantidad {
@@ -83,11 +89,10 @@
 }
 
 .carrito_producto_borrar {
-    border: solid 1px;
-    background-color: var(--colorArena);
     font-size: 20px;
-    height: 23px;
-    width: 20px;
+    position: absolute;
+    top:10px;
+    right: 10px;
 }
   
 .carrito_compra {
@@ -139,8 +144,8 @@
 }
   
 .carrito_compra_pagar {
-    background-color: var(--colorNegro);
-    color: var(--colorBlanco);
+    background-color: var(--coloCeleste);
+    color: var(--colorNegro);
     padding: 20px 10px;
     border:0;
     width: 10.375rem;
@@ -177,6 +182,7 @@
   
     .carrito_producto {
         flex-direction: row;
+        justify-content: space-between;
         gap: 10px;
         border-radius: 0%;
     }
