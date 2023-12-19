@@ -22,7 +22,7 @@
                     <h5>$ <%= product.price %></h5>
                     <p><%= product.description %></p>
                 </div>
-                <button class="botonPrimario"><i class="fas fa-shopping-cart"></i>AÑADIR AL CARRITO</button>
+                <button class="botonPrimario"  onclick="addItemToCart(1,'<%=product.id%>')"><i class="fas fa-shopping-cart"></i>AÑADIR AL CARRITO</button>
                 <div class="info-extra">
                     <div class="info-extra-item">
                         <i class="fas fa-exchange-alt"></i><p> 30 días para cambios y devoluciones</p>
