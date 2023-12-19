@@ -124,12 +124,11 @@
                                                     </small>
                                                     <div class="col-12">
                                                         <input type="file" accept="image/*" id="image1" name="image1"
-                                                            hidden class="form-control">
+                                                            hidden class="form-control" onchange="showPrevImage(event)">
                                                        
                                                     </div>
                                                 </div>
-                                                <div class="col-12 m-2 border border-1 w-100" style="height: 200px;">
-
+                                                <div class="col-12 m-2 border border-1 w-100" style="height: 320px;"  id="box-image1">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-6">
@@ -138,11 +137,11 @@
                                                         class="btn btn-primary">Secundarias:</label>
                                                     <div class="col-md-4">
                                                         <input hidden class="form-control" type="file" id="image2"
-                                                            name="image2" accept="image/*" multiple>
+                                                            name="image2" accept="image/*" multiple onchange="showPrevImages(event)">
                                                     </div>
                                                 </div>
-                                                <div class="col-12 m-2  border border-1 w-100" style="height: 200px;">
-
+                                                <div class="col-12 m-2 d-flex flex-wrap border border-1 w-100" style="height: 320px;" id="box-image2">
+                                                    
                                                 </div>
                                             </div>
 
@@ -376,6 +375,31 @@
                 </div>
             </main>
             <script src="/javascripts/productAddValidation.js"></script>
+            <script>
+                const showPrevImage = ({target}) => {
+                    let urlImage1 = URL.createObjectURL(target.files[0]);
+                    const image = document.createElement('img');
+                    image.setAttribute('src',urlImage1);
+                        image.setAttribute('style',"height:100%;object-fit: cover;");
+                        document.getElementById('box-image1').appendChild(image);
+
+                }
+                const showPrevImages = ({target}) => {
+                    for (let i = 0; i < target.files.length; i++) {
+                        let urlImage = URL.createObjectURL(target.files[i]);
+                        const image = document.createElement('img');
+                        image.setAttribute('src',urlImage);
+                        image.setAttribute('style',"width:150px; height:150px;object-fit: cover;");
+                        
+                        document.getElementById('box-image2').appendChild(image);
+                        
+                    }
+                  
+                        
+                   
+                 
+                }
+            </script>
     </body>
 
 </html>
