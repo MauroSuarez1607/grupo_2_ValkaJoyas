@@ -33,23 +33,47 @@
     </div>
     <div class="iconos-top">
       <% if (!locals.userLogin) { %>
-      <a href="/users/login"><i class="far fa-user"></i></a>
-      <a href=""><i class="far fa-heart"></i></a>
-      <a href=""><i class="fas fa-shopping-cart"></i></a>
-      <% }else { %> <% if (userLogin.rol === 1) { %>
-      <a href="/admin"><strong>ADMIN</strong></a>
-      <br />
-      <a href="/users/profile">Bienvenid@<%= userLogin.name %>!</a>
-      <a href=""><i class="far fa-heart"></i></a>
-      <a href=""><i class="fas fa-shopping-cart"></i></a>
-      <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
-
+        <a href="/users/login"><i class="far fa-user"></i></a>
+        <a href=""><i class="far fa-heart"></i></a>
       <% }else { %>
-      <a href="/users/profile">Bienvenid@ <%= userLogin.name %>! </a>
-      <a href=""><i class="far fa-heart"></i></a>
-      <a href=""><i class="fas fa-shopping-cart"></i></a>
-      <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
-      <% }%> <% }%>
+        <% if (userLogin.rol === 1) { %>
+          <a href="/admin"><strong>ADMIN</strong></a>  
+          <br>
+          <a href="/users/profile">Bienvenid@<%= userLogin.name %>!</a>
+          <a href=""><i class="far fa-heart"></i></a>
+          <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
+               
+        <% }else { %>
+          <a href="/users/profile">Bienvenid@ <%= userLogin.name %>!  </a>
+          <a href=""><i class="far fa-heart"></i></a>
+          <button id="btn-cart" type="button" class="btn btn-transparent text-white position-relative me-3" style="padding: 0%;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark" id="show-count-cart" hidden>
+            </span>
+          </button>
+          <!-- CARRITO -->
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Mi carrito</h1>
+                </div>
+                <div class="modal-body" id="cart-body">
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger disabled" onclick="emptyCart()" id="btn-empty-cart">Vaciar carrito</button>
+                  <button type="button" class="btn btn-success" data-bs-dismiss="modal">Seguir comprando</button>
+                  <button type="button" class="btn btn-primary">Finalizar compra</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
+        <% }%>
+      <% }%>
+        
     </div>
   </div>
   
