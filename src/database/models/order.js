@@ -16,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey : 'userId'
       })
 
+      Order.belongsTo(models.Status,{
+        as : 'status',
+        foreignKey : 'statusId'
+      })
+
       Order.hasMany(models.Item,{
         as : 'items',
         foreignKey : 'orderId', // donde estoy parado
@@ -25,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
   Order.init({
     total: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
-    statusId: DataTypes.INTEGER
+    statusId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Order',
