@@ -2,6 +2,7 @@ const $ = (id) => document.getElementById(id);
 const textarea = document.querySelector('textarea');
 
 window.onload = function () {
+  
   textarea.addEventListener("focus", function (e) {
     window.addEventListener("keyup", function (e) {
       let liveKey = textarea.value.length;
@@ -9,6 +10,7 @@ window.onload = function () {
       console.log(e.key);
 
     //   ver la livekey
+    
       if (liveKey < 351) {
         $("numTotal").innerText = liveKey;
       } else {
@@ -214,6 +216,25 @@ $("countStones").addEventListener("blur", function (e) {
       break;
   }
 });
+//----------------------------------piedras (tipos checkbox)
+function validarPiedras() {
+  const checkboxes = document.getElementsByName('stones');
+  const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+  if (!isChecked) {
+      $("msg-stones").innerHTML = 'Debes marcar al menos una opción de piedra.';
+  } else {
+      $("msg-stones").innerHTML = ''; 
+  }
+}
+
+// función de validación y evento blur (checkboxes)
+const piedrasCheckboxes = document.getElementsByName('stones');
+piedrasCheckboxes.forEach(checkbox => {
+  checkbox.addEventListener('blur', validarPiedras);
+});
+
+
 // ----------------tamaño
 $("size").addEventListener("focus", function (e) {
   $("msg-size").innerHTML = null;

@@ -25,7 +25,7 @@ module.exports = [
         .notEmpty().withMessage('Elige alguna categoría'),
     check('metal')
         .notEmpty().withMessage('El tipo de metal es requerido'),
-        check('countStones')
+    check('countStones')
         .notEmpty().withMessage('La cantidad de piedras es requerida'),
     body('stones')
         .custom((value, {req}) => {
@@ -34,7 +34,7 @@ module.exports = [
                 return true
             }
             return false
-        }).withMessage('Debes indicar el número de piedras'),
+        }).withMessage('Debes indicar que tipo de piedra o si es ninguna'),
 
     check('size')
         .notEmpty().withMessage('Debes indicar el tamaño').bail()

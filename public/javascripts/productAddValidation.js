@@ -207,6 +207,26 @@ window.onload = function () {
         break;
     }
   });
+//----------------------------------piedras (tipos checkbox)
+function validarPiedras() {
+  const checkboxes = document.getElementsByName('stones');
+  const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+  if (!isChecked) {
+      $("msg-stones").innerHTML = 'Debes marcar al menos una opción de piedra.';
+  } else {
+      $("msg-stones").innerHTML = ''; 
+  }
+}
+
+// función de validación y evento blur (checkboxes)
+const piedrasCheckboxes = document.getElementsByName('stones');
+piedrasCheckboxes.forEach(checkbox => {
+  checkbox.addEventListener('blur', validarPiedras);
+});
+
+
+
 // ----------------tamaño
 $("size").addEventListener("focus", function (e) {
   $("msg-size").innerHTML = null;
@@ -355,24 +375,24 @@ $("stock").addEventListener("blur", function (e) {
 
 // ----------------------------------------FINAL-------------------------------------------
 
-  // $("productAdd").addEventListener("submit", function (event) {
-  //   event.preventDefault();
+  $("productAdd").addEventListener("submit", function (event) {
+    event.preventDefault();
 
-  //   const elementsFormProduct = this.elements;
-  //   let error = false;
+    const elementsFormProduct = this.elements;
+    let error = false;
 
-  //   for (let i = 0; i < elementsFormProduct.length - 1; i++) {
-  //       console.log(elementsFormProduct[i])
-  //     if (
-  //       elementsFormProduct[i].classList.contains("is-invalid")
-  //     ) {
-  //       error = true;
-  //       elementsFormProduct[i].classList.add("is-invalid");
-  //       $("msg-ErrorAllElemments").innerHTML = "Por favor verifique el formulario";
-  //     }
-  //   }
+    for (let i = 0; i < elementsFormProduct.length - 1; i++) {
+        console.log(elementsFormProduct[i])
+      if (
+        elementsFormProduct[i].classList.contains("is-invalid")
+      ) {
+        error = true;
+        elementsFormProduct[i].classList.add("is-invalid");
+        $("msg-ErrorAllElemments").innerHTML = "Por favor verifique el formulario";
+      }
+    }
 
-  //   !error && this.submit()
-  // });
+    !error && this.submit()
+  });
   
 };
