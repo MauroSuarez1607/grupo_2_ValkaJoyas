@@ -131,7 +131,9 @@ module.exports = async (req, res) => {
         types,
         stonesArray,
         ...product.dataValues,
-        errrors : errors.mapped()
+        errors : errors.mapped()
+      // tenia una r de mas
+      // falta el req.body
       });
     })
   }

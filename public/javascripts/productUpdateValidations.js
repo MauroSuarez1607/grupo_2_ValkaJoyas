@@ -186,35 +186,34 @@ window.onload = function () {
     }
   });
  
-  // ----------------numero de piedras
-  $("stones").addEventListener("focus", function (e) {
-    $("msg-stones").innerHTML = null;
-    this.classList.remove("is-invalid");
-  });
+ // ----------------numero de piedras
+ $("countStones").addEventListener("focus", function (e) {
+  $("msg-countStones").innerHTML = null;
+  this.classList.remove("is-invalid");
+});
 
+$("countStones").addEventListener("blur", function (e) {
+  switch (true) {
+    case !this.value:
+      $("msg-countStones").innerHTML = "Se debe poner el numero de piedras";
+      this.classList.add("is-invalid");
+      break;
+    case !/^[0-9]+$/.test(this.value.trim()):
+      $("msg-countStones").innerHTML = "Recuerda que debe ser un número entero no negativo";
+      this.classList.add("is-invalid");
+      break;
+    case this.value < 0:
+      $("msg-countStones").innerHTML = "El numero debe ser entero (0 o positivo)";
+      this.classList.add("is-invalid");
+      break;
 
-  $("stones").addEventListener("blur", function (e) {
-    switch (true) {
-      case !this.value:
-        $("msg-stones").innerHTML = "Se debe poner el numero de piedras";
-        this.classList.add("is-invalid");
-        break;
-      case !/^[0-9]+$/.test(this.value.trim()):
-        $("msg-stones").innerHTML = "Recuerda que debe ser un número";
-        this.classList.add("is-invalid");
-        break;
-      case this.value <= 0:
-        $("msg-stones").innerHTML = "El numero no puede ser negativo";
-        this.classList.add("is-invalid");
-        break;
-
-      default:
-        $("msg-stones").innerHTML = null;
-        this.classList.add("is-valid");
-        this.classList.remove("is-invalid");
-        break;
-    }
-  });
+    default:
+      $("msg-countStones").innerHTML = null;
+      this.classList.add("is-valid");
+      this.classList.remove("is-invalid");
+      break;
+  }
+});
 // ----------------tamaño
 $("size").addEventListener("focus", function (e) {
   $("msg-size").innerHTML = null;
@@ -347,7 +346,7 @@ $("stock").addEventListener("blur", function (e) {
       $("msg-stock").innerHTML = "Recuerda que debe ser un número (unidades)";
       this.classList.add("is-invalid");
       break;
-    case this.value <= 0:
+    case this.value < 0:
       $("msg-stock").innerHTML = "El numero no puede ser negativo";
       this.classList.add("is-invalid");
       break;
