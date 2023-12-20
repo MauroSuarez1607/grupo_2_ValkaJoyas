@@ -27,7 +27,7 @@
                                                 </strong></label>
                                             <br>
                                             <div class="d-flex justify-content-center">
-                                                <span class="bg-warning" style="font-size: 1.5em;">ID nuevo</span>
+                                                <span class="bg-warning" style="font-size: 1.5em;"><%= id %></span>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-9">
@@ -303,7 +303,7 @@
                                                         
                                                     </div>
                                                 </div>
-                                            </div>
+                                            
                                      
                                       <div class="container">
 
@@ -348,34 +348,34 @@
                                 <div class="d-flex justify-content-end mt-4">
                                     <button type="submit" class="btn btn-dark">Guardar cambios</button>
                                 </div>
-                                    
+                            </div>
 
-                                </form>
+                        </form>
 
                                 <style>
-                                    .checkbox-cell {
+                                    .form-check-input {
                                         cursor: pointer;
                                         transition: background-color 0.3s ease-in-out;
                                     }
-
-                                    .checkbox-cell:hover {
+    
+                                    .form-check-input:hover {
                                         background-color: gold;
                                     }
-
-                                    .small-input {
-                                        width: 70px;
-                                        justify-content: center;
-                                        text-align: center;
-                                        align-items: center;
-                                        margin-left: 20px
+    
+                                    .form-check-input:checked + .form-check-label {
+                                        background-color: gold;
                                     }
-                                </style>
+    
+                                    .form-check-input:not(:checked):hover + .form-check-label {
+                                        background-color: lightblue;
+                                    }
+                                    </style>
                             </div>
                         </div>
                     </div>
                 </div>
             </main>
-            <script src="/javascripts/productAddValidation.js"></script>
+            <script src="/javascripts/productUpdateValidations"></script>
     </body>
 
 </html>

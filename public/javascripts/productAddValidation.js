@@ -22,7 +22,7 @@ window.onload = function () {
 
   textarea.addEventListener("blur", function (e) {
     switch (true) {
-      case !/^[a-zA-Z0-9\s]*$/.test(this.value.trim()):
+      case !/^[a-zA-Z0-9\sáéíóúñ]*$/.test(this.value.trim()):
         $("msg-description").innerHTML = "Solo se permiten letras y números";
         this.classList.add("is-invalid");
         break;
@@ -30,7 +30,7 @@ window.onload = function () {
         $("msg-description").innerHTML = "Debes ingresar una descripción del producto";
         this.classList.add("is-invalid");
         break;
-      case this.value.trim().length < 20:
+      case this.value.trim().length <= 20:
         $("msg-description").innerHTML = "Describa sobre el producto (mínimo 20 caracteres)";
         this.classList.add("is-invalid");
         break;
@@ -61,7 +61,7 @@ window.onload = function () {
         $("msg-name").innerHTML = "Debes ingresar como minimo 5 caracteres";
         this.classList.add("is-invalid");
         break;
-      case !/^[a-zA-Z0-9\s]*$/.test(this.value.trim()):
+      case !/^[a-zA-Z0-9\sáéíóúñ]*$/.test(this.value.trim()):
         $("msg-name").innerHTML = "Solo se permiten letras y números";
         this.classList.add("is-invalid");
         break;
@@ -90,7 +90,7 @@ window.onload = function () {
         $("msg-brand").innerHTML = "Unicamente hasta 25 caracteres";
         this.classList.add("is-invalid");
         break;
-      case !/^[a-zA-Z0-9\s]*$/.test(this.value.trim()):
+      case !/^[a-zA-Z0-9\sáéíóúñ]*$/.test(this.value.trim()):
         $("msg-brand").innerHTML = "Solo se permiten letras y números";
         this.classList.add("is-invalid");
         break;
@@ -118,7 +118,7 @@ window.onload = function () {
         $("msg-model").innerHTML = "Unicamente hasta 25 caracteres";
         this.classList.add("is-invalid");
         break;
-      case !/^[a-zA-Z0-9\s]*$/.test(this.value.trim()):
+      case !/^[a-zA-Z0-9\sáéíóúñ]*$/.test(this.value.trim()):
         $("msg-model").innerHTML = "Solo se permiten letras y números";
         this.classList.add("is-invalid");
         break;
@@ -146,7 +146,7 @@ window.onload = function () {
         $("msg-collection").innerHTML = "Unicamente hasta 25 caracteres";
         this.classList.add("is-invalid");
         break;
-      case !/^[a-zA-Z0-9\s]*$/.test(this.value.trim()):
+      case !/^[a-zA-Z0-9\sáéíóúñ]*$/.test(this.value.trim()):
         $("msg-collection").innerHTML = "Solo se permiten letras y números";
         this.classList.add("is-invalid");
         break;
@@ -355,7 +355,7 @@ $("stock").addEventListener("blur", function (e) {
 
 // ----------------------------------------FINAL-------------------------------------------
 
-/*   $("productAdd").addEventListener("submit", function (event) {
+  $("productAdd").addEventListener("submit", function (event) {
     event.preventDefault();
 
     const elementsFormProduct = this.elements;
@@ -373,7 +373,6 @@ $("stock").addEventListener("blur", function (e) {
     }
 
     !error && this.submit()
-  }); */
+  });
   
-
 };

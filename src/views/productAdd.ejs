@@ -301,7 +301,7 @@
                                                         
                                                     </div>
                                                 </div>
-                                            </div>
+                                            
                                      
                                       <div class="container">
 
@@ -347,27 +347,27 @@
                                 <div class="d-flex justify-content-end mt-4">
                                     <button type="submit" class="btn btn-dark">Añadir producto</button>
                                 </div>
-                                    
+                            </div>   
 
-                                </form>
+                        </form>
 
-                                <style>
-                                    .checkbox-cell {
-                                        cursor: pointer;
-                                        transition: background-color 0.3s ease-in-out;
-                                    }
+                            <style>
+                                .form-check-input {
+                                    cursor: pointer;
+                                    transition: background-color 0.3s ease-in-out;
+                                }
 
-                                    .checkbox-cell:hover {
-                                        background-color: gold;
-                                    }
+                                .form-check-input:hover {
+                                    background-color: gold;
+                                }
 
-                                    .small-input {
-                                        width: 70px;
-                                        justify-content: center;
-                                        text-align: center;
-                                        align-items: center;
-                                        margin-left: 20px
-                                    }
+                                .form-check-input:checked + .form-check-label {
+                                    background-color: gold;
+                                }
+
+                                .form-check-input:not(:checked):hover + .form-check-label {
+                                    background-color: lightblue;
+                                }
                                 </style>
                             </div>
                         </div>

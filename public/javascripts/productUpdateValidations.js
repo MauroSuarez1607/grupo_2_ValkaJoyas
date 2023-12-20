@@ -23,7 +23,7 @@ window.onload = function () {
 
   textarea.addEventListener("blur", function (e) {
     switch (true) {
-      case !/^[a-zA-Z0-9\s]*$/.test(this.value.trim()):
+      case !/^[a-zA-Z0-9\sáéíóúñ]*$/.test(this.value.trim()):
         $("msg-description").innerHTML = "Solo se permiten letras y números";
         this.classList.add("is-invalid");
         break;
@@ -31,7 +31,7 @@ window.onload = function () {
         $("msg-description").innerHTML = "Debes ingresar una descripción del producto";
         this.classList.add("is-invalid");
         break;
-      case this.value.trim().length < 20:
+      case this.value.trim().length <= 20:
         $("msg-description").innerHTML = "Describa sobre el producto (mínimo 20 caracteres)";
         this.classList.add("is-invalid");
         break;
@@ -62,7 +62,7 @@ window.onload = function () {
         $("msg-name").innerHTML = "Debes ingresar como minimo 5 caracteres";
         this.classList.add("is-invalid");
         break;
-      case !/^[a-zA-Z0-9\s]*$/.test(this.value.trim()):
+      case !/^[a-zA-Z0-9\sáéíóúñ]*$/.test(this.value.trim()):
         $("msg-name").innerHTML = "Solo se permiten letras y números";
         this.classList.add("is-invalid");
         break;
@@ -74,10 +74,63 @@ window.onload = function () {
     }
   });
 
-    // ----------------marca (NO HAY)
+    // ----------------marca (SI HAY)
+    $("brand").addEventListener("focus", function (e) {
+      $("msg-brand").innerHTML = null;
+      this.classList.remove("is-invalid");
+    });
+  
+    $("brand").addEventListener("blur", function (e) {
+      switch (true) {
+        case !this.value.trim():
+          $("msg-brand").innerHTML = "Debes ingresar una marca";
+          this.classList.add("is-invalid");
+          break;
+      
+        case this.value.trim().length > 25:
+          $("msg-brand").innerHTML = "Unicamente hasta 25 caracteres";
+          this.classList.add("is-invalid");
+          break;
+        case !/^[a-zA-Z0-9\sáéíóúñ]*$/.test(this.value.trim()):
+          $("msg-brand").innerHTML = "Solo se permiten letras y números";
+          this.classList.add("is-invalid");
+          break;
+        default:
+          $("msg-brand").innerHTML = null;
+          this.classList.add("is-valid");
+          this.classList.remove("is-invalid");
+          break;
+      }
+    });
   
 
-  // ----------------modelo (no HAY)
+  // ----------------modelo (SI HAY)
+  $("model").addEventListener("focus", function (e) {
+    $("msg-model").innerHTML = null;
+    this.classList.remove("is-invalid");
+  });
+
+  $("model").addEventListener("blur", function (e) {
+    switch (true) {
+      case !this.value.trim():
+        $("msg-model").innerHTML = "Debes ingresar un modelo";
+        this.classList.add("is-invalid");
+        break;
+      case this.value.trim().length > 25:
+        $("msg-model").innerHTML = "Unicamente hasta 25 caracteres";
+        this.classList.add("is-invalid");
+        break;
+      case !/^[a-zA-Z0-9\sáéíóúñ]*$/.test(this.value.trim()):
+        $("msg-model").innerHTML = "Solo se permiten letras y números";
+        this.classList.add("is-invalid");
+        break;
+      default:
+        $("msg-model").innerHTML = null;
+        this.classList.add("is-valid");
+        this.classList.remove("is-invalid");
+        break;
+    }
+  });
  
 
     // ----------------colección
@@ -100,7 +153,7 @@ window.onload = function () {
         $("msg-collection").innerHTML = "Unicamente hasta 25 caracteres";
         this.classList.add("is-invalid");
         break;
-      case !/^[a-zA-Z0-9\s]*$/.test(this.value.trim()):
+      case !/^[a-zA-Z0-9\sáéíóúñ]*$/.test(this.value.trim()):
         $("msg-collection").innerHTML = "Solo se permiten letras y números";
         this.classList.add("is-invalid");
         break;
@@ -113,7 +166,25 @@ window.onload = function () {
   });
 
   // ------------------------- CLASIFICACIÓN ---------------------------------------
-  // ----------------metal (NO HAY)
+  // ----------------metal (SI HAY)
+  $("metal").addEventListener("focus", function (e) {
+    $("msg-metal").innerHTML = null;
+    this.classList.remove("is-invalid");
+  });
+
+  $("metal").addEventListener("blur", function (e) {
+    switch (true) {
+      case !this.value:
+        $("msg-metal").innerHTML = "Debes seleccionar un tipo de metal";
+        this.classList.add("is-invalid");
+        break;
+      default:
+        $("msg-metal").innerHTML = null;
+        this.classList.add("is-valid");
+        this.classList.remove("is-invalid");
+        break;
+    }
+  });
  
   // ----------------numero de piedras
   $("stones").addEventListener("focus", function (e) {
