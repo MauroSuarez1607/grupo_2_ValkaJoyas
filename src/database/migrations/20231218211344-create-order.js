@@ -18,7 +18,10 @@ module.exports = {
           model : {
             tableName: 'Users'
           }
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        constraints: false, // Desactivar temporalmente la restricción
       },
       statusId: {
         type: Sequelize.INTEGER,
@@ -26,7 +29,10 @@ module.exports = {
           model : {
             tableName: 'Statuses'
           }
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        constraints: false, // Desactivar temporalmente la restricción
       },
       createdAt: {
         allowNull: false,

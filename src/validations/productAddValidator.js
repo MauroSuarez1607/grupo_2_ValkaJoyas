@@ -70,7 +70,7 @@ module.exports = [
 // problema, numeros con coma "," no valen si con "." 
     check('stock')
         .notEmpty().withMessage('Debes indicar la cantidad de stock').bail()
-        .isInt({ min: 0 }).withMessage('El stock debe ser un número entero positivo o 0'),
+        .isInt({ min: 1 }).withMessage('El stock debe ser un número entero positivo'),
 
     body('image1')
         .custom((value, {req}) => {

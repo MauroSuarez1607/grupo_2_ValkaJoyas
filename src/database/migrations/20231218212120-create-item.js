@@ -18,7 +18,10 @@ module.exports = {
           model : {
             tableName: 'Orders'
           }
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        constraints: false, // Desactivar temporalmente la restricción
       },
       productId: {
         type: Sequelize.INTEGER,
@@ -26,7 +29,10 @@ module.exports = {
           model : {
             tableName: 'Products'
           }
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        constraints: false, // Desactivar temporalmente la restricción
       },
       createdAt: {
         allowNull: false,

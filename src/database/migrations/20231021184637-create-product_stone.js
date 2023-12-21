@@ -15,7 +15,10 @@ module.exports = {
           model : {
             tableName : 'Products'
           }
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        constraints: false, // Desactivar temporalmente la restricción
       },
       type_stoneId: {
         type: Sequelize.INTEGER,
@@ -23,7 +26,10 @@ module.exports = {
           model : {
             tableName : 'Type_stones'
           }
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        constraints: false, // Desactivar temporalmente la restricción
       },
       createdAt: {
         allowNull: false,

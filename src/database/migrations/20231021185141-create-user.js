@@ -39,7 +39,10 @@ module.exports = {
           model : {
             tableName : 'Genders'
           }
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        constraints: false, // Desactivar temporalmente la restricción
       },
       roleId: {
         type: Sequelize.INTEGER,
@@ -47,7 +50,10 @@ module.exports = {
           model : {
             tableName : 'Roles'
           }
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        constraints: false, // Desactivar temporalmente la restricción
       },
       createdAt: {
         allowNull: false,

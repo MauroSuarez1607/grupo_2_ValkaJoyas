@@ -22,9 +22,9 @@ window.onload = function () {
 
   textarea.addEventListener("blur", function (e) {
     switch (true) {
-      case !/^[a-zA-Z0-9\sáéíóúñ]*$/.test(this.value.trim()):
-        $("msg-description").innerHTML = "Solo se permiten letras y números";
-        this.classList.add("is-invalid");
+      case !/^[a-zA-Z0-9\sáéíóúüñÁÉÍÓÚÜÑ]*$/.test(this.value.trim()):
+      $("msg-description").innerHTML = "Solo se permiten letras, números y letras con acentos";
+      this.classList.add("is-invalid");
         break;
       case !this.value:
         $("msg-description").innerHTML = "Debes ingresar una descripción del producto";
@@ -359,8 +359,8 @@ $("stock").addEventListener("blur", function (e) {
       $("msg-stock").innerHTML = "Recuerda que debe ser un número (unidades)";
       this.classList.add("is-invalid");
       break;
-    case this.value < 0:
-      $("msg-stock").innerHTML = "El numero no puede ser negativo";
+    case this.value < 1:
+      $("msg-stock").innerHTML = "El numero no puede ser negativo o 0 (cero) ";
       this.classList.add("is-invalid");
       break;
 

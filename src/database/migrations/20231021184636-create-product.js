@@ -56,7 +56,10 @@ module.exports = {
           model : {
             tableName : 'Brands'
           }
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        constraints: false, // Desactivar temporalmente la restricción
       },
       designId: {
         type: Sequelize.INTEGER,
@@ -64,7 +67,10 @@ module.exports = {
           model : {
             tableName : 'Designs'
           }
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        constraints: false, // Desactivar temporalmente la restricción
       },
       collectionId: {
         type: Sequelize.INTEGER,
@@ -72,7 +78,10 @@ module.exports = {
           model : {
             tableName : 'Collections'
           }
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        constraints: false, // Desactivar temporalmente la restricción
       },
       metalId: {
         type: Sequelize.INTEGER,
@@ -80,7 +89,10 @@ module.exports = {
           model : {
             tableName : 'Metals'
           }
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        constraints: false, // Desactivar temporalmente la restricción
       },
       categoryId: {
         type: Sequelize.INTEGER,
@@ -88,7 +100,10 @@ module.exports = {
           model : {
             tableName : 'Categories'
           }
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        constraints: false, // Desactivar temporalmente la restricción
       },
       createdAt: {
         allowNull: false,
